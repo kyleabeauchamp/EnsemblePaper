@@ -1,0 +1,189 @@
+\documentclass[journal=jacsat,manuscript=article]{achemso}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{url}
+
+
+\author{Kyle A. Beauchamp}
+\affiliation[Biophysics Program]{Biophysics Program}
+
+\author{Rhiju Das$^\dagger$}
+\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
+
+\author{Vijay S. Pande$^\dagger$}
+\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
+
+\email{rhiju@stanford.edu, pande@stanford.edu}
+
+\title{Inferring Structural Ensembles from Noisy Experiments}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Inferring conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modelling and experiment.  Current algorithms for structure determination, however, are limited to modelling a single conformation and provide only limited uncertainty information.  Here we describe linear virtual biasing potential (LVBP), a method that combines simulation and experiment to infer solution ensembles.  By using the machinery of Bayesian statistics, LVBP  gives rigorous uncertainty estimates for structural features and equilibrium properties.  We show that LVBP corrects significant forcefield bias in trialanine.  
+
+\end{abstract}
+
+\section{Introduction}
+
+Over the past forty years, structural biologists have solved ``ground-state'' structures of countless biological macromolecules\cite{Berman2000}. Modern biology, however, presents many systems that do not fit the single-structure paradigm--excited states of nucleic acids\cite{dethoff2012}, natively disordered proteins\cite{fink2005}, and protein folding intermediates\cite{korzhnev2004} alike are poorly described by single conformation models.  For such systems, conformational ensembles provide a rigorous framework for understanding structural and equilibrium properties.  
+
+Here we introduce a statistical approach to modelling solution ensembles of biological macromolecules.  The algorithm, Linear Virtual Biasing Potential (LVBP), uses solution experiments to reweight a collection of atomistic models.  In LVBP, Bayesian inference transforms experimental ambiguity into error bars on arbitrary structural features.  
+
+To validate LVBP, we investigate two model systems.  We first use NMR data to infer conformational ensembles of trialanine \cite{Graf2007}.  We construct ensembles using five molecular dynamics forcefields with differing conformational propensities.  LVBP corrects forcefield errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  
+
+\section{Theory: Linear Virtual Biasing Potential}
+
+\subsection{Model Inputs}
+
+To model an ensemble using LVBP requires three components (Fig. \ref{figure:LVBP}).  First, we need a set of conformations ($x_j$) sampled from the approximate equilibrium distribution of our system.  In the present work, such conformations will be generated from molecular dynamics (MD) simulations.  Second, we require a set of equilibrium experimental measurements ($F_i$) and their associated uncertainties ($\sigma_i$).  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
+
+\begin{figure}
+
+\includegraphics[width=18.0cm]{figures/info_graphic/info_graphic.pdf}
+
+\caption{
+General scheme for LVBP modelling.
+}
+\label{figure:LVBP}
+\end{figure}
+
+\subsection{Reweighting}
+
+The next step in constructing an ensemble is to calculate the population of each conformation.  For convenience, we work with the $\log$ populations (i.e. free energies). Inspired by a previous method for restraining simulations \cite{chodera2012}, we reweight individual conformations by a biasing potential that is a linear combination of the predicted observables:
+
+$$\Delta U(x;\alpha) = \sum_i^n \alpha_i f_i(x)$$
+
+In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  Given the biasing potential, the populations of each conformation can be calculated using exponential averaging (see Appx. S1):
+
+$$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
+
+It is informative to consider the case of a single observable $f(x)$.  Suppose the molecule of interest shows a normally distributed observable.  If we let $\alpha$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  However, if we let $\alpha = -2$, conformations with large values of $f(x)$ are upweighted, while conformations with lower values of $f(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha = +2$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
+
+\begin{figure}
+
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist-2.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist0.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist2.pdf}
+}
+\caption{
+Raw ($\alpha = 0$) and reweighted histograms of a one dimensional observable.
+}
+\label{figure:Hist}
+\end{figure}
+
+With the equilibrium populations, we can calculate the equilibrium expectations of an arbitrary observable $h(x)$:
+
+$$\langle h(x)\rangle _\alpha = \sum_j h(x_j) \pi_j(\alpha)$$
+
+In the above bracket notation, $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta U(x;\alpha)$.  At this point, the determination of $\alpha$ has not yet been discussed.  The key idea, however, is that the $\alpha$ reweighted ensemble $\langle \rangle _\alpha$ should recapitulate the experimental measurements:
+
+$$\langle f_i(x)\rangle _\alpha \approx F_i$$
+
+
+\subsection{A likelihood framework}
+
+We now derive a likelihood framework for determining the coefficients $\alpha$ used in the biasing potential.  Given adequate sampling and self-consistent experiments, there should exist some \emph{true} value of $\alpha$ whose ensemble matches the experimental data.  However, experimental uncertainty ($\sigma_i)$ prevents exact agreement between the measurements and the true ensemble.  For the models in the current work, we model $\sigma_i$ as the uncertainty associated with predicting chemical shifts and scalar couplings from structures; this dominant error is quantified by the RMS uncertainty estimated during the parameterization of chemical shift and scalar coupling models.  We use an independent normal approximation (see Appx. S2) to model the agreement between the $\alpha$ ensemble and the measurements:
+
+$$P(F_i | \alpha) \sim N(\langle f_i(x)\rangle _\alpha, \sigma_i^2)$$
+
+Using Bayes Theorem, we can calculate the likelihood of $\alpha$ given the measurements:
+
+$$P(\alpha | F_1, ..., F_n) \propto P(F_1, ..., F_n | \alpha) P(\alpha)$$
+
+Now we let $LL(\alpha)$ denote the log likelihood of $\alpha$ and simplify, dropping terms that are independent of $\alpha$:
+
+$$LL(\alpha) = \log[ P(\alpha|F_1, ..., F_n)] = -\sum_i \frac{1}{2\sigma_i^2}(\langle f_i\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
+
+Note the simple form of the log likelihood.  The first term measures the $\chi^2$ agreement between the reweighted ensemble and measurements.  The second term is the log of the prior distribution on $\alpha$.  Although other priors are possible (see Appxs. S3, S4), we recommend a maximum entropy prior, which penalizes ensembles as they deviate from the raw simulation results:
+
+$$\log P(\alpha) = \lambda \sum_j \pi_j(\alpha) \log \pi_j(\alpha)$$
+
+With large values of $\lambda$, the maximum entropy prior favors the raw simulation results (i.e. uniform conformational populations): $\pi_i \approx \frac{1}{n}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  
+
+\subsection{Bayesian Modeling of Structural Ensembles}
+
+Because ensemble inference often presents many plausible solutions \cite{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood) .  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC \cite{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features.  Similarly, examining the MCMC variances provides statistical uncertainties.  The shape of the posterior distribution indicates whether one or several models are consistent with the available data (Fig. S1).  A Bayesian bootstrapping procedure \cite{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
+
+\section{Results}
+
+\subsection{Conformational Propensities of Trialanine}
+
+Short peptides provide crucial tests for evaluating and optimizing molecular dynamics forcefields \cite{Graf2007,beauchamp2012protein, Nerenberg2011, Best2008, Grdadolnik2011}.  Such peptides offer a window into the intrinsic conformational propensities of amino acids, free from the secondary structure bias found in statistical surveys of protein structures \cite{Jha2005}.  Here, we use LVBP to infer the conformational populations of trialanine from chemical shift and scalar coupling measurements \cite{Graf2007}.  
+
+Trialanine was simulated (see Methods) in five different force fields; nine experimental measurements (six scalar couplings, three chemical shifts) probing the central ALA residue were used to construct an LVBP ensemble.  The five force fields show considerable variation in their agreement with experiment (Fig. \ref{figure:ALA3}a).  The amber96, amber99, charmm27, and oplsaa forcefields, for example, initially show significant deviation from the experimental measurements.  Upon reweighting, however, all five forcefields agree with experiment.  
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/ALA3_chi2.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/state_0_by_forcefield.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/state_1_by_forcefield.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/state_2_by_forcefield.pdf}
+}
+\caption{
+(a).  The reduced $\chi^2$ error for each raw and reweighted simulation.  The LVBP reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (b-d).  Raw and reweighted conformational propensities for each force field.  Note that amber99 shows larger uncertainties due to the extremely limited amount of $PP_{II}$ sampling in the amber99 forcefield.
+}
+\label{figure:ALA3}
+\end{figure}
+
+
+Previous experimental studies have shown that short alanine peptides prefer the polyproline type helix (PPII) in solution \cite{Grdadolnik2011, Graf2007, Avbelj2006}.  Most molecular dynamics forcefields, however, are known to underpopulate the PPII state \cite{Graf2007,beauchamp2012protein,Nerenberg2011, Best2008}.  Our trialanine simulations recapitulate this known deficiency (Fig. \ref{figure:ALA3} b-d; blue), with amber96 showing a strong $\beta$ bias and amber99 showing a strong $\alpha$ bias.  However, combining simulation and experiment leads to conformational ensembles that are robust to forcefield differences (Fig. \ref{figure:ALA3} b-d, green; Fig. S2).  Reweighting with limited experimental data is a powerful technique for correcting forcefield deficiencies.  
+
+
+\section{Discussion}
+
+\subsection{Structural (Ensemble?) Biology}
+
+Why model structural ensembles, rather than just structures?  At least three compelling reasons favor ensembles.  First, biological molecules are multi-state machines; they fold, unfold, bind ligands, aggregate, and change conformation.  Biology is controlled by the relative populations of these states.  Structural ensembles capture aspects of these phenomena by encoding equilibrium populations.  A second argument for ensemble modelling is fidelity to experiment.  Most solution experiments measure ensemble average equilibrium properties--chemical shifts, scalar couplings, NOEs, SAXS, and FRET are reasonably well-described as equilibrium properties.  A truly quantitative connection to these measurements requires modelling the equilibrium ensemble.  Finally, recent advances in atomistic simulation \cite{hess2008, pronk2013gromacs, eastman2012openmm, eastman2010openmm}, special-purpose hardware \cite{Shaw2008}, and distributed computing analysis \cite{emma, msmb2} have enabled atomistic simulations to reach the 
+millisecond 
+timescale \cite{voelz2010, bowman2011atomistic, Shaw2010, Shaw2011}; the computational cost of ensemble modeling is quickly becoming manageable.
+
+One might argue that structural ensembles are unnecessary because many proteins occupy a single state under physiological conditions.  For such proteins, it is probably safe to enforce single state behavior, as is done in current modelling approaches. However, we suggest that the number of states be \emph{inferred}--not \emph{assumed}.  
+
+\subsection{How Accurate is the BPTI Ensemble?}
+
+It is critical to evaluate the accuracy limits of the current LVBP ensemble.  Consider three different models for BPTI: the X-ray model, the raw MD simulation, and the LVBP ensemble.  For the 53 trypsin-binding loop chemical shifts, these three models give reduced $\chi^2$ values of 0.54, 1.6, and 0.67, respectively.  According to this metric, we \emph{reject} the raw simulation in favor of the other models.  Comparing the X-ray and LVBP models is more subtle.  According to the reduced $\chi^2$ values, the X-ray model provides slightly better agreement with the chemical shift data.  However, the difference (0.13) is small relative to the uncertainty in the reduced $\chi^2$ (0.19).  Regardless, both values lie below 1.0, suggesting that model comparison is limited by chemical shift prediction uncertainty.  We also evaluated the three models using ten $^3J(H^N H^\alpha)$ couplings \cite{balasubramanian1994comparison}; by this metric, the LVBP model performs best.  Overall, we 
+conclude that the LVBP ensemble provides a reasonable picture of BPTI in solution.  Future improvements in forcefield accuracy and chemical shift prediction may help refine the current ensemble.  
+
+
+\subsection{Implication for Trypsin Binding}
+
+The present LVBP ensemble suggests multiple conformational states in the trypsin binding loop of BPTI.  These conformational states involve coupled motions involving the C14-C38 $\chi_1$ torsions and the backbone torsions of K15, A16, and R17.  Notably, these residues are critical determinants of specificity in binding trypsin or chymotrypsin \cite{scheidig1997crystal}; peptide scission by trypsin occurs between residues K15 and A16 \cite{moh2008structural}.  Why is disorder present in the site of inhibitor specificity and peptide scission?
+
+\section{Conclusion}
+
+Bayesian inference of conformational ensembles allows the simultaneous characterization of structural and equilibrium properties.  Limited experimental data can be used to supplement equilibrium simulations, leading to predictions that are robust to forcefield error and consistent with available measurements.  Our equilibrium ensemble of BPTI suggests coupled motion in the trypsin specificity loop and the C14-C38 disulfide bridge.  Falsifying or refining the present model offers a key challenge for understanding the conformational fluctuations in BPTI.
+
+\section{Acknowledgements}
+
+We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Dan Herschlag for helpful discussions.  We thank DE Shaw research for providing the millisecond simulation of BPTI.  
+
+\section{Methods}
+
+\subsection{Methods: Trialanine}
+
+Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000}, amber99sbnmr-ildn\cite{li2010}, charmm27\cite{mackerell2004extending,bjelkmar2010implementation}, and oplsaa\cite{kaminski2001evaluation} force fields, as previously reported \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5 \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 5 ps.  Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\cite{han2011shiftx2}, SPARTA+ \cite{Shen2010}, and PPM\cite{li2012ppm}; uncertainties were estimated as the mean uncertainty reported by SPARTA+. J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \cite{Schmidt1999}, $^3J(H^N H^\alpha)$ \cite{vogeli2007limits}, $^2J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^\alpha C')$ \cite{Schmidt1999}, $^1J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^N C^\beta)$ \
+cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+
+
+\bibliography{maxent}
+
+
+\end{document}

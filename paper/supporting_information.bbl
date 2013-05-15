@@ -1,0 +1,89 @@
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{10}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[Rubin(1981)]{rubin1981}
+Rubin,~D. \emph{The annals of statistics} \textbf{1981}, \emph{9},
+  130--134\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Flyvbjerg and Petersen(1989)Flyvbjerg, and
+  Petersen]{flyvbjerg1989error}
+Flyvbjerg,~H.; Petersen,~H.~G. \emph{The Journal of Chemical Physics}
+  \textbf{1989}, \emph{91}, 461\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shirts and Chodera(2008)Shirts, and Chodera]{shirts2008}
+Shirts,~M.; Chodera,~J. \emph{J. Chem. Phys.} \textbf{2008}, \emph{129},
+  124105\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
+Pitera,~J.; Chodera,~J. \emph{Journal of Chemical Theory and Computation}
+  \textbf{2012}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
+Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{Journal of the American Chemical
+  Society} \textbf{2010}, \emph{132}, 14919\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
+  109--116\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Xue et~al.(2012)Xue, Ward, Yuwen, Podkorytov, and
+  Skrynnikov]{xue2012microsecond}
+Xue,~Y.; Ward,~J.~M.; Yuwen,~T.; Podkorytov,~I.~S.; Skrynnikov,~N.~R.
+  \emph{Journal of the American Chemical Society} \textbf{2012}, \emph{134},
+  2555--2562\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jha et~al.(2005)Jha, Colubri, Zaman, Koide, Sosnick, and
+  Freed]{Jha2005}
+Jha,~A.; Colubri,~A.; Zaman,~M.; Koide,~S.; Sosnick,~T.; Freed,~K.
+  \emph{Biochemistry} \textbf{2005}, \emph{44}, 9691--9702\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Parkin et~al.(1996)Parkin, Rupp, and Hope]{parkin1996structure}
+Parkin,~S.; Rupp,~B.; Hope,~H. \emph{Acta Crystallographica Section D:
+  Biological Crystallography} \textbf{1996}, \emph{52}, 18--29\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}
