@@ -26,4 +26,4 @@ test_chi = test_chi.mean()
 train_chi = train_chi.mean()
 print regularization_strength, train_chi.mean(), test_chi.mean()
 
-np.savetxt(out_dir+"/%s-reg-%d-score.%dfold.dat" % (prior, regularization_strength, ALA3.kfold), [train_chi, test_chi])
+np.savetxt(out_dir+"/%s-reg-%d-stride%d-score.dat" % (prior, regularization_strength, ALA3.cross_val_stride), [train_chi, test_chi])
