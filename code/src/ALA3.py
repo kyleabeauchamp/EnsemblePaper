@@ -2,7 +2,7 @@ model = "combined_shifts"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
 
-num_samples = 5000
+num_samples = 5000000
 thin = 100
 burn = 5000
 kfold = 2

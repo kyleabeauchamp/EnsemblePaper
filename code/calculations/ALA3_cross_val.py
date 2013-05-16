@@ -14,7 +14,7 @@ def run(ff, prior, regularization_strength):
     if prior == "maxent":
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)
     else:
-        precision = np.cov(predictions.value.T)
+        precision = np.cov(predictions.values.T)
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 
     bootstrap_index_list = np.array_split(np.arange(len(predictions)), ALA3.kfold)
