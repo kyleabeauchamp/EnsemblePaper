@@ -1,8 +1,4 @@
 #!/bin/bash
-
-#PBS -N bounce
-#PBS -e bounce.err
-#PBS -o bounce.out
 #PBS -l nodes=1:ppn=8
 #PBS -V
 
@@ -11,9 +7,5 @@ echo The working directory is `echo $PBS_O_WORKDIR`
 echo This job runs on the following nodes:
 echo `cat $PBS_NODEFILE`
 
-### end of information preamble
-
-cd $PBS_O_WORKDIR
-cd /home/kyleb/dat/ala_lvbp/
-cmd="python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/multi_cross_val.py $PBS_ARRAYID"
+cmd="python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/multi_cross_val.py ${PBS_ARRAYID}"
 $cmd >& /home/kyleb/log.$PBS_JOBID
