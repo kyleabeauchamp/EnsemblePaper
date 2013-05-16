@@ -1,10 +1,4 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=8
-#PBS -V
-
-echo `cat $PBS_NODEFILE`
-echo ${SGE_TASK_ID}
-echo Done echoing
 
 cmd="python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/multi_cross_val.py ${SGE_TASK_ID}"
-$cmd >& /home/kyleb/log.$SGE_TASK_ID
+$cmd >& /home/kyleb/cross_val-$SGE_JOB_ID-$SGE_TASK_ID.log
