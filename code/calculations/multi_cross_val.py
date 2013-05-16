@@ -5,6 +5,7 @@ import ALA3
 import numpy as np
 from fitensemble import lvbp
 import sys
+import ALA3_cross_val
 
 ff_list = ALA3.ff_list
 prior_list = ["maxent", "MVN"]
@@ -15,4 +16,4 @@ ID = int(sys.argv[1])
 for k, (ff, prior, regularization_strength) in enumerate(itertools.product(ff_list, prior_list, regularization_strength_list)):
     if k == ID:
         print(k, ff, prior, regularization_strength)
-        os.system("python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/ALA3_cross_val.py %s %s %d" % (ff, prior, regularization_strength))
+        ALA3_cross_val.run(ff, prior, regularization_strength)
