@@ -2,13 +2,13 @@ model = "combined_shifts"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
 
-num_samples = 25000
+num_samples = 5000
 thin = 100
 burn = 5000
 kfold = 2
 
 stride = 1
-cross_val_stride = 10
+cross_val_stride = 20
 
 regularization_strength_dict = {
 "amber96":5,

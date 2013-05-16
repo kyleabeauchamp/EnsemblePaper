@@ -1,3 +1,4 @@
+import os
 import itertools
 import experiment_loader
 import ALA3
@@ -14,3 +15,4 @@ ID = int(sys.argv[1])
 for k, (ff, prior, regularization_strength) in enumerate(itertools.product(ff_list, prior_list, regularization_strength_list)):
     if k == ID:
         print(k, ff, prior, regularization_strength)
+        os.system("python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/ALA3_cross_val.py %s %s %d" % (ff, prior, regularization_strength))
