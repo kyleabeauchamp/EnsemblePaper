@@ -2,10 +2,9 @@
 #PBS -l nodes=1:ppn=8
 #PBS -V
 
-echo The master node of this job is `hostname`
-echo The working directory is `echo $PBS_O_WORKDIR`
-echo This job runs on the following nodes:
 echo `cat $PBS_NODEFILE`
+echo ${SGE_TASK_ID}
+echo Done echoing
 
-cmd="python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/multi_cross_val.py ${PBS_ARRAYID}"
-$cmd >& /home/kyleb/log.$PBS_JOBID
+cmd="python /home/kyleb/src/kyleabeauchamp/EnsemblePaper/code/calculations/multi_cross_val.py ${SGE_TASK_ID}"
+$cmd >& /home/kyleb/log.$SGE_TASK_ID
