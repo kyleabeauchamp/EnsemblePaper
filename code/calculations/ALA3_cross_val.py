@@ -1,22 +1,29 @@
 import experiment_loader
 import ALA3
 import numpy as np
-from fit_ensemble import lvbp
+from fitensemble import lvbp
 import sys
 
 ff = sys.argv[1]
+prior = sys.argv[2]
 regularization_strength = float(sys.argv[3])
 
-directory = "/home/kyleb/dat/lvbp/%s/" % ff
-out_dir = directory + "/models-%s/" % ALA3.model
+directory = "%s/%s" % (ALA3.data_dir , ff)
+out_dir = directory + "/cross_val/"
 
-keys, measurements, predictions, uncertainties, phi, psi = experiment_loader.load(directory, stride=ALA3.stride)
+predictions, measurements, uncertainties, phi, psi = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
 
+if prior == "maxent":
+    model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)
+else:
+    precision = np.cov(predictions.value.T)
+    model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 
 bootstrap_index_list = np.array_split(np.arange(len(predictions)), ALA3.kfold)
-train_chi, test_chi = lvbp.cross_validated_mcmc(predictions, measurements, uncertainties, regularization_strength, bootstrap_index_list, ALA3.num_samples)
+train_chi, test_chi = lvbp.cross_validated_mcmc(predictions.values, measurements.values, uncertainties.values, model_factory, bootstrap_index_list, ALA3.num_samples)
 
 test_chi = test_chi.mean()
 train_chi = train_chi.mean()
+print regularization_strength, train_chi.mean(), test_chi.mean()
 
-np.savetxt(out_dir+"/reg-%d-stride-%d-cross_val_score.%dfold.dat" % (regularization_strength, ALA3.kfold), [train_chi,test_chi])
+np.savetxt(out_dir+"/%s-reg-%d-score.%dfold.dat" % (prior, regularization_strength, ALA3.kfold), [train_chi, test_chi])
