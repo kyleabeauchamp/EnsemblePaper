@@ -9,7 +9,7 @@ def run(ff, prior, regularization_strength):
     directory = "%s/%s" % (ALA3.data_dir , ff)
     out_dir = directory + "/cross_val/"
 
-    measurements, predictions, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
+    predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
 
     if prior == "maxent":
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)

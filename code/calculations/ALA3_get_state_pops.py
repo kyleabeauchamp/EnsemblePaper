@@ -6,7 +6,7 @@ from fitensemble import lvbp
 ff = "amber99"
 directory = ALA3.data_dir + "/%s/" % ff
 
-measurements, predictions, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory)
+predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory)
 
 model_directory = "%s/models-%s/" % (directory, ALA3.model)
 
