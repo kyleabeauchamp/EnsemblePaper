@@ -1,4 +1,5 @@
-model = "combined_shifts"
+#model = "combined_shifts"
+model = "maxent"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
 
@@ -12,7 +13,7 @@ cross_val_stride = 20
 
 regularization_strength_dict = {
 "amber96":5,
-"amber99":5,
+"amber99":1,
 "amber99sbnmr-ildn":7,
 "charmm27":6,
 "oplsaa":4

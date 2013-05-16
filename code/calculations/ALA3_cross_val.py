@@ -15,7 +15,7 @@ def run(ff, prior, regularization_strength):
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)
     else:
         precision = np.cov(predictions.values.T)
-        model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength, precision=precision)
+        model_factory = lambda predictions, measurements, uncertainties: lvbp.MVN_LVBP(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 
     bootstrap_index_list = np.array_split(np.arange(len(predictions)), ALA3.kfold)
     train_chi, test_chi = lvbp.cross_validated_mcmc(predictions.values, measurements.values, uncertainties.values, model_factory, bootstrap_index_list, ALA3.num_samples)

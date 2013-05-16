@@ -63,6 +63,9 @@ def load(directory, stride=1):
     measurements = pd.Series(experimental_data, index=keys)
     uncertainties = pd.Series(new_sigma_dict, index=keys)
     
-    return predictions, measurements, uncertainties, phi[::stride], psi[::stride]
+    ass_raw = schwalbe_couplings.assign(phi, psi)
+    state_ind = np.array([ass_raw==i for i in xrange(4)])
+    
+    return predictions, measurements, uncertainties, phi[::stride], psi[::stride], ass_raw[::stride], state_ind[::stride]
 
     #return keys,f_exp,f_sim[::stride].copy(),sigma_vector, phi[::stride],psi[::stride]
