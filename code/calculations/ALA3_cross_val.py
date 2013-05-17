@@ -23,8 +23,10 @@ def run(ff, prior, regularization_strength):
     test_chi = test_chi.mean()
     train_chi = train_chi.mean()
     print regularization_strength, train_chi.mean(), test_chi.mean()
-
-    np.savetxt(out_dir+"/%s-reg-%d-stride%d-score.dat" % (prior, regularization_strength, ALA3.cross_val_stride), [train_chi, test_chi])
+    F = open(ALA3.cross_val_filename, 'a')
+    F.write("%s %s %f %d %d"% (ff, prior, regularization_strength, ALA3.cross_val_stride, num_samples))
+    F.close()
+    #np.savetxt(out_dir+"/%s-reg-%d-stride%d-score.dat" % (prior, regularization_strength, ALA3.cross_val_stride), [train_chi, test_chi])
 
 if __name__ == "__main__":
     ff = sys.argv[1]
