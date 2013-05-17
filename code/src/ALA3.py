@@ -12,13 +12,25 @@ kfold = 2
 stride = 1
 cross_val_stride = 20
 
-regularization_strength_dict = {
+regularization_strength_dict = {"maxent":
+{
 "amber96":5,
 "amber99":1,
-"amber99sbnmr-ildn":7,
-"charmm27":6,
-"oplsaa":4
+"amber99sbnmr-ildn":1,
+"charmm27":1,
+"oplsaa":7
 }
+,
+"MVN":
+{
+"amber96":8,
+"amber99":1,
+"amber99sbnmr-ildn":2,
+"charmm27":1,
+"oplsaa":10
+}
+}
+
 
 data_dir = "/home/kyleb/dat/ala_lvbp/"
 outdir = "/home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/"
