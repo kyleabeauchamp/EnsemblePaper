@@ -9,7 +9,7 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
     out_dir = directory + "/models-%s/" % prior
     pymc_filename = out_dir + "/reg-%d-BB%d.h5" % (regularization_strength, bayesian_bootstrap_run)
 
-    predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
+    predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.stride)
 
     num_frames, num_measurements = predictions.shape
     bootstrap_index_list = np.array_split(np.arange(num_frames), ALA3.kfold)
