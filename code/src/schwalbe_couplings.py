@@ -15,6 +15,16 @@ Structure and dynamics of the homologous series of alanine peptides: a joint mol
 """
 import numpy as np
 
+def assign_grid(phi, psi, num_bins):
+    divisor = 360 / num_bins
+    x = (phi % 360.) / divisor
+    y = (psi % 360.) / divisor
+    x = x.astype('int')
+    y = y.astype('int')
+    ass = x + y * num_bins
+    ass = np.unique(ass, return_inverse=True)[1]
+    return x, y, ass
+
 def assign(phi,psi):
     """
     Notes:

@@ -4,6 +4,13 @@ model = "maxent"
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
 prior_list = ["maxent", "MVN"]
 
+train_keys = ['J3_HN_Cprime_2', 'CA_2', 'H_2', 'J2_N_CA_3', 'CB_2', 'J3_HN_CB_2']
+test_keys = ["J3_HN_HA_2" , "J3_HA_Cprime_2", "J1_N_CA_2"]
+all_keys = []
+all_keys.extend(train_keys)
+all_keys.extend(test_keys)
+
+bw_num_samples = 1000000
 num_samples = 5000000
 thin = 100
 burn = 5000
@@ -27,7 +34,7 @@ regularization_strength_dict = {"maxent":
 "amber99":1,
 "amber99sbnmr-ildn":2,
 "charmm27":1,
-"oplsaa":10
+"oplsaa":14
 }
 }
 

@@ -20,7 +20,7 @@ res_id = x[:,0].astype('int')
 atom_name = x[:,2]
 shifts = x[:,4:].astype('float').T
 
-os.mkdir("./ppm")
-np.savez_compressed("ppm/shifts.npz",  shifts)
-np.savetxt("ppm/shifts_atoms.txt", atom_name,"%s")
-np.savetxt("ppm/shifts_resid.dat", res_id,"%d")
+#os.mkdir("./ppm")
+#np.savez_compressed("ppm/shifts.npz",  shifts)
+#np.savetxt("ppm/shifts_atoms.txt", atom_name,"%s")
+#np.savetxt("ppm/shifts_resid.dat", res_id,"%d")
