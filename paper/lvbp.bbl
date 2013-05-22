@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{42}
+\begin{mcitethebibliography}{40}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -230,27 +230,9 @@ Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.; Shaw,~D. \emph{Science}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Balasubramanian et~al.(1994)Balasubramanian, Nirmala, Beveridge, and
-  Bolton]{balasubramanian1994comparison}
-Balasubramanian,~S.; Nirmala,~R.; Beveridge,~D.~L.; Bolton,~P.~H. \emph{Journal
-  of Magnetic Resonance, Series B} \textbf{1994}, \emph{104}, 240--249\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Scheidig et~al.(1997)Scheidig, Hynes, Pelletier, Wells, and
-  Kossiakoff]{scheidig1997crystal}
-Scheidig,~A.~J.; Hynes,~T.~R.; Pelletier,~L.~A.; Wells,~J.~A.;
-  Kossiakoff,~A.~A. \emph{Protein science} \textbf{1997}, \emph{6},
-  1806--1824\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Moh'd~A et~al.(2008)Moh'd~A, Soares, Hockla, and
-  Radisky]{moh2008structural}
-Moh'd~A,~S.; Soares,~A.~S.; Hockla,~A.; Radisky,~E.~S. \emph{Journal of
-  Biological Chemistry} \textbf{2008}, \emph{283}, 4115--4123\relax
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
+  109--116\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

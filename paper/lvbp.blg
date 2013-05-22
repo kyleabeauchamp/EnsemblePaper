@@ -5,44 +5,48 @@ The style file: achemso.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-lvbp.bib
 Database file #2: lvbp.bib
-You've used 42 entries,
+Warning--I didn't find a database entry for "graf2005"
+Warning--I didn't find a database entry for "LeePing"
+Warning--I didn't find a database entry for "Tibshinri"
+You've used 40 entries,
             2470 wiz_defined-function locations,
-            1001 strings with 15138 characters,
-and the built_in function-call counts, 15019 in all, are:
-= -- 1124
-> -- 1013
+            992 strings with 14387 characters,
+and the built_in function-call counts, 14189 in all, are:
+= -- 1060
+> -- 957
 < -- 13
-+ -- 399
-- -- 357
-* -- 1713
-:= -- 2075
-add.period$ -- 41
-call.type$ -- 42
++ -- 377
+- -- 337
+* -- 1617
+:= -- 1961
+add.period$ -- 39
+call.type$ -- 40
 change.case$ -- 3
 chr.to.int$ -- 2
-cite$ -- 42
-duplicate$ -- 853
-empty$ -- 904
-format.name$ -- 407
-if$ -- 2747
+cite$ -- 40
+duplicate$ -- 809
+empty$ -- 854
+format.name$ -- 385
+if$ -- 2595
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 267
-num.names$ -- 123
-pop$ -- 85
+newline$ -- 255
+num.names$ -- 117
+pop$ -- 81
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 1
 stack$ -- 0
-substring$ -- 823
-swap$ -- 950
-text.length$ -- 82
+substring$ -- 763
+swap$ -- 898
+text.length$ -- 78
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 291
+type$ -- 277
 warning$ -- 0
-while$ -- 153
+while$ -- 145
 width$ -- 0
-write$ -- 507
+write$ -- 483
+(There were 3 warnings)

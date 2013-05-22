@@ -4,7 +4,7 @@
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{url}
-
+\usepackage{booktabs, multicol, multirow}
 
 \author{Kyle A. Beauchamp}
 \affiliation[Biophysics Program]{Biophysics Program}
@@ -157,15 +157,36 @@ timescale \cite{voelz2010, bowman2011atomistic, Shaw2010, Shaw2011}; the computa
 
 One might argue that structural ensembles are unnecessary because many proteins occupy a single state under physiological conditions.  For such proteins, it is probably safe to enforce single state behavior, as is done in current modelling approaches. However, we suggest that the number of states be \emph{inferred}--not \emph{assumed}.  
 
-\subsection{How Accurate is the BPTI Ensemble?}
+\subsection{Comparison to previous methods}
 
-It is critical to evaluate the accuracy limits of the current LVBP ensemble.  Consider three different models for BPTI: the X-ray model, the raw MD simulation, and the LVBP ensemble.  For the 53 trypsin-binding loop chemical shifts, these three models give reduced $\chi^2$ values of 0.54, 1.6, and 0.67, respectively.  According to this metric, we \emph{reject} the raw simulation in favor of the other models.  Comparing the X-ray and LVBP models is more subtle.  According to the reduced $\chi^2$ values, the X-ray model provides slightly better agreement with the chemical shift data.  However, the difference (0.13) is small relative to the uncertainty in the reduced $\chi^2$ (0.19).  Regardless, both values lie below 1.0, suggesting that model comparison is limited by chemical shift prediction uncertainty.  We also evaluated the three models using ten $^3J(H^N H^\alpha)$ couplings \cite{balasubramanian1994comparison}; by this metric, the LVBP model performs best.  Overall, we 
-conclude that the LVBP ensemble provides a reasonable picture of BPTI in solution.  Future improvements in forcefield accuracy and chemical shift prediction may help refine the current ensemble.  
+LVBP offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{graf2005}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors when predicting experiments \emph{not} used to train the model.  
 
+In contrast, LVBP avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
 
-\subsection{Implication for Trypsin Binding}
+First, in LVBP, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the experiments is small, as is often the case, the inference problem has only a few parameters to estimate.  
 
-The present LVBP ensemble suggests multiple conformational states in the trypsin binding loop of BPTI.  These conformational states involve coupled motions involving the C14-C38 $\chi_1$ torsions and the backbone torsions of K15, A16, and R17.  Notably, these residues are critical determinants of specificity in binding trypsin or chymotrypsin \cite{scheidig1997crystal}; peptide scission by trypsin occurs between residues K15 and A16 \cite{moh2008structural}.  Why is disorder present in the site of inhibitor specificity and peptide scission?
+Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenenoma.  For example, the projection onto observables could be used to rationally infer forcefield parameters, similar to ForceBalance method \cite{LeePing}.  
+
+Third, suppose two conformations have the same predicted experimental observables.  In LVBP, these conformations will have the same population.  In clustering based methods, the populations of these conformations could vary simply due to random fluctuations.  
+
+Finally, in the limit of exact measurements, LVBP gives the same answer as a previous \cite{chodera2012} maximum entropy approach (see Appx. SX).  
+
+These reasons provide a theoretical basis supporting the LVBP method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{Tibshinri}.  We therefore fit BW models on the training data and evaluated on the set-aside test data.  For four out of five force fields, we find that the LVBP models outperform the raw MD models and the BW model with few (4) and many (144) states, respectively.  Our four state model consists of the $(\phi, \psi)$ based secondary structure assignments \cite{Jha2005} ($\alpha_r$, $\beta$, $PP_{II}$, and other).  Our 144 state model was constructed by dividing the ramachandran plot into square bins of $30\times30$ degrees.  Although the BW models outperform LVBP in one case, this case happens to be for the amber99sbnmr-ildn forcefield.  That forcefield was \emph{fit} to match NMR observables; the raw MD simulation has a reduced $\chi^2$ well below 1.  This suggests that all methods (raw MD, LVBP, and BW) are consistent with experiment.  
+
+\begin{math}
+\begin{tabular}{lrrrrr}
+\toprule
+{} &   amber96 &   amber99 &  amber99sbnmr-ildn &  charmm27 &    oplsaa \\
+\midrule
+maxent &  0.776853 &  0.980453 &           1.008226 &  0.931457 &  1.090944 \\
+MVN    &  0.838097 &  1.033197 &           0.942220 &  0.939043 &  1.067730 \\
+BW     &  0.973795 &  1.472812 &           0.735458 &  1.061796 &  1.990149 \\
+BW12   &  1.507146 &  3.011690 &           0.469157 &  1.090342 &  2.341762 \\
+MD     &  1.508180 &  3.199790 &           0.644300 &  1.161881 &  2.310684 \\
+\bottomrule
+\end{tabular}
+\end{math}
+
 
 \section{Conclusion}
 
@@ -183,7 +204,7 @@ Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000
 cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
 
-\bibliography{maxent}
+\bibliography{lvbp}
 
 
 \end{document}
