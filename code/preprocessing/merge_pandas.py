@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import shift_readers
 
-columns = ['CS-2-C', 'CS-2-CA', 'CS-2-CB','CS-2-H', 'CS-2-HA', 'CS-2-HB', 'CS-2-HB2', 'CS-2-HB3', 'CS-2-N']
+columns = ['CS_2_C', 'CS_2_CA', 'CS_2_CB','CS_2_H', 'CS_2_HA', 'CS_2_HB', 'CS_2_HB2', 'CS_2_HB3', 'CS_2_N']
 
 for ff in ALA3.ff_list:
     x_shiftx = pd.HDFStore(ALA3.data_dir + "/%s/observables/shiftx.h5" % ff, 'r')["data"]
