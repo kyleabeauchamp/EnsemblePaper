@@ -17,7 +17,7 @@ train_keys = pd.MultiIndex.from_tuples(tuples, names=("experiment", "resid", "na
 #all_keys.extend(test_keys)
 
 bw_num_samples = 1000000
-num_samples = 5000#000
+num_samples = 5000000
 thin = 100
 burn = 5000
 kfold = 2
