@@ -1,0 +1,11 @@
+experiment,resid,name,value
+JC,2,J3_HN_HA,5.68
+JC,2,J3_HN_Cprime,1.13
+JC,2,J3_HA_Cprime,1.84
+JC,2,J3_HN_CB,2.39
+JC,2,J1_N_CA,11.34
+JC,3,J2_N_CA,8.45
+CS,2,H,8.571
+CS,2,HA,4.355
+CS,2,CA,52.38
+CS,2,CB,19.21

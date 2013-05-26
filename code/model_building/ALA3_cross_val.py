@@ -9,7 +9,7 @@ def run(ff, prior, regularization_strength):
     directory = "%s/%s" % (ALA3.data_dir , ff)
     out_dir = directory + "/cross_val/"
 
-    predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
+    predictions, measurements, uncertainties = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
 
     if prior == "maxent":
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)
@@ -18,7 +18,7 @@ def run(ff, prior, regularization_strength):
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MVN_LVBP(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 
     bootstrap_index_list = np.array_split(np.arange(len(predictions)), ALA3.kfold)
-    train_chi, test_chi = lvbp.cross_validated_mcmc(predictions, measurements, uncertainties, model_factory, bootstrap_index_list, ALA3.num_samples)
+    train_chi, test_chi = lvbp.cross_validated_mcmc(predictions.values, measurements.values, uncertainties.values, model_factory, bootstrap_index_list, ALA3.num_samples)
 
     test_chi = test_chi.mean()
     train_chi = train_chi.mean()

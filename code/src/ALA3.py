@@ -1,14 +1,20 @@
+import pandas as pd
+
 #model = "combined_shifts"
 model = "maxent"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
 prior_list = ["maxent", "MVN"]
 
-train_keys = ['JC_2_J3_HN_Cprime', 'CS_2_CA', 'CS_2_H', 'JC_3_J2_N_CA', 'CS_2_CB', 'JC_2_J3_HN_CB']
-test_keys = ["JC_2_J3_HN_HA" , "JC_2_J3_HA_Cprime", "JC_2_J1_N_CA"]
-all_keys = []
-all_keys.extend(train_keys)
-all_keys.extend(test_keys)
+#train_keys = ['JC_2_J3_HN_Cprime', 'CS_2_CA', 'CS_2_H', 'JC_3_J2_N_CA', 'CS_2_CB', 'JC_2_J3_HN_CB']
+#test_keys = ["JC_2_J3_HN_HA" , "JC_2_J3_HA_Cprime", "JC_2_J1_N_CA"]
+
+tuples = [("JC",2,"J3_HN_Cprime"), ("JC", 3, "J2_N_CA"), ("JC", 2, "J3_HN_CB"), ("CS",2,"CA"), ("CS",2, "H"), ("CS", 2, "CB")]
+train_keys = pd.MultiIndex.from_tuples(tuples, names=("experiment", "resid", "name"))
+
+#all_keys = []
+#all_keys.extend(train_keys)
+#all_keys.extend(test_keys)
 
 bw_num_samples = 1000000
 num_samples = 5000000
@@ -43,3 +49,4 @@ data_dir = "/home/kyleb/dat/ala_lvbp/"
 outdir = "/home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/"
 
 cross_val_filename = outdir + "../../data/cross_val.dat"
+experiment_filename = outdir + "../../data/experimental_data.csv"
