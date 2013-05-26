@@ -7,7 +7,7 @@ def load_predictions(directory):
     shifts = pd.HDFStore(directory + "/observables/combined.h5")["data"]
     couplings = pd.HDFStore(directory + "/observables/scalar_couplings.h5")["data"]
     predictions = shifts.join(couplings)
-    #predictions = shifts.T.combine_first(couplings.T).T
+
     return predictions
 
 def load_uncertainties(measurements):
@@ -25,7 +25,7 @@ def load(directory, stride=1, keys=ALA3.train_keys):
     predictions = load_predictions(directory)
     measurements = load_measurements()
     uncertainties = load_uncertainties(measurements)
-    #return predictions, measurements, uncertainties
+
     #Select only the keys that we requested
     measurements = measurements[keys].dropna()
     predictions = predictions[keys].dropna()
