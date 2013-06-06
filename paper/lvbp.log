@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  21 MAY 2013 09:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  6 JUN 2013 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,11 +884,7 @@ Package natbib Warning: Citation `graf2005' on page 9 undefined on input line 1
 [9]
 
 Package natbib Warning: Citation `LeePing' on page 10 undefined on input line 1
-68.
-
-
-Package natbib Warning: Citation `Tibshinri' on page 10 undefined on input line
- 174.
+69.
 
 [10] [11] (./lvbp.bbl
 Underfull \hbox (badness 1117) in paragraph at lines 24--32
@@ -896,19 +892,19 @@ Underfull \hbox (badness 1117) in paragraph at lines 24--32
 T. N.; Weis-sig, H.;
  []
 
-[12] [13])
+[12] [13] [14])
 
 Package natbib Warning: There were undefined citations.
 
-[14] (./lvbp.aux) ) 
+[15] (./lvbp.aux) ) 
 Here is how much of TeX's memory you used:
- 6398 strings out of 495059
- 93593 string characters out of 3182030
- 155462 words of memory out of 3000000
- 9390 multiletter control sequences out of 15000+200000
+ 6400 strings out of 495059
+ 93677 string characters out of 3182030
+ 155529 words of memory out of 3000000
+ 9392 multiletter control sequences out of 15000+200000
  92772 words of font info for 159 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,8n,94p,1137b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,8n,94p,1087b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
@@ -919,10 +915,10 @@ rw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lvbp.pdf (14 pages, 3182678 bytes).
+Output written on lvbp.pdf (15 pages, 3183229 bytes).
 PDF statistics:
- 609 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
+ 612 PDF objects out of 1000 (max. 8388607)
+ 256 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

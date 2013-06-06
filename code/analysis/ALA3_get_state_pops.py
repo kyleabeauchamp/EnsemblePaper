@@ -3,14 +3,18 @@ import experiment_loader
 import ALA3
 from fitensemble import lvbp
 
-ff = "amber99"
+ff = "amber99sbnmr-ildn"
+prior = "maxent"
 directory = ALA3.data_dir + "/%s/" % ff
+regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
-predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory)
+predictions, measurements, uncertainties = experiment_loader.load(directory)
+phi, psi, ass_raw, state_ind = experiment_loader.load_rama(directory, ALA3.stride)
+
 
 model_directory = "%s/models-%s/" % (directory, ALA3.model)
 
-lvbp_model = lvbp.LVBP.load(model_directory + "/reg-%d-BB0.h5" % ALA3.regularization_strength_dict[ff])
+lvbp_model = lvbp.LVBP.load(model_directory + "/reg-%d-BB0.h5" % regularization_strength)
 state_pops_trace = lvbp_model.trace_observable(state_ind.T)
 
 state_pops = state_pops_trace.mean(0)

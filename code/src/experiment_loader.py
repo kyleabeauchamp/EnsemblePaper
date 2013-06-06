@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 import ALA3
-from fitensemble.nmr_tools import scalar_couplings, chemical_shifts
+from fitensemble.nmr_tools import scalar_couplings, chemical_shifts, scalar_couplings
+import ALA3_geometry
 
 def load_predictions(directory):
     shifts = pd.HDFStore(directory + "/observables/combined.h5")["data"]
@@ -42,7 +43,7 @@ def load(directory, stride=1, keys=ALA3.train_keys):
 
 def load_rama(directory, stride):
     phi, psi = np.load(directory + "/rama.npz")["arr_0"]
-    ass_raw = schwalbe_couplings.assign(phi, psi)
+    ass_raw = ALA3_geometry.assign(phi, psi)
     state_ind = np.array([ass_raw==i for i in xrange(4)])
     
     return phi[::stride], psi[::stride], ass_raw[::stride], state_ind[:, ::stride]

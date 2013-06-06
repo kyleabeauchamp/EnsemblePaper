@@ -5,13 +5,14 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 20})
 import ALA3
 
+prior = "maxent"
 n = len(ALA3.ff_list)
 
 chi2 = np.zeros(n)
 chi2_raw = np.zeros(n)
 for k, ff in enumerate(ALA3.ff_list):
-    model_directory = "/home/kyleb/dat/lvbp/%s/models-%s/" % (ff, ALA3.model)
-    chi2[k] = np.loadtxt(model_directory + "reg-%d-chi2_MCMC.dat" % ALA3.regularization_strength_dict[ff])
+    model_directory = ALA3.data_dir + "/%s/models-%s/" % (ff, ALA3.model)
+    chi2[k] = np.loadtxt(model_directory + "reg-%d-chi2_MCMC.dat" % ALA3.regularization_strength_dict[prior][ff])
     chi2_raw[k] = np.loadtxt(model_directory + "chi2_raw.dat")
 
 x_local = np.arange(3)
@@ -29,4 +30,4 @@ plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field")
 plt.ylim(ylim)
 plt.xlim(-0.5,x_global.max() + x_local.max() + 1.5)
-plt.savefig(ALA3.outdir+"/ALA3_chi2.pdf",bbox_inches='tight')
+#plt.savefig(ALA3.outdir+"/ALA3_chi2.pdf",bbox_inches='tight')

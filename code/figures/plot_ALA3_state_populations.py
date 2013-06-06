@@ -5,6 +5,8 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 import ALA3
 
+BB_dict = {"amber96":[0],"amber99":[0],"amber99sbnmr-ildn":[0,1],"charmm27":[0],"oplsaa":[0]}
+
 use_log = False
 prior = "maxent"
 
@@ -25,7 +27,7 @@ err_data = np.zeros((n,4,2))
 for k,ff in enumerate(ALA3.ff_list):
     regularization_strength = ALA3.regularization_strength_dict[prior][ff]
     directory = "/%s/%s/models-%s/" % (ALA3.data_dir, ff, prior)
-    mcmc_pops = np.load(directory + "reg-%d-state_pops_trace.npz" % regularization_strength)["arr_0"]
+    mcmc_pops = np.concatenate([np.load(directory + "reg-%d-state_pops_trace_BB%d.npz" % (regularization_strength, BB))["arr_0"] for BB in BB_dict[ff]])
     for state, state_name in enumerate(state_name_list):
         y = mcmc_pops[:,state]
         mu_data[k,state] = y.mean()
@@ -49,4 +51,4 @@ for state,state_name in enumerate(state_name_list):
     plt.title("%s Populations by Forcefield"%(state_name))
     plt.ylim(ylim)
     plt.xlim(-0.5,x_global.max() + x_local.max() + 1.5)
-    plt.savefig(ALA3.outdir+"/%s-state_%d_by_forcefield.pdf"%(prior, state), bbox_inches='tight')
+    #plt.savefig(ALA3.outdir+"/%s-state_%d_by_forcefield.pdf"%(prior, state), bbox_inches='tight')

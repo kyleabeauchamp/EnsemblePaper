@@ -1,5 +1,5 @@
 import numpy as np
-from fitensemble import lvbp
+from fitensemble import lvbp, ensemble_fitter
 import experiment_loader
 import sys
 import ALA3
@@ -10,10 +10,9 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
     pymc_filename = out_dir + "/reg-%d-BB%d.h5" % (regularization_strength, bayesian_bootstrap_run)
 
     predictions, measurements, uncertainties = experiment_loader.load(directory, stride=ALA3.stride, keys=ALA3.train_keys)
-    phi, psi, ass_raw, state_ind = experiment_loader.load_rama(directory, ALA3.stride)
 
     num_frames, num_measurements = predictions.shape
-    bootstrap_index_list = np.array_split(np.arange(num_frames), ALA3.kfold)
+    bootstrap_index_list = np.array_split(np.arange(num_frames), ALA3.num_blocks)
 
     if bayesian_bootstrap_run == 0:
         prior_pops = None

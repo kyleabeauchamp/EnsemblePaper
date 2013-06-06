@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{40}
+\begin{mcitethebibliography}{41}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -233,6 +233,14 @@ Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.; Shaw,~D. \emph{Science}
 \bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
 Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
   109--116\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
+  Tibshirani]{friedman2001elements}
+Friedman,~J.; Hastie,~T.; Tibshirani,~R. \emph{The elements of statistical
+  learning}; Springer Series in Statistics, 2001; Vol.~1\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
