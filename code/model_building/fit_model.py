@@ -3,13 +3,13 @@ from fitensemble import lvbp, ensemble_fitter
 import experiment_loader
 import sys
 import ALA3
+lvbp.ne.set_num_threads(1)
 
 def run(ff, prior, regularization_strength, bootstrap_index_list):
-    directory = "%s/%s" % (ALA3.data_dir , ff)
-    out_dir = directory + "/models-%s/" % prior
-    pymc_filename = out_dir + "/reg-%d-BB%d.h5" % (regularization_strength, bayesian_bootstrap_run)
+    pymc_filename = ALA3.data_directory + "/models/model_%s_reg-%.1f-BB%d.h5" % (prior, regularization_strength, bayesian_bootstrap_run)
+    populations_filename = ALA3.data_directory + "/populations/pops_%s_reg-%.1f-BB%d.h5" % (prior, regularization_strength, bayesian_bootstrap_run)
 
-    predictions, measurements, uncertainties = experiment_loader.load(directory, stride=ALA3.stride, keys=ALA3.train_keys)
+    predictions, measurements, uncertainties = experiment_loader.load(ff)
 
     num_frames, num_measurements = predictions.shape
     bootstrap_index_list = np.array_split(np.arange(num_frames), ALA3.num_blocks)
@@ -26,8 +26,7 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
 
     model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)
     p = model.accumulate_populations()
-
-    np.savetxt(out_dir+"/reg-%d-frame-populations.dat" % (regularization_strength), p)
+    np.savetxt(populations_filename)
 
 if __name__ == "__main__":
     ff = sys.argv[1]
