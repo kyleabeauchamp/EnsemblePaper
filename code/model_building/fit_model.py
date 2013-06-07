@@ -6,8 +6,8 @@ import ALA3
 lvbp.ne.set_num_threads(1)
 
 def run(ff, prior, regularization_strength, bootstrap_index_list):
-    pymc_filename = ALA3.data_directory + "/models/model_%s_reg-%.1f-BB%d.h5" % (prior, regularization_strength, bayesian_bootstrap_run)
-    populations_filename = ALA3.data_directory + "/populations/pops_%s_reg-%.1f-BB%d.h5" % (prior, regularization_strength, bayesian_bootstrap_run)
+    pymc_filename = ALA3.data_directory + "/models/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
+    populations_filename = ALA3.data_directory + "/populations/pops_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
 
     predictions, measurements, uncertainties = experiment_loader.load(ff)
 

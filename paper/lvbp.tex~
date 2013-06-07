@@ -59,7 +59,7 @@ The next step in constructing an ensemble is to calculate the population of each
 
 $$\Delta U(x;\alpha) = \sum_i^n \alpha_i f_i(x)$$
 
-In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  One way to think about $\alpha$ is via ``tilting'' the energy landscape along the order parameter $f_i(x)$.  Given the biasing potential, the population of each conformation can be calculated using exponential averaging (see Appx. S1):
+In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  One way to think about $\alpha$ is via ``tilting'' the energy landscape along the order parameters $f_i(x)$.  Given the biasing potential, the population of each conformation can be calculated using exponential averaging (see Appx. S1):
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
@@ -188,6 +188,12 @@ MD     &  1.508180 &  3.199790 &           0.644300 &  1.161881 &  2.310684 \\
 \bottomrule
 \end{tabular}
 \end{math}
+
+\section{Future Work}
+
+The LVBP method can be extended in several ways.  We have already worked out some of these extensions.  In App. SX, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  
+
+More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. SX) approaches1 used herein.  In such a model, it is likely that both the prediction and conformational uncertainties are non-normal; future work will be useful for exploring such models.  
 
 
 \section{Conclusion}

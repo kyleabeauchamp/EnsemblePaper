@@ -189,6 +189,12 @@ MD     &  1.508180 &  3.199790 &           0.644300 &  1.161881 &  2.310684 \\
 \end{tabular}
 \end{math}
 
+\section{Future Work}
+
+The LVBP method can be extended in several ways.  We have already worked out some of these extensions.  In App. SX, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  
+
+More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. SX) approaches1 used herein.  In such a model, it is likely that both the prediction and conformational uncertainties are non-normal; future work will be useful for exploring such models.  As a concrete example, one possible error model might involve taking the $\max$ of the prediction uncertainty and the conformational uncertainty for a given reweighted observable.  
+
 
 \section{Conclusion}
 
