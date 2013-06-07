@@ -4,9 +4,10 @@ import ALA3
 from fitensemble.nmr_tools import scalar_couplings, chemical_shifts, scalar_couplings
 import ALA3_geometry
 
-def load_predictions(directory):
-    shifts = pd.HDFStore(directory + "/observables/combined.h5")["data"]
-    couplings = pd.HDFStore(directory + "/observables/scalar_couplings.h5")["data"]
+def load_predictions(ff):
+    
+    shifts = pd.HDFStore(ALA3.data_directory + "/observables/%s_combined.h5" % ff)["data"]
+    couplings = pd.HDFStore(ALA3.data_directory + "/observables/%s_scalar_couplings.h5" % ff)["data"]
     predictions = shifts.join(couplings)
 
     return predictions
@@ -22,7 +23,7 @@ def load_measurements():
     x = x.pivot_table(rows=["experiment","resid","name"])["value"]
     return x
 
-def load(directory, stride=1, keys=ALA3.train_keys):
+def load(directory, stride=ALA3.stride, keys=ALA3.train_keys):
     predictions = load_predictions(directory)
     measurements = load_measurements()
     uncertainties = load_uncertainties(measurements)
@@ -41,8 +42,8 @@ def load(directory, stride=1, keys=ALA3.train_keys):
 
     return predictions, measurements, uncertainties
 
-def load_rama(directory, stride):
-    phi, psi = np.load(directory + "/rama.npz")["arr_0"]
+def load_rama(ff, stride):
+    phi, psi = np.load(ALA3.data_directory + "/rama.npz")["arr_0"]
     ass_raw = ALA3_geometry.assign(phi, psi)
     state_ind = np.array([ass_raw==i for i in xrange(4)])
     

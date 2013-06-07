@@ -4,13 +4,10 @@ import numpy as np
 from fitensemble import lvbp
 import sys
 
+lvbp.ne.set_num_threads(1)
+
 def run(ff, prior, regularization_strength):
-
-    directory = "%s/%s" % (ALA3.data_dir , ff)
-    out_dir = directory + "/cross_val/"
-
-    predictions, measurements, uncertainties = experiment_loader.load(directory, stride=ALA3.cross_val_stride)
-
+    predictions, measurements, uncertainties = experiment_loader.load(ff, stride=ALA3.cross_val_stride)
     if prior == "maxent":
         model_factory = lambda predictions, measurements, uncertainties: lvbp.MaxEnt_LVBP(predictions, measurements, uncertainties, regularization_strength)
     else:

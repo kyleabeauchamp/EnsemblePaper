@@ -2,19 +2,19 @@ import experiment_loader
 import ALA3
 import numpy as np
 from fitensemble import lvbp
-lvbp.ne.set_num_threads(3)
+lvbp.ne.set_num_threads(1)
 
 ff = "amber99sbnmr-ildn"
 prior = "maxent"
 reg_list = [1.0, 2.0, 5.0]
 
-directory = "%s/%s" % (ALA3.data_dir , ff)
+directory = "%s/%s" % (ALA3.data_directory , ff)
 out_dir = directory + "/cross_val/"
 
 num_samples = 150000
 
 #predictions, measurements, uncertainties = experiment_loader.load(directory, keys=[("CS", 2, "H"), ("CS", 2, "HA")])
-predictions, measurements, uncertainties = experiment_loader.load(directory)
+predictions, measurements, uncertainties = experiment_loader.load(ff)
 
 data = np.zeros((len(reg_list), 2))
 for k, regularization_strength in enumerate(reg_list):

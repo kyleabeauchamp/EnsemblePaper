@@ -70,8 +70,8 @@ old_regularization_strength_dict = {"maxent":
 }
 
 
-data_dir = "/home/kyleb/dat/ala_lvbp/"
-outdir = "/home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/"
+data_directory = "/home/kyleb/dat/ala_lvbp/"
 
+outdir = "/home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/"
 cross_val_filename = outdir + "../../data/cross_val.dat"
 experiment_filename = outdir + "../../data/experimental_data.csv"
