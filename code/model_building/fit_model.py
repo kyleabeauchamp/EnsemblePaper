@@ -26,7 +26,7 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
 
     model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)
     p = model.accumulate_populations()
-    np.savetxt(populations_filename)
+    np.savetxt(populations_filename, p)
 
 if __name__ == "__main__":
     ff = sys.argv[1]

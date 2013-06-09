@@ -28,10 +28,10 @@ def load(directory, stride=ALA3.stride, keys=ALA3.train_keys):
     measurements = load_measurements()
     uncertainties = load_uncertainties(measurements)
 
-    #Select only the keys that we requested
-    measurements = measurements[keys].dropna()
-    predictions = predictions[keys].dropna()
-    uncertainties = uncertainties[keys].dropna()
+    if keys != None:  # Select only the keys that we requested
+        measurements = measurements[keys].dropna()
+        predictions = predictions[keys].dropna()
+        uncertainties = uncertainties[keys].dropna()
     
     #Drop indices where our keys were invalid
     keys = predictions.columns.intersection(measurements.index).intersection(uncertainties.index)
@@ -43,7 +43,7 @@ def load(directory, stride=ALA3.stride, keys=ALA3.train_keys):
     return predictions, measurements, uncertainties
 
 def load_rama(ff, stride):
-    phi, psi = np.load(ALA3.data_directory + "/rama.npz")["arr_0"]
+    phi, psi = np.load(ALA3.data_directory + "/torsions/%s.npz" % ff)["arr_0"]
     ass_raw = ALA3_geometry.assign(phi, psi)
     state_ind = np.array([ass_raw==i for i in xrange(4)])
     

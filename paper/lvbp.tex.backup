@@ -4,7 +4,7 @@
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{url}
-
+\usepackage{booktabs, multicol, multirow}
 
 \author{Kyle A. Beauchamp}
 \affiliation[Biophysics Program]{Biophysics Program}
@@ -25,7 +25,7 @@
 
 \begin{abstract}
 
-Inferring conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modelling and experiment.  Current algorithms for structure determination, however, are limited to modelling a single conformation and provide only limited uncertainty information.  Here we describe linear virtual biasing potential (LVBP), a method that combines simulation and experiment to infer solution ensembles.  By using the machinery of Bayesian statistics, LVBP  gives rigorous uncertainty estimates for structural features and equilibrium properties.  We show that LVBP corrects significant forcefield bias in trialanine.  
+Inferring conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modelling and experiment.  Current algorithms for structure determination, however, are limited to modelling a single conformation and provide only limited uncertainty information.  Here we describe linear virtual biasing potential (LVBP), a method that combines simulation and experiment to infer solution ensembles.  By using the machinery of Bayesian statistics, LVBP  gives rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that LVBP corrects forcefield error and outperforms previous analysis methods.
 
 \end{abstract}
 
@@ -59,7 +59,7 @@ The next step in constructing an ensemble is to calculate the population of each
 
 $$\Delta U(x;\alpha) = \sum_i^n \alpha_i f_i(x)$$
 
-In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  Given the biasing potential, the populations of each conformation can be calculated using exponential averaging (see Appx. S1):
+In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  One way to think about $\alpha$ is via ``tilting'' the energy landscape along the order parameters $f_i(x)$.  Given the biasing potential, the population of each conformation can be calculated using exponential averaging (see Appx. S1):
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
@@ -159,23 +159,40 @@ One might argue that structural ensembles are unnecessary because many proteins 
 
 \subsection{Comparison to previous methods}
 
-LVBP offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{graf2005}, the SAXS inference techniques of Hummer et al \cite{hummer}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors when predicting experiments \emph{not} used to train the model.  
+LVBP offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{graf2005}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
+when predicting experiments \emph{not} used to train the model.  
 
 In contrast, LVBP avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
 
 First, in LVBP, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the experiments is small, as is often the case, the inference problem has only a few parameters to estimate.  
 
-Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenenoma.  For example, the projection onto observables could be used to rationally infer forcefield parameters, similar to ForceBalance methods of \cite{LeePing}.  
+Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenenoma.  For example, the projection onto observables could be used to rationally infer forcefield parameters, similar to ForceBalance method \cite{LeePing}.  
 
-First, LVBP reduces to maximum entropy modeling \cite{chodera2012} when applied to exact measurements (see Appx. SX).  
+Third, suppose two conformations have the same predicted experimental observables.  In LVBP, these conformations will have the same population.  In clustering based methods, the populations of these conformations could vary simply due to random fluctuations.  
 
-\section{Appendix S8.  Comparison to Previous Ensemble Modelling Methods}
-  
-Another recent method \cite{fisher2010}, Bayesian Weighting (BW), uses Bayesian inference to model conformational ensembles of disordered peptides.  BW directly samples the population of each conformational state--each conformational state (defined via clustering) has a population that must be estimated.  This approach has the disadvantage of a clustering step and the need to sample a high dimensional space. On the other hand, in situations with few conformational states but many experimental observables, the BW approach may yield models with reduced variance. 
+Finally, in the limit of exact measurements, LVBP gives the same answer as a previous \cite{chodera2012} maximum entropy approach (see Appx. SX).  
 
-In contrast, LVBP introduces a single parameter for each experimental measurement.  Restated, the key difference between BW and LVBP is that BW projects simulations onto conformational clusters, while LVBP projects simulations onto the predicted experimental observables.  Thus, the key difference is essentially the choice of \emph{basis} in which to perform MCMC calculations.  We feel that predicted experimental observables provide a \emph{natural} basis for calculations.  Another advantage of this basis is that it enforces smoothly varying equilibrium populations.  In contrast, a clustering-defined basis (e.g. BW) could induce two nearby conformations to have dramatically different populations, simply due to the noise associated with sampling a high-dimensional space.  
+These reasons provide a theoretical basis supporting the LVBP method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{friedman2001elements}.  We therefore fit BW models on the training data and evaluated on the set-aside test data.  For four out of five force fields, we find that the LVBP models outperform the raw MD models and the BW model with few (4) and many (144) states, respectively.  Our four state model consists of the $(\phi, \psi)$ based secondary structure assignments \cite{Jha2005} ($\alpha_r$, $\beta$, $PP_{II}$, and other).  Our 144 state model was constructed by dividing the ramachandran plot into square bins of $30\times30$ degrees.  Although the BW models outperform LVBP in one case, this case happens to be for the amber99sbnmr-ildn forcefield.  That forcefield was \emph{fit} to match NMR observables; the raw MD simulation has a reduced $\chi^2$ well below 1.  This suggests that all methods (raw MD, LVBP, and BW) are consistent with experiment.  
 
-The LVBP method is also similar to the EROS method developed by Hummer and colleagues \cite{rozycki2011saxs}.  Like BW, EROS involves clustering the simulation data and estimating the cluster populations.  Like LVBP, EROS uses a maximum entropy regularization procedure.  In our opinion, the key advantages of LVBP over EROS are the use of MCMC for error analysis and the avoidance of a clustering procedure.  We point out that EROS was developed with SAXS refinement in mind.  The clustering step is likely \emph{not} problematic for SAXS, as SAXS is primarily sensitive to large-scale conformational changes.  However, for experiments (e.g. NMR) that depend on fine structural details, clustering could introduce model bias.  
+\begin{math}
+\begin{tabular}{lrrrrr}
+\toprule
+{} &   amber96 &   amber99 &  amber99sbnmr-ildn &  charmm27 &    oplsaa \\
+\midrule
+maxent &  0.776853 &  0.980453 &           1.008226 &  0.931457 &  1.090944 \\
+MVN    &  0.838097 &  1.033197 &           0.942220 &  0.939043 &  1.067730 \\
+BW     &  0.973795 &  1.472812 &           0.735458 &  1.061796 &  1.990149 \\
+BW12   &  1.507146 &  3.011690 &           0.469157 &  1.090342 &  2.341762 \\
+MD     &  1.508180 &  3.199790 &           0.644300 &  1.161881 &  2.310684 \\
+\bottomrule
+\end{tabular}
+\end{math}
+
+\section{Future Work}
+
+The LVBP method can be extended in several ways.  We have already worked out some of these extensions.  In App. SX, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  
+
+More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. SX) approaches used herein.  In such a model, it is likely that both the prediction and conformational uncertainties are non-normal; future work will be useful for exploring such models.  
 
 
 \section{Conclusion}
