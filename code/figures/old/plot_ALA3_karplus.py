@@ -35,7 +35,7 @@ plt.title("Projecting $\phi$ onto J Couplings")
 plt.legend(loc=0)
 plt.xlim(-180,180)
 plt.ylim(-0.5,10.5)
-plt.savefig(outdir+"/single_karplus.pdf",bbox_inches='tight')
+#plt.savefig(outdir+"/single_karplus.pdf",bbox_inches='tight')
 plt.figure()
 
 
