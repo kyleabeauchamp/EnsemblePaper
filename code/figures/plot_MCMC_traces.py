@@ -1,4 +1,4 @@
-from fitensemble import lvbp
+from fitensemble import belt
 import itertools
 import pandas as pd
 import numpy as np
@@ -7,15 +7,15 @@ import ALA3
 import experiment_loader
 
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
+bayesian_bootstrap_run = 0
 
 for k, (ff, prior) in enumerate(grid):
         print(ff, prior)
         regularization_strength = ALA3.regularization_strength_dict[prior][ff]
-        directory = ALA3.data_dir + "/%s/" % ff
-        predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory)
-        model_directory = "%s/models-%s/" % (directory, prior)
-        lvbp_model = lvbp.LVBP.load(model_directory + "/reg-%d-BB0.h5" % regularization_strength)
-        a = lvbp_model.mcmc.trace("alpha")[:]
+        predictions, measurements, uncertainties = experiment_loader.load(ff)
+        pymc_filename = ALA3.data_directory + "/models/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
+        belt_model = belt.BELT.load(pymc_filename)
+        a = belt_model.mcmc.trace("alpha")[:]
         plt.figure()
         plt.title("%s - %s" % (ff, prior))
         y = a[:,0]

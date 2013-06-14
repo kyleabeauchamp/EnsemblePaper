@@ -1,39 +1,27 @@
+import pandas as pd
+import itertools
 import numpy as np
 import experiment_loader
 import ALA3
-from fitensemble import lvbp
+from fitensemble import belt
 import sys
 
-#ff = "charmm27"
-#prior = "maxent"
-ff = sys.argv[1]
-prior = sys.argv[2]
+bayesian_bootstrap_run = 0
+num_threads = 3
+rank = int(sys.argv[1])
+grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
 
-regularization_strength = ALA3.regularization_strength_dict[prior][ff]
+for k, (ff, prior) in enumerate(grid):
+    if k % num_threads == rank:
+        print(ff, prior)
+        regularization_strength = ALA3.regularization_strength_dict[prior][ff]
+        predictions, measurements, uncertainties = experiment_loader.load(ff, keys=None)
+        phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
+        pymc_filename = ALA3.data_directory + "/models/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
+        belt_model = belt.BELT.load(pymc_filename)
 
-directory = "%s/%s" % (ALA3.data_dir , ff)
-predictions, measurements, uncertainties = experiment_loader.load(directory)
-model_directory = directory + "/models-maxent/"
-lvbp_model = lvbp.LVBP.load(model_directory + "/reg-%d-BB0.h5" % regularization_strength)
-
-reduced_chi2 = []
-for pi in lvbp_model.iterate_populations():
-    mu = predictions.T.dot(pi)
-    reduced_chi2.append((((mu - measurements) / uncertainties)**2).mean(0))
-
-mu0 = predictions.mean(0)
-chi2_raw = (((mu0 - measurements) / uncertainties)**2).mean(0)
-
-np.savetxt(model_directory + "reg-%d-chi2_MCMC_train.dat" % ALA3.regularization_strength_dict[prior][ff], reduced_chi2)
-
-
-predictions, measurements, uncertainties = experiment_loader.load(directory, keys=ALA3.test_keys)
-reduced_chi2 = []
-for pi in lvbp_model.iterate_populations():
-    mu = predictions.T.dot(pi)
-    reduced_chi2.append((((mu - measurements) / uncertainties)**2).mean(0))
-
-mu0 = predictions.mean(0)
-chi2_raw = (((mu0 - measurements) / uncertainties)**2).mean(0)
-
-np.savetxt(model_directory + "reg-%d-chi2_MCMC_test.dat" % ALA3.regularization_strength_dict[prior][ff], reduced_chi2)
+        mu_mcmc = belt_model.trace_observable(predictions)
+        mu_mcmc = pd.DataFrame(mu_mcmc, columns=measurements.index)
+        
+        out_filename = "mcmc_traces/mu_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
+        mu_mcmc.to_hdf(out_filename, "data")
