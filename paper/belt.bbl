@@ -141,6 +141,13 @@ Avbelj,~F.; Grdadolnik,~S.; Grdadolnik,~J.; Baldwin,~R. \emph{Proc. Natl. Acad.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
+  109--116\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Hess et~al.(2008)Hess, Kutzner, Van Der~Spoel, and Lindahl]{hess2008}
 Hess,~B.; Kutzner,~C.; Van Der~Spoel,~D.; Lindahl,~E. \emph{J. Chem. Theory
   Comput.} \textbf{2008}, \emph{4}, 435--447\relax
@@ -226,13 +233,6 @@ Shaw,~D.~E.; Maragakis,~P.; Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.~O.;
   Shaw]{Shaw2011}
 Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.; Shaw,~D. \emph{Science}
   \textbf{2011}, \emph{334}, 517--520\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
-Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
-  109--116\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

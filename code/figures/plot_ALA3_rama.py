@@ -1,17 +1,19 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import experiment_loader
-import matplotlib.font_manager
+import ALA3
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats  #Note no longe resi 0 but resi 1
 import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
-import ALA3
 
-ff = "charmm27"
+bayesian_bootstrap_run = 0
+ff = "oplsaa"
+prior = "MVN"
+regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
-directory = "/home/kyleb/dat/lvbp/%s/" % ff
-keys, measurements, predictions, uncertainties, phi, psi = experiment_loader.load(directory)
-model_directory = "/home/kyleb/dat/lvbp/%s/models-%s/" % (ff, ALA3.model)
-p = np.loadtxt(model_directory + "/reg-%d-frame-populations.dat" % ALA3.regularization_strength_dict[ff])
+predictions, measurements, uncertainties = experiment_loader.load(ff)
+phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
+p = np.loadtxt(ALA3.data_directory + "/frame_populations/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run))
 
 line_color = 'w'
 linewidth = 10
@@ -56,7 +58,7 @@ plt.plot([0,0],[-180,180],line_color,linewidth=linewidth)
 plt.plot([-100,-100],[50,180],line_color,linewidth=linewidth)
 plt.plot([-100,-100],[-180,-100],line_color,linewidth=linewidth)
 
-plt.title("%s LVBP" % ff)
+plt.title("%s BELT" % ff)
 plt.xlabel(r"$\phi$ [$\circ$]")
 plt.ylabel(r"$\psi$ [$\circ$]")
 
@@ -67,4 +69,4 @@ plt.annotate(r"$\alpha_L$",[100,30],color=line_color,fontsize='x-large')
 plt.annotate(r"$\gamma$",[100,-150],color=line_color,fontsize='x-large')
 
 plt.axis([-180,180,-180,180])
-plt.savefig(ALA3.outdir+"/ALA3_rama_%s_lvbp.pdf" % ff, bbox_inches='tight')
+plt.savefig(ALA3.outdir+"/ALA3_rama_%s_%s_belt.pdf" % (ff, prior), bbox_inches='tight')

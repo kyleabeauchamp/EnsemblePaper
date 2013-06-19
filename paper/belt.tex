@@ -17,7 +17,7 @@
 
 \email{rhiju@stanford.edu, pande@stanford.edu}
 
-\title{Inferring Structural Ensembles from Noisy Experiments}
+\title{Inferring Structural Ensembles from Noisy Experiments: Application to Trialanine}
 
 \begin{document}
 
@@ -25,7 +25,7 @@
 
 \begin{abstract}
 
-Inferring conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modelling and experiment.  Current algorithms for structure determination, however, are limited to modelling a single conformation and provide only limited uncertainty information.  Here we describe linear virtual biasing potential (LVBP), a method that combines simulation and experiment to infer solution ensembles.  By using the machinery of Bayesian statistics, LVBP  gives rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that LVBP corrects forcefield error and outperforms previous analysis methods.
+Inferring conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modeling and experiment.  Current algorithms for structure determination, however, are limited to modeling a single conformation and provide only limited uncertainty information.  Here we describe Bayesian Energy Landscape Tilting (BELT), a method that combines simulation and experiment to infer solution ensembles.  By using the machinery of Bayesian statistics, BELT  gives rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that BELT corrects forcefield bias and outperforms previous analysis methods.
 
 \end{abstract}
 
@@ -33,24 +33,24 @@ Inferring conformation from experiment is the fundamental task of structural bio
 
 Over the past forty years, structural biologists have solved ``ground-state'' structures of countless biological macromolecules\cite{Berman2000}. Modern biology, however, presents many systems that do not fit the single-structure paradigm--excited states of nucleic acids\cite{dethoff2012}, natively disordered proteins\cite{fink2005}, and protein folding intermediates\cite{korzhnev2004} alike are poorly described by single conformation models.  For such systems, conformational ensembles provide a rigorous framework for understanding structural and equilibrium properties.  
 
-Here we introduce a statistical approach to modelling solution ensembles of biological macromolecules.  The algorithm, Linear Virtual Biasing Potential (LVBP), uses solution experiments to reweight a collection of atomistic models.  In LVBP, Bayesian inference transforms experimental ambiguity into error bars on arbitrary structural features.  
+Here we introduce a statistical approach to modeling solution ensembles of biological macromolecules.  The algorithm, Bayesian Energy Landscape Tilting (BELT), uses solution experiments to reweight a collection of atomistic models.  In BELT, Bayesian inference transforms experimental ambiguity into error bars on arbitrary structural features.  
 
-To validate LVBP, we investigate two model systems.  We first use NMR data to infer conformational ensembles of trialanine \cite{Graf2007}.  We construct ensembles using five molecular dynamics forcefields with differing conformational propensities.  LVBP corrects forcefield errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  
+To validate BELT, we investigate the conformational propensities of trialanine using NMR measurements \cite{Graf2007}.  We use BELT to correct MD simulations performed in five different forcefields.  Although the raw simulations show wide variations in their conformational preferences, BELT corrects forcefield errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  
 
-\section{Theory: Linear Virtual Biasing Potential}
+\section{Theory: Bayesian Energy Landscape Tilting}
 
 \subsection{Model Inputs}
 
-To model an ensemble using LVBP requires three components (Fig. \ref{figure:LVBP}).  First, we need a set of conformations ($x_j$) sampled from the approximate equilibrium distribution of our system.  In the present work, such conformations will be generated from molecular dynamics (MD) simulations.  Second, we require a set of equilibrium experimental measurements ($F_i$) and their associated uncertainties ($\sigma_i$).  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
+To model an ensemble using BELT requires three components (Fig. \ref{figure:BELT}).  First, we need a set of conformations ($x_j$) sampled from the approximate equilibrium distribution of our system.  In the present work, such conformations will be generated from molecular dynamics (MD) simulations.  Second, we require a set of equilibrium experimental measurements ($F_i$) and their associated uncertainties ($\sigma_i$).  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
 
 \begin{figure}
 
 \includegraphics[width=18.0cm]{figures/info_graphic/info_graphic.pdf}
 
 \caption{
-General scheme for LVBP modelling.
+General scheme for BELT modeling.
 }
-\label{figure:LVBP}
+\label{figure:BELT}
 \end{figure}
 
 \subsection{Reweighting}
@@ -63,7 +63,7 @@ In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each e
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
-It is informative to consider the case of a single observable $f(x)$.  Suppose the molecule of interest shows a normally distributed observable.  If we let $\alpha$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  However, if we let $\alpha = -2$, conformations with large values of $f(x)$ are upweighted, while conformations with lower values of $f(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha = +2$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
+It is informative to consider the case of a single observable $f(x)$.  Suppose the molecule of interest shows a bimodal observable.  If we let $\alpha$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  However, if we let $\alpha = -\frac{1}{2}$, conformations with large values of $f(x)$ are upweighted, while conformations with lower values of $f(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha = +\frac{1}{2}$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
 
 \begin{figure}
 
@@ -77,7 +77,7 @@ It is informative to consider the case of a single observable $f(x)$.  Suppose t
 \includegraphics[width=5.0cm]{figures/model_hist2.pdf}
 }
 \caption{
-Raw ($\alpha = 0$) and reweighted histograms of a one dimensional observable.
+Raw ($\alpha = 0$) and reweighted (e.g. tilted) histograms of a one dimensional observable.
 }
 \label{figure:Hist}
 \end{figure}
@@ -119,14 +119,26 @@ Because ensemble inference often presents many plausible solutions \cite{fisher2
 
 \subsection{Conformational Propensities of Trialanine}
 
-Short peptides provide crucial tests for evaluating and optimizing molecular dynamics forcefields \cite{Graf2007,beauchamp2012protein, Nerenberg2011, Best2008, Grdadolnik2011}.  Such peptides offer a window into the intrinsic conformational propensities of amino acids, free from the secondary structure bias found in statistical surveys of protein structures \cite{Jha2005}.  Here, we use LVBP to infer the conformational populations of trialanine from chemical shift and scalar coupling measurements \cite{Graf2007}.  
+Short peptides provide crucial tests for evaluating and optimizing molecular dynamics forcefields \cite{Graf2007,beauchamp2012protein, Nerenberg2011, Best2008, Grdadolnik2011}.  Such peptides offer a window into the intrinsic conformational propensities of amino acids, free from the secondary structure bias found in statistical surveys of protein structures \cite{Jha2005}.  Here, we use BELT to infer the conformational populations of trialanine from chemical shift and scalar coupling measurements \cite{Graf2007}.  
 
-Trialanine was simulated (see Methods) in five different force fields; nine experimental measurements (six scalar couplings, three chemical shifts) probing the central ALA residue were used to construct an LVBP ensemble.  The five force fields show considerable variation in their agreement with experiment (Fig. \ref{figure:ALA3}a).  The amber96, amber99, charmm27, and oplsaa forcefields, for example, initially show significant deviation from the experimental measurements.  Upon reweighting, however, all five forcefields agree with experiment.  
+Trialanine was simulated (see Methods) in five different force fields; six experimental measurements (three scalar couplings, three chemical shifts) probing the central ALA residue were used to construct an BELT ensemble.  The five force fields show considerable variation in their agreement with experiment (Fig. \ref{figure:ChiSquared}).  The amber96, amber99, charmm27, and oplsaa forcefields, for example, initially show significant deviation from the experimental measurements.  Upon reweighting, however, all five forcefields agree with experiment--including experiments that were \emph{not} used to fit the model.  
 
 \begin{figure}
 \subfigure[]{
-\includegraphics[width=7.5cm]{figures/ALA3_chi2.pdf}
+\includegraphics[width=7.5cm]{figures/chi2_train.pdf}
 }
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/chi2_test.pdf}
+}
+\caption{
+(a).  The reduced $\chi^2$ error for raw and reweighted simulations.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using the four measurements \emph{not} used to fit the BELT model.
+}
+\label{figure:ChiSquared}
+\end{figure}
+
+
+
+\begin{figure}
 \subfigure[]{
 \includegraphics[width=7.5cm]{figures/state_0_by_forcefield.pdf}
 }
@@ -138,42 +150,110 @@ Trialanine was simulated (see Methods) in five different force fields; nine expe
 \includegraphics[width=7.5cm]{figures/state_2_by_forcefield.pdf}
 }
 \caption{
-(a).  The reduced $\chi^2$ error for each raw and reweighted simulation.  The LVBP reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (b-d).  Raw and reweighted conformational propensities for each force field.  Note that amber99 shows larger uncertainties due to the extremely limited amount of $PP_{II}$ sampling in the amber99 forcefield.
+Raw and reweighted conformational propensities for each force field.  Note that amber99 shows larger uncertainties due to the extremely limited amount of $PP_{II}$ sampling in the amber99 forcefield.
 }
 \label{figure:ALA3}
 \end{figure}
 
 
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_maxent_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_maxent_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_raw.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_maxent_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
+}
+
+\caption{
+Ramachandran plot of MD and BELT ensembles for each forcefield.
+}
+\label{figure:Rama}
+\end{figure}
+
 Previous experimental studies have shown that short alanine peptides prefer the polyproline type helix (PPII) in solution \cite{Grdadolnik2011, Graf2007, Avbelj2006}.  Most molecular dynamics forcefields, however, are known to underpopulate the PPII state \cite{Graf2007,beauchamp2012protein,Nerenberg2011, Best2008}.  Our trialanine simulations recapitulate this known deficiency (Fig. \ref{figure:ALA3} b-d; blue), with amber96 showing a strong $\beta$ bias and amber99 showing a strong $\alpha$ bias.  However, combining simulation and experiment leads to conformational ensembles that are robust to forcefield differences (Fig. \ref{figure:ALA3} b-d, green; Fig. S2).  Reweighting with limited experimental data is a powerful technique for correcting forcefield deficiencies.  
+
+
+\subsection{Bayesian Inference allows Ambiguous Experiments}
+
+Bayesian inference allows a full characterization of posterior distributions through MCMC sampling.  Most previous approaches have focused on maximum likelihood approaches that return a point estimate of the conformational ensemble \cite{rozycki2011saxs}.  In many cases, however, the data may be sufficiently ambiguous to preclude a point-estimate of the conformational ensemble.  To illustrate this point, we plot the measured \cite{Graf2007} value of $^3J(H_NH_\alpha)$ in the context of the Karplus equation relating $\phi$ to $^3J(H_NH_\alpha)$.  The measured coupling corresponds to four \emph{different} values of $\phi$, suggesting that a point estimate may be inappropriate.  As a concrete example, we calculated the posterior distribution of $PP_{II}$ for the amber99 forcefield reweighted with two ($^3J(H_NH_\alpha)$, $^3J(H_NC')$) NMR measurements.  The bimodal posterior will not be well-described by a point estimate.
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/single_karplus.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/amber99_PPII_histogram.pdf}
+}
+\caption{
+(a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH_\alpha)$ is ambiguous; observed values of $^3J(H_NH_\alpha)$ are consistent multiple conformations.  (b).  BELT modeling (amber99 forcefield) with two measurements ($^3J(H_NH_\alpha)$, $^3J(H_NC')$) shows a bimodal posterior, suggesting the need for a full Bayesian (MCMC) treatment.  
+}
+\label{figure:Ambiguity}
+
+\end{figure}
+
 
 
 \section{Discussion}
 
 \subsection{Structural (Ensemble?) Biology}
 
-Why model structural ensembles, rather than just structures?  At least three compelling reasons favor ensembles.  First, biological molecules are multi-state machines; they fold, unfold, bind ligands, aggregate, and change conformation.  Biology is controlled by the relative populations of these states.  Structural ensembles capture aspects of these phenomena by encoding equilibrium populations.  A second argument for ensemble modelling is fidelity to experiment.  Most solution experiments measure ensemble average equilibrium properties--chemical shifts, scalar couplings, NOEs, SAXS, and FRET are reasonably well-described as equilibrium properties.  A truly quantitative connection to these measurements requires modelling the equilibrium ensemble.  Finally, recent advances in atomistic simulation \cite{hess2008, pronk2013gromacs, eastman2012openmm, eastman2010openmm}, special-purpose hardware \cite{Shaw2008}, and distributed computing analysis \cite{emma, msmb2} have enabled atomistic simulations to reach the 
+Why model structural ensembles, rather than just structures?  At least three compelling reasons favor ensembles.  First, biological molecules are multi-state machines; they fold, unfold, bind ligands, aggregate, and change conformation.  Biology is controlled by the relative populations of these states.  Structural ensembles capture aspects of these phenomena by encoding equilibrium populations.  A second argument for ensemble modeling is fidelity to experiment.  Most solution experiments measure ensemble average equilibrium properties--chemical shifts, scalar couplings, NOEs, SAXS, and FRET are reasonably well-described as equilibrium properties.  A truly quantitative connection to these measurements requires modeling the equilibrium ensemble.  Finally, recent advances in atomistic simulation \cite{hess2008, pronk2013gromacs, eastman2012openmm, eastman2010openmm}, special-purpose hardware \cite{Shaw2008}, and distributed computing analysis \cite{emma, msmb2} have enabled atomistic simulations to reach the 
 millisecond 
 timescale \cite{voelz2010, bowman2011atomistic, Shaw2010, Shaw2011}; the computational cost of ensemble modeling is quickly becoming manageable.
 
-One might argue that structural ensembles are unnecessary because many proteins occupy a single state under physiological conditions.  For such proteins, it is probably safe to enforce single state behavior, as is done in current modelling approaches. However, we suggest that the number of states be \emph{inferred}--not \emph{assumed}.  
+One might argue that structural ensembles are unnecessary because many proteins occupy a single state under physiological conditions.  For such proteins, it is probably safe to enforce single state behavior, as is done in current modeling approaches. However, we suggest that the number of states be \emph{inferred}--not \emph{assumed}.  
+
+
+\subsection{Resolving Fine Structure}
+
+The five BELT ensembles show quantitative agreement in $\alpha$, $\beta$, and $PP_{II}$ populations (Fig. \ref{figure:ALA3}).  However, examining the finer details of each Ramachandran plot (Fig. \ref{figure:Rama}) suggests subtle differences between the 
+five models.  Because all five BELT ensembles show excellent agreement with experiment (Fig. \ref{figure:ChiSquared}), we conclude that current predictors of chemical shifts and scalar couplings are insufficiently precise to resolve (and falsify) subtle forcefield differences.  The most obvious such difference is the width, shape, and orientation of the $PP_{II}$ basin.  Most strikingly, amber96 and oplsaa have $PP_{II}$ basins that are vertically oriented, while amber99, amber99sbnmr-ildn, and charmm27 show diagonally oriented $PP_{II}$ basins.  This highlights the need for more sensitive connections between simulation and experiment.
+
 
 \subsection{Comparison to previous methods}
 
-LVBP offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{graf2005}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
+BELT offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{Graf2007}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
 when predicting experiments \emph{not} used to train the model.  
 
-In contrast, LVBP avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
+In contrast, BELT avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
 
-First, in LVBP, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the experiments is small, as is often the case, the inference problem has only a few parameters to estimate.  
+First, in BELT, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the experiments is small, as is often the case, the inference problem has only a few parameters to estimate.  
 
 Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenenoma.  For example, the projection onto observables could be used to rationally infer forcefield parameters, similar to ForceBalance method \cite{LeePing}.  
 
-Third, suppose two conformations have the same predicted experimental observables.  In LVBP, these conformations will have the same population.  In clustering based methods, the populations of these conformations could vary simply due to random fluctuations.  
+Third, suppose two conformations have the same predicted experimental observables.  In BELT, these conformations will have the same population.  In clustering based methods, the populations of these conformations could vary simply due to random fluctuations.  
 
-Finally, in the limit of exact measurements, LVBP gives the same answer as a previous \cite{chodera2012} maximum entropy approach (see Appx. SX).  
+Finally, in the limit of exact measurements, BELT gives the same answer as a previous \cite{chodera2012} maximum entropy approach (see Appx. SX).  
 
-These reasons provide a theoretical basis supporting the LVBP method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{friedman2001elements}.  We therefore fit BW models on the training data and evaluated on the set-aside test data.  For four out of five force fields, we find that the LVBP models outperform the raw MD models and the BW model with few (4) and many (144) states, respectively.  Our four state model consists of the $(\phi, \psi)$ based secondary structure assignments \cite{Jha2005} ($\alpha_r$, $\beta$, $PP_{II}$, and $\alpha_l$).  Our 144 state model was constructed by dividing the ramachandran plot into square bins of $30\times30$ degrees.  Although the BW models outperform LVBP in one case, this case happens to be for the amber99sbnmr-ildn forcefield.  That forcefield was \emph{fit} to match NMR observables; the raw MD simulation has a reduced $\chi^2$ well below 1.  This 
-suggests that all methods (raw MD, LVBP, and BW) are consistent with experiment.  
+These reasons provide a theoretical basis supporting the BELT method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{friedman2001elements}.  We therefore fit BW models on the training data and evaluated on the set-aside test data.  For four out of five force fields, we find that the BELT models outperform the raw MD models and the BW model with few (4) and many (144) states, respectively.  Our four state model consists of the $(\phi, \psi)$ based secondary structure assignments \cite{Jha2005} ($\alpha_r$, $\beta$, $PP_{II}$, and $\alpha_l$).  Our 144 state model was constructed by dividing the ramachandran plot into square bins of $30\times30$ degrees.  Although the BW models outperform BELT in one case, this case happens to be for the amber99sbnmr-ildn forcefield.  That forcefield was \emph{fit} to match NMR observables; the raw MD simulation has a reduced $\chi^2$ well below 1.  This 
+suggests that all methods (raw MD, BELT, and BW) are consistent with experiment.  
 
 \begin{math}
 \begin{tabular}{lrrrrr}
@@ -191,7 +271,7 @@ MD     &  1.508180 &  3.199790 &           0.644300 &  1.161881 &  2.310684 \\
 
 \section{Future Work}
 
-The LVBP method can be extended in several ways.  We have already worked out some of these extensions.  In App. SX, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  
+The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In App. SX, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  
 
 More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. SX) approaches used herein.  In such a model, it is likely that both the prediction and conformational uncertainties are non-normal; future work will be useful for exploring such models.  
 
@@ -209,7 +289,7 @@ We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Da
 \subsection{Methods: Trialanine}
 
 Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000}, amber99sbnmr-ildn\cite{li2010}, charmm27\cite{mackerell2004extending,bjelkmar2010implementation}, and oplsaa\cite{kaminski2001evaluation} force fields, as previously reported \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5 \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 5 ps.  Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\cite{han2011shiftx2}, SPARTA+ \cite{Shen2010}, and PPM\cite{li2012ppm}; uncertainties were estimated as the mean uncertainty reported by SPARTA+. J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \cite{Schmidt1999}, $^3J(H^N H^\alpha)$ \cite{vogeli2007limits}, $^2J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^\alpha C')$ \cite{Schmidt1999}, $^1J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^N C^\beta)$ \
-cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+\cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
 
 \bibliography{belt}
