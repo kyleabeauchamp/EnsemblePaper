@@ -17,8 +17,8 @@ directory = "%s/%s" % (ALA3.data_dir , ff)
 out_dir = directory + "/models-%s/" % prior
 pymc_filename = out_dir + "/model.h5"
 
-predictions, measurements, uncertainties = experiment_loader.load(directory, stride=ALA3.stride)
-phi, psi, ass_raw, state_ind = experiment_loader.load_rama(directory, ALA3.stride)
+predictions, measurements, uncertainties = experiment_loader.load(ff, stride=ALA3.stride)
+phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
 num_frames, num_measurements = predictions.shape
 
 if num_bins != 0:

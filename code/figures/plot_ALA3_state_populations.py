@@ -43,7 +43,7 @@ for state,state_name in enumerate(state_name_list):
     pops = mu_data[:,state]
     errs = err_data[:,state].T
     plt.bar(x_local[0] + x_global,raw_pops,color='b',label="MD",log=use_log)
-    plt.bar(x_local[1] + x_global,pops,color='g',label="LVBP",log=use_log,yerr=errs,ecolor="k")
+    plt.bar(x_local[1] + x_global,pops,color='g',label="BELT",log=use_log,yerr=errs,ecolor="k")
     plt.xticks(x_global + 1, ALA3.ff_list,rotation=60,fontsize=10)
     plt.ylabel("%s Population"%state_name)
     plt.legend(loc=0)

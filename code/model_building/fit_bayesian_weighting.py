@@ -1,3 +1,4 @@
+import pandas as pd
 import numpy as np
 from fitensemble import bayesian_weighting
 import experiment_loader
@@ -6,35 +7,33 @@ import ALA3
 
 prior = "BW"
 ff = "oplsaa"
-effective_counts = 100
+effective_counts = 1.
 
-directory = "%s/%s" % (ALA3.data_dir , ff)
-out_dir = directory + "/models-%s/" % prior
-pymc_filename = out_dir + "/model.h5"
+out_dir = ALA3.data_directory + "/BW_models/"
 
-predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, stride=ALA3.stride)
-num_frames, num_measurements = predictions.shape
+predictions_framewise, measurements, uncertainties = experiment_loader.load(ff)
+phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
 
-prior_state_pops = np.bincount(ass_raw).astype('float')
-prior_state_pops /= prior_state_pops.sum()
-prior_state_pops *= effective_counts
+num_states = ass_raw.max() + 1
+prior_pops = np.bincount(ass_raw).astype('float')
+prior_pops /= prior_pops.sum()
+prior_pops *= effective_counts
 
-model = bayesian_weighting.BayesianWeighting(predictions.values, measurements.values, uncertainties.values, ass_raw, prior_state_pops=prior_state_pops)
-#model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)
-model.sample(5000000, thin=ALA3.thin, burn=ALA3.burn)
-p = model.accumulate_populations()
+prior_pops = np.ones(num_states)
+raw_pops = np.bincount(ass_raw).astype('float')
+raw_pops /= raw_pops.sum()
 
-pi = model.mcmc.trace("matrix_populations[0]")[:]
+predictions = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predictions_framewise, ass_raw), columns=predictions_framewise.columns)
+model = bayesian_weighting.BayesianWeighting(predictions.values, measurements.values, uncertainties.values, ass_raw, prior_pops=prior_pops)
+model.sample(2000000, thin=ALA3.thin, burn=ALA3.burn)
+
+
 mu = model.mcmc.trace("mu")[:]
-rms = (((mu - measurements.values) / uncertainties.values)**2).mean(0).mean()**0.5
+chi2_train = (((mu - measurements.values) / uncertainties.values) ** 2).mean(0).mean()
 
-predictions, measurements, uncertainties, phi, psi, ass_raw, state_ind = experiment_loader.load(directory, select_keys=ALA3.test_keys)
-predictions_statewise = np.array([predictions.values[ass_raw == i].mean(0) for i in np.arange(model.num_states)])
+predictions_framewise_test, measurements_test, uncertainties_test = experiment_loader.load(ff, keys=ALA3.test_keys)
+predictions_test = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predictions_framewise_test, ass_raw), columns=predictions_framewise_test.columns)
 
-mu_test = model.trace_observable(predictions_statewise)
-rms_test = (((mu_test - measurements.values) / uncertainties.values)**2).mean(0).mean()**0.5
-
-
-lvbp_model = lvbp.LVBP.load("./oplsaa/models-maxent/reg-7-BB0.h5")
-mu_lvbp = lvbp_model.trace_observable(predictions)
-rms_lvbp = (((mu_lvbp - measurements.values) / uncertainties.values)**2).mean(0).mean()**0.5
+mu_test = model.trace_observable(predictions_test)
+chi2_test = (((mu_test - measurements_test.values) / uncertainties_test.values) ** 2).mean(0).mean()
+chi2_test_raw = (((predictions_test.T.dot(raw_pops) - measurements_test.values) / uncertainties_test.values) ** 2).mean(0)

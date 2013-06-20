@@ -74,4 +74,5 @@ data_directory = "/home/kyleb/dat/ala_lvbp/"
 
 outdir = "/home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/"
 cross_val_filename = outdir + "../../data/cross_val.dat"
+chi2_filename = outdir + "../../data/chi2.dat"
 experiment_filename = outdir + "../../data/experimental_data.csv"
