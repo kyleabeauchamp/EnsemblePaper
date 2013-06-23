@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{41}
+\begin{mcitethebibliography}{44}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -60,15 +60,14 @@ Graf,~J.; Nguyen,~P.; Stock,~G.; Schwalbe,~H. \emph{J. Am. Chem. Soc.}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
-Pitera,~J.; Chodera,~J. \emph{Journal of Chemical Theory and Computation}
-  \textbf{2012}, \relax
+Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
-Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{Journal of the American Chemical
-  Society} \textbf{2010}, \emph{132}, 14919\relax
+Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{J. Am. Chem. Soc.} \textbf{2010},
+  \emph{132}, 14919\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -168,8 +167,8 @@ Pronk,~S.; Pall,~S.; Schulz,~R.; Larsson,~P.; Bjelkmar,~P.; Apostolov,~R.;
   Beauchamp, Lane, Wang, Shukla, and Pande]{eastman2012openmm}
 Eastman,~P.; Friedrichs,~M.~S.; Chodera,~J.~D.; Radmer,~R.~J.; Bruns,~C.~M.;
   Ku,~J.~P.; Beauchamp,~K.~A.; Lane,~T.~J.; Wang,~L.-P.; Shukla,~D.;
-  Pande,~V.~S. \emph{Journal of chemical theory and computation} \textbf{2012},
-  \emph{9}, 461--469\relax
+  Pande,~V.~S. \emph{J. Chem. Theory Comput.} \textbf{2012}, \emph{9},
+  461--469\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -214,8 +213,8 @@ Voelz,~V.; Bowman,~G.; Beauchamp,~K.; Pande,~V. \emph{J. Am. Chem. Soc.}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Bowman et~al.(2011)Bowman, Voelz, and Pande]{bowman2011atomistic}
-Bowman,~G.~R.; Voelz,~V.~A.; Pande,~V.~S. \emph{Journal of the American
-  Chemical Society} \textbf{2011}, \emph{133}, 664\relax
+Bowman,~G.~R.; Voelz,~V.~A.; Pande,~V.~S. \emph{J. Am. Chem. Soc.}
+  \textbf{2011}, \emph{133}, 664\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -237,10 +236,33 @@ Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.; Shaw,~D. \emph{Science}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Wang et~al.(2012)Wang, Chen, and Van~Voorhis]{wang2012}
+Wang,~L.-P.; Chen,~J.; Van~Voorhis,~T. \emph{J. Chem. Theory Comput.}
+  \textbf{2012}, \emph{9}, 452--460\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wang et~al.(2013)Wang, Head-Gordon, Ponder, Ren, Chodera, Eastman,
+  Mart{\'\i}nez, and Pande]{wang2013systematic}
+Wang,~L.-P.; Head-Gordon,~T.~L.; Ponder,~J.~W.; Ren,~P.; Chodera,~J.~D.;
+  Eastman,~P.~K.; Mart{\'\i}nez,~T.~J.; Pande,~V.~S. \emph{J. Phys. Chem. B}
+  \textbf{2013}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Friedman et~al.(2001)Friedman, Hastie, and
   Tibshirani]{friedman2001elements}
 Friedman,~J.; Hastie,~T.; Tibshirani,~R. \emph{The elements of statistical
   learning}; Springer Series in Statistics, 2001; Vol.~1\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Habeck et~al.(2006)Habeck, Rieping, and Nilges]{habeck2006}
+Habeck,~M.; Rieping,~W.; Nilges,~M. \emph{Proc. Natl. Acad. Sci.}
+  \textbf{2006}, \emph{103}, 1756--1761\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -319,8 +341,8 @@ Schmidt,~J.; Blümel,~M.; Löhr,~F.; Rüterjans,~H. \emph{J. Biomol. NMR}
 \EndOfBibitem
 \bibitem[V{\"o}geli et~al.(2007)V{\"o}geli, Ying, Grishaev, and
   Bax]{vogeli2007limits}
-V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{Journal of the American
-  Chemical Society} \textbf{2007}, \emph{129}, 9377--9385\relax
+V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{J. Am. Chem. Soc.}
+  \textbf{2007}, \emph{129}, 9377--9385\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

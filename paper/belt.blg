@@ -5,46 +5,44 @@ The style file: achemso.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-belt.bib
 Database file #2: belt.bib
-Warning--I didn't find a database entry for "LeePing"
-You've used 41 entries,
+You've used 44 entries,
             2470 wiz_defined-function locations,
-            993 strings with 14492 characters,
-and the built_in function-call counts, 14473 in all, are:
-= -- 1078
-> -- 975
+            1000 strings with 14938 characters,
+and the built_in function-call counts, 15562 in all, are:
+= -- 1157
+> -- 1054
 < -- 14
-+ -- 384
-- -- 343
-* -- 1646
-:= -- 2003
-add.period$ -- 40
-call.type$ -- 41
++ -- 415
+- -- 371
+* -- 1772
+:= -- 2155
+add.period$ -- 43
+call.type$ -- 44
 change.case$ -- 3
 chr.to.int$ -- 2
-cite$ -- 41
-duplicate$ -- 827
-empty$ -- 881
-format.name$ -- 392
-if$ -- 2654
+cite$ -- 44
+duplicate$ -- 890
+empty$ -- 943
+format.name$ -- 423
+if$ -- 2851
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 261
-num.names$ -- 120
-pop$ -- 83
+newline$ -- 279
+num.names$ -- 129
+pop$ -- 90
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 1
 stack$ -- 0
-substring$ -- 763
-swap$ -- 915
-text.length$ -- 81
+substring$ -- 817
+swap$ -- 987
+text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 281
+type$ -- 302
 warning$ -- 0
-while$ -- 147
+while$ -- 157
 width$ -- 0
-write$ -- 495
-(There was 1 warning)
+write$ -- 530

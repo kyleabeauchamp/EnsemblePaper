@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  18 JUN 2013 16:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  22 JUN 2013 20:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -525,11 +525,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(./supporting_information.aux
-
-LaTeX Warning: Label `figure:ALA3_rama' multiply defined.
-
-)
+(./supporting_information.aux)
 \openout1 = `supporting_information.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
@@ -545,7 +541,8 @@ LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 27.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 \openout3 = `acs-supporting_information.bib'.
@@ -739,358 +736,32 @@ Overfull \hbox (4.33499pt too wide) in paragraph at lines 172--172
 VBP 
  []
 
-[8] [9]
-Overfull \hbox (10.4513pt too wide) in paragraph at lines 193--193
-[]\T1/ptm/b/n/17.28 Appendix S8. Com-par-i-son to Pre-vi-ous En-sem-ble Mod-ell
-ing Meth-
- []
+[8] [9] (./supporting_information.bbl) [10
 
-[10
-
-] [11]
-<figures/ALA3_amber96_PPII_MCMC.pdf, id=48, 511.42159pt x 424.9156pt>
-File: figures/ALA3_amber96_PPII_MCMC.pdf Graphic file (type pdf)
-
-<use figures/ALA3_amber96_PPII_MCMC.pdf>
-Package pdftex.def Info: figures/ALA3_amber96_PPII_MCMC.pdf used on input line 
-213.
-(pdftex.def)             Requested size: 149.37697pt x 124.11063pt.
-
-<figures/ALA3_amber99_PPII_MCMC.pdf, id=49, 528.48534pt x 424.9156pt>
-File: figures/ALA3_amber99_PPII_MCMC.pdf Graphic file (type pdf)
-
-<use figures/ALA3_amber99_PPII_MCMC.pdf>
-Package pdftex.def Info: figures/ALA3_amber99_PPII_MCMC.pdf used on input line 
-214.
-(pdftex.def)             Requested size: 149.37697pt x 120.10371pt.
- [12 <./figures/ALA3_amber96_PPII_MCMC.pdf> <./figures/ALA3_amber99_PPII_MCMC.p
-df
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_amber99_PPII_MCMC.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
->] <figures/ALA3_rama_amber96_raw.pdf, id=150, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber96_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber96_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber96_raw.pdf used on input line 2
-27.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_amber99_raw.pdf, id=151, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber99_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99_raw.pdf used on input line 2
-28.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf, id=152, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf Graphic file (type pdf)
-<use figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf used on in
-put line 229.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_amber96_lvbp.pdf, id=153, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber96_lvbp.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber96_lvbp.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber96_lvbp.pdf used on input line 
-231.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_amber99_lvbp.pdf, id=154, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99_lvbp.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber99_lvbp.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99_lvbp.pdf used on input line 
-232.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf, id=155, 434.9688pt x 423.91185pt
->
-File: figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf Graphic file (type pdf)
- <use figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf used on i
-nput line 233.
-(pdftex.def)             Requested size: 149.37697pt x 145.5835pt.
-
-<figures/ALA3_rama_charmm27_raw.pdf, id=156, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_charmm27_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_charmm27_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_charmm27_raw.pdf used on input line 
-235.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_oplsaa_raw.pdf, id=157, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_oplsaa_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_oplsaa_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 23
-6.
-(pdftex.def)             Requested size: 149.37697pt x 146.93063pt.
-
-<figures/ALA3_rama_charmm27_lvbp.pdf, id=158, 434.9688pt x 423.91185pt>
-File: figures/ALA3_rama_charmm27_lvbp.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_charmm27_lvbp.pdf>
-Package pdftex.def Info: figures/ALA3_rama_charmm27_lvbp.pdf used on input line
- 238.
-(pdftex.def)             Requested size: 149.37697pt x 145.5835pt.
-
-<figures/ALA3_rama_oplsaa_lvbp.pdf, id=159, 434.9688pt x 423.91185pt>
-File: figures/ALA3_rama_oplsaa_lvbp.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_oplsaa_lvbp.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_lvbp.pdf used on input line 2
-39.
-(pdftex.def)             Requested size: 149.37697pt x 145.5835pt.
-
-<figures/bpti_raw.png, id=160, 1606.0pt x 1606.0pt>
-File: figures/bpti_raw.png Graphic file (type png)
- <use figures/bpti_raw.png>
-Package pdftex.def Info: figures/bpti_raw.png used on input line 252.
-(pdftex.def)             Requested size: 284.52756pt x 284.50949pt.
-
-<figures/bpti_lvbp.png, id=162, 1606.0pt x 1606.0pt>
-File: figures/bpti_lvbp.png Graphic file (type png)
-
-<use figures/bpti_lvbp.png>
-Package pdftex.def Info: figures/bpti_lvbp.png used on input line 255.
-(pdftex.def)             Requested size: 284.52756pt x 284.50949pt.
-
-
-LaTeX Warning: Float too large for page by 15.66843pt on input line 261.
-
-<figures/BPTI_shifts_N.pdf, id=163, 520.3534pt x 419.81844pt>
-File: figures/BPTI_shifts_N.pdf Graphic file (type pdf)
-
-<use figures/BPTI_shifts_N.pdf>
-Package pdftex.def Info: figures/BPTI_shifts_N.pdf used on input line 268.
-(pdftex.def)             Requested size: 227.62204pt x 183.64449pt.
-
-<figures/BPTI_shifts_H.pdf, id=164, 515.44443pt x 419.81844pt>
-File: figures/BPTI_shifts_H.pdf Graphic file (type pdf)
-
-<use figures/BPTI_shifts_H.pdf>
-Package pdftex.def Info: figures/BPTI_shifts_H.pdf used on input line 269.
-(pdftex.def)             Requested size: 227.62204pt x 185.3933pt.
-
-<figures/BPTI_shifts_CA.pdf, id=165, 509.97086pt x 419.81844pt>
-File: figures/BPTI_shifts_CA.pdf Graphic file (type pdf)
-
-<use figures/BPTI_shifts_CA.pdf>
-Package pdftex.def Info: figures/BPTI_shifts_CA.pdf used on input line 271.
-(pdftex.def)             Requested size: 227.62204pt x 187.37912pt.
-
-<figures/BPTI_shifts_HA.pdf, id=166, 515.71106pt x 419.81844pt>
-File: figures/BPTI_shifts_HA.pdf Graphic file (type pdf)
-
-<use figures/BPTI_shifts_HA.pdf>
-Package pdftex.def Info: figures/BPTI_shifts_HA.pdf used on input line 272.
-(pdftex.def)             Requested size: 227.62204pt x 185.29721pt.
-
-<figures/BPTI_couplings_J3_HN_HA.pdf, id=167, 508.71617pt x 423.112pt>
-File: figures/BPTI_couplings_J3_HN_HA.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J3_HN_HA.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J3_HN_HA.pdf used on input line
- 282.
-(pdftex.def)             Requested size: 227.62204pt x 189.32045pt.
-
-<figures/BPTI_couplings_J3_HN_Cprime.pdf, id=168, 529.27736pt x 423.112pt>
-File: figures/BPTI_couplings_J3_HN_Cprime.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J3_HN_Cprime.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J3_HN_Cprime.pdf used on input 
-line 283.
-(pdftex.def)             Requested size: 227.62204pt x 181.96689pt.
-
-<figures/BPTI_couplings_J3_HA_Cprime.pdf, id=169, 498.50615pt x 423.112pt>
-File: figures/BPTI_couplings_J3_HA_Cprime.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J3_HA_Cprime.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J3_HA_Cprime.pdf used on input 
-line 285.
-(pdftex.def)             Requested size: 227.62204pt x 193.19415pt.
-
-<figures/BPTI_couplings_J3_HN_CB.pdf, id=170, 511.96268pt x 424.11574pt>
-File: figures/BPTI_couplings_J3_HN_CB.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J3_HN_CB.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J3_HN_CB.pdf used on input line
- 286.
-(pdftex.def)             Requested size: 227.62204pt x 188.56589pt.
-
-<figures/BPTI_couplings_J2_N_CA.pdf, id=171, 515.30328pt x 423.112pt>
-File: figures/BPTI_couplings_J2_N_CA.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J2_N_CA.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J2_N_CA.pdf used on input line 
-288.
-(pdftex.def)             Requested size: 227.62204pt x 186.8994pt.
-
-<figures/BPTI_couplings_J1_N_CA.pdf, id=172, 525.95244pt x 423.112pt>
-File: figures/BPTI_couplings_J1_N_CA.pdf Graphic file (type pdf)
-
-<use figures/BPTI_couplings_J1_N_CA.pdf>
-Package pdftex.def Info: figures/BPTI_couplings_J1_N_CA.pdf used on input line 
-289.
-(pdftex.def)             Requested size: 227.62204pt x 183.11609pt.
-
-<figures/BPTI_backbone_torsion_states_15.pdf, id=173, 531.22966pt x 423.91185pt
->
-File: figures/BPTI_backbone_torsion_states_15.pdf Graphic file (type pdf)
- <use figures/BPTI_backbone_torsion_states_15.pdf>
-Package pdftex.def Info: figures/BPTI_backbone_torsion_states_15.pdf used on in
-put line 300.
-(pdftex.def)             Requested size: 227.62204pt x 181.63817pt.
-
-<figures/BPTI_backbone_torsion_states_16.pdf, id=174, 531.22966pt x 423.91185pt
->
-File: figures/BPTI_backbone_torsion_states_16.pdf Graphic file (type pdf)
- <use figures/BPTI_backbone_torsion_states_16.pdf>
-Package pdftex.def Info: figures/BPTI_backbone_torsion_states_16.pdf used on in
-put line 301.
-(pdftex.def)             Requested size: 227.62204pt x 181.63817pt.
-
-<figures/BPTI_backbone_torsion_states_17.pdf, id=175, 531.22966pt x 423.91185pt
->
-File: figures/BPTI_backbone_torsion_states_17.pdf Graphic file (type pdf)
- <use figures/BPTI_backbone_torsion_states_17.pdf>
-Package pdftex.def Info: figures/BPTI_backbone_torsion_states_17.pdf used on in
-put line 302.
-(pdftex.def)             Requested size: 227.62204pt x 181.63817pt.
-
-<figures/bpti_noe_state1.png, id=176, 1606.0pt x 1606.0pt>
-File: figures/bpti_noe_state1.png Graphic file (type png)
-
-<use figures/bpti_noe_state1.png>
-Package pdftex.def Info: figures/bpti_noe_state1.png used on input line 314.
-(pdftex.def)             Requested size: 284.52756pt x 284.50949pt.
-
-<figures/bpti_noe_state2.png, id=177, 1606.0pt x 1606.0pt>
-File: figures/bpti_noe_state2.png Graphic file (type png)
-
-<use figures/bpti_noe_state2.png>
-Package pdftex.def Info: figures/bpti_noe_state2.png used on input line 318.
-(pdftex.def)             Requested size: 284.52756pt x 284.50949pt.
- [13 <./figures/ALA3_rama_amber96_raw.pdf> <./figures/ALA3_rama_amber99_raw.pdf
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99_raw.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99sbnmr-ildn_r
-aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-
-> <./figures/ALA3_rama_amber96_lvbp.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber96_lvbp.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99_lvbp.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99_lvbp.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99sbnmr-ildn_l
-vbp.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
-e
-> <./figures/ALA3_rama_charmm27_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_charmm27_raw.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_oplsaa_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_oplsaa_raw.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_charmm27_lvbp.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_charmm27_lvbp.pdf):
- PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_oplsaa_lvbp.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_oplsaa_lvbp.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
->] [14 <./figures/bpti_raw.png> <./figures/bpti_lvbp.png>] [15 <./figures/BPTI_
-shifts_N.pdf> <./figures/BPTI_shifts_H.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_shifts_H.pdf): PDF inclu
-sion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_shifts_CA.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_shifts_CA.pdf): PDF incl
-usion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_shifts_HA.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_shifts_HA.pdf): PDF incl
-usion: multiple pdfs with page group included in a single page
->] [16 <./figures/BPTI_couplings_J3_HN_HA.pdf> <./figures/BPTI_couplings_J3_HN_
-Cprime.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_couplings_J3_HN_Cprime.p
-df): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_couplings_J3_HA_Cprime.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_couplings_J3_HA_Cprime.p
-df): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_couplings_J3_HN_CB.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_couplings_J3_HN_CB.pdf):
- PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_couplings_J2_N_CA.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_couplings_J2_N_CA.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/BPTI_couplings_J1_N_CA.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_couplings_J1_N_CA.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
->] [17 <./figures/BPTI_backbone_torsion_states_15.pdf> <./figures/BPTI_backbone
-_torsion_states_16.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_backbone_torsion_states_
-16.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-
-> <./figures/BPTI_backbone_torsion_states_17.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/BPTI_backbone_torsion_states_
-17.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-
->] [18 <./figures/bpti_noe_state1.png> <./figures/bpti_noe_state2.png>]
-(./supporting_information.bbl) [19
-
-] (./supporting_information.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] (./supporting_information.aux) ) 
 Here is how much of TeX's memory you used:
- 6224 strings out of 495059
- 92465 string characters out of 3182030
- 148436 words of memory out of 3000000
- 9199 multiletter control sequences out of 15000+200000
+ 6053 strings out of 495059
+ 86766 string characters out of 3182030
+ 147087 words of memory out of 3000000
+ 9059 multiletter control sequences out of 15000+200000
  91258 words of font info for 164 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,8n,94p,1046b,475s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
-/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on supporting_information.pdf (19 pages, 5787060 bytes).
+ 60i,8n,94p,1046b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvip
+s/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cme
+x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symb
+ol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on supporting_information.pdf (10 pages, 119740 bytes).
 PDF statistics:
- 2387 PDF objects out of 2487 (max. 8388607)
- 429 compressed objects within 5 object streams
+ 82 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
