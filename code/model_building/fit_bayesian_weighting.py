@@ -6,7 +6,7 @@ import sys
 import ALA3
 
 prior = "BW"
-ff = "oplsaa"
+ff = "charmm27"
 effective_counts = 1.
 
 out_dir = ALA3.data_directory + "/BW_models/"
@@ -37,3 +37,19 @@ predictions_test = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predic
 mu_test = model.trace_observable(predictions_test)
 chi2_test = (((mu_test - measurements_test.values) / uncertainties_test.values) ** 2).mean(0).mean()
 chi2_test_raw = (((predictions_test.T.dot(raw_pops) - measurements_test.values) / uncertainties_test.values) ** 2).mean(0)
+
+
+predictions_framewise_all, measurements_all, uncertainties_all = experiment_loader.load(ff, keys=None)
+predictions_all = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predictions_framewise_all, ass_raw), columns=predictions_framewise_all.columns)
+
+mu_all = model.trace_observable(predictions_all)
+chi2_all = (((mu_all - measurements_all.values) / uncertainties_all.values) ** 2).mean(0).mean()
+chi2_all_raw = (((predictions_all.T.dot(raw_pops) - measurements_all.values) / uncertainties_all.values) ** 2).mean(0)
+
+
+F = open(ALA3.chi2_filename, 'a')
+F.write("all,BW4,%s,%s,%f \n" % (ff, prior, chi2_all))
+F.write("train,BW4,%s,%s,%f \n" % (ff, prior, chi2_train))
+F.write("test,BW4,%s,%s,%f \n" % (ff, prior, chi2_test))
+F.flush()
+
