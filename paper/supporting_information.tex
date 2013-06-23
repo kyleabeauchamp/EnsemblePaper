@@ -33,7 +33,7 @@
 
 \section{Appendix S1.  Derivation of Reweighting}
 
-Here we derive the population estimator used in LVBP.  As in the main text, we use subscripted angle brackets to indicate ensemble averages in reweighted ensembles: $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta (x;\alpha) = \sum_i \alpha_i f_i(x)$:
+Here we derive the population estimator used in BELT.  As in the main text, we use subscripted angle brackets to indicate ensemble averages in reweighted ensembles: $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta (x;\alpha) = \sum_i \alpha_i f_i(x)$:
 
 $$\langle h(x)\rangle _\alpha = \frac{1}{Z(\alpha)} \int dx \exp[-U(x) + \sum_i \alpha_i f_i(x)] h(x)$$
 
@@ -57,7 +57,7 @@ where $\pi_j(\alpha)$ give estimates of the conformation weights at a particular
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta(x_k;\alpha)]} \exp[-\Delta(x_j;\alpha)]$$
 
-Thus, LVBP is essentially exponential averaging applied to a weighted combination of experiment-derived biasing potentials.  However, the present work has introduced two key advances.  First, the use of Markov chain Monte Carlo allows rigorous uncertainty analysis.  Second, maximum entropy regularization reduces the high variance previously associated with exponential averaging.  
+Thus, BELT is essentially exponential averaging applied to a weighted combination of experiment-derived biasing potentials.  However, the present work has introduced two key advances.  First, the use of Markov chain Monte Carlo allows rigorous uncertainty analysis.  Second, maximum entropy regularization reduces the high variance previously associated with exponential averaging.  
 
 \section{Appendix S2.  Alternative Error Models}
 
@@ -81,7 +81,7 @@ Another choice of prior would be to use the Jeffrey's prior, which is uninformat
 
 \section{Appendix S4.  Derivation of Jeffrey's Prior}
 
-This section derives the Jeffrey's prior for the LVBP likelihood.  We do \emph{not} recommend the use of this prior.  This section can be skipped by most readers; we include it only for completeness.
+This section derives the Jeffrey's prior for the BELT likelihood.  We do \emph{not} recommend the use of this prior.  This section can be skipped by most readers; we include it only for completeness.
 
 Jeffrey's prior dictates that 
 
@@ -124,7 +124,7 @@ $$S_{ia} = \sum_k \pi_k (<F_a>_\alpha - f_{ka}) f_{ki}$$
 
 \section{Appendix S5.  Determining Prior Strength Via Cross-Validation}
 
-The priors discussed for LVBP typically contain a single free parameter, $\lambda$, which controls the relative weight of simulation and experiment.  At least three different approaches can help select an appropriate value of $\lambda$:
+The priors discussed for BELT typically contain a single free parameter, $\lambda$, which controls the relative weight of simulation and experiment.  At least three different approaches can help select an appropriate value of $\lambda$:
 
 \begin{enumerate}
  \item Cross validation on simulation data
@@ -190,22 +190,22 @@ A heuristic approach to selecting $\lambda$ is to choose the smallest value of $
 
 \section{Appendix S6.  Bayesian Bootstrapping}
 
-The LVBP model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
+The BELT model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
 
 One additional complication arises when using molecular dynamics simulations, which produce a correlated time series.  Because of this, it is not sufficient to simply use a Dirichlet whose dimension is the same as the number of snapshots--such a procedure will significantly underestimate uncertainties due to correlation between frames.  Instead, one must first divide the trajectory into independent blocks.  The Dirichlet random variable is then chosen to sample the relative weights of each of the independent blocks.  Choosing the length of each block can be done by applying Bayesian bootstrapping to the un-reweighted trajectory.  Given some observable of interest, $O$, one calculates $O(B)$ for a sequence of block lengths, choosing the value of $B$ that maximizes the estimated uncertainty of $O$.  The block length could also be calculated using other blocking methods \cite{flyvbjerg1989error} or by statistical inefficiency analysis \cite{shirts2008}.  
 
-In practice, applying Bayesian bootstrapping involves repeating several LVBP calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.  The MCMC traces of each run are then pooled.  
+In practice, applying Bayesian bootstrapping involves repeating several BELT calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.  The MCMC traces of each run are then pooled.  
 
-\section{Appendix S7.  Connection between Maximum Entropy and LVBP}
+\section{Appendix S7.  Connection between Maximum Entropy and BELT}
 
 
-Linear Virtual Biasing Potential generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and LVBP.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
+Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and BELT.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
 
 $$\frac{d\Lambda}{d\alpha_k} = -\langle f_k \rangle_\alpha + F_k$$
 
 The obvious solution, when feasible, is to set $\langle f_i(x) \rangle_\alpha = F_i$.  
 
-In LVBP, we instead sample the following log likelihood:
+In BELT, we instead sample the following log likelihood:
 
 $$LL(\alpha) = -\sum_i \frac{1}{2\sigma_i^2}(\langle f_i\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
 
@@ -213,15 +213,15 @@ If we assume a constant prior and maximize the likelihood, the problem becomes e
 
 $$ \frac{dLL}{d\alpha_k} =  -\sum_i \frac{1}{\sigma_i^2} (\langle f_i\rangle _\alpha - F_i) \frac{d\langle f_i\rangle _\alpha}{d\alpha_k} = 0$$
 
-As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the log likelihood.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and LVBP.  
+As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the log likelihood.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and BELT.  
 
 \clearpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Appendix S9. Data Curation}
 
-Because the LVBP log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing LVBP analysis.  We discuss two examples we encountered in the current analysis.  
+Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss two examples we encountered in the current analysis.  
 
-Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from LVBP analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
+Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
 
 Another example of data quality arose in the BPTI analysis.  It has previously been observed that different chemical shift models give significantly different predictions for the millisecond simulation of BPTI \cite{xue2012microsecond}.  Modern chemical shift prediction tools (e.g. PPM, SPARTA+, ShiftX2) are reported to have similar accuracy.  We therefore chose to use the average predictions of the three chemical shift models; this averaging procedure reduces the statistical uncertainty of individual chemical shift predictions.  
 
