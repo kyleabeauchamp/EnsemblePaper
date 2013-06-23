@@ -1,4 +1,4 @@
-subset method ff prior value
+subset,method,ff,prior,value
 all,belt,amber96,maxent,0.366263
 train,belt,amber96,maxent,0.210124 
 test,belt,amber96,maxent,0.503427 
@@ -59,3 +59,18 @@ test,belt,oplsaa,MVN,0.911511
 all,raw,oplsaa,MVN,2.262642 
 train,raw,oplsaa,MVN,1.098232 
 test,raw,oplsaa,MVN,4.932334 
+all,BW4,amber96,BW,0.367609 
+train,BW4,amber96,BW,0.186637 
+test,BW4,amber96,BW,0.667281 
+all,BW4,amber99sbnmr-ildn,BW,0.469176 
+train,BW4,amber99sbnmr-ildn,BW,0.443184 
+test,BW4,amber99sbnmr-ildn,BW,0.458290 
+all,BW4,amber99,BW,0.942937 
+train,BW4,amber99,BW,0.519611 
+test,BW4,amber99,BW,1.733481 
+all,BW4,oplsaa,BW,1.262657 
+train,BW4,oplsaa,BW,0.579540 
+test,BW4,oplsaa,BW,2.746252 
+all,BW4,charmm27,BW,0.478786 
+train,BW4,charmm27,BW,0.489463 
+test,BW4,charmm27,BW,0.469082 
