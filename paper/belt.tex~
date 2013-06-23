@@ -131,7 +131,7 @@ Trialanine was simulated (see Methods) in five different force fields; six exper
 \includegraphics[width=7.5cm]{figures/chi2_test.pdf}
 }
 \caption{
-(a).  The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for raw and reweighted simulations.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.
+(a).  The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for raw and reweighted simulations.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.  See Methods for the definition of training and test sets.
 }
 \label{figure:ChiSquared}
 \end{figure}
@@ -237,7 +237,7 @@ five models.  Because all five BELT ensembles show excellent agreement with expe
 
 \subsection{Comparison to Previous Ensemble Methods}
 
-BELT offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{Graf2007}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
+BELT offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{Graf2007}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
 when predicting experiments \emph{not} used to train the model.  
 
 In contrast, BELT avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
@@ -300,6 +300,9 @@ Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000
 \subsection{Chemical Shift and Scalar Couplings}
 
 Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\cite{han2011shiftx2}, SPARTA+ \cite{Shen2010}, and PPM\cite{li2012ppm}; uncertainties were estimated as the mean uncertainty reported by SPARTA+. J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \cite{Schmidt1999}, $^3J(H^N H^\alpha)$ \cite{vogeli2007limits}, $^2J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^\alpha C')$ \cite{Schmidt1999}, $^1J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^N C^\beta)$ \cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+
+We have divided the available experimental measurements into a training and test set, with the training set consisting of $^3J(H^N C')$,  $^2J(N C^\alpha)$, $^3J(H^N C^\beta)$ scalar couplings and the $C_\alpha$, the $H$, and the $C_\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, and $^1J(N C^\alpha)$.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that is approximately uncorrelated; BELT is best suited for working with uncorrelated data.  
+
 
 \subsection{BELT}
 

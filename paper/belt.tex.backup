@@ -131,7 +131,7 @@ Trialanine was simulated (see Methods) in five different force fields; six exper
 \includegraphics[width=7.5cm]{figures/chi2_test.pdf}
 }
 \caption{
-(a).  The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for raw and reweighted simulations.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.
+(a).  The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for raw and reweighted simulations.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.  See Methods for the definition of training and test sets.
 }
 \label{figure:ChiSquared}
 \end{figure}
@@ -237,7 +237,7 @@ five models.  Because all five BELT ensembles show excellent agreement with expe
 
 \subsection{Comparison to Previous Ensemble Methods}
 
-BELT offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{Graf2007}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting and sensitivity to prior--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
+BELT offers several key advantages over previous ensemble estimation techniques.  Most previous ensemble modeling efforts involve a protocol that involves three key ingredients: clustering, a $\chi^2$ objective function, and population inference on the clusters.  For example, this recipe describes the approach used in previous analyses of homopeptides \cite{Graf2007}, the EROS inference technique \cite{rozycki2011saxs}, and the Bayesian Weighting formalism \cite{fisher2010}.  In our opinion, the primary disadvantage of these techniques is the need for a clustering step.  The clustering step can introduce two forms of error.  First, clustering can overly coarsen the system of interest.  For example, too few states could prevent the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting--this is because one needs to estimate a large number of populations.  This will lead to poor generalization performance--high errors 
 when predicting experiments \emph{not} used to train the model.  
 
 In contrast, BELT avoids clustering by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold.  
@@ -254,7 +254,7 @@ We also point out some possibly surprising features of BELT as compared to BW-li
 
 \subsection{Quantitative Comparison of Ensemble Inference Techniques}
 
-The above reasons provide theoretical arguments supporting the BELT method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{friedman2001elements}.  We therefore fit models on the training data and evaluated them using set-aside test data.  
+The above reasons provide theoretical arguments supporting the BELT method.  However, it is possible to evaluate the method \emph{quantitatively}.  One hallmark of a good statistical model is its predictive ability on set-aside test data \cite{friedman2001elements}.  We therefore evaluated BW (see Appx. SX for details) and BELT models on set-aside test data.  
 
 For all five forcefields, BELT produces models that give statistical agreement with experiment on the test data.  For three out of five forcefields, BELT gives the \emph{best} model.  The BELT prior is relatively unimportant, but the maximum entropy prior appears marginally better than the MVN prior.  
 
@@ -284,20 +284,28 @@ Another promising avenue is to combine Bayesian modeling of structural ensembles
 
 \section{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates.  BELT models constructed with a handful of NMR measurements correct significant forcefield bias and provide generalizable, \emph{forcefield-independent} trialanine ensembles.  
 
-Limited experimental data can be used to supplement equilibrium simulations, leading to predictions that are robust to forcefield error and consistent with available measurements.  Our equilibrium ensemble of BPTI suggests coupled motion in the trypsin specificity loop and the C14-C38 disulfide bridge.  Falsifying or refining the present model offers a key challenge for understanding the conformational fluctuations in BPTI.
 
 \section{Acknowledgements}
 
-We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Dan Herschlag for helpful discussions.  We thank DE Shaw research for providing the millisecond simulation of BPTI.  
+We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Dan Herschlag for helpful discussions.  
 
 \section{Methods}
 
-\subsection{Methods: Trialanine}
+\subsection{Molecular Dynamics Simulations}
 
-Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000}, amber99sbnmr-ildn\cite{li2010}, charmm27\cite{mackerell2004extending,bjelkmar2010implementation}, and oplsaa\cite{kaminski2001evaluation} force fields, as previously reported \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5 \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 5 ps.  Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\cite{han2011shiftx2}, SPARTA+ \cite{Shen2010}, and PPM\cite{li2012ppm}; uncertainties were estimated as the mean uncertainty reported by SPARTA+. J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \cite{Schmidt1999}, $^3J(H^N H^\alpha)$ \cite{vogeli2007limits}, $^2J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^\alpha C')$ \cite{Schmidt1999}, $^1J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^N C^\beta)$ \
-\cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+Trialanine was simulated in the amber96\cite{kollman1996}, amber99\cite{wang2000}, amber99sbnmr-ildn\cite{li2010}, charmm27\cite{mackerell2004extending,bjelkmar2010implementation}, and oplsaa\cite{kaminski2001evaluation} force fields, as previously reported \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5 \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 5 ps.  
+
+\subsection{Chemical Shift and Scalar Couplings}
+
+Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\cite{han2011shiftx2}, SPARTA+ \cite{Shen2010}, and PPM\cite{li2012ppm}; uncertainties were estimated as the mean uncertainty reported by SPARTA+. J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \cite{Schmidt1999}, $^3J(H^N H^\alpha)$ \cite{vogeli2007limits}, $^2J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^\alpha C')$ \cite{Schmidt1999}, $^1J(N C^\alpha)$ \cite{Graf2007}, $^3J(H^N C^\beta)$ \cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+
+The 
+
+\subsection{BELT}
+
+All BELT calculations were performed using the FitEnsemble package (\url{https://github.com/kyleabeauchamp/FitEnsemble}).  The online FitEnsemble tutorial demonstrates the use of BELT with a single experimental measurement ($^3J(H^N H^\alpha)$).  Source code for calculations in this work will be made available at \url{https://github.com/kyleabeauchamp/EnsemblePaper}.  Unless otherwise noted, we used BELT with the maximum entropy prior; see Appx. SX for results with the MVN prior.  Regularization strength was determined via cross validation as described in Appx. SX.  
 
 
 \bibliography{belt}

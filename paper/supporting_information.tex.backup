@@ -4,6 +4,7 @@
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{url}
+\usepackage{booktabs}
 
 \makeatletter 
 \renewcommand{\thefigure}{S\@arabic\c@figure} 
@@ -22,7 +23,7 @@
 
 \email{rhiju@stanford.edu, pande@stanford.edu}
 
-\title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments: Binding Loop Flexibility in BPTI}
+\title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments: Application to Trialanine}
 
 \begin{document}
 
@@ -60,9 +61,9 @@ Thus, LVBP is essentially exponential averaging applied to a weighted combinatio
 
 \section{Appendix S2.  Alternative Error Models}
 
-The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified likelihood:
+The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified log likelihood:
 
-$$\log L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
+$$L L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
 
 where $P$ is the correlation matrix of the observables: $P_{ij} = Cor(f_i(x), f_j(x))$ and $z$ is the deviation between the $\alpha$ ensemble and the measurement, measured in units of the known uncertainty $\sigma_i$: $z_i = \frac{\langle f_i\rangle _\alpha - F_i}{\sigma_i}$.  Using this model will likely lead to increased estimates of uncertainties.  
 
@@ -71,8 +72,9 @@ Other possible error models involve modifying the assumption of normality.  A no
 
 \section{Appendix S3.  Choice of Prior}
 
-In the main text, we used a maximum entropy prior.  The maximum entropy prior depends on the parameters $\alpha$ by penalizing models as they deviate from the unweighted simulation.  Other priors are possible.  For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  
-However, we found that the MVN prior tends to weight individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on ``degenerate'' ensembles populating only a single frame.  
+In the main text, we used a maximum entropy prior.  The maximum entropy prior depends on the parameters $\alpha$ by penalizing models as they deviate from the unweighted simulation.  Other priors are possible.  
+
+For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on ``degenerate'' ensembles populating only a single frame.  
 
 Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to tune our relative belief in the forcefield versus experimental data.  Regardless, we derive Jeffrey's prior below.
 
@@ -136,21 +138,46 @@ We first discuss cross-validating on the simulation data.  The underlying idea i
 
 When using MD to generate conformations, you must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose you do cross validation by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
 
-There are some situation where cross validation leads to inappropriate amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  
+There are some situation where cross validation leads to excessive amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  Thus, in this extreme limit, the ``optimal'' model is the raw simulation.  In this situation, the $\chi^2$ likelihood is dwarfed by the regularization, resulting in ensembles with zero uncertainty.  Such a situation occurred with the amber99sbnmr-ildn force fields.  Rather than use $\lambda = \infty$, we selected a moderate value of $\lambda$ based on the values of the other forcefields.  
 
-Here we summarize the values of $\lambda$ selected via this method:
+Here we summarize the values of $\lambda$ used in this work:
 
-\begin{table}
-\begin{tabular}{c|c}
-Dataset                   & $\lambda$  \\
-trialanine (ff96)               & 5 \\
-trialanine (ff99)               & 5 \\ 
-trialanine (ff99sbnmr-ildn)     & 7 \\ 
-trialanine (oplsaa)             & 4 \\ 
-trialanine (charmm27)           & 6 \\
+\begin{math}
+\begin{tabular}{lrr}
+\toprule
+{}                &$\lambda$  &         \\
+\midrule
+prior &       MVN &  maxent \\
+forcefield        &           &         \\
+amber96           &      7.0  &    5.0  \\
+amber99           &      0.5  &    1.0 \\
+amber99sbnmr-ildn &      5.0  &    5.0 \\
+charmm27          &      1.0  &    0.9 \\
+oplsaa            &     11.0 &    7.0 \\
+\bottomrule
+\end{tabular}
+\end{math}
 
-\end{tabular} 
-\end{table}
+\vspace{5mm}
+
+The corresponding cross-validated reduced $\chi^2$ 
+
+
+\begin{math}
+\begin{tabular}{lrr}
+\toprule
+{} &  $\frac{1}{n}\chi^2$ (Test Set) &         \\
+\midrule
+prior &       MVN &  maxent \\
+forcefield        &           &         \\
+amber96           &      1.33 &    1.31 \\
+amber99           &      2.26 &    2.31 \\
+amber99sbnmr-ildn &      1.88 &    1.88 \\
+charmm27          &      2.24 &    2.12 \\
+oplsaa            &      1.99 &    2.22 \\
+\bottomrule
+\end{tabular}
+\end{math}
 
 
 \subsection{Cross validation on experimental data}
@@ -190,14 +217,6 @@ As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alp
 
 \clearpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Appendix S8.  Comparison to Previous Ensemble Modelling Methods}
-  
-Another recent method \cite{fisher2010}, Bayesian Weighting (BW), uses Bayesian inference to model conformational ensembles of disordered peptides.  BW directly samples the population of each conformational state--each conformational state (defined via clustering) has a population that must be estimated.  This approach has the disadvantage of a clustering step and the need to sample a high dimensional space. On the other hand, in situations with few conformational states but many experimental observables, the BW approach may yield models with reduced variance. 
-
-In contrast, LVBP introduces a single parameter for each experimental measurement.  Restated, the key difference between BW and LVBP is that BW projects simulations onto conformational clusters, while LVBP projects simulations onto the predicted experimental observables.  Thus, the key difference is essentially the choice of \emph{basis} in which to perform MCMC calculations.  We feel that predicted experimental observables provide a \emph{natural} basis for calculations.  Another advantage of this basis is that it enforces smoothly varying equilibrium populations.  In contrast, a clustering-defined basis (e.g. BW) could induce two nearby conformations to have dramatically different populations, simply due to the noise associated with sampling a high-dimensional space.  
-
-The LVBP method is also similar to the EROS method developed by Hummer and colleagues \cite{rozycki2011saxs}.  Like BW, EROS involves clustering the simulation data and estimating the cluster populations.  Like LVBP, EROS uses a maximum entropy regularization procedure.  In our opinion, the key advantages of LVBP over EROS are the use of MCMC for error analysis and the avoidance of a clustering procedure.  We point out that EROS was developed with SAXS refinement in mind.  The clustering step is likely \emph{not} problematic for SAXS, as SAXS is primarily sensitive to large-scale conformational changes.  However, for experiments (e.g. NMR) that depend on fine structural details, clustering could introduce model bias.  
-
 \section{Appendix S9. Data Curation}
 
 Because the LVBP log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing LVBP analysis.  We discuss two examples we encountered in the current analysis.  
@@ -206,123 +225,6 @@ Scalar couplings predicted using parameterized Karplus relations will span a lim
 
 Another example of data quality arose in the BPTI analysis.  It has previously been observed that different chemical shift models give significantly different predictions for the millisecond simulation of BPTI \cite{xue2012microsecond}.  Modern chemical shift prediction tools (e.g. PPM, SPARTA+, ShiftX2) are reported to have similar accuracy.  We therefore chose to use the average predictions of the three chemical shift models; this averaging procedure reduces the statistical uncertainty of individual chemical shift predictions.  
 
-\newpage 
-
-\begin{figure}
-
-\includegraphics[width=5.25cm]{figures/ALA3_amber96_PPII_MCMC.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_amber99_PPII_MCMC.pdf}
-
-\caption{
-Posterior distributions of trialanine $PP_{II}$ populations for amber96 (a) and amber99 (b).  The posterior distribution for amber96 is unimodal, possibly suggesting that a single model is consistent with the simulation and experimental data.  In contrast, the bimodal distribution observed for amber99 implies that two or more models are consistent with the simulation and experimental data.  This highlights the danger in using methods that return a single model, rather the posterior distribution.  
-}
-\label{figure:ALA3_rama}
-\end{figure}
-
-\newpage
-
-
-\begin{figure}
-
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber96_raw.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber99_raw.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf}
-
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber96_lvbp.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber99_lvbp.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_amber99sbnmr-ildn_lvbp.pdf}
-
-\includegraphics[width=5.25cm]{figures/ALA3_rama_charmm27_raw.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_oplsaa_raw.pdf}
-
-\includegraphics[width=5.25cm]{figures/ALA3_rama_charmm27_lvbp.pdf}
-\includegraphics[width=5.25cm]{figures/ALA3_rama_oplsaa_lvbp.pdf}
-
-\caption{
-Ramachandran plots (e.g. population densities) of trialanine in five force fields.  Both raw MD results and LVBP ensembles are shown.  State boundaries are plotted as described in ref \cite{Jha2005}.  
-}
-\label{figure:ALA3_rama}
-\end{figure}
-
-\newpage
-
-\begin{figure}
-\subfigure[]{
-\includegraphics[width=10cm]{figures/bpti_raw.png}
-}
-\subfigure[]{
-\includegraphics[width=10cm]{figures/bpti_lvbp.png}
-}
-
-\caption{
-Thirty random snapshots from the MD (a) and LVBP (b) models.  The crystal structure 1BPI \cite{parkin1996structure} is shown in black.  The trypsin binding loop is located at the top, with residues C14 and C38 shown as sticks.  
-}
-\label{figure:PDB_BPTI}
-\end{figure}
-
-
-\newpage
-
-
-\begin{figure}
-\includegraphics[width=8cm]{figures/BPTI_shifts_N.pdf}
-\includegraphics[width=8cm]{figures/BPTI_shifts_H.pdf}
-
-\includegraphics[width=8cm]{figures/BPTI_shifts_CA.pdf}
-\includegraphics[width=8cm]{figures/BPTI_shifts_HA.pdf}
-\caption{
-Predicted chemical shifts of BPTI.  The LVBP predictions are shown as black squares with error bars given by the chemical shift prediction uncertainty.  The LVBP-average chemical shift of conformational substates are shown as colored circles.  The experimentally-measured chemical shifts are shown as black Xs.  The X-ray predicted chemical shifts are given as black stars.  
-}
-\label{figure:BPTI_Shifts}
-\end{figure}
-
-\newpage
-
-\begin{figure}
-\includegraphics[width=8cm]{figures/BPTI_couplings_J3_HN_HA.pdf}
-\includegraphics[width=8cm]{figures/BPTI_couplings_J3_HN_Cprime.pdf}
-
-\includegraphics[width=8cm]{figures/BPTI_couplings_J3_HA_Cprime.pdf}
-\includegraphics[width=8cm]{figures/BPTI_couplings_J3_HN_CB.pdf}
-
-\includegraphics[width=8cm]{figures/BPTI_couplings_J2_N_CA.pdf}
-\includegraphics[width=8cm]{figures/BPTI_couplings_J1_N_CA.pdf}
-\caption{
-Predicted scalar couplings of BPTI.  Predictions are made using both the LVBP and X-ray models.  The few available measurements (for  $^3J(H^N H^\alpha)$) are shown as Xs.  
-}
-\label{figure:bpti_couplings}
-\end{figure}
-
-\newpage
-
-
-\begin{figure}
-\includegraphics[width=8cm]{figures/BPTI_backbone_torsion_states_15.pdf}
-\includegraphics[width=8cm]{figures/BPTI_backbone_torsion_states_16.pdf}
-\includegraphics[width=8cm]{figures/BPTI_backbone_torsion_states_17.pdf}
-\caption{
-The $M$ and $m_{14}$ $\chi_1$ torsional states are projected onto backbone torsions in the trypsin specificity site.  Values near 1 indicate regions belonging to the $M$ torsional state, while values near -1 indicate regions belonging to $m_{14}$ torsional state.  Intermediate values indicate regions that are not well-separated by the $M$ and $m_{14}$ conformational states.  We observe that the $\phi$, $\psi$ basins tend to be well-separated by the $M$ and $m_{14}$ $\chi_1$ torsional states.  Thus, the backbone motion in residues 15, 16, and 17 tends to be coupled to the disulfide-bond rotation.  We also plot the crystallographic $\phi$ and $\psi$ angles (X) for reference.  
-}
-\label{figure:bpti_backbone_states}
-\end{figure}
-
-\newpage
-
-\begin{figure}
-\subfigure[]{
-\includegraphics[width=10cm]{figures/bpti_noe_state1.png}
-}
-
-\subfigure[]{
-\includegraphics[width=10cm]{figures/bpti_noe_state2.png}
-}
-\caption{
-Non-native tertiary contact present in $m_{14}$, but not in $M$.  (a).  State $M$.  (b).  State $m_{14}$
-}
-\label{figure:PDB_contact}
-\end{figure}
-
-\clearpage
 
 \bibliography{supporting_information}
 

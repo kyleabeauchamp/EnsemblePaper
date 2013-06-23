@@ -4,6 +4,7 @@
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{url}
+\usepackage{booktabs}
 
 \makeatletter 
 \renewcommand{\thefigure}{S\@arabic\c@figure} 
@@ -60,9 +61,9 @@ Thus, LVBP is essentially exponential averaging applied to a weighted combinatio
 
 \section{Appendix S2.  Alternative Error Models}
 
-The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified likelihood:
+The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified log likelihood:
 
-$$\log L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
+$$L L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
 
 where $P$ is the correlation matrix of the observables: $P_{ij} = Cor(f_i(x), f_j(x))$ and $z$ is the deviation between the $\alpha$ ensemble and the measurement, measured in units of the known uncertainty $\sigma_i$: $z_i = \frac{\langle f_i\rangle _\alpha - F_i}{\sigma_i}$.  Using this model will likely lead to increased estimates of uncertainties.  
 
@@ -71,8 +72,9 @@ Other possible error models involve modifying the assumption of normality.  A no
 
 \section{Appendix S3.  Choice of Prior}
 
-In the main text, we used a maximum entropy prior.  The maximum entropy prior depends on the parameters $\alpha$ by penalizing models as they deviate from the unweighted simulation.  Other priors are possible.  For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  
-However, we found that the MVN prior tends to weight individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on ``degenerate'' ensembles populating only a single frame.  
+In the main text, we used a maximum entropy prior.  The maximum entropy prior depends on the parameters $\alpha$ by penalizing models as they deviate from the unweighted simulation.  Other priors are possible.  
+
+For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on ``degenerate'' ensembles populating only a single frame.  
 
 Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to tune our relative belief in the forcefield versus experimental data.  Regardless, we derive Jeffrey's prior below.
 
@@ -136,21 +138,46 @@ We first discuss cross-validating on the simulation data.  The underlying idea i
 
 When using MD to generate conformations, you must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose you do cross validation by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
 
-There are some situation where cross validation leads to inappropriate amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  Thus, in this extreme limit, the ``optimal'' model is the raw simulation.  In this situation, the $\chi^2$ likelihood is dwarfed by the regularization, resulting in ensembles with zero uncertainty.  However, Bayesian bootstrapping can be used to estimate the uncertainty arising from finite conformational sampling.  
+There are some situation where cross validation leads to excessive amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  Thus, in this extreme limit, the ``optimal'' model is the raw simulation.  In this situation, the $\chi^2$ likelihood is dwarfed by the regularization, resulting in ensembles with zero uncertainty.  Such a situation occurred with the amber99sbnmr-ildn force fields.  Rather than use $\lambda = \infty$, we selected a moderate value of $\lambda$ based on the values of the other forcefields.  
 
-Here we summarize the values of $\lambda$ selected via this method:
+Here we summarize the values of $\lambda$ used in this work:
 
-\begin{table}
-\begin{tabular}{c|c}
-Dataset                   & $\lambda$  \\
-trialanine (ff96)               & 5 \\
-trialanine (ff99)               & 5 \\ 
-trialanine (ff99sbnmr-ildn)     & 7 \\ 
-trialanine (oplsaa)             & 4 \\ 
-trialanine (charmm27)           & 6 \\
+\vspace{5mm}
 
-\end{tabular} 
-\end{table}
+\begin{tabular}{lrr}
+\toprule
+{}                &$\lambda$  &         \\
+\midrule
+prior &       MVN &  maxent \\
+forcefield        &           &         \\
+amber96           &      7.0  &    5.0  \\
+amber99           &      0.5  &    1.0 \\
+amber99sbnmr-ildn &      5.0  &    5.0 \\
+charmm27          &      1.0  &    0.9 \\
+oplsaa            &     11.0 &    7.0 \\
+\bottomrule
+\end{tabular}
+
+\vspace{5mm}
+
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with the maxent and MVN priors.  
+
+\vspace{5mm}
+
+
+\begin{tabular}{lrr}
+\toprule
+{} &  $\frac{1}{n}\chi^2$ (cross-validated) &         \\
+\midrule
+prior &       MVN &  maxent \\
+forcefield        &           &         \\
+amber96           &      1.33 &    1.31 \\
+amber99           &      2.26 &    2.31 \\
+amber99sbnmr-ildn &      1.88 &    1.88 \\
+charmm27          &      2.24 &    2.12 \\
+oplsaa            &      1.99 &    2.22 \\
+\bottomrule
+\end{tabular}
 
 
 \subsection{Cross validation on experimental data}
@@ -159,7 +186,7 @@ Cross validating on experimental data instead sets aside experimental measuremen
 
 \subsection{$\chi^2$ analysis}
 
-Another approach to selecting $\lambda$ is to choose the smallest value of $\lambda$ such that $\frac{\chi^2}{n} \approx 1$; models with $\frac{\chi^2}{n} < 1$ are essentially fitting experimental noise.  This approach is computationally trivial, as it requires no additional computation.  However, it relies on having accurate estimates of uncertainty for each experiment.  
+A heuristic approach to selecting $\lambda$ is to choose the smallest value of $\lambda$ such that $\frac{\chi^2}{n} \approx 1$; models with $\frac{\chi^2}{n} < 1$ are essentially fitting experimental noise.  This approach is computationally trivial, as it requires no additional computation.  However, it relies on having accurate estimates of uncertainty for each experiment.  
 
 \section{Appendix S6.  Bayesian Bootstrapping}
 
@@ -167,7 +194,7 @@ The LVBP model presented in the main text does not directly model simulation unc
 
 One additional complication arises when using molecular dynamics simulations, which produce a correlated time series.  Because of this, it is not sufficient to simply use a Dirichlet whose dimension is the same as the number of snapshots--such a procedure will significantly underestimate uncertainties due to correlation between frames.  Instead, one must first divide the trajectory into independent blocks.  The Dirichlet random variable is then chosen to sample the relative weights of each of the independent blocks.  Choosing the length of each block can be done by applying Bayesian bootstrapping to the un-reweighted trajectory.  Given some observable of interest, $O$, one calculates $O(B)$ for a sequence of block lengths, choosing the value of $B$ that maximizes the estimated uncertainty of $O$.  The block length could also be calculated using other blocking methods \cite{flyvbjerg1989error} or by statistical inefficiency analysis \cite{shirts2008}.  
 
-In practice, applying Bayesian bootstrapping involves repeating several LVBP calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.
+In practice, applying Bayesian bootstrapping involves repeating several LVBP calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.  The MCMC traces of each run are then pooled.  
 
 \section{Appendix S7.  Connection between Maximum Entropy and LVBP}
 

@@ -1,9 +1,9 @@
 import numpy as np
-from fitensemble import lvbp, ensemble_fitter
+from fitensemble import belt, ensemble_fitter
 import experiment_loader
 import sys
 import ALA3
-lvbp.ne.set_num_threads(1)
+belt.ne.set_num_threads(1)
 
 def run(ff, prior, regularization_strength, bootstrap_index_list):
     pymc_filename = ALA3.data_directory + "/models/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
@@ -20,9 +20,9 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
         prior_pops = ensemble_fitter.sample_prior_pops(num_frames, bootstrap_index_list)
 
     if prior == "maxent":
-        model = lvbp.MaxEnt_LVBP(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+        model = belt.MaxEnt_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
     else:
-        model = lvbp.MVN_LVBP(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+        model = belt.MVN_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
 
     model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)
     p = model.accumulate_populations()

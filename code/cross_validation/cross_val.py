@@ -19,7 +19,7 @@ def run(ff, prior, regularization_strength):
 
     print regularization_strength, train_chi.mean(), test_chi.mean()
     F = open(ALA3.cross_val_filename, 'a')
-    F.write("%s %s %f %d %d %f %f \n"% (ff, prior, regularization_strength, ALA3.cross_val_stride, ALA3.num_samples, train_chi.mean(), test_chi.mean()))
+    F.write("%s,%s,%f,%d,%d,%f,%f \n"% (ff, prior, regularization_strength, ALA3.cross_val_stride, ALA3.num_samples, train_chi.mean(), test_chi.mean()))
     F.close()
 
 if __name__ == "__main__":
