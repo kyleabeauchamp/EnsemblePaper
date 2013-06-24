@@ -33,7 +33,7 @@
 
 \section{Appendix S1.  Derivation of Reweighting}
 
-Here we derive the population estimator used in LVBP.  As in the main text, we use subscripted angle brackets to indicate ensemble averages in reweighted ensembles: $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta (x;\alpha) = \sum_i \alpha_i f_i(x)$:
+Here we derive the population estimator used in BELT.  As in the main text, we use subscripted angle brackets to indicate ensemble averages in reweighted ensembles: $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta (x;\alpha) = \sum_i \alpha_i f_i(x)$:
 
 $$\langle h(x)\rangle _\alpha = \frac{1}{Z(\alpha)} \int dx \exp[-U(x) + \sum_i \alpha_i f_i(x)] h(x)$$
 
@@ -57,7 +57,7 @@ where $\pi_j(\alpha)$ give estimates of the conformation weights at a particular
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta(x_k;\alpha)]} \exp[-\Delta(x_j;\alpha)]$$
 
-Thus, LVBP is essentially exponential averaging applied to a weighted combination of experiment-derived biasing potentials.  However, the present work has introduced two key advances.  First, the use of Markov chain Monte Carlo allows rigorous uncertainty analysis.  Second, maximum entropy regularization reduces the high variance previously associated with exponential averaging.  
+Thus, BELT is essentially exponential averaging applied to a weighted combination of experiment-derived biasing potentials.  However, the present work has introduced two key advances.  First, the use of Markov chain Monte Carlo allows rigorous uncertainty analysis.  Second, maximum entropy regularization reduces the high variance previously associated with exponential averaging.  
 
 \section{Appendix S2.  Alternative Error Models}
 
@@ -74,14 +74,15 @@ Other possible error models involve modifying the assumption of normality.  A no
 
 In the main text, we used a maximum entropy prior.  The maximum entropy prior depends on the parameters $\alpha$ by penalizing models as they deviate from the unweighted simulation.  Other priors are possible.  
 
-For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on ``degenerate'' ensembles populating only a single frame.  
+For example, one could use a multivariate normal (MVN) prior for $\alpha$.  In the MVN prior, $\alpha \approx N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the unweighted simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  This is likely because the maximum entropy prior places a large penalty on 
+``degenerate'' ensembles populating only a single frame.  
 
 Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to tune our relative belief in the forcefield versus experimental data.  Regardless, we derive Jeffrey's prior below.
 
 
 \section{Appendix S4.  Derivation of Jeffrey's Prior}
 
-This section derives the Jeffrey's prior for the LVBP likelihood.  We do \emph{not} recommend the use of this prior.  This section can be skipped by most readers; we include it only for completeness.
+This section derives the Jeffrey's prior for the BELT likelihood.  We do \emph{not} recommend the use of this prior.  This section can be skipped by most readers; we include it only for completeness.
 
 Jeffrey's prior dictates that 
 
@@ -124,7 +125,7 @@ $$S_{ia} = \sum_k \pi_k (<F_a>_\alpha - f_{ka}) f_{ki}$$
 
 \section{Appendix S5.  Determining Prior Strength Via Cross-Validation}
 
-The priors discussed for LVBP typically contain a single free parameter, $\lambda$, which controls the relative weight of simulation and experiment.  At least three different approaches can help select an appropriate value of $\lambda$:
+The priors discussed for BELT typically contain a single free parameter, $\lambda$, which controls the relative weight of simulation and experiment.  At least three different approaches can help select an appropriate value of $\lambda$:
 
 \begin{enumerate}
  \item Cross validation on simulation data
@@ -140,9 +141,21 @@ When using MD to generate conformations, you must perform cross-validation using
 
 There are some situation where cross validation leads to excessive amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  Thus, in this extreme limit, the ``optimal'' model is the raw simulation.  In this situation, the $\chi^2$ likelihood is dwarfed by the regularization, resulting in ensembles with zero uncertainty.  Such a situation occurred with the amber99sbnmr-ildn force fields.  Rather than use $\lambda = \infty$, we selected a moderate value of $\lambda$ based on the values of the other forcefields.  
 
-Here we summarize the values of $\lambda$ used in this work:
 
-\begin{math}
+\subsection{Cross validation on experimental data}
+
+Cross validating on experimental data instead sets aside experimental measurements that can then be used to evaluate model quality.  One key difficulty with this approach, however, is that experimental datasets are often sparse--that is, there are often only few information-rich measurements.  This can lead to difficulties defining meaningful training and test sets.  
+
+\subsection{$\chi^2$ analysis}
+
+A heuristic approach to selecting $\lambda$ is to choose the smallest value of $\lambda$ such that $\frac{\chi^2}{n} \approx 1$; models with $\frac{\chi^2}{n} < 1$ are essentially fitting experimental noise.  This approach is computationally trivial, as it requires no additional computation.  However, it relies on having accurate estimates of uncertainty for each experiment.  
+
+\subsection{Cross Validation Results}
+
+Here we summarize the values of $\lambda$ used in this work.  These values were determined by cross-validating on the simulation data.  For the amber99sbnmr-ildn forcefield, we selected a moderate amount of regularization ($\lambda = 5.0$) (see Above).  
+
+\vspace{5mm}
+
 \begin{tabular}{lrr}
 \toprule
 {}                &$\lambda$  &         \\
@@ -156,74 +169,140 @@ charmm27          &      1.0  &    0.9 \\
 oplsaa            &     11.0 &    7.0 \\
 \bottomrule
 \end{tabular}
-\end{math}
 
 \vspace{5mm}
 
-The corresponding cross-validated reduced $\chi^2$ 
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with the maxent and MVN priors.  
+
+\vspace{5mm}
 
 
-\begin{math}
 \begin{tabular}{lrr}
 \toprule
-{} &  $\frac{1}{n}\chi^2$ (Test Set) &         \\
+{} &  $\frac{1}{n}\chi^2$ (cross-validated) &         \\
 \midrule
 prior &       MVN &  maxent \\
 forcefield        &           &         \\
-amber96           &      1.33 &    1.31 \\
-amber99           &      2.26 &    2.31 \\
-amber99sbnmr-ildn &      1.88 &    1.88 \\
-charmm27          &      2.24 &    2.12 \\
-oplsaa            &      1.99 &    2.22 \\
+amber96           &      0.22 &    0.22 \\
+amber99           &      0.38 &    0.38 \\
+amber99sbnmr-ildn &      0.31 &    0.31 \\
+charmm27          &      0.37 &    0.35 \\
+oplsaa            &      0.33 &    0.37 \\
 \bottomrule
 \end{tabular}
-\end{math}
+
+We also show the cross validation scores for \emph{all} values of $\lambda$ evaluated.  
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/cross_val_amber96.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/cross_val_amber99.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/cross_val_amber99sbnmr-ildn.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/cross_val_charmm27.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/cross_val_oplsaa.pdf}
+}
+
+\caption{
+Cross validated reduced $\chi^2$
+}
+\label{figure:cross_val}
+\end{figure}
 
 
-\subsection{Cross validation on experimental data}
 
-Cross validating on experimental data instead sets aside experimental measurements that can then be used to evaluate model quality.  One key difficulty with this approach, however, is that experimental datasets are often sparse--that is, there are often only few information-rich measurements.  This can lead to difficulties defining meaningful training and test sets.  
-
-\subsection{$\chi^2$ analysis}
-
-Another approach to selecting $\lambda$ is to choose the smallest value of $\lambda$ such that $\frac{\chi^2}{n} \approx 1$; models with $\frac{\chi^2}{n} < 1$ are essentially fitting experimental noise.  This approach is computationally trivial, as it requires no additional computation.  However, it relies on having accurate estimates of uncertainty for each experiment.  
 
 \section{Appendix S6.  Bayesian Bootstrapping}
 
-The LVBP model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
+The BELT model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
 
 One additional complication arises when using molecular dynamics simulations, which produce a correlated time series.  Because of this, it is not sufficient to simply use a Dirichlet whose dimension is the same as the number of snapshots--such a procedure will significantly underestimate uncertainties due to correlation between frames.  Instead, one must first divide the trajectory into independent blocks.  The Dirichlet random variable is then chosen to sample the relative weights of each of the independent blocks.  Choosing the length of each block can be done by applying Bayesian bootstrapping to the un-reweighted trajectory.  Given some observable of interest, $O$, one calculates $O(B)$ for a sequence of block lengths, choosing the value of $B$ that maximizes the estimated uncertainty of $O$.  The block length could also be calculated using other blocking methods \cite{flyvbjerg1989error} or by statistical inefficiency analysis \cite{shirts2008}.  
 
-In practice, applying Bayesian bootstrapping involves repeating several LVBP calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.
+In practice, applying Bayesian bootstrapping involves repeating several BELT calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.  The MCMC traces of each run are then pooled.  
 
-\section{Appendix S7.  Connection between Maximum Entropy and LVBP}
+\section{Appendix S7.  Connection between Maximum Entropy and BELT}
 
 
-Linear Virtual Biasing Potential generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and LVBP.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
+Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and BELT.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
 
 $$\frac{d\Lambda}{d\alpha_k} = -\langle f_k \rangle_\alpha + F_k$$
 
 The obvious solution, when feasible, is to set $\langle f_i(x) \rangle_\alpha = F_i$.  
 
-In LVBP, we instead sample the following log likelihood:
+In BELT, we instead sample the following log likelihood:
 
 $$LL(\alpha) = -\sum_i \frac{1}{2\sigma_i^2}(\langle f_i\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
 
-If we assume a uniform prior and maximize the likelihood, the problem becomes equivalent to setting the derivative of $LL$ to zero:
+If we assume a constant prior and maximize the likelihood, the problem becomes equivalent to setting the derivative of $LL$ to zero:
 
 $$ \frac{dLL}{d\alpha_k} =  -\sum_i \frac{1}{\sigma_i^2} (\langle f_i\rangle _\alpha - F_i) \frac{d\langle f_i\rangle _\alpha}{d\alpha_k} = 0$$
 
-As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the log likelihood.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and LVBP.  
+As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the log likelihood.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and BELT.  
 
 \clearpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Appendix S9. Data Curation}
 
-Because the LVBP log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing LVBP analysis.  We discuss two examples we encountered in the current analysis.  
+Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss two examples we encountered in the current analysis.  
 
-Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from LVBP analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
+Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
 
 Another example of data quality arose in the BPTI analysis.  It has previously been observed that different chemical shift models give significantly different predictions for the millisecond simulation of BPTI \cite{xue2012microsecond}.  Modern chemical shift prediction tools (e.g. PPM, SPARTA+, ShiftX2) are reported to have similar accuracy.  We therefore chose to use the average predictions of the three chemical shift models; this averaging procedure reduces the statistical uncertainty of individual chemical shift predictions.  
+
+\section{Appendix S10.  Convergence Analysis}
+
+Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as we observed in the following traces.  A few interested features are worth noting.  The charmm27 and amber99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
+
+Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent prior is better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. amber99 and charmm27) seem more prone to correlated MCMC samples.  This is likely because the sampler is force to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  We finally note that the MCMC sampling for each of the current models the current work took approximately 12 hours.  These models included six measurements and approximately 250,000 conformations.  
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-amber96-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-amber99-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-amber99sbnmr-ildn-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-charmm27-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-oplsaa-MCMC_Trace.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/MVN-amber96-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/MVN-amber99-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/MVN-amber99sbnmr-ildn-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/MVN-charmm27-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-oplsaa-MCMC_Trace.pdf}
+}
+
+\caption{
+MCMC traces of first component of $\alpha$.  
+}
+\label{figure:cross_val}
+\end{figure}
+
 
 
 \bibliography{supporting_information}

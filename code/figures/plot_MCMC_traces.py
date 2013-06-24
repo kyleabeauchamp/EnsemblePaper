@@ -22,5 +22,6 @@ for k, (ff, prior) in enumerate(grid):
         x = np.arange(len(y)) * ALA3.thin
         plt.plot(x, y)
         plt.xlabel("MCMC steps")
+        #plt.ylabel(r"$\alpha$:" + str(predictions.columns[0]))
         plt.ylabel(predictions.columns[0])
         plt.savefig(ALA3.outdir+"/%s-%s-MCMC_Trace.pdf"%(prior, ff), bbox_inches='tight')

@@ -19,6 +19,12 @@
   {\relax}
   {\relax}
 
+\bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
+Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Rubin(1981)]{rubin1981}
 Rubin,~D. \emph{The annals of statistics} \textbf{1981}, \emph{9},
   130--134\relax
@@ -40,12 +46,6 @@ Shirts,~M.; Chodera,~J. \emph{J. Chem. Phys.} \textbf{2008}, \emph{129},
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
-Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Xue et~al.(2012)Xue, Ward, Yuwen, Podkorytov, and
   Skrynnikov]{xue2012microsecond}

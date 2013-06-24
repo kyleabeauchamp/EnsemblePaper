@@ -7,8 +7,8 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 
 bayesian_bootstrap_run = 0
-ff = "oplsaa"
-prior = "MVN"
+ff = "charmm27"
+prior = "maxent"
 regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
 predictions, measurements, uncertainties = experiment_loader.load(ff)
@@ -58,7 +58,7 @@ plt.plot([0,0],[-180,180],line_color,linewidth=linewidth)
 plt.plot([-100,-100],[50,180],line_color,linewidth=linewidth)
 plt.plot([-100,-100],[-180,-100],line_color,linewidth=linewidth)
 
-plt.title("%s BELT" % ff)
+plt.title("%s %s" % (ff, prior))
 plt.xlabel(r"$\phi$ [$\circ$]")
 plt.ylabel(r"$\psi$ [$\circ$]")
 

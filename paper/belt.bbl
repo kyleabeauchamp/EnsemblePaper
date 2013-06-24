@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{44}
+\begin{mcitethebibliography}{52}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -52,9 +52,69 @@ Korzhnev,~D.~M.; Salvatella,~X.; Vendruscolo,~M.; Di~Nardo,~A.~A.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Graf et~al.(2007)Graf, Nguyen, Stock, and Schwalbe]{Graf2007}
-Graf,~J.; Nguyen,~P.; Stock,~G.; Schwalbe,~H. \emph{J. Am. Chem. Soc.}
-  \textbf{2007}, \emph{129}, 1179--1189\relax
+\bibitem[Lindorff-Larsen et~al.(2005)Lindorff-Larsen, Best, DePristo, Dobson,
+  and Vendruscolo]{lindorff2005simultaneous}
+Lindorff-Larsen,~K.; Best,~R.~B.; DePristo,~M.~A.; Dobson,~C.~M.;
+  Vendruscolo,~M. \emph{Nature} \textbf{2005}, \emph{433}, 128--132\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lange et~al.(2008)Lange, Lakomek, Far{\`e}s, Schr{\"o}der, Walter,
+  Becker, Meiler, Grubm{\"u}ller, Griesinger, and
+  de~Groot]{lange2008recognition}
+Lange,~O.~F.; Lakomek,~N.-A.; Far{\`e}s,~C.; Schr{\"o}der,~G.~F.;
+  Walter,~K.~F.; Becker,~S.; Meiler,~J.; Grubm{\"u}ller,~H.; Griesinger,~C.;
+  de~Groot,~B.~L. \emph{science} \textbf{2008}, \emph{320}, 1471--1475\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[DePristo et~al.(2004)DePristo, de~Bakker, and
+  Blundell]{depristo2004heterogeneity}
+DePristo,~M.~A.; de~Bakker,~P.~I.; Blundell,~T.~L. \emph{Structure}
+  \textbf{2004}, \emph{12}, 831--838\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lang et~al.(2010)Lang, Ng, Fraser, Corn, Echols, Sales, Holton, and
+  Alber]{lang2010automated}
+Lang,~P.~T.; Ng,~H.-L.; Fraser,~J.~S.; Corn,~J.~E.; Echols,~N.; Sales,~M.;
+  Holton,~J.~M.; Alber,~T. \emph{Protein Science} \textbf{2010}, \emph{19},
+  1420--1431\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shaw et~al.(2010)Shaw, Maragakis, Lindorff-Larsen, Piana, Dror,
+  Eastwood, Bank, Jumper, Salmon, Shan, and Wriggers]{shaw2010}
+Shaw,~D.~E.; Maragakis,~P.; Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.~O.;
+  Eastwood,~M.~P.; Bank,~J.~A.; Jumper,~J.~M.; Salmon,~J.~K.; Shan,~Y.;
+  Wriggers,~W. \emph{Science} \textbf{2010}, \emph{330}, 341--346\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Li and Bruschweiler(2011)Li, and Bruschweiler]{li2011iterative}
+Li,~D.-W.; Bruschweiler,~R. \emph{J. Chem. Theory Comput.} \textbf{2011},
+  \emph{7}, 1773\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Best et~al.(2012)Best, Zhu, Shim, Lopes, Mittal, Feig, and
+  MacKerell]{best2012optimization}
+Best,~R.~B.; Zhu,~X.; Shim,~J.; Lopes,~P.~E.; Mittal,~J.; Feig,~M.;
+  MacKerell,~A.~D. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lindorff-Larsen et~al.(2012)Lindorff-Larsen, Maragakis, Piana,
+  Eastwood, Dror, and Shaw]{lindorff2012systematic}
+Lindorff-Larsen,~K.; Maragakis,~P.; Piana,~S.; Eastwood,~M.; Dror,~R.; Shaw,~D.
+  \emph{PloS one} \textbf{2012}, \emph{7}, e32131\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -64,6 +124,13 @@ Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Graf et~al.(2007)Graf, Nguyen, Stock, and Schwalbe]{Graf2007}
+Graf,~J.; Nguyen,~P.; Stock,~G.; Schwalbe,~H. \emph{J. Am. Chem. Soc.}
+  \textbf{2007}, \emph{129}, 1179--1189\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{J. Am. Chem. Soc.} \textbf{2010},
@@ -126,7 +193,7 @@ Grdadolnik,~J.; Mohacek-Grosev,~V.; Baldwin,~R.; Avbelj,~F. \emph{Proc. Natl.
 \EndOfBibitem
 \bibitem[Jha et~al.(2005)Jha, Colubri, Zaman, Koide, Sosnick, and
   Freed]{Jha2005}
-Jha,~A.; Colubri,~A.; Zaman,~M.; Koide,~S.; Sosnick,~T.; Freed,~K.
+Jha,~A.~K.; Colubri,~A.; Zaman,~M.~H.; Koide,~S.; Sosnick,~T.~R.; Freed,~K.~F.
   \emph{Biochemistry} \textbf{2005}, \emph{44}, 9691--9702\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
@@ -215,15 +282,6 @@ Voelz,~V.; Bowman,~G.; Beauchamp,~K.; Pande,~V. \emph{J. Am. Chem. Soc.}
 \bibitem[Bowman et~al.(2011)Bowman, Voelz, and Pande]{bowman2011atomistic}
 Bowman,~G.~R.; Voelz,~V.~A.; Pande,~V.~S. \emph{J. Am. Chem. Soc.}
   \textbf{2011}, \emph{133}, 664\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Shaw et~al.(2010)Shaw, Maragakis, Lindorff-Larsen, Piana, Dror,
-  Eastwood, Bank, Jumper, Salmon, Shan, and Wriggers]{Shaw2010}
-Shaw,~D.~E.; Maragakis,~P.; Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.~O.;
-  Eastwood,~M.~P.; Bank,~J.~A.; Jumper,~J.~M.; Salmon,~J.~K.; Shan,~Y.;
-  Wriggers,~W. \emph{Science} \textbf{2010}, \emph{330}, 341--346\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -343,6 +401,13 @@ Schmidt,~J.; Blümel,~M.; Löhr,~F.; Rüterjans,~H. \emph{J. Biomol. NMR}
   Bax]{vogeli2007limits}
 V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{J. Am. Chem. Soc.}
   \textbf{2007}, \emph{129}, 9377--9385\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jha et~al.(2005)Jha, Colubri, Zaman, Koide, Sosnick, and Freed]{jha}
+Jha,~A.~K.; Colubri,~A.; Zaman,~M.~H.; Koide,~S.; Sosnick,~T.~R.; Freed,~K.~F.
+  \emph{Biochemistry} \textbf{2005}, \emph{44}, 9691--9702\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

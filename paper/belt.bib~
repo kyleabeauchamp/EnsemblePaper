@@ -1,6 +1,54 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+@article{lang2010automated,
+  title={Automated electron-density sampling reveals widespread conformational polymorphism in proteins},
+  author={Lang, P Therese and Ng, Ho-Leung and Fraser, James S and Corn, Jacob E and Echols, Nathaniel and Sales, Mark and Holton, James M and Alber, Tom},
+  journal={Protein Science},
+  volume={19},
+  number={7},
+  pages={1420--1431},
+  year={2010},
+  publisher={Wiley Online Library}
+}
+
+
+@article{depristo2004heterogeneity,
+  title={Heterogeneity and inaccuracy in protein structures solved by X-ray crystallography},
+  author={DePristo, Mark A and de Bakker, Paul IW and Blundell, Tom L},
+  journal={Structure},
+  volume={12},
+  number={5},
+  pages={831--838},
+  year={2004},
+  publisher={Elsevier}
+}
+
+
+@article{lindorff2005simultaneous,
+  title={Simultaneous determination of protein structure and dynamics},
+  author={Lindorff-Larsen, Kresten and Best, Robert B and DePristo, Mark A and Dobson, Christopher M and Vendruscolo, Michele},
+  journal={Nature},
+  volume={433},
+  number={7022},
+  pages={128--132},
+  year={2005},
+  publisher={Nature Publishing Group}
+}
+
+
+@article{lange2008recognition,
+  title={Recognition dynamics up to microseconds revealed from an RDC-derived ubiquitin ensemble in solution},
+  author={Lange, Oliver F and Lakomek, Nils-Alexander and Far{\`e}s, Christophe and Schr{\"o}der, Gunnar F and Walter, Korvin FA and Becker, Stefan and Meiler, Jens and Grubm{\"u}ller, Helmut and Griesinger, Christian and de Groot, Bert L},
+  journal={science},
+  volume={320},
+  number={5882},
+  pages={1471--1475},
+  year={2008},
+  publisher={American Association for the Advancement of Science}
+}
+
+
 @article{wang2013systematic,
   title={Systematic Improvement of a Classical Molecular Model of Water},
   author={Wang, Lee-Ping and Head-Gordon, Teresa Lyn and Ponder, Jay William and Ren, Pengyu and Chodera, John Damon and Eastman, Peter Kenneth and Mart{\'\i}nez, Todd J and Pande, Vijay S},
@@ -345,7 +393,7 @@ journal = {J. Chem. Theory Comput.},
 @article{eastman2012openmm,
   title={OpenMM 4: A Reusable, Extensible, Hardware Independent Library for High Performance Molecular Simulation},
   author={Eastman, Peter and Friedrichs, Mark S and Chodera, John D and Radmer, Randall J and Bruns, Christopher M and Ku, Joy P and Beauchamp, Kyle A and Lane, Thomas J and Wang, Lee-Ping and Shukla, Diwakar and Pande, V. S.},
-  journal={Journal of chemical theory and computation},
+  journal={J. Chem. Theory Comput.},
   volume={9},
   number={1},
   pages={461--469},
@@ -2058,17 +2106,27 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{jha2005,
-  author = {Jha, A.K. and Colubri, A. and Zaman, M.H. and Koide, S. and Sosnick,
-	T.R. and Freed, K.F.},
-  title = {Helix, sheet, and polyproline II frequencies and strong nearest neighbor
-	effects in a restricted coil library},
-  journal = {Biochemistry},
-  year = {2005},
-  volume = {44},
-  pages = {9691--9702},
-  number = {28},
-  publisher = {ACS Publications}
+  title={Helix, sheet, and polyproline II frequencies and strong nearest neighbor effects in a restricted coil library},
+  author={Jha, Abhishek K and Colubri, Andres and Zaman, Muhammad H and Koide, Shohei and Sosnick, Tobin R and Freed, Karl F},  
+  journal={Biochemistry},
+  volume={44},
+  number={28},
+  pages={9691--9702},
+  year={2005},
+  publisher={ACS Publications}  
 }
+
+@ARTICLE{jha,
+  title={Helix, sheet, and polyproline II frequencies and strong nearest neighbor effects in a restricted coil library},
+  author={Jha, Abhishek K and Colubri, Andres and Zaman, Muhammad H and Koide, Shohei and Sosnick, Tobin R and Freed, Karl F},
+  journal={Biochemistry},
+  volume={44},
+  number={28},
+  pages={9691--9702},
+  year={2005},
+  publisher={ACS Publications}
+}
+
 
 @ARTICLE{Jiang2010,
   author = {Jiang, J. and Wu, Y. and Wang, Z.X. and Wu, C.},
