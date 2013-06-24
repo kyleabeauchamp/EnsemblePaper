@@ -6,8 +6,7 @@ import sys
 import ALA3
 
 prior = "BW"
-ff = "charmm27"
-effective_counts = 1.
+ff = "oplsaa"
 
 out_dir = ALA3.data_directory + "/BW_models/"
 
@@ -15,9 +14,6 @@ predictions_framewise, measurements, uncertainties = experiment_loader.load(ff)
 phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
 
 num_states = ass_raw.max() + 1
-prior_pops = np.bincount(ass_raw).astype('float')
-prior_pops /= prior_pops.sum()
-prior_pops *= effective_counts
 
 prior_pops = np.ones(num_states)
 raw_pops = np.bincount(ass_raw).astype('float')
@@ -26,6 +22,11 @@ raw_pops /= raw_pops.sum()
 predictions = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predictions_framewise, ass_raw), columns=predictions_framewise.columns)
 model = bayesian_weighting.BayesianWeighting(predictions.values, measurements.values, uncertainties.values, ass_raw, prior_pops=prior_pops)
 model.sample(2000000, thin=ALA3.thin, burn=ALA3.burn)
+
+population_trace_filename = out_dir + "/%s-populations.npz" % ff
+pi = model.mcmc.trace("matrix_populations")[:,0]
+np.savez_compressed(population_trace_filename, pi)
+
 
 
 mu = model.mcmc.trace("mu")[:]

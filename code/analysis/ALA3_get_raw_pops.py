@@ -1,5 +1,4 @@
 import ALA3
-import schwalbe_couplings
 import numpy as np
 import experiment_loader
 
