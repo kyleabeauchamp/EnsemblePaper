@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  24 JUN 2013 15:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  25 JUN 2013 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1045,7 +1045,7 @@ ed to a weighted com-bi-na-tion of experiment-
 
 [6] [7] [8]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 220.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 219.
  [9] [10] [11] [12] [13] [14] [15] [16] [17]
 (./supporting_information.bbl) [18] (./supporting_information.aux) ) 
 Here is how much of TeX's memory you used:
@@ -1068,7 +1068,7 @@ ve/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on supporting_information.pdf (18 pages, 2687613 bytes).
+Output written on supporting_information.pdf (18 pages, 2687493 bytes).
 PDF statistics:
  1177 PDF objects out of 1200 (max. 8388607)
  358 compressed objects within 4 object streams
