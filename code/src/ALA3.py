@@ -32,20 +32,20 @@ cross_val_stride = 20
 
 regularization_strength_dict = {"maxent":
 {
-"amber96":5,
-"amber99":1,
-"amber99sbnmr-ildn":5,
-"charmm27":1,
-"oplsaa":7
+"amber96":10,
+"amber99":4,
+"amber99sbnmr-ildn":10,
+"charmm27":6,
+"oplsaa":12
 }
 ,
 "MVN":
 {
-"amber96":7,
+"amber96":6,
 "amber99":1,
-"amber99sbnmr-ildn":5,
-"charmm27":1,
-"oplsaa":11
+"amber99sbnmr-ildn":10,
+"charmm27":4,
+"oplsaa":12
 }
 }
 
