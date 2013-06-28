@@ -1,8 +1,8 @@
 import numpy as np
-from fitensemble import lvbp, ensemble_fitter
+from fitensemble import belt, ensemble_fitter
 import experiment_loader
 import ALA3
-lvbp.ne.set_num_threads(2)
+belt.ne.set_num_threads(2)
 
 ff = "amber99"
 regularization_strength = 0.1
@@ -11,7 +11,7 @@ predictions, measurements, uncertainties = experiment_loader.load(ff, keys=[("JC
 num_frames, num_measurements = predictions.shape
 phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, 1)
 
-model = lvbp.MaxEnt_LVBP(predictions.values, measurements.values, uncertainties.values, regularization_strength)
+model = belt.MaxEnt_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength)
 
 model.sample(10000000, thin=50, burn=1000)
 

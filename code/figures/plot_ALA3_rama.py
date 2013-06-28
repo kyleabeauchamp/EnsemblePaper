@@ -13,7 +13,7 @@ regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
 predictions, measurements, uncertainties = experiment_loader.load(ff)
 phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
-p = np.loadtxt(ALA3.data_directory + "/frame_populations/model_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run))
+p = np.loadtxt(ALA3.data_directory + "/frame_populations/pops_%s_%s_reg-%.1f-BB%d.dat" % (ff, prior, regularization_strength, bayesian_bootstrap_run))
 
 line_color = 'w'
 linewidth = 10
@@ -43,7 +43,7 @@ plt.annotate(r"$\alpha_L$",[100,30],color=line_color,fontsize='x-large')
 plt.annotate(r"$\gamma$",[100,-150],color=line_color,fontsize='x-large')
 
 plt.axis([-180,180,-180,180])
-plt.savefig(ALA3.outdir+"/ALA3_rama_%s_raw.pdf" % ff, bbox_inches='tight')
+#plt.savefig(ALA3.outdir+"/ALA3_rama_%s_raw.pdf" % ff, bbox_inches='tight')
 
 h,x,y = np.histogram2d(phi,psi,bins=100,weights=p)
 plt.figure()
@@ -69,4 +69,4 @@ plt.annotate(r"$\alpha_L$",[100,30],color=line_color,fontsize='x-large')
 plt.annotate(r"$\gamma$",[100,-150],color=line_color,fontsize='x-large')
 
 plt.axis([-180,180,-180,180])
-plt.savefig(ALA3.outdir+"/ALA3_rama_%s_%s_belt.pdf" % (ff, prior), bbox_inches='tight')
+#plt.savefig(ALA3.outdir+"/ALA3_rama_%s_%s_belt.pdf" % (ff, prior), bbox_inches='tight')

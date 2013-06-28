@@ -6,7 +6,7 @@ import itertools
 import sys
 
 bayesian_bootstrap_run = 0
-num_threads = 2
+num_threads = 3
 rank = int(sys.argv[1])
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
 
