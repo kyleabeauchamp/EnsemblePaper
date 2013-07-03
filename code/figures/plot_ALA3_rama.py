@@ -7,8 +7,8 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 
 bayesian_bootstrap_run = 0
-ff = "charmm27"
-prior = "maxent"
+ff = "oplsaa"
+prior = "MVN"
 regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
 predictions, measurements, uncertainties = experiment_loader.load(ff)
@@ -43,7 +43,7 @@ plt.annotate(r"$\alpha_L$",[100,30],color=line_color,fontsize='x-large')
 plt.annotate(r"$\gamma$",[100,-150],color=line_color,fontsize='x-large')
 
 plt.axis([-180,180,-180,180])
-#plt.savefig(ALA3.outdir+"/ALA3_rama_%s_raw.pdf" % ff, bbox_inches='tight')
+plt.savefig(ALA3.outdir+"/ALA3_rama_%s_raw.pdf" % ff, bbox_inches='tight')
 
 h,x,y = np.histogram2d(phi,psi,bins=100,weights=p)
 plt.figure()
@@ -69,4 +69,4 @@ plt.annotate(r"$\alpha_L$",[100,30],color=line_color,fontsize='x-large')
 plt.annotate(r"$\gamma$",[100,-150],color=line_color,fontsize='x-large')
 
 plt.axis([-180,180,-180,180])
-#plt.savefig(ALA3.outdir+"/ALA3_rama_%s_%s_belt.pdf" % (ff, prior), bbox_inches='tight')
+plt.savefig(ALA3.outdir+"/ALA3_rama_%s_%s_belt.pdf" % (ff, prior), bbox_inches='tight')
