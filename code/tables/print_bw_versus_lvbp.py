@@ -21,3 +21,5 @@ y_train
 y_test
 
 print y_test.to_latex(float_format=(lambda x: "%.2f"%x))
+
+print y_train.to_latex(float_format=(lambda x: "%.2f"%x))

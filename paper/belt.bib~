@@ -1,6 +1,18 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+@article{shi2013structural,
+  title={Structural ensemble and microscopic elasticity of freely diffusing DNA by direct measurement of fluctuations},
+  author={Shi, Xuesong and Herschlag, Daniel and Harbury, Pehr AB},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={110},
+  number={16},
+  pages={E1444--E1451},
+  year={2013},
+  publisher={National Acad Sciences}
+}
+
+
 @article{lang2010automated,
   title={Automated electron-density sampling reveals widespread conformational polymorphism in proteins},
   author={Lang, P Therese and Ng, Ho-Leung and Fraser, James S and Corn, Jacob E and Echols, Nathaniel and Sales, Mark and Holton, James M and Alber, Tom},
@@ -40,7 +52,7 @@
 @article{lange2008recognition,
   title={Recognition dynamics up to microseconds revealed from an RDC-derived ubiquitin ensemble in solution},
   author={Lange, Oliver F and Lakomek, Nils-Alexander and Far{\`e}s, Christophe and Schr{\"o}der, Gunnar F and Walter, Korvin FA and Becker, Stefan and Meiler, Jens and Grubm{\"u}ller, Helmut and Griesinger, Christian and de Groot, Bert L},
-  journal={science},
+  journal={Science},
   volume={320},
   number={5882},
   pages={1471--1475},

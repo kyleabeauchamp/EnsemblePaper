@@ -6,12 +6,21 @@ import sys
 import ALA3
 
 prior = "BW"
-ff = "oplsaa"
+ff = "amber99sbnmr-ildn"
 
 out_dir = ALA3.data_directory + "/BW_models/"
 
 predictions_framewise, measurements, uncertainties = experiment_loader.load(ff)
-phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)
+phi, psi, ass_raw0, state_ind0 = experiment_loader.load_rama(ff, ALA3.stride)
+
+state_ind1 = state_ind0[0:3].copy()
+ass_raw = ass_raw0.copy()
+state_ind1[2][ass_raw == 3] = 2
+ass_raw[ass_raw == 3] = 2
+
+#state_ind = state_ind1[0:2]
+#state_ind[1][ass_raw == 2] = 1
+#ass_raw[ass_raw == 2] = 1
 
 num_states = ass_raw.max() + 1
 
@@ -23,10 +32,16 @@ predictions = pd.DataFrame(bayesian_weighting.framewise_to_statewise(predictions
 model = bayesian_weighting.BayesianWeighting(predictions.values, measurements.values, uncertainties.values, ass_raw, prior_pops=prior_pops)
 model.sample(2000000, thin=ALA3.thin, burn=ALA3.burn)
 
-population_trace_filename = out_dir + "/%s-populations.npz" % ff
-pi = model.mcmc.trace("matrix_populations")[:,0]
+population_trace_filename = out_dir + "/%s-BW3-populations.npz" % ff
+state_ind_statewise = np.zeros((3, num_states))
+state_ind_statewise[0,0] = 1.
+state_ind_statewise[1,1] = 1.
+state_ind_statewise[2,2] = 1.
+pi = model.trace_observable(state_ind_statewise.T)
+#pi = model.mcmc.trace("matrix_populations")[:,0]
 np.savez_compressed(population_trace_filename, pi)
-
+print(ff)
+pi.mean(0)
 
 
 mu = model.mcmc.trace("mu")[:]
@@ -49,8 +64,8 @@ chi2_all_raw = (((predictions_all.T.dot(raw_pops) - measurements_all.values) / u
 
 
 F = open(ALA3.chi2_filename, 'a')
-F.write("all,BW4,%s,%s,%f \n" % (ff, prior, chi2_all))
-F.write("train,BW4,%s,%s,%f \n" % (ff, prior, chi2_train))
-F.write("test,BW4,%s,%s,%f \n" % (ff, prior, chi2_test))
+F.write("all,BW%d,%s,%s,%f \n" % (num_states, ff, prior, chi2_all))
+F.write("train,BW%d,%s,%s,%f \n" % (num_states, ff, prior, chi2_train))
+F.write("test,BW%d,%s,%s,%f \n" % (num_states, ff, prior, chi2_test))
 F.flush()
 

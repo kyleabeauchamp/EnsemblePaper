@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 
 bayesian_bootstrap_run = 0
-ff = "oplsaa"
+ff = "charmm27"
 prior = "MVN"
 regularization_strength = ALA3.regularization_strength_dict[prior][ff]
 
