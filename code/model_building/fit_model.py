@@ -21,7 +21,9 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
 
     if prior == "maxent":
         model = belt.MaxEnt_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
-    else:
+    elif prior == "dirichlet":
+        model = belt.Dirichlet_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+    elif prior == "MVN":
         model = belt.MVN_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
 
     model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)

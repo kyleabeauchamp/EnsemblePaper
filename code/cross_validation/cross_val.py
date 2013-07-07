@@ -10,7 +10,9 @@ def run(ff, prior, regularization_strength):
     predictions, measurements, uncertainties = experiment_loader.load(ff, stride=ALA3.cross_val_stride)
     if prior == "maxent":
         model_factory = lambda predictions, measurements, uncertainties: belt.MaxEnt_BELT(predictions, measurements, uncertainties, regularization_strength)
-    else:
+    elif prior == "dirichlet":
+        model_factory = lambda predictions, measurements, uncertainties: belt.Dirichlet_BELT(predictions, measurements, uncertainties, regularization_strength)
+    elif prior == "MVN":
         precision = np.cov(predictions.values.T)
         model_factory = lambda predictions, measurements, uncertainties: belt.MVN_BELT(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 

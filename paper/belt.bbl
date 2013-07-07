@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{50}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -330,12 +330,6 @@ Wang, L.-P., T.~L. Head-Gordon, J.~W. Ponder, P.~Ren, J.~D. Chodera, P.~K.
   Eastman, T.~J. Mart{\'\i}nez, and V.~S. Pande, 2013.
 \newblock Systematic Improvement of a Classical Molecular Model of Water.
 \newblock \emph{J. Phys. Chem. B} .
-
-\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
-  Tibshirani]{friedman2001elements}
-Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
-\newblock The elements of statistical learning, volume~1.
-\newblock Springer Series in Statistics.
 
 \bibitem[Habeck et~al.(2006)Habeck, Rieping, and Nilges]{habeck2006}
 Habeck, M., W.~Rieping, and M.~Nilges, 2006.
