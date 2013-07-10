@@ -46,6 +46,14 @@ regularization_strength_dict = {"maxent":
 "amber99sbnmr-ildn":10,
 "charmm27":4,
 "oplsaa":12
+},
+"dirichlet":
+{
+"amber96":7,
+"amber99":1.2,
+"amber99sbnmr-ildn":5,
+"charmm27":4,
+"oplsaa":13
 }
 }
 

@@ -9,12 +9,12 @@ belt.ne.set_num_threads(1)
 def run(ff, prior, regularization_strength):
     predictions, measurements, uncertainties = experiment_loader.load(ff, stride=ALA3.cross_val_stride)
     if prior == "maxent":
-        model_factory = lambda predictions, measurements, uncertainties: belt.MaxEnt_BELT(predictions, measurements, uncertainties, regularization_strength)
+        model_factory = lambda predictions, measurements, uncertainties: belt.MaxEntBELT(predictions, measurements, uncertainties, regularization_strength)
     elif prior == "dirichlet":
-        model_factory = lambda predictions, measurements, uncertainties: belt.Dirichlet_BELT(predictions, measurements, uncertainties, regularization_strength)
+        model_factory = lambda predictions, measurements, uncertainties: belt.DirichletBELT(predictions, measurements, uncertainties, regularization_strength)
     elif prior == "MVN":
         precision = np.cov(predictions.values.T)
-        model_factory = lambda predictions, measurements, uncertainties: belt.MVN_BELT(predictions, measurements, uncertainties, regularization_strength, precision=precision)
+        model_factory = lambda predictions, measurements, uncertainties: belt.MVNBELT(predictions, measurements, uncertainties, regularization_strength, precision=precision)
 
     bootstrap_index_list = np.array_split(np.arange(len(predictions)), ALA3.kfold)
     train_chi, test_chi = belt.cross_validated_mcmc(predictions.values, measurements.values, uncertainties.values, model_factory, bootstrap_index_list, ALA3.num_samples, thin=ALA3.thin)

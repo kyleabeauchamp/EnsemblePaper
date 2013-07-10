@@ -8,6 +8,7 @@ import sys
 bayesian_bootstrap_run = 0
 num_threads = 3
 rank = int(sys.argv[1])
+ALA3.prior_list = ["dirichlet"]
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
 
 for k, (ff, prior) in enumerate(grid):
