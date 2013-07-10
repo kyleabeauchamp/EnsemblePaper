@@ -20,11 +20,11 @@ def run(ff, prior, regularization_strength, bootstrap_index_list):
         prior_pops = ensemble_fitter.sample_prior_pops(num_frames, bootstrap_index_list)
 
     if prior == "maxent":
-        model = belt.MaxEnt_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+        model = belt.MaxEntBELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
     elif prior == "dirichlet":
-        model = belt.Dirichlet_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+        model = belt.DirichletBELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
     elif prior == "MVN":
-        model = belt.MVN_BELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
+        model = belt.MVNBELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, prior_pops=prior_pops)
 
     model.sample(ALA3.num_samples, thin=ALA3.thin, burn=ALA3.burn, filename=pymc_filename)
     p = model.accumulate_populations()
