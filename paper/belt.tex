@@ -42,7 +42,7 @@ Stanford University, Stanford, CA
 
 \begin{abstract}
 
-Inferring biomolecular conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modeling and experiment.  The vast majority of algorithms for structure determination, however, are limited to modeling a single conformation and provide only limited uncertainty information.  Here we describe Bayesian Energy Landscape Tilting (BELT), a scheme that combines simulation and experiment to infer solution ensembles.  BELT leverages the machinery of Bayesian statistics to give rigorous uncertainty estimates for structural features and equilibrium properties, given simple, well-defined assumptions.  Using trialanine as a test system, we show that BELT corrects force field bias, as measured by $\chi^2$ agreement with trialanine measurements \emph{not used} to fit the models.  BELT modeling with just six NMR measurements estimates $\alpha$, $\beta$, and $PP_{II}$ conformational populations that are 
+Inferring biomolecular conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modeling and experiment.  The vast majority of algorithms for structure determination, however, are limited to modeling a single conformation and provide only limited uncertainty information.  Here we describe Bayesian Energy Landscape Tilting (BELT), a scheme that combines simulation and experiment to infer solution ensembles.  Given simple, well-defined assumptions, BELT leverages the machinery of Bayesian statistics to give rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that BELT corrects force field bias, as measured by $\chi^2$ agreement with trialanine measurements \emph{not used} to fit the models.  BELT modeling with just six NMR measurements estimates $\alpha$, $\beta$, and $PP_{II}$ conformational populations that are 
 independent of force field.  
 
 \end{abstract}
@@ -125,13 +125,19 @@ Now we let $LP(\alpha)$ denote the log posterior of $\alpha$ and simplify, dropp
 
 $$LP(\alpha) = \log[ P(\alpha|F_1, ..., F_n)] = -\sum_i^n \frac{1}{2\sigma_i^2}(\langle f_i(x)\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
 
-Note the simple form of the log posterior.  The first term (i.e. the likelihood) measures the $\chi^2$ agreement between the reweighted ensemble and measurements.  The second term is the log of the prior distribution on $\alpha$.  In the present work, we evaluate two different choices of prior, finding similar results for each.  The first is the maximum entropy prior, which penalizes ensembles as they deviate from the raw simulation results:
+Note the simple form of the log posterior.  The first term (i.e. the likelihood) measures the $\chi^2$ agreement between the reweighted ensemble and measurements.  The second term is the log of the prior distribution on $\alpha$.  
 
-$$\log P_{maxent}(\alpha) = \lambda \sum_j^m \pi_j(\alpha) \log \pi_j(\alpha)$$
+In the present work, we evaluate three different choices of prior (Appx. S4), finding similar results for each.  The first is the maximum entropy prior, which penalizes ensembles as they deviate from the raw simulation results:
 
-The second prior we consider is a multivariate normal prior: $P_{MVN}(\alpha) \sim N(0, \Sigma)$.  The value of $\Sigma$ is given by $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, as derived in Appx. S4.
+$$\log P(\alpha) = \lambda \sum_j^m \pi_j(\alpha) \log \frac{\pi_j(\alpha)}{\pi_j^0}$$
 
-Both priors can be used to achieve regularization, which is a powerful technique to reduce overfitting.  With large values of $\lambda$, both priors favor the raw simulation results (i.e. uniform conformational populations): $\pi_i \approx \frac{1}{n}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  
+In the previous expression, $\pi_j^0$ refers to the populations of an unweighted ensemble, which are typically $\frac{1}{m}$.  We also consider using a Dirichlet prior, which is functionally similar to the maxent (Appx. S4):
+
+$$\log P(\alpha) = \lambda \sum_j \pi_j^0 \log \pi_j(\alpha)$$
+
+The third prior we consider is a multivariate normal prior, where  $\alpha \sim N(0, \Sigma)$.  The value of $\Sigma$ is given by $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, as derived in Appx. S4.
+
+These priors can be used to achieve regularization, which is a powerful technique to reduce overfitting \cite{friedman2001elements}.  Large values of $\lambda$ favor the raw simulation results (i.e. uniform conformational populations): $\pi_j \approx \pi_j^0 = \frac{1}{n}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  
 
 \subsection*{Bayesian Modeling of Structural Ensembles}
 
@@ -143,11 +149,11 @@ Because ensemble inference often presents many plausible solutions \citep{fisher
 
 Trialanine was simulated in the amber96\citep{kollman1996}, amber99\citep{wang2000}, amber99sbnmr-ildn\citep{li2010}, charmm27\citep{mackerell2004extending,bjelkmar2010implementation}, and oplsaa\citep{kaminski2001evaluation} force fields, as previously reported \citep{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5 \citep{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 1 ps.  
 
-\subsection*{Chemical Shift and Scalar Couplings}
+\subsection*{Chemical Shifts and Scalar Couplings}
 
 All NMR measurements in this work refer to experiments \citep{Graf2007} probing the central residue of trialanine.  We chose to focus on this residue because it will be most robust to pH dependent effects, which may be difficult to model with current force fields.  
 
-Chemical shifts (H, HA, CA, CB) for each frame were calculated using the average prediction of ShiftX2\citep{han2011shiftx2}, SPARTA+ \citep{Shen2010}, and PPM\citep{li2012ppm}; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight (e.g $\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \citep{Schmidt1999}, $^3J(H^N H^\alpha)$ \citep{vogeli2007limits}, $^2J(N C^\alpha)$ \citep{Graf2007}, $^3J(H^\alpha C')$ \citep{Schmidt1999}, $^1J(N C^\alpha)$ \citep{Graf2007}, $^3J(H^N C^\beta)$ \citep{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+Chemical shifts (H, HA, CA, CB) for each frame were calculated using a weighted average of ShiftX2\citep{han2011shiftx2}, SPARTA+ \citep{Shen2010}, and PPM\citep{li2012ppm} predictions; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight (e.g $\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$ \citep{Schmidt1999}, $^3J(H^N H^\alpha)$ \citep{vogeli2007limits}, $^2J(N C^\alpha)$ \citep{Graf2007}, $^3J(H^\alpha C')$ \citep{Schmidt1999}, $^1J(N C^\alpha)$ \citep{Graf2007}, $^3J(H^N C^\beta)$ \citep{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
 We have divided the available experimental measurements into a training and test set, with the training set consisting of $^3J(H^N C')$,  $^2J(N C^\alpha)$, $^3J(H^N C^\beta)$ scalar couplings and the $C_\alpha$, the $H$, and the $C_\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, and $^1J(N C^\alpha)$.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that is approximately uncorrelated; BELT is best suited for working with uncorrelated data.  Additional suggestions for data curation are provided in Appx. S7.  
 
@@ -155,11 +161,7 @@ We have divided the available experimental measurements into a training and test
 
 All BELT calculations were performed using the FitEnsemble package (\url{https://github.com/kyleabeauchamp/FitEnsemble}).  The online FitEnsemble tutorial demonstrates the use of BELT with a single experimental measurement ($^3J(H^N H^\alpha)$).  Source code for calculations in this work will be made available at \url{https://github.com/kyleabeauchamp/EnsemblePaper}.  
 
-Regularization strength was determined via cross validation as described in Appx. S5.  MCMC sampling for each of the current models the current work took approximately 12 hours.  These datasets used included six measurements and approximately 250,000 conformations.  For each model, we used PyMC to sample 5,000,000 values of $\alpha$; sampled values of $\alpha$ were thinned 100-fold to reduce correlation.  The first 5,000 samples (before thinning) are discarded as burn-in.  MCMC traces are shown in Fig. S2 and discussed in Appx. S8.  
-
-\subsection*{Bayesian Weighting}
-
-Bayesian weighting models were constructed with four conformational states consisting of $\alpha$, $\beta$, $PP_{II}$, and other.  State definitions were taken from \citep{jha}.  1,000,000 MCMC samples were generated.  The first 5,000 were discarded as burn-in and the remainder were thinned 100-fold.  A dirichlet prior (with 1 count per state) was used to model the prior populations of each conformational state.  We point out that there are several varieties of BW-like models; our implementation is one of several possible choices of prior.  BW calculations were performed using the bayesian weighting module within FitEnsemble.  
+Regularization strength was determined via cross validation as described in Appx. S5.  MCMC sampling for each of the current models the current work took approximately 12 hours.  These datasets used included six measurements and approximately 250,000 conformations.  For each model, we used PyMC to sample at least 5,000,000 values of $\alpha$; sampled values of $\alpha$ were thinned 100-fold to reduce correlation.  The first 5,000 samples (before thinning) are discarded as burn-in.  MCMC traces are shown in Fig. S2 and discussed in Appx. S8.  To incorporate simulation uncertainty, we used Bayesian Bootstraping (Appx. S6).  Two Bayesian bootstrap replicates were performed.  
 
 \section*{Results}
 
@@ -177,7 +179,7 @@ Trialanine was simulated (see Methods) in five different force fields; six exper
 \includegraphics[width=7.5cm]{figures/chi2_test_priors.pdf}
 }
 \caption{
-The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent and MVN priors) models.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.  See Methods for the definition of training and test sets.
+The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements \emph{not} used to fit the BELT model.  See Methods for the definition of training and test sets.
 }
 \label{figure:ChiSquared}
 \end{figure}
@@ -196,7 +198,7 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent and
 \includegraphics[width=7.5cm]{figures/state_2_by_forcefield_priors.pdf}
 }
 \caption{
-MD and BELT (maxent and MVN priors) conformational propensities for each force field.  
+MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities for each force field.  
 }
 \label{figure:ALA3}
 \end{figure}
@@ -238,7 +240,7 @@ MD and BELT (maxent and MVN priors) conformational propensities for each force f
 }
 
 \caption{
-Ramachandran plot of MD and BELT (maxent prior) ensembles for each force field.  Comparison of BELT models with different priors (maxent and MVN) are given in Fig. S1.  
+Ramachandran plot of MD and BELT (maxent prior) ensembles for each force field.  Comparison of BELT models with different priors are given in Fig. S1.  
 }
 \label{figure:Rama}
 \end{figure}
@@ -287,20 +289,21 @@ five models.  Because all five BELT ensembles show excellent agreement with expe
 
 Most previous ensemble modeling efforts involve a protocol with three key ingredients: state decomposition, a $\chi^2$ objective function, and population inference on the clusters.  For example, this general recipe describes the approach used in previous analyses of homopeptides \citep{Graf2007}, the EROS technique for SAXS modeling \citep{rozycki2011saxs}, and the Bayesian Weighting (BW) formalism \citep{fisher2010}.  Note that of these three techniques, BW fully characterizes the posterior distribution via MCMC; below we therefore focus our attention on BW as it is most directly comparable to BELT in scope and purpose.
 
-In our opinion, the primary disadvantage of previous techniques is the need for a state decomposition, which can be defined either by hand or by clustering.  Working with a given state decomposition can introduce two different errors, depending on the number  and quality of states.  In the limit of few states, clustering can overly coarsen the system of interest, possible preventing the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting when estimating the many populations required to parameterize the model.  This will lead to poor generalization performance and large errors when predicting experiments \emph{not} used to train the model.  One symptom of this regime is discontinuity in conformational populations. For example, imagine two nearby conformations at the boundary between two BW states--one conformation on each side of the boundary.  In BW, the populations of each conformation could fluctuate dramatically with the corresponding state populations.  In BELT, however, the two conformations will have nearly identical populations if the predicted observables vary smoothly.
+In our opinion, the primary disadvantage of previous techniques is the need for a state decomposition, which can be defined either by hand or by clustering.  Working with a given state decomposition can introduce two different errors, depending on the number  and quality of states.  In the limit of few states, clustering can overly coarsen the system of interest, possible preventing the model from reproducing multiple experimental observables.  At the other extreme, too many states could lead to over-fitting when estimating the many populations required to parameterize the model.  This will lead to poor generalization performance and large errors when predicting experiments \emph{not} used to train the model.  One symptom of this regime is discontinuity in conformational populations. For example, imagine two nearby conformations at the boundary between two BW states--one conformation on each side of the boundary.  In BW, the populations of each conformation could fluctuate dramatically with the corresponding 
+state populations.  In BELT, however, the two conformations will have nearly identical populations if the predicted observables vary smoothly.
 
 In contrast, BELT avoids arbitrary state decompositions by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold. First, in BELT, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the number of experiments is small, as is often the case, the inference problem involves only a few parameters.  Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenomena.  For example, the projection onto observables could be used to rationally infer force field parameters, similar to the ForceBalance method \citep{wang2012, wang2013systematic}.  Third, in the limit of exact measurements, BELT reduces to a previous \citep{chodera2012} maximum entropy approach (see Appx. S1).  
 
 We also point out some surprising differences between BELT and BW-like methods.  BW-like methods have the interesting property that the in-state means of features are preserved.  More precisely, suppose that $\chi_s(x)$ is the indicator function of a conformational state $s$.  Then in-state averages of the form $<h(x) \chi_s(x)>$ do \emph{not} depend on the reweighted populations.  BELT, however, does not preserve the in-state averages; in fact, this property is the direct result of BELT's connection to maximum entropy modeling (see Appx. S1 and ref. \citep{chodera2012}).  The effect of this property is that the ``peaks'' of reweighted histograms are slightly shifted relative to the raw MD results, as observed in Fig. \ref{figure:Hist}.   
 
-From this discussion, we hope the reader is informed 
+From this discussion, we hope the reader is informed about some of the key differences between BW-like methods and BELT.  In some ways, these differences are analogous to the differences between (regularized) linear regression and nearest-neighbors regression \cite{friedman2001elements}.  The best method for a given system will likely depend on factors including the presence or absence of an obvious few-state decomposition, the number of experimental measurements, and the properties of of the experimental observables.  
 
 
 
 
 \section*{Future Work}
 
-The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In App. S3, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. S6) approaches used herein.  Another promising avenue is to combine Bayesian modeling of structural ensembles with Bayesian models for experimental observables.  A Bayesian formalism for NMR experiments has previously been developed \citep{rieping2005, habeck2006}; connecting BELT to these methods may be straightforward.  
+The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In App. S3, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-Normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. S6) approaches used herein.  Another promising avenue is to combine Bayesian modeling of structural ensembles with Bayesian models for experimental observables.  A Bayesian formalism for NMR experiments has previously been developed \citep{rieping2005, habeck2006, habeck2005bayesian}; connecting BELT to these methods may be straightforward.  
 
 
 \section*{Conclusion}

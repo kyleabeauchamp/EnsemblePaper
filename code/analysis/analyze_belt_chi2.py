@@ -6,14 +6,14 @@ import pandas as pd
 
 F = open(ALA3.chi2_filename, 'a')
 
-bayesian_bootstrap_run = 0
+num_BB = 2
 
 for ff in ALA3.ff_list:
     for prior in ALA3.prior_list:
         regularization_strength = ALA3.regularization_strength_dict[prior][ff]
         predictions, measurements, uncertainties = experiment_loader.load(ff, keys=None)
-        mcmc_filename = "mcmc_traces/mu_%s_%s_reg-%.1f-BB%d.h5" % (ff, prior, regularization_strength, bayesian_bootstrap_run)
-        mu_mcmc = pd.HDFStore(mcmc_filename)["data"]
+        mcmc_filename = "mcmc_traces/mu_%s_%s_reg-%.1f-BB%d.h5"
+        mu_mcmc = pd.concat([pd.HDFStore(mcmc_filename % (ff, prior, regularization_strength, bayesian_bootstrap_run))["data"] for bayesian_bootstrap_run in range(num_BB)])
 
         z = (measurements - mu_mcmc) / uncertainties
         chi2_train = (z[ALA3.train_keys] ** 2.0).mean(0).mean()

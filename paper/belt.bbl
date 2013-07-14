@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{51}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -102,6 +102,12 @@ Graf, J., P.~Nguyen, G.~Stock, and H.~Schwalbe, 2007.
 \newblock Structure and dynamics of the homologous series of alanine peptides:
   a joint molecular dynamics/NMR study.
 \newblock \emph{J. Am. Chem. Soc.} 129:1179--1189.
+
+\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
+  Tibshirani]{friedman2001elements}
+Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
+\newblock The elements of statistical learning, volume~1.
+\newblock Springer Series in Statistics.
 
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
@@ -209,14 +215,6 @@ V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
   measurements of scalar couplings.
 \newblock \emph{J. Am. Chem. Soc.} 129:9377--9385.
 
-\bibitem[Jha et~al.(2005{\natexlab{a}})Jha, Colubri, Zaman, Koide, Sosnick, and
-  Freed]{jha}
-Jha, A.~K., A.~Colubri, M.~H. Zaman, S.~Koide, T.~R. Sosnick, and K.~F. Freed,
-  2005.
-\newblock Helix, sheet, and polyproline II frequencies and strong nearest
-  neighbor effects in a restricted coil library.
-\newblock \emph{Biochemistry} 44:9691--9702.
-
 \bibitem[Nerenberg and Head-Gordon(2011)]{Nerenberg2011}
 Nerenberg, P., and T.~Head-Gordon, 2011.
 \newblock Optimizing Protein- Solvent Force Fields to Reproduce Intrinsic
@@ -236,7 +234,7 @@ Grdadolnik, J., V.~Mohacek-Grosev, R.~Baldwin, and F.~Avbelj, 2011.
   acid dipeptides.
 \newblock \emph{Proc. Natl. Acad. Sci. U. S. A.} 108:1794.
 
-\bibitem[Jha et~al.(2005{\natexlab{b}})Jha, Colubri, Zaman, Koide, Sosnick, and
+\bibitem[Jha et~al.(2005)Jha, Colubri, Zaman, Koide, Sosnick, and
   Freed]{Jha2005}
 Jha, A.~K., A.~Colubri, M.~H. Zaman, S.~Koide, T.~R. Sosnick, and K.~F. Freed,
   2005.
@@ -336,5 +334,11 @@ Habeck, M., W.~Rieping, and M.~Nilges, 2006.
 \newblock Weighting of experimental evidence in macromolecular structure
   determination.
 \newblock \emph{Proc. Natl. Acad. Sci.} 103:1756--1761.
+
+\bibitem[Habeck et~al.(2005)Habeck, Rieping, and Nilges]{habeck2005bayesian}
+Habeck, M., W.~Rieping, and M.~Nilges, 2005.
+\newblock Bayesian estimation of Karplus parameters and torsion angles from
+  three-bond scalar couplings constants.
+\newblock \emph{Journal of Magnetic Resonance} 177:160--165.
 
 \end{thebibliography}

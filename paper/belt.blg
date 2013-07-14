@@ -4,44 +4,44 @@ The top-level auxiliary file: belt.aux
 The style file: biophysj.bst
 Database file #1: belt.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 50 entries,
+You've used 51 entries,
             3176 wiz_defined-function locations,
-            940 strings with 15462 characters,
-and the built_in function-call counts, 26848 in all, are:
-= -- 1819
-> -- 1693
-< -- 10
-+ -- 557
+            948 strings with 15751 characters,
+and the built_in function-call counts, 27130 in all, are:
+= -- 1841
+> -- 1695
+< -- 11
++ -- 558
 - -- 456
-* -- 2004
-:= -- 3840
-add.period$ -- 151
-call.type$ -- 50
-change.case$ -- 50
-chr.to.int$ -- 49
-cite$ -- 50
-duplicate$ -- 2260
-empty$ -- 2055
-format.name$ -- 567
-if$ -- 5489
-int.to.chr$ -- 2
-int.to.str$ -- 51
-missing$ -- 514
-newline$ -- 256
-num.names$ -- 150
-pop$ -- 735
+* -- 2013
+:= -- 3877
+add.period$ -- 154
+call.type$ -- 51
+change.case$ -- 51
+chr.to.int$ -- 51
+cite$ -- 51
+duplicate$ -- 2290
+empty$ -- 2088
+format.name$ -- 569
+if$ -- 5552
+int.to.chr$ -- 1
+int.to.str$ -- 52
+missing$ -- 521
+newline$ -- 261
+num.names$ -- 153
+pop$ -- 752
 preamble$ -- 1
-purify$ -- 50
+purify$ -- 51
 quote$ -- 0
-skip$ -- 477
+skip$ -- 491
 stack$ -- 0
-substring$ -- 1113
-swap$ -- 1221
-text.length$ -- 0
+substring$ -- 1109
+swap$ -- 1232
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 350
+type$ -- 354
 warning$ -- 0
-while$ -- 178
+while$ -- 180
 width$ -- 0
-write$ -- 650
+write$ -- 663

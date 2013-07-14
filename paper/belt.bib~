@@ -1,6 +1,18 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+@article{habeck2005bayesian,
+  title={Bayesian estimation of Karplus parameters and torsion angles from three-bond scalar couplings constants},
+  author={Habeck, Michael and Rieping, Wolfgang and Nilges, Michael},
+  journal={Journal of Magnetic Resonance},
+  volume={177},
+  number={1},
+  pages={160--165},
+  year={2005},
+  publisher={Elsevier}
+}
+
+
 @article{shi2013structural,
   title={Structural ensemble and microscopic elasticity of freely diffusing DNA by direct measurement of fluctuations},
   author={Shi, Xuesong and Herschlag, Daniel and Harbury, Pehr AB},
@@ -309,7 +321,7 @@ journal = {J. Chem. Theory Comput.},
 @article{scheidig1997crystal,
   title={Crystal structures of bovine chymotrypsin and trypsin complexed to the inhibitor domain of alzheimer's amyloid $\beta$-protein precursor (APPI) and basic pancreatic trypsin inhibitor (BPTI): Engineering of inhibitors with altered specificities},
   author={Scheidig, Axel J and Hynes, Thomas R and Pelletier, Laura A and Wells, James A and Kossiakoff, Anthony A},
-  journal={Protein science},
+  journal={Protein Science},
   volume={6},
   number={9},
   pages={1806--1824},

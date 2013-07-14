@@ -34,7 +34,7 @@ regularization_strength_dict = {"maxent":
 {
 "amber96":10,
 "amber99":4,
-"amber99sbnmr-ildn":10,
+"amber99sbnmr-ildn":25,
 "charmm27":6,
 "oplsaa":12
 }
@@ -43,7 +43,7 @@ regularization_strength_dict = {"maxent":
 {
 "amber96":6,
 "amber99":1,
-"amber99sbnmr-ildn":10,
+"amber99sbnmr-ildn":25,
 "charmm27":4,
 "oplsaa":12
 },
@@ -51,7 +51,7 @@ regularization_strength_dict = {"maxent":
 {
 "amber96":7,
 "amber99":1.2,
-"amber99sbnmr-ildn":5,
+"amber99sbnmr-ildn":25,
 "charmm27":4,
 "oplsaa":13
 }

@@ -5,11 +5,11 @@ from fitensemble import belt
 import itertools
 import sys
 
-bayesian_bootstrap_run = 0
+bayesian_bootstrap_run = 1
 num_threads = 3
 rank = int(sys.argv[1])
-ALA3.prior_list = ["dirichlet"]
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
+grid = [("amber99","maxent")]
 
 for k, (ff, prior) in enumerate(grid):
     if k % num_threads == rank:
