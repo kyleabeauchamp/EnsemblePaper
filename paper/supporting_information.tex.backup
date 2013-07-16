@@ -31,49 +31,118 @@
 
 \newpage
 
+\newpage
+
 \begin{figure}
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_maxent_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_raw.pdf}
 }
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_maxent_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_maxent_belt.pdf}
 }
 
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_MVN_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_dirichlet_belt.pdf}
 }
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_MVN_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_MVN_belt.pdf}
 }
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_MVN_belt.pdf}
-}
-
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_maxent_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
-}
-
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_MVN_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_MVN_belt.pdf}
-}
-
-\caption{
-Ramachandran plot of BELT ensembles calculated using the maxent and MVN priors.
-}
-\label{figure:Rama_priors}
 \end{figure}
 
 \newpage
 
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_MVN_belt.pdf}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_MVN_belt.pdf}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_MVN_belt.pdf}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_MVN_belt.pdf}
+}
+
+\caption{
+Ramachandran plots of MD simulations and BELT models.  
+}
+\label{figure:test}
+
+
+\end{figure}
+
+\newpage
+
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/maxent-amber96-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/dirichlet-amber96-MCMC_Trace.pdf}
+}
+\subfigure[]{
+\includegraphics[width=4.5cm]{figures/MVN-amber96-MCMC_Trace.pdf}
+}
+\end{figure}
 
 \begin{figure}
 \subfigure[]{
@@ -210,9 +279,15 @@ Other possible error models involve modifying the assumption of normality.  A no
 
 \section{Appendix S4.  Choice of Prior}
 
+\subsection{Maximum Entropy (maxent) Prior}
+
+\subsection{Multivariate Normal (MVN) Prior}
+
 In the main text, we used both maximum entropy and multivariate normal (MVN) priors.  Here we derive the parameters used in the MVN prior. 
 
 In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the raw simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  
+
+\subsection{Dirichlet Prior}
 
 We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables--that is, when dealing with counts and probabilities of categorical data.  The dirichlet distribution is nonzero on the unit simplex and has the following functional form:
 
@@ -230,7 +305,22 @@ Note that the constant term is unimportant, as MCMC relies on the \emph{differen
 
 $$\log f(\pi;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
+What you should notice is that this functional form is quite similar to the maxent prior that we previously discussed.  The difference between the maxent and Dirichlet priors can be explained in terms of the relative entropy between two distributions $P$ and $Q$.  The relative entropy is given by
 
+$$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
+
+The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi(0)$, calculated in either direction.  
+
+In practice, the maxent prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
+
+$$s_j - 1 = \lambda \pi_j(0)$$
+
+Thus, we assume that the pseudocounts are proportional to the raw MD simulation populations, which for constant temperature MD should be a uniform distribution.  The final $log$ prior has the form
+
+$$\log f(\pi;s) \approx \sum_j \lambda \pi_j(0) \log \pi_j(\alpha)$$
+
+
+\subsection{Jeffrey's Prior}
 
 Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to tune our relative belief in the forcefield versus experimental data.  Regardless, we derive Jeffrey's prior below.
 

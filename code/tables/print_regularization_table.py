@@ -17,7 +17,7 @@ z = y.pivot_table(rows=["forcefield"],cols=["prior"]) / num_expt
 print z.to_latex(float_format=(lambda x: "%.2f"%x))
 
 for (ff, prior), data in d.groupby(["forcefield","prior"]):
-    print(ff, prior)
-    print(data)
+    print data.iloc[data["test_chi"].argmin()]
+    
 
 

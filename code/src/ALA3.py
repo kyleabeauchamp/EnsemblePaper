@@ -4,7 +4,7 @@ import pandas as pd
 model = "maxent"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
-prior_list = ["maxent", "MVN"]
+prior_list = ["maxent", "dirichlet", "MVN"]
 
 #train_keys = ['JC_2_J3_HN_Cprime', 'CS_2_CA', 'CS_2_H', 'JC_3_J2_N_CA', 'CS_2_CB', 'JC_2_J3_HN_CB']
 #test_keys = ["JC_2_J3_HN_HA" , "JC_2_J3_HA_Cprime", "JC_2_J1_N_CA"]

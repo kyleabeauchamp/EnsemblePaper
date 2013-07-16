@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{52}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -147,6 +147,14 @@ Li, D., and R.~Bruschweiler, 2010.
 \newblock NMR-Based Protein Potentials.
 \newblock \emph{Angew. Chem.} 122:6930--6932.
 
+\bibitem[Lindorff-Larsen et~al.(2010)Lindorff-Larsen, Piana, Palmo, Maragakis,
+  Klepeis, Dror, and Shaw]{Lindorff-Larsen2010}
+Lindorff-Larsen, K., S.~Piana, K.~Palmo, P.~Maragakis, J.~Klepeis, R.~Dror, and
+  D.~Shaw, 2010.
+\newblock Improved side-chain torsion potentials for the Amber ff99SB protein
+  force field.
+\newblock \emph{Proteins: Struct., Funct., Bioinf.} 78:1950--1958.
+
 \bibitem[Mackerell~Jr et~al.(2004)Mackerell~Jr, Feig, and
   Brooks~III]{mackerell2004extending}
 Mackerell~Jr, A., M.~Feig, and C.~Brooks~III, 2004.
@@ -199,14 +207,7 @@ Shen, Y., and A.~Bax, 2010.
 Li, D.-W., and R.~Br{\"u}schweiler, 2012.
 \newblock PPM: a side-chain and backbone chemical shift predictor for the
   assessment of protein conformational ensembles.
-\newblock \emph{Journal of Biomolecular NMR} 1--9.
-
-\bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Löhr, and
-  Rüterjans]{Schmidt1999}
-Schmidt, J., M.~Blümel, F.~Löhr, and H.~Rüterjans, 1999.
-\newblock Self-consistent 3J coupling analysis for the joint calibration of
-  Karplus coefficients and evaluation of torsion angles.
-\newblock \emph{J. Biomol. NMR} 14:1--12.
+\newblock \emph{J. Biol. NMR} 1--9.
 
 \bibitem[V{\"o}geli et~al.(2007)V{\"o}geli, Ying, Grishaev, and
   Bax]{vogeli2007limits}
@@ -214,6 +215,13 @@ V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
 \newblock Limits on variations in protein backbone dynamics from precise
   measurements of scalar couplings.
 \newblock \emph{J. Am. Chem. Soc.} 129:9377--9385.
+
+\bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Löhr, and
+  Rüterjans]{Schmidt1999}
+Schmidt, J., M.~Blümel, F.~Löhr, and H.~Rüterjans, 1999.
+\newblock Self-consistent 3J coupling analysis for the joint calibration of
+  Karplus coefficients and evaluation of torsion angles.
+\newblock \emph{J. Biomol. NMR} 14:1--12.
 
 \bibitem[Nerenberg and Head-Gordon(2011)]{Nerenberg2011}
 Nerenberg, P., and T.~Head-Gordon, 2011.
@@ -339,6 +347,6 @@ Habeck, M., W.~Rieping, and M.~Nilges, 2006.
 Habeck, M., W.~Rieping, and M.~Nilges, 2005.
 \newblock Bayesian estimation of Karplus parameters and torsion angles from
   three-bond scalar couplings constants.
-\newblock \emph{Journal of Magnetic Resonance} 177:160--165.
+\newblock \emph{J. Mag. Res.} 177:160--165.
 
 \end{thebibliography}

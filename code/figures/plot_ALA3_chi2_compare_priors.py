@@ -3,7 +3,7 @@ import experiment_loader
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.rcParams.update({'font.size': 20})
+matplotlib.rcParams.update({'font.size': 18})
 import ALA3
 import pandas as pd
 
@@ -34,7 +34,8 @@ ylim = np.array([0.05,20.0])
 
 plt.bar(x_local[0] + x_global, chi2_raw[ff_list].ix["all"], color='r', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_all[ff_list].ix["maxent"], color='b', label="maxent",log=use_log)
-plt.bar(x_local[2] + x_global, chi2_all[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
+plt.bar(x_local[2] + x_global, chi2_all[ff_list].ix["dirichlet"], color='c', label="Dirichlet",log=use_log)
+plt.bar(x_local[3] + x_global, chi2_all[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")
@@ -49,7 +50,8 @@ plt.savefig(ALA3.outdir+"/chi2_all_priors.pdf",bbox_inches='tight')
 plt.figure()
 plt.bar(x_local[0] + x_global, chi2_raw[ff_list].ix["train"], color='r', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_train[ff_list].ix["maxent"], color='b', label="maxent",log=use_log)
-plt.bar(x_local[2] + x_global, chi2_train[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
+plt.bar(x_local[2] + x_global, chi2_train[ff_list].ix["dirichlet"], color='c', label="Dirichlet",log=use_log)
+plt.bar(x_local[3] + x_global, chi2_train[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")
@@ -64,7 +66,8 @@ plt.savefig(ALA3.outdir+"/chi2_train_priors.pdf",bbox_inches='tight')
 plt.figure()
 plt.bar(x_local[0] + x_global, chi2_raw[ff_list].ix["test"], color='r', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_test[ff_list].ix["maxent"], color='b', label="maxent",log=use_log)
-plt.bar(x_local[2] + x_global, chi2_test[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
+plt.bar(x_local[2] + x_global, chi2_test[ff_list].ix["dirichlet"], color='c', label="Dirichlet",log=use_log)
+plt.bar(x_local[3] + x_global, chi2_test[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")

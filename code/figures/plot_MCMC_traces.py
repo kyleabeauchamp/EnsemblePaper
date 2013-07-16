@@ -24,4 +24,4 @@ for k, (ff, prior) in enumerate(grid):
         plt.xlabel("MCMC steps")
         #plt.ylabel(r"$\alpha$:" + str(predictions.columns[0]))
         plt.ylabel(predictions.columns[0])
-        plt.savefig(ALA3.outdir+"/%s-%s-MCMC_Trace.pdf"%(prior, ff), bbox_inches='tight')
+        plt.savefig(ALA3.outdir+"/%s-%s-MCMC_Trace.png"%(prior, ff), bbox_inches='tight')

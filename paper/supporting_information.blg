@@ -1,48 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: supporting_information.aux
-The style file: achemso.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: acs-supporting_information.bib
-Database file #2: supporting_information.bib
-You've used 6 entries,
-            2470 wiz_defined-function locations,
-            765 strings with 6983 characters,
-and the built_in function-call counts, 1634 in all, are:
-= -- 126
-> -- 80
-< -- 8
-+ -- 33
-- -- 27
-* -- 169
-:= -- 220
-add.period$ -- 5
-call.type$ -- 6
-change.case$ -- 3
-chr.to.int$ -- 2
-cite$ -- 6
-duplicate$ -- 96
-empty$ -- 115
-format.name$ -- 35
-if$ -- 306
+The style file: plain.bst
+Database file #1: supporting_information.bib
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            531 strings with 4711 characters,
+and the built_in function-call counts, 1508 in all, are:
+= -- 149
+> -- 64
+< -- 0
++ -- 26
+- -- 20
+* -- 106
+:= -- 267
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 25
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 54
+empty$ -- 119
+format.name$ -- 20
+if$ -- 303
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 51
-num.names$ -- 15
-pop$ -- 9
+int.to.str$ -- 5
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 10
+pop$ -- 17
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 20
 quote$ -- 0
-skip$ -- 1
+skip$ -- 38
 stack$ -- 0
-substring$ -- 87
-swap$ -- 84
-text.length$ -- 10
+substring$ -- 103
+swap$ -- 5
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 39
+type$ -- 20
 warning$ -- 0
-while$ -- 19
-width$ -- 0
-write$ -- 80
+while$ -- 16
+width$ -- 6
+write$ -- 56

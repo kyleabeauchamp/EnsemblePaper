@@ -1,9 +1,8 @@
-\documentclass[journal=jacsat,manuscript=article]{achemso}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
-\usepackage{url}
 \usepackage{booktabs}
 
 \makeatletter 
@@ -12,16 +11,16 @@
 \makeatletter 
 \renewcommand{\thetable}{S\@arabic\c@table}
 
-\author{Kyle A. Beauchamp}
-\affiliation[Biophysics Program]{Biophysics Program}
+\author{Kyle A. Beauchamp,   Rhiju Das,  and Vijay S. Pande}
+%\affiliation[Biophysics Program]{Biophysics Program}
 
-\author{Rhiju Das$^\dagger$}
-\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
+%\author{}
+%\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
 
-\author{Vijay S. Pande$^\dagger$}
-\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
+%\author{}
+%\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
 
-\email{rhiju@stanford.edu, pande@stanford.edu}
+%\email{rhiju@stanford.edu, pande@stanford.edu}
 
 \title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments: Application to Trialanine}
 
@@ -33,43 +32,23 @@
 
 \begin{figure}
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_maxent_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_raw.pdf}
 }
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_maxent_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_maxent_belt.pdf}
 }
 
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber96_MVN_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_dirichlet_belt.pdf}
 }
 \subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99_MVN_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_MVN_belt.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber96_MVN_belt.pdf}
 }
 
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_maxent_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
-}
+\begin{center}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_colorbar.pdf}
+\end{center}
 
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_charmm27_MVN_belt.pdf}
-}
-\subfigure[]{
-\includegraphics[width=5.05cm]{figures/ALA3_rama_oplsaa_MVN_belt.pdf}
-}
-
-\caption{
-Ramachandran plot of BELT ensembles calculated using the maxent and MVN priors.
-}
-\label{figure:Rama_priors}
 \end{figure}
 
 \newpage
@@ -77,35 +56,173 @@ Ramachandran plot of BELT ensembles calculated using the maxent and MVN priors.
 
 \begin{figure}
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-amber96-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_raw.pdf}
 }
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-amber99-MCMC_Trace.pdf}
-}
-\subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-amber99sbnmr-ildn-MCMC_Trace.pdf}
-}
-\subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-charmm27-MCMC_Trace.pdf}
-}
-\subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-oplsaa-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_maxent_belt.pdf}
 }
 
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/MVN-amber96-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_dirichlet_belt.pdf}
 }
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/MVN-amber99-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99_MVN_belt.pdf}
+}
+
+\begin{center}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_colorbar.pdf}
+\end{center}
+
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf}
 }
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/MVN-amber99sbnmr-ildn-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_dirichlet_belt.pdf}
 }
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/MVN-charmm27-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_amber99sbnmr-ildn_MVN_belt.pdf}
+}
+
+\begin{center}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_colorbar.pdf}
+\end{center}
+
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_raw.pdf}
 }
 \subfigure[]{
-\includegraphics[width=4.5cm]{figures/maxent-oplsaa-MCMC_Trace.pdf}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_charmm27_MVN_belt.pdf}
+}
+
+\begin{center}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_colorbar.pdf}
+\end{center}
+
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_raw.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_dirichlet_belt.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.05cm]{figures/ALA3_rama_oplsaa_MVN_belt.pdf}
+}
+
+\begin{center}
+\includegraphics[width=7.05cm]{figures/ALA3_rama_colorbar.pdf}
+\end{center}
+
+\caption{
+Ramachandran plots (2D histograms) of MD simulations and BELT models.  
+}
+\label{figure:test}
+
+
+\end{figure}
+
+\newpage
+
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/maxent-amber96-MCMC_Trace.png}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/dirichlet-amber96-MCMC_Trace.png}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/MVN-amber96-MCMC_Trace.png}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/maxent-amber99-MCMC_Trace.png}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/dirichlet-amber99-MCMC_Trace.png}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/MVN-amber99-MCMC_Trace.png}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/maxent-amber99sbnmr-ildn-MCMC_Trace.png}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/dirichlet-amber99sbnmr-ildn-MCMC_Trace.png}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/MVN-amber99sbnmr-ildn-MCMC_Trace.png}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/maxent-charmm27-MCMC_Trace.png}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/dirichlet-charmm27-MCMC_Trace.png}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/MVN-charmm27-MCMC_Trace.png}
+}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/maxent-oplsaa-MCMC_Trace.png}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/dirichlet-oplsaa-MCMC_Trace.png}
+}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/MVN-oplsaa-MCMC_Trace.png}
 }
 
 \caption{
@@ -136,7 +253,7 @@ MCMC traces of first component of $\alpha$.
 }
 
 \caption{
-Cross validated reduced $\chi^2$
+Cross validated reduced $\chi^2$.  Cross validation was performed using twenty-fold subsampled trajectory data to make calculations computationally tractable.  
 }
 \label{figure:cross_val}
 \end{figure}
@@ -144,7 +261,7 @@ Cross validated reduced $\chi^2$
 
 \clearpage
 
-\section{Appendix S1.  Connection between Maximum Entropy and BELT}
+\section*{Appendix S1.  Connection between Maximum Entropy and BELT}
 
 
 Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and BELT.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
@@ -166,11 +283,11 @@ As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alp
 
 \newpage
 
-\section{Appendix S2.  Derivation of Reweighting}
+\section*{Appendix S2.  Derivation of Reweighting}
 
 Here we derive the population estimator used in BELT.  As in the main text, we use subscripted angle brackets to indicate ensemble averages in reweighted ensembles: $\langle h(x)\rangle _\alpha$ is the ensemble average of $h(x)$ in an ensemble that is perturbed by a biasing potential $\Delta (x;\alpha) = \sum_i \alpha_i f_i(x)$:
 
-$$\langle h(x)\rangle _\alpha = \frac{1}{Z(\alpha)} \int dx \exp[-U(x) + \sum_i \alpha_i f_i(x)] h(x)$$
+$$\langle h(x)\rangle _\alpha = \frac{1}{Z(\alpha)} \int h(x) dx \exp[ -U(x) - \Delta(x)]$$
 
 $Z(\alpha)$ denotes the partition function for the $\alpha$ ensemble.  To proceed, we first note a simple Zwanzig identity that allows us to relate samples taken from different ensembles:
 
@@ -196,7 +313,7 @@ Thus, BELT is essentially exponential averaging applied to a weighted combinatio
 
 \newpage
 
-\section{Appendix S3.  Alternative Error Models}
+\section*{Appendix S3.  Alternative Error Models}
 
 The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified log likelihood:
 
@@ -208,54 +325,63 @@ Other possible error models involve modifying the assumption of normality.  A no
 
 \newpage
 
-\section{Appendix S4.  Choice of Prior}
+\section*{Appendix S4.  Choice of Prior}
 
-\subsection{Maximum Entropy (maxent) Prior}
+\subsection*{Maximum Entropy (maxent) Prior}
 
-\subsection{Multivariate Normal (MVN) Prior}
+As described in the main text, the maximum entropy prior is given by 
 
-In the main text, we used both maximum entropy and multivariate normal (MVN) priors.  Here we derive the parameters used in the MVN prior. 
+$$\log P(\alpha) = -\lambda \sum_j^m \pi_j(\alpha) \log \frac{\pi_j(\alpha)}{\pi_j^0}$$
 
-In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$--this places the highest prior density on the raw simulation.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune our relative belief in the simulation versus experiment.  In practice, we found the MVN prior to give similar results to the maximum entropy prior.  Occasionally, the MVN prior weights individual frames heavily, whereas the maximum entropy prior leads to much smoother ensembles.  
+Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}$.  This form of regularization has previously been used to model SAXS ensembles \cite{rozycki2011saxs}.  
 
-\subsection{Dirichlet Prior}
+\subsection*{Dirichlet Prior}
 
 We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables--that is, when dealing with counts and probabilities of categorical data.  The dirichlet distribution is nonzero on the unit simplex and has the following functional form:
 
-$$f(\pi;s) = \frac{1}{B(\alpha)} \prod_j \pi_j^{s_j - 1}$$
+$$f(\pi;s) = \frac{1}{B(s)} \prod_j \pi_j^{s_j - 1}$$
 
 The Dirichlet prior is an obvious choice for BELT, because the object of interest is the probability distribution on conformations.  However, in BELT, we must restrict the distribution to the subset of probability distributions that can be achieved via reweighting.  Thus, instead of $x_j$, we have $\pi_j(\alpha)$:
 
-$$f(\pi;s) = \frac{1}{B(\alpha)} \prod_j \pi_j(\alpha)^{s_j - 1}$$
+$$f(\alpha;s) = \frac{1}{B(s)} \prod_j \pi_j(\alpha)^{s_j - 1}$$
 
 For our MCMC calculations, we work with the $log$ probability:
 
-$$\log f(\pi;s) = -\log(B(\alpha)) + \sum_j (s_j - 1) \log \pi_j(\alpha)$$
+$$\log f(\alpha;s) = -\log(B(s)) + \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
 Note that the constant term is unimportant, as MCMC relies on the \emph{difference} in $log$ probabilities:
 
-$$\log f(\pi;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
+$$\log f(\alpha;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-What you should notice is that this functional form is quite similar to the maxent prior that we previously discussed.  The difference between the maxent and Dirichlet priors can be explained in terms of the relative entropy between two distributions $P$ and $Q$.  The relative entropy is given by
+Notice that this functional form is quite similar to the maxent prior that we previously discussed.  The difference between the maxent and Dirichlet priors can be explained in terms of the relative entropy between two distributions $P$ and $Q$.  The relative entropy is given by
 
 $$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
 
-The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi(0)$, calculated in either direction.  
+The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
 
 In practice, the maxent prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
 
-$$s_j - 1 = \lambda \pi_j(0)$$
+$$s_j - 1 = \lambda \pi_j^0$$
 
-Thus, we assume that the pseudocounts are proportional to the raw MD simulation populations, which for constant temperature MD should be a uniform distribution.  The final $log$ prior has the form
+Thus, we assume that the pseudocounts are proportional to the raw MD simulation populations, which for constant temperature MD should be a uniform distribution.  For practical implementation in an MCMC sampler, we can drop terms that do not depend on $\alpha$, which leads to the following:
 
-$$
+$$\log f(\pi;s) =  \lambda \sum_j \pi_j^0 \log \pi_j(\alpha)$$
+
+Note that this can be rearranged into the following form, which better illuminates the connection between the maxent and Dirichlet priors:
+
+$$\log P(\alpha) = -\lambda \sum_j \pi_j^0 \log \frac{\pi_j^0}{\pi_j(\alpha)}$$
 
 
-\subsection{Jeffrey's Prior}
+\subsection*{Multivariate Normal (MVN) Prior}
 
-Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to tune our relative belief in the forcefield versus experimental data.  Regardless, we derive Jeffrey's prior below.
+In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$.  This places the highest prior density on the raw simulation and allows regularization of $\alpha$.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune the amount of regularization.
 
-\subsection{Derivation of Jeffrey's Prior}
+
+\subsection*{Jeffrey's Prior}
+
+Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to provide regularization.  Regardless, we derive Jeffrey's prior below.
+
+\subsection*{Derivation of Jeffrey's Prior}
 
 This section derives the Jeffrey's prior for the BELT likelihood.  We do \emph{not} recommend the use of this prior, as it is expensive to compute and unable to provide regularization.  This section can be skipped by most readers; we include it only for completeness.
 
@@ -269,7 +395,7 @@ $$I_{ab}(\alpha) = E_\alpha(\frac{d\log P(F|\alpha)}{d\alpha_{a}}\frac{d\log P(F
 
 First, we examine the log likelihood (dropping terms independent of $\alpha$) and calculate its derivative:
 
-$$LL = \log P(F|\alpha) = - \frac{1}{2}\sum_i (\frac{F_i - <F_i>_\alpha}{\sigma_i})^2$$
+$$LL = \log P(F|\alpha) = - \frac{1}{2}\sum_i (\frac{F_i - \langle F_i\rangle_\alpha}{\sigma_i})^2$$
 
 $$\frac{d(LL)}{d\alpha_a} = \sum_i \frac{1}{\sigma_i}(F_i - \langle F_i \rangle_\alpha) \frac{d\langle F_i \rangle_\alpha}{d\alpha_a}$$
 
@@ -285,7 +411,7 @@ Now, we know that
 
 $$\frac{d\langle F_i \rangle_\alpha}{d\alpha_a} = \sum_k f_{ak} \frac{d\pi_k}{d\alpha_a}$$
 
-Similarly, we can show that
+where $f_{ak} = f_a(x_k)$.  Similarly, we can show that
 
 $$\frac{d\pi_k}{d\alpha_a} = \pi_k (\langle F_a \rangle_{\alpha} - f_{ak})$$
 
@@ -300,77 +426,69 @@ $$S_{ia} = \sum_k \pi_k (<F_a>_\alpha - f_{ka}) f_{ki}$$
 
 \newpage
 
-\section{Appendix S5.  Determining Prior Strength Via Cross-Validation}
+\section*{Appendix S5.  Determining Prior Strength Via Cross-Validation}
 
-The maxent and MVN priors both contain a single free parameter, $\lambda$, which controls the relative weight of simulation and experiment.  At least three different approaches can help select an appropriate value of $\lambda$:
+Each prior in this work contains a single free parameter, $\lambda$, which controls the level of regularization.  At least two different approaches can help select an appropriate value of $\lambda$:
 
 \begin{enumerate}
  \item Cross validation on simulation data (used in main text)
  \item Cross validation on experimental data
- \item $\chi^2$ analysis.  
 \end{enumerate}
 
-\subsection{Cross validation on simulation data}
+\subsection*{Cross validation on simulation data}
 
 We first discuss cross-validating on the simulation data.  The underlying idea is that too little regularization ($\lambda = 0$) leads to models that overfit the available simulation data and generalize poorly--that is, repeating or extending the MD simulations would lead to a different result.  At the other extreme, underfit models ($\lambda = \infty$) will simply report the unbiased simulations, leading to poor agreement with experiment.  To perform this form of cross-validation, first separate the simulation data into several independent subsets.  Mark one subset as the ``test'' set and fit the model on the remaining data (the ``training'' set).  The $\chi^2$ score is evaluated on the test data.  We then repeat the process, letting the test set be equal to each of the other subsets.  The final $\chi^2$ square is averaged over each of these iterations.  The value of $\lambda$ is chosen to minimize the test set error.
 
 When using MD to generate conformations, you must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose you do cross validation by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
 
-There are some situation where cross validation leads to excessive amounts of regularization.  Suppose, for example, that your simulation was performed to exactly match experiment.  Then cross validation will recommend infinitely strong regularization ($\lambda = \infty$).  This is because infinite regularization damps the statistical fluctuations in $\alpha$.  Thus, in this extreme limit, the ``optimal'' model is the raw simulation.  In this situation, the $\chi^2$ likelihood is dwarfed by the regularization, resulting in ensembles with zero statistical uncertainty.  Such a situation occurred with the amber99sbnmr-ildn force fields.  Rather than use $\lambda = \infty$, we selected a moderate value of $\lambda$ based on the values of the other forcefields.  
-
-
-\subsection{Cross validation on experimental data}
+\subsection*{Cross validation on experimental data}
 
 Cross validating on experimental data instead sets aside experimental measurements that can then be used to evaluate model quality.  One key difficulty with this approach, however, is that experimental datasets are often sparse--that is, there are often only few information-rich measurements.  This can lead to difficulties defining meaningful training and test sets.  
 
-\subsection{$\chi^2$ analysis}
+\subsection*{Cross Validation Results}
 
-A heuristic approach to selecting $\lambda$ is to choose the smallest value of $\lambda$ such that $\frac{\chi^2}{n} \approx 1$; models with $\frac{\chi^2}{n} < 1$ are essentially fitting experimental noise.  This approach is computationally trivial, as it requires no additional computation.  However, it relies on having accurate estimates of uncertainty for each experiment.  
-
-\subsection{Cross Validation Results}
-
-Here we summarize the values of $\lambda$ used in this work.  These values were determined by cross-validating on the simulation data.  For the amber99sbnmr-ildn forcefield, we selected a moderate amount of regularization ($\lambda = 5.0$) (see above).  
+Here we summarize the values of $\lambda$ used in this work.  These values were determined by cross-validating on the simulation data.  
 
 \vspace{5mm}
 
-\begin{tabular}{lrr}
+\begin{tabular}{lrrr}
 \toprule
-{}                &$\lambda$  &         \\
+{}                &$\lambda$  &   &      \\
 \midrule
-prior &       MVN &  maxent \\
+prior &       MVN &  dirichlet & maxent \\
 forcefield        &           &         \\
-amber96           &      7.0  &    5.0  \\
-amber99           &      0.5  &    1.0 \\
-amber99sbnmr-ildn &      5.0  &    5.0 \\
-charmm27          &      1.0  &    0.9 \\
-oplsaa            &     11.0 &    7.0 \\
+amber96           &      6.0  &    7.0  & 10 \\
+amber99           &      1  &    1.25 & 4 \\
+amber99sbnmr-ildn &      100  &    100  & 100 \\
+charmm27          &      4  &   4 & 6 \\
+oplsaa            &     12.0 &    13.0 & 15 \\
 \bottomrule
 \end{tabular}
 
 \vspace{5mm}
 
-The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with the maxent and MVN priors.  Full sweeps of $\lambda$ are depicted in Fig. S\ref{figure:cross_val}.  
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with the maxent and MVN priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  
 
 \vspace{5mm}
 
 
-\begin{tabular}{lrr}
+\begin{tabular}{lrrr}
 \toprule
-{} &  $\frac{1}{n}\chi^2$ (cross-validated) &         \\
+{} &  $\frac{1}{n}\chi^2$ (cross-validated) & &          \\
 \midrule
-prior &       MVN &  maxent \\
-forcefield        &           &         \\
-amber96           &      0.22 &    0.22 \\
-amber99           &      0.38 &    0.38 \\
-amber99sbnmr-ildn &      0.31 &    0.31 \\
-charmm27          &      0.37 &    0.35 \\
-oplsaa            &      0.33 &    0.37 \\
+prior &       MVN &  dirichlet & maxent  \\
+forcefield        &           &  &       \\
+amber96           &      0.39 &       0.37 &    0.39 \\
+amber99           &      0.71 &       0.70 &    0.69 \\
+amber99sbnmr-ildn &      0.35 &       0.35 &    0.34 \\
+charmm27          &      0.62 &       0.59 &    0.54 \\
+oplsaa            &      0.53 &       0.57 &    0.55 \\
 \bottomrule
 \end{tabular}
 
 \newpage
 
-\section{Appendix S6.  Bayesian Bootstrapping}
+\section*{Appendix S6.  Bayesian Bootstrapping}
 
 The BELT model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
 
@@ -380,24 +498,23 @@ In practice, applying Bayesian bootstrapping involves repeating several BELT cal
 
 \newpage
 
-\section{Appendix S7.  Convergence Analysis and MCMC Parameters}
+\section*{Appendix S7. Data Curation}
 
-Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as we observed in the following traces.  A few interesting features are worth noting.  The charmm27 and amber99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
-
-Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent prior is better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. amber99 and charmm27) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
-
-\newpage
-
-\section{Appendix S8. Data Curation}
-
-Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss two examples we encountered in the current analysis.  
+Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss one example we encountered in the current analysis.  
 
 Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
 
-Another example of data quality arose in the BPTI analysis.  It has previously been observed that different chemical shift models give significantly different predictions for the millisecond simulation of BPTI \cite{xue2012microsecond}.  Modern chemical shift prediction tools (e.g. PPM, SPARTA+, ShiftX2) are reported to have similar accuracy.  We therefore chose to use the average predictions of the three chemical shift models; this averaging procedure reduces the statistical uncertainty of individual chemical shift predictions.  
+\newpage
+
+\section*{Appendix S8.  Convergence Analysis}
+
+Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as observed in Fig. \ref{figure:MCMC}.  A few interesting features are worth noting.  The charmm27 and amber99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
+
+Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent and Dirichlet priors are better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. amber99 and charmm27) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
 
 \newpage
 
+\bibliographystyle{plain}
 \bibliography{supporting_information}
 
 \end{document}

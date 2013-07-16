@@ -10,10 +10,11 @@ bayesian_bootstrap_run = 0
 num_threads = 3
 rank = int(sys.argv[1])
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
+grid = [("charmm27", "dirichlet")]
 
 for k, (ff, prior) in enumerate(grid):
     if k % num_threads == rank:
-        print(ff, prior)
+        print(ff, prior, bayesian_bootstrap_run)
         regularization_strength = ALA3.regularization_strength_dict[prior][ff]
         predictions, measurements, uncertainties = experiment_loader.load(ff, keys=None)
         phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, ALA3.stride)

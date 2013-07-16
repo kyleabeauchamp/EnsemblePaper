@@ -24,7 +24,7 @@
 \citation{rubin1981}
 \citation{kollman1996}
 \citation{wang2000}
-\citation{li2010}
+\citation{li2010,Lindorff-Larsen2010}
 \citation{mackerell2004extending,bjelkmar2010implementation}
 \citation{kaminski2001evaluation}
 \citation{beauchamp2012protein}
@@ -33,7 +33,7 @@
 \citation{han2011shiftx2}
 \citation{Shen2010}
 \citation{li2012ppm}
-\citation{Schmidt1999}
+\citation{vogeli2007limits}
 \citation{vogeli2007limits}
 \citation{Graf2007}
 \citation{Schmidt1999}
@@ -46,7 +46,8 @@
 \citation{Graf2007,beauchamp2012protein,Nerenberg2011,Best2008}
 \citation{rozycki2011saxs,Graf2007}
 \citation{Graf2007}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  The reduced $\chi ^2$ error (e.g. $\frac  {\chi ^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models. The BELT reduced $\chi ^2$ is estimated as the mean reduced $\chi ^2$ over all MCMC samples. (a). Calculated using the six measurements used to fit the BELT model. (b). Calculated using four measurements \emph  {not} used to fit the BELT model. See Methods for the definition of training and test sets. }}{6}}
+\citation{vogeli2007limits}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  The reduced $\chi ^2$ error (e.g. $\frac  {\chi ^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models. The BELT reduced $\chi ^2$ is estimated as the mean reduced $\chi ^2$ over all MCMC samples. (a). Calculated using the six measurements used to fit the BELT model. (b). Calculated using four measurements \emph  {not} used to fit the BELT model. See Methods for the definition of training and test sets. Note that the training and test sets are not fully independent because all measurements probe the $(\phi , \psi )$ backbone torsions. }}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{6}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{6}}
 \newlabel{figure:ChiSquared}{{3}{6}}
@@ -55,7 +56,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{7}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{7}}
 \newlabel{figure:ALA3}{{4}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Ramachandran plot of MD and BELT (maxent prior) ensembles for each force field. Comparison of BELT models with different priors are given in Fig. S1. }}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Ramachandran plots of MD and BELT (maxent prior) ensembles for each force field; additional priors are shown in Fig. S1. The jagged appearance of the amber99 BELT model is due to limited sampling of PPII configurations in that forcefield. }}{8}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{8}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{8}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{8}}
@@ -71,7 +72,7 @@
 \citation{Shaw2008}
 \citation{emma,msmb2}
 \citation{voelz2010,bowman2011atomistic,shaw2010,Shaw2011}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  (a). The Karplus equation connecting the backbone torsion $\phi $ to $^3J(H_NH_\alpha )$ is ambiguous; observed values of $^3J(H_NH_\alpha )$ are consistent multiple conformations. (b). BELT modeling (oplsaa force field) with two measurements ($^3J(H_N C_\beta )$, $C_\beta $ chemical shift) shows a bimodal posterior. The mean is shown as a black line; due to the bimodality, the mean value lies near a population \emph  {minimum}. }}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  (a). The Karplus equation connecting the backbone torsion $\phi $ to $^3J(H_NH_\alpha )$ is ambiguous; the observed value of $^3J(H_NH_\alpha )$ is consistent multiple conformations. (b). BELT modeling (oplsaa force field) with two measurements ($^3J(H_N C_\beta )$, $C_\beta $ chemical shift) shows a bimodal posterior. The mean is shown as a black line; due to the bimodality, the mean value lies near a population \emph  {minimum}. }}{9}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{9}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{9}}
 \newlabel{figure:Ambiguity}{{6}{9}}
@@ -106,32 +107,33 @@
 \bibcite{kollman1996}{{20}{1996}{{Kollman}}{{}}}
 \bibcite{wang2000}{{21}{2000}{{Wang et~al.}}{{Wang, Cieplak, and Kollman}}}
 \bibcite{li2010}{{22}{2010}{{Li and Bruschweiler}}{{}}}
-\bibcite{mackerell2004extending}{{23}{2004}{{Mackerell~Jr et~al.}}{{Mackerell~Jr, Feig, and Brooks~III}}}
-\bibcite{bjelkmar2010implementation}{{24}{2010}{{Bjelkmar et~al.}}{{Bjelkmar, Larsson, Cuendet, Hess, and Lindahl}}}
-\bibcite{kaminski2001evaluation}{{25}{2001}{{Kaminski et~al.}}{{Kaminski, Friesner, Tirado-Rives, and Jorgensen}}}
-\bibcite{beauchamp2012protein}{{26}{2012}{{Beauchamp et~al.}}{{Beauchamp, Lin, Das, and Pande}}}
-\bibcite{hess2008}{{27}{2008}{{Hess et~al.}}{{Hess, Kutzner, Van Der~Spoel, and Lindahl}}}
-\bibcite{han2011shiftx2}{{28}{2011}{{Han et~al.}}{{Han, Liu, Ginzinger, and Wishart}}}
-\bibcite{Shen2010}{{29}{2010}{{Shen and Bax}}{{}}}
-\bibcite{li2012ppm}{{30}{2012}{{Li and Br{\"u}schweiler}}{{}}}
-\bibcite{Schmidt1999}{{31}{1999}{{Schmidt et~al.}}{{Schmidt, Bl\IeC {\"u}mel, L\IeC {\"o}hr, and R\IeC {\"u}terjans}}}
+\bibcite{Lindorff-Larsen2010}{{23}{2010}{{Lindorff-Larsen et~al.}}{{Lindorff-Larsen, Piana, Palmo, Maragakis, Klepeis, Dror, and Shaw}}}
+\bibcite{mackerell2004extending}{{24}{2004}{{Mackerell~Jr et~al.}}{{Mackerell~Jr, Feig, and Brooks~III}}}
+\bibcite{bjelkmar2010implementation}{{25}{2010}{{Bjelkmar et~al.}}{{Bjelkmar, Larsson, Cuendet, Hess, and Lindahl}}}
+\bibcite{kaminski2001evaluation}{{26}{2001}{{Kaminski et~al.}}{{Kaminski, Friesner, Tirado-Rives, and Jorgensen}}}
+\bibcite{beauchamp2012protein}{{27}{2012}{{Beauchamp et~al.}}{{Beauchamp, Lin, Das, and Pande}}}
+\bibcite{hess2008}{{28}{2008}{{Hess et~al.}}{{Hess, Kutzner, Van Der~Spoel, and Lindahl}}}
+\bibcite{han2011shiftx2}{{29}{2011}{{Han et~al.}}{{Han, Liu, Ginzinger, and Wishart}}}
+\bibcite{Shen2010}{{30}{2010}{{Shen and Bax}}{{}}}
+\bibcite{li2012ppm}{{31}{2012}{{Li and Br{\"u}schweiler}}{{}}}
 \bibcite{vogeli2007limits}{{32}{2007}{{V{\"o}geli et~al.}}{{V{\"o}geli, Ying, Grishaev, and Bax}}}
-\bibcite{Nerenberg2011}{{33}{2011}{{Nerenberg and Head-Gordon}}{{}}}
-\bibcite{Best2008}{{34}{2008}{{Best et~al.}}{{Best, Buchete, and Hummer}}}
-\bibcite{Grdadolnik2011}{{35}{2011}{{Grdadolnik et~al.}}{{Grdadolnik, Mohacek-Grosev, Baldwin, and Avbelj}}}
-\bibcite{Jha2005}{{36}{2005}{{Jha et~al.}}{{Jha, Colubri, Zaman, Koide, Sosnick, and Freed}}}
-\bibcite{Avbelj2006}{{37}{2006}{{Avbelj et~al.}}{{Avbelj, Grdadolnik, Grdadolnik, and Baldwin}}}
-\bibcite{rozycki2011saxs}{{38}{2011}{{Rozycki et~al.}}{{Rozycki, Kim, and Hummer}}}
-\bibcite{pronk2013gromacs}{{39}{2013}{{Pronk et~al.}}{{Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov, Shirts, Smith, Kasson, and van~der Spoel}}}
-\bibcite{eastman2012openmm}{{40}{2012}{{Eastman et~al.}}{{Eastman, Friedrichs, Chodera, Radmer, Bruns, Ku, Beauchamp, Lane, Wang, Shukla, and Pande}}}
-\bibcite{eastman2010openmm}{{41}{2010}{{Eastman and Pande}}{{}}}
-\bibcite{Shaw2008}{{42}{2008}{{Shaw et~al.}}{{Shaw, Deneroff, Dror, Kuskin, Larson, Salmon, Young, Batson, Bowers, and Chao}}}
-\bibcite{emma}{{43}{2012}{{Senne et~al.}}{{Senne, Trendelkamp-Schroer, Mey, Sch\IeC {\"u}tte, and No\IeC {\'e}}}}
-\bibcite{msmb2}{{44}{2011}{{Beauchamp et~al.}}{{Beauchamp, Bowman, Lane, Maibaum, Haque, and Pande}}}
-\bibcite{voelz2010}{{45}{2010}{{Voelz et~al.}}{{Voelz, Bowman, Beauchamp, and Pande}}}
-\bibcite{bowman2011atomistic}{{46}{2011}{{Bowman et~al.}}{{Bowman, Voelz, and Pande}}}
-\bibcite{Shaw2011}{{47}{2011}{{Lindorff-Larsen et~al.}}{{Lindorff-Larsen, Piana, Dror, and Shaw}}}
-\bibcite{wang2012}{{48}{2012}{{Wang et~al.}}{{Wang, Chen, and Van~Voorhis}}}
-\bibcite{wang2013systematic}{{49}{2013}{{Wang et~al.}}{{Wang, Head-Gordon, Ponder, Ren, Chodera, Eastman, Mart{\'\i }nez, and Pande}}}
-\bibcite{habeck2006}{{50}{2006}{{Habeck et~al.}}{{Habeck, Rieping, and Nilges}}}
-\bibcite{habeck2005bayesian}{{51}{2005}{{Habeck et~al.}}{{Habeck, Rieping, and Nilges}}}
+\bibcite{Schmidt1999}{{33}{1999}{{Schmidt et~al.}}{{Schmidt, Bl\IeC {\"u}mel, L\IeC {\"o}hr, and R\IeC {\"u}terjans}}}
+\bibcite{Nerenberg2011}{{34}{2011}{{Nerenberg and Head-Gordon}}{{}}}
+\bibcite{Best2008}{{35}{2008}{{Best et~al.}}{{Best, Buchete, and Hummer}}}
+\bibcite{Grdadolnik2011}{{36}{2011}{{Grdadolnik et~al.}}{{Grdadolnik, Mohacek-Grosev, Baldwin, and Avbelj}}}
+\bibcite{Jha2005}{{37}{2005}{{Jha et~al.}}{{Jha, Colubri, Zaman, Koide, Sosnick, and Freed}}}
+\bibcite{Avbelj2006}{{38}{2006}{{Avbelj et~al.}}{{Avbelj, Grdadolnik, Grdadolnik, and Baldwin}}}
+\bibcite{rozycki2011saxs}{{39}{2011}{{Rozycki et~al.}}{{Rozycki, Kim, and Hummer}}}
+\bibcite{pronk2013gromacs}{{40}{2013}{{Pronk et~al.}}{{Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov, Shirts, Smith, Kasson, and van~der Spoel}}}
+\bibcite{eastman2012openmm}{{41}{2012}{{Eastman et~al.}}{{Eastman, Friedrichs, Chodera, Radmer, Bruns, Ku, Beauchamp, Lane, Wang, Shukla, and Pande}}}
+\bibcite{eastman2010openmm}{{42}{2010}{{Eastman and Pande}}{{}}}
+\bibcite{Shaw2008}{{43}{2008}{{Shaw et~al.}}{{Shaw, Deneroff, Dror, Kuskin, Larson, Salmon, Young, Batson, Bowers, and Chao}}}
+\bibcite{emma}{{44}{2012}{{Senne et~al.}}{{Senne, Trendelkamp-Schroer, Mey, Sch\IeC {\"u}tte, and No\IeC {\'e}}}}
+\bibcite{msmb2}{{45}{2011}{{Beauchamp et~al.}}{{Beauchamp, Bowman, Lane, Maibaum, Haque, and Pande}}}
+\bibcite{voelz2010}{{46}{2010}{{Voelz et~al.}}{{Voelz, Bowman, Beauchamp, and Pande}}}
+\bibcite{bowman2011atomistic}{{47}{2011}{{Bowman et~al.}}{{Bowman, Voelz, and Pande}}}
+\bibcite{Shaw2011}{{48}{2011}{{Lindorff-Larsen et~al.}}{{Lindorff-Larsen, Piana, Dror, and Shaw}}}
+\bibcite{wang2012}{{49}{2012}{{Wang et~al.}}{{Wang, Chen, and Van~Voorhis}}}
+\bibcite{wang2013systematic}{{50}{2013}{{Wang et~al.}}{{Wang, Head-Gordon, Ponder, Ren, Chodera, Eastman, Mart{\'\i }nez, and Pande}}}
+\bibcite{habeck2006}{{51}{2006}{{Habeck et~al.}}{{Habeck, Rieping, and Nilges}}}
+\bibcite{habeck2005bayesian}{{52}{2005}{{Habeck et~al.}}{{Habeck, Rieping, and Nilges}}}
