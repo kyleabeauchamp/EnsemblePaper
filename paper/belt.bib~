@@ -1,6 +1,27 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+
+@article{shen2008consistent,
+  title={Consistent blind protein structure generation from NMR chemical shift data},
+  author={Shen, Yang and Lange, Oliver and Delaglio, Frank and Rossi, Paolo and Aramini, James M and Liu, Gaohua and Eletsky, Alexander and Wu, Yibing and Singarapu, Kiran K and Lemak, Alexander and others},
+  journal={Proc. Natl. Acad. Sci.},
+  volume={105},
+  number={12},
+  pages={4685--4690},
+  year={2008},
+  publisher={National Acad Sciences}
+}
+
+
+ @misc{relative_entropy_wiki ,
+   author = "Wikipedia",
+   title = "Kullback–Leibler divergence --- {W}ikipedia{,} The Free Encyclopedia",
+   year = "2004",
+   url = "http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence",
+   note = "[Online; accessed 15-July-2013]"
+ }
+
 @article{habeck2005bayesian,
   title={Bayesian estimation of Karplus parameters and torsion angles from three-bond scalar couplings constants},
   author={Habeck, Michael and Rieping, Wolfgang and Nilges, Michael},
@@ -333,7 +354,7 @@ journal = {J. Chem. Theory Comput.},
 @article{balasubramanian1994comparison,
   title={Comparison of the 13C Relaxation Times and Proton Scalar Couplings of BPTI with Values Predicted by Molecular Dynamics},
   author={Balasubramanian, Suganthi and Nirmala, R and Beveridge, David L and Bolton, Philip H},
-  journal={J. Mag. Res., Series B},
+  journal={J. Mag. Res. B.},
   volume={104},
   number={3},
   pages={240--249},

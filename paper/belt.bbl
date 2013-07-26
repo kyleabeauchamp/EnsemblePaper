@@ -1,4 +1,4 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{53}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -92,6 +92,13 @@ Lindorff-Larsen, K., P.~Maragakis, S.~Piana, M.~Eastwood, R.~Dror, and D.~Shaw,
   Data.
 \newblock \emph{PloS one} 7:e32131.
 
+\bibitem[Beauchamp et~al.(2012)Beauchamp, Lin, Das, and
+  Pande]{beauchamp2012protein}
+Beauchamp, K., Y.~Lin, R.~Das, and V.~Pande, 2012.
+\newblock Are Protein Force Fields Getting Better? A Systematic Benchmark on
+  524 Diverse NMR Measurements.
+\newblock \emph{J. Chem. Theory Comput.} 8:1409.
+
 \bibitem[Pitera and Chodera(2012)]{chodera2012}
 Pitera, J., and J.~Chodera, 2012.
 \newblock On the use of experimental observations to bias simulated ensembles.
@@ -103,16 +110,30 @@ Graf, J., P.~Nguyen, G.~Stock, and H.~Schwalbe, 2007.
   a joint molecular dynamics/NMR study.
 \newblock \emph{J. Am. Chem. Soc.} 129:1179--1189.
 
-\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
-  Tibshirani]{friedman2001elements}
-Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
-\newblock The elements of statistical learning, volume~1.
-\newblock Springer Series in Statistics.
+\bibitem[Shen et~al.(2008)Shen, Lange, Delaglio, Rossi, Aramini, Liu, Eletsky,
+  Wu, Singarapu, Lemak, et~al.]{shen2008consistent}
+Shen, Y., O.~Lange, F.~Delaglio, P.~Rossi, J.~M. Aramini, G.~Liu, A.~Eletsky,
+  Y.~Wu, K.~K. Singarapu, A.~Lemak, et~al., 2008.
+\newblock Consistent blind protein structure generation from NMR chemical shift
+  data.
+\newblock \emph{Proc. Natl. Acad. Sci.} 105:4685--4690.
+
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
+\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
+  transitions.
+\newblock \emph{Structure} 19:109--116.
 
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
 \newblock Modeling intrinsically disordered proteins with bayesian statistics.
 \newblock \emph{J. Am. Chem. Soc.} 132:14919.
+
+\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
+  Tibshirani]{friedman2001elements}
+Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
+\newblock The elements of statistical learning, volume~1.
+\newblock Springer Series in Statistics.
 
 \bibitem[Rieping et~al.(2005)Rieping, Habeck, and Nilges]{rieping2005}
 Rieping, W., M.~Habeck, and M.~Nilges, 2005.
@@ -178,13 +199,6 @@ Kaminski, G., R.~Friesner, J.~Tirado-Rives, and W.~Jorgensen, 2001.
   proteins via comparison with accurate quantum chemical calculations on
   peptides.
 \newblock \emph{J. Phys. Chem. B} 105:6474--6487.
-
-\bibitem[Beauchamp et~al.(2012)Beauchamp, Lin, Das, and
-  Pande]{beauchamp2012protein}
-Beauchamp, K., Y.~Lin, R.~Das, and V.~Pande, 2012.
-\newblock Are Protein Force Fields Getting Better? A Systematic Benchmark on
-  524 Diverse NMR Measurements.
-\newblock \emph{J. Chem. Theory Comput.} 8:1409.
 
 \bibitem[Hess et~al.(2008)Hess, Kutzner, Van Der~Spoel, and Lindahl]{hess2008}
 Hess, B., C.~Kutzner, D.~Van Der~Spoel, and E.~Lindahl, 2008.
@@ -256,12 +270,6 @@ Avbelj, F., S.~Grdadolnik, J.~Grdadolnik, and R.~Baldwin, 2006.
 \newblock Intrinsic backbone preferences are fully present in blocked amino
   acids.
 \newblock \emph{Proc. Natl. Acad. Sci. U. S. A.} 103:1272.
-
-\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
-Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
-\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
-  transitions.
-\newblock \emph{Structure} 19:109--116.
 
 \bibitem[Pronk et~al.(2013)Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov,
   Shirts, Smith, Kasson, and van~der Spoel]{pronk2013gromacs}

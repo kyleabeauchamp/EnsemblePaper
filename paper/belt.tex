@@ -16,25 +16,15 @@
 Biophysics Program, \\
 Stanford University, Stanford, CA
 \and Rhiju Das \\
-Biochemistry and Applied Physics Departments, \\
+Biochemistry and Physics Departments, \\
 Stanford University, Stanford, CA
 \and Vijay S. Pande, \\
 Chemistry Department and Structural Biology Program, \\
 Stanford University, Stanford, CA
 }
 
-%\author{Kyle A. Beauchamp}
-%\affiliation[Biophysics Program]{Biophysics Program}
 
-%\author{Rhiju Das$^\dagger$}
-%\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
-
-%\author{Vijay S. Pande$^\dagger$}
-%\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
-
-%\email{rhiju@stanford.edu, pande@stanford.edu}
-
-\title{Inferring Structural Ensembles from Noisy Experiments: Application to Trialanine}
+\title{Inferring Structural Ensembles from Noisy Experiments: Forcefield-Independent Trialanine Modeling}
 
 \begin{document}
 
@@ -42,20 +32,25 @@ Stanford University, Stanford, CA
 
 \begin{abstract}
 
-Inferring biomolecular conformation from experiment is the fundamental task of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modeling and experiment.  The vast majority of algorithms for structure determination, however, are limited to modeling a single conformation and provide only limited uncertainty information.  Here we describe Bayesian Energy Landscape Tilting (BELT), a scheme that combines simulation and experiment to infer solution ensembles.  Given simple, well-defined assumptions, BELT leverages the machinery of Bayesian statistics to give rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that BELT corrects force field bias, as measured by $\chi^2$ agreement with trialanine measurements \emph{not used} to fit the models.  BELT modeling with just six NMR measurements estimates $\alpha$, $\beta$, and $PP_{II}$ conformational populations that are 
-independent of force field.  
+Inferring biomolecular conformation from experiment is the fundamental goal of structural biology.  Due to limited experimental resolution, structure determination often requires a combination of modeling and experiment.  The vast majority of algorithms for structure determination, however, are limited to modeling a single conformation and provide only limited uncertainty information.  Here we describe Bayesian Energy Landscape Tilting (BELT), a scheme that combines simulation and experiment to infer solution ensembles.  Given simple, well-defined assumptions, BELT leverages the machinery of Bayesian statistics to give rigorous uncertainty estimates for structural features and equilibrium properties.  Using trialanine as a test system, we show that BELT corrects force field bias, as measured by $\chi^2$ agreement with trialanine measurements not used to fit the models.  BELT modeling with just six NMR measurements estimates $\alpha$, $\beta$, and $PP_{II}$ conformational populations that are 
+independent of force field.  The principled combination of simulation and experiment promises robust predictions of equilibrium and structural properties--predictions that were previously impossible with pure simulation-based models.  
 
 \end{abstract}
+
+\emph{Key words:} Molecular Dynamics, NMR, Conformational Ensembles,  Bayesian Statistics
 
 \section*{Introduction}
 
 Over the past forty years, structural biologists have solved ``ground-state'' structures of countless biological macromolecules \citep{Berman2000}. Modern biology, however, presents many systems that do not fit the single-structure paradigm.  Excited states of nucleic acids \citep{dethoff2012}, natively disordered proteins \citep{fink2005}, and protein folding intermediates \citep{korzhnev2004} alike are poorly described by single conformation models.  For such systems, models of conformational ensembles are required to understand and predict structural and equilibrium properties.  
 
-A growing body of research has sought to understand conformational ensembles.  Much of it has focused on incorporating dynamical information during NMR structure determination  \citep{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \citep{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection and the unified treatment of heterogeneous experimental data.  At the same time, molecular dynamics studies have demonstrated heterogeneity in the atomic-scale structure of macromolecules  \citep{shaw2010}.   However, simulation studies suffer from possible inaccuracies in molecular dynamics force fields, as revealed by benchmarks and optimizations of molecular dynamics force fields  \citep{li2011iterative, best2012optimization, lindorff2012systematic}.  In the present work, we connect these two approaches by combining equilibrium experimental measurements with molecular simulation.  
+A growing body of research has sought to characterize structural ensembles.  Much of it has focused on incorporating dynamical information during NMR structure determination  \citep{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \citep{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection and the unified treatment of heterogeneous experimental data.  At the same time, molecular dynamics studies have demonstrated heterogeneity in the atomic-scale structure of macromolecules  \citep{shaw2010}.   However, simulation studies suffer from possible inaccuracies in molecular dynamics force fields, as revealed by benchmarks and optimizations of molecular dynamics force fields  \citep{li2011iterative, best2012optimization, lindorff2012systematic, beauchamp2012protein}.  In the present work, we connect these two approaches by combining equilibrium experimental measurements 
+with molecular simulation.  
 
 Here we introduce a statistical approach to modeling solution ensembles of biological macromolecules.  The algorithm, Bayesian Energy Landscape Tilting (BELT), uses solution experiments to reweight a collection of atomistic models.  BELT extends a recent maximum entropy method for restraining simulations  \citep{chodera2012} to \emph{reweight} existing simulations.  Furthermore, BELT leverages Markov Chain Monte Carlo to transform experimental ambiguity into error bars on arbitrary structural features.  
 
 To validate BELT, we investigate the conformational propensities of trialanine using NMR measurements  \citep{Graf2007} and MD simulations performed in five different force fields.  Although the raw simulations show wide variations in their conformational preferences, BELT corrects force field errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  The ability to correct the biases of all tested forcefields suggests that BELT is a powerful technique for connecting simulation and equilibrium measurements.  
+
+The advantages of the present work are fivefold.  First, we focus on \emph{equilibrium} experimental measurements, such as chemical shifts and scalar couplings.  Such experiments are straightforward to perform and interpret.  Chemical shifts in particular are the most fundamental NMR observable and are widely available.  Although chemical shift modeling has previously been demonstrated \cite{shen2008consistent} in the context of structure prediction, the current work uses chemical shifts (and scalar couplings) to estimate conformational \emph{ensembles}.  Second, previous ensemble studies have focused on point estimates of ensembles \cite{rozycki2011saxs, lindorff2005simultaneous, lange2008recognition}, whereas we demonstrate Bayesian inference of conformational ensembles--allowing rigorous estimates of equilibrium and structural properties and their associated uncertainties.  Third, although other Bayesian ensemble inference techniques have been described \cite{fisher2010}, the current work demonstrates a new approach to reducing the size of the parameter space.  Fourth, the robustness of BELT models to the initial force field indicates that, for the first time, simulation based models can make robust predictions that are unbiased by forcefield inaccuracy.  Finally, we have implemented our methods in a fully-documented, open-source library (\emph{FitEnsemble}: \url{https://github.com/kyleabeauchamp/FitEnsemble}), which will be of use to researchers in the field.  
 
 \section*{Theory: Bayesian Energy Landscape Tilting}
 
@@ -65,7 +60,7 @@ To model an ensemble using BELT requires three components (Fig. \ref{figure:BELT
 
 \begin{figure}
 
-\includegraphics[width=16.0cm]{figures/info_graphic/info_graphic.pdf}
+\includegraphics[width=16.0cm]{figures/info_graphic/info_graphic.png}
 
 \caption{
 General scheme for BELT modeling.
@@ -83,18 +78,18 @@ In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each e
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
-It is informative to consider the case of a single observable $f(x)$.  Suppose the molecule of interest shows a bimodal observable.  If we let $\alpha$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  If we let $\alpha = -1$, conformations with large values of $f(x)$ are upweighted, while conformations with lower values of $f(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha = 1$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
+It is informative to consider the case of a single observable $f(x)$.  Suppose the molecule of interest shows a bimodal observable with two equally populated states.  If we let $\alpha$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  If we let $\alpha = -1$, conformations with large values of $f(x)$ are upweighted, while conformations with lower values of $f(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha = 1$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
 
 \begin{figure}
 
 \subfigure[]{
-\includegraphics[width=5.0cm]{figures/model_hist-2.pdf}
+\includegraphics[width=5.0cm]{figures/model_hist-1.pdf}
 }
 \subfigure[]{
 \includegraphics[width=5.0cm]{figures/model_hist0.pdf}
 }
 \subfigure[]{
-\includegraphics[width=5.0cm]{figures/model_hist2.pdf}
+\includegraphics[width=5.0cm]{figures/model_hist1.pdf}
 }
 \caption{
 Raw ($\alpha = 0$) and reweighted (e.g. tilted) histograms of a one dimensional observable.
@@ -125,7 +120,7 @@ Now we let $LP(\alpha)$ denote the log posterior of $\alpha$ and simplify, dropp
 
 $$LP(\alpha) = \log[ P(\alpha|F_1, ..., F_n)] = -\sum_i^n \frac{1}{2\sigma_i^2}(\langle f_i(x)\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
 
-Note the simple form of the log posterior.  The first term (i.e. the likelihood) measures the $\chi^2$ agreement between the reweighted ensemble and measurements.  The second term is the log of the prior distribution on $\alpha$.  
+Note the simple form of the log posterior.  The first term (i.e. the log likelihood) measures the $\chi^2$ agreement between the reweighted ensemble and measurements.  The second term is the log of the prior distribution on $\alpha$.  
 
 In the present work, we evaluate three different choices of prior (Appx. S4), finding similar results for each.  The first is the maximum entropy prior, which penalizes ensembles as they deviate from the raw simulation results:
 
@@ -198,7 +193,7 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Di
 \includegraphics[width=7.5cm]{figures/state_2_by_forcefield_priors.pdf}
 }
 \caption{
-MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities for each force field.  
+MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities (for central alanine residue) in each force field.  
 }
 \label{figure:ALA3}
 \end{figure}
@@ -296,19 +291,19 @@ state populations.  In BELT, however, the two conformations will have nearly ide
 
 In contrast, BELT avoids arbitrary state decompositions by projecting simulations onto a basis defined by the predicted experimental observables.  The advantage of working in this basis are threefold. First, in BELT, one estimates a single parameter ($\alpha_i$) for each experimental observable.  If the number of experiments is small, as is often the case, the inference problem involves only a few parameters.  Second, the predicted observables are a \emph{natural} basis for biophysical calculations.  This basis allows direct connection to experiment and often provides insight into the molecular interactions driving biophysical phenomena.  For example, the projection onto observables could be used to rationally infer force field parameters--essentially a Bayesian version of the ForceBalance method  \citep{wang2012, wang2013systematic}.  Third, in the limit of exact measurements, BELT reduces to a previous  \citep{chodera2012} maximum entropy approach (see Appx. S1).  
 
-We also point out some surprising differences between BELT and BW-like methods.  BW-like methods have the interesting property that the in-state means of features are preserved.  More precisely, suppose that $\chi_s(x)$ is the indicator function of a conformational state $s$.  Then in-state averages of the form $<\chi_s(x)>^{-1} <h(x) \chi_s(x)>$ do \emph{not} depend on the reweighted populations.  BELT, however, does not preserve the in-state averages; in fact, this property is the direct result of BELT's connection to maximum entropy modeling (see Appx. S1 and ref.  \citep{chodera2012}).  The effect of this property is that the ``peaks'' of reweighted histograms are slightly shifted relative to the raw MD results, as observed in Fig. \ref{figure:Hist}.   
+We also point out some surprising differences between BELT and BW-like methods.  BW-like methods have the interesting property that the in-state means of features are preserved.  More precisely, suppose that $\chi_s(x)$ is the indicator function of a conformational state $s$.  Then in-state averages of the form $<\chi_s(x)>^{-1} <h(x) \chi_s(x)>$ do \emph{not} depend on the reweighted populations.  BELT, however, does not preserve the in-state averages; in fact, this property is the direct result of BELT's connection to maximum entropy modeling (see Appx. S1 and ref.  \citep{chodera2012}).  The effect of this property is that the peaks of reweighted histograms are slightly shifted relative to the raw MD results, as observed in Fig. \ref{figure:Hist}.   
 
 From this discussion, we hope the reader is informed about some of the key differences between BW-like methods and BELT.  In some ways, these differences are analogous to the differences between (regularized) linear regression and nearest-neighbors regression \cite{friedman2001elements}.  The best method for a given system will likely depend on factors including the presence or absence of a quality state decomposition, the number of experimental measurements, and the properties of of the experimental observables.  
 
 
 \section*{Future Work}
 
-The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In App. S3, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (App. S6) approaches used herein.  Another promising avenue is to combine Bayesian modeling of structural ensembles with Bayesian models for experimental observables.  A Bayesian formalism for NMR experiments has previously been developed  \citep{rieping2005, habeck2006, habeck2005bayesian}; connecting BELT to these methods may be straightforward.  
+The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In Appx. S3, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (Appx. S6) approaches used herein.  Another promising avenue is to combine Bayesian modeling of structural ensembles with Bayesian models for experimental observables.  A Bayesian formalism for NMR experiments has previously been developed  \citep{rieping2005, habeck2006, habeck2005bayesian}; connecting BELT to these methods may be straightforward.  
 
 
 \section*{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  The principled combination of simulation and experiment will enable robust, incisive predictions of the atomic-scale behavior of macromolecules.  
 
 
 \section*{Acknowledgements}

@@ -333,11 +333,11 @@ As described in the main text, the maximum entropy prior is given by
 
 $$\log P(\alpha) = -\lambda \sum_j^m \pi_j(\alpha) \log \frac{\pi_j(\alpha)}{\pi_j^0}$$
 
-Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}$.  This form of regularization has previously been used to model SAXS ensembles \cite{rozycki2011saxs}.  
+Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}$.  This form of regularization has previously been used in a likelihood formalism to model SAXS ensembles \cite{rozycki2011saxs}.  
 
 \subsection*{Dirichlet Prior}
 
-We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables--that is, when dealing with counts and probabilities of categorical data.  The dirichlet distribution is nonzero on the unit simplex and has the following functional form:
+We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables--that is, when dealing with counts and probabilities of categorical data.  The Dirichlet distribution is nonzero on the unit simplex and has the following functional form:
 
 $$f(\pi;s) = \frac{1}{B(s)} \prod_j \pi_j^{s_j - 1}$$
 
@@ -353,12 +353,6 @@ Note that the constant term is unimportant, as MCMC relies on the \emph{differen
 
 $$\log f(\alpha;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-Notice that this functional form is quite similar to the maxent prior that we previously discussed.  The difference between the maxent and Dirichlet priors can be explained in terms of the relative entropy between two distributions $P$ and $Q$.  The relative entropy is given by
-
-$$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
-
-The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
-
 In practice, the maxent prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
 
 $$s_j - 1 = \lambda \pi_j^0$$
@@ -371,10 +365,16 @@ Note that this can be rearranged into the following form, which better illuminat
 
 $$\log P(\alpha) = -\lambda \sum_j \pi_j^0 \log \frac{\pi_j^0}{\pi_j(\alpha)}$$
 
+Notice that this functional form is quite similar to the maxent prior that we previously discussed.  The difference between the maxent and Dirichlet priors can be explained in terms of the relative entropy between two distributions $P$ and $Q$.  The relative entropy is given by
+
+$$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
+
+The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
+
 
 \subsection*{Multivariate Normal (MVN) Prior}
 
-In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$.  This places the highest prior density on the raw simulation and allows regularization of $\alpha$.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune the amount of regularization.
+In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the MVN around $\alpha = 0$.  This places the highest prior density on the raw simulation and allows regularization of $\alpha$.  To pick $\Sigma$, we note that the simple choice of $\Sigma_{ij} = \delta_{ij}$ leads to a prior that depends on the units of $\alpha$; this dependence on the unit system is undesirable.  However, if we choose $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, the units of $\alpha_i$ and $f_i(x)$ cancel out in the MVN likelihood, leaving a result that is unit-invariant.  We have also introduced a scaling factor $\lambda$ to tune the amount of regularization.
 
 
 \subsection*{Jeffrey's Prior}
@@ -458,16 +458,20 @@ Here we summarize the values of $\lambda$ used in this work.  These values were 
 prior &       MVN &  dirichlet & maxent \\
 forcefield        &           &         \\
 amber96           &      6.0  &    7.0  & 10 \\
-amber99           &      1  &    1.25 & 4 \\
+amber99           &      1    &    1.25 & 4 \\
 amber99sbnmr-ildn &      100  &    100  & 100 \\
-charmm27          &      4  &   4 & 6 \\
-oplsaa            &     12.0 &    13.0 & 15 \\
+charmm27          &      4    &   4     & 6 \\
+oplsaa            &     12.0 &    13.0  & 15 \\
 \bottomrule
 \end{tabular}
 
 \vspace{5mm}
 
-The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with the maxent and MVN priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with all priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  To some extent, we expect similar performance between the priors.  This is because the relative entropy of normal distributions reduces to a weighted Euclidean distance between the means \cite{relative_entropy_wiki}.  However, the observables in the present work are non-normal, so the priors are not expected to give identical results.
+
+For the amber99sbnmr-ildn results, cross validation recommends the use of large amounts of regularization.  This implies two things.  First, this forcefield is already in excellent agreement with experiment, so almost no reweighting is desired.  This may also indicate limitations in our estimates of the uncertainties in the chemical shifts and scalar couplings.  As a practical note, when large amounts of regularization are used, the resulting MCMC traces will contain essentially no variance.  It is thus necessary to use Bayesian Bootstrapping to get meaningful error bars.  For cases with less regularization, Bayesian Bootstrapping is less critical because the MCMC traces account for the majority of the uncertainty.
+
+For amber99 with the maxent prior, we found that calculations with very low amounts of regularization suffer from occasional numerical instabilities.  Essentially, it appears that the regularization does not sufficiently penalize components of $\alpha$ sampling $\pm \infty$.
 
 \vspace{5mm}
 
@@ -479,7 +483,7 @@ The corresponding cross-validated reduced $\chi^2$ scores are given below.  Thes
 prior &       MVN &  dirichlet & maxent  \\
 forcefield        &           &  &       \\
 amber96           &      0.39 &       0.37 &    0.39 \\
-amber99           &      0.71 &       0.70 &    0.69 \\
+amber99           &      0.71 &       0.70 &    0.67 \\
 amber99sbnmr-ildn &      0.35 &       0.35 &    0.34 \\
 charmm27          &      0.62 &       0.59 &    0.54 \\
 oplsaa            &      0.53 &       0.57 &    0.55 \\
@@ -510,7 +514,7 @@ Scalar couplings predicted using parameterized Karplus relations will span a lim
 
 Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as observed in Fig. \ref{figure:MCMC}.  A few interesting features are worth noting.  The charmm27 and amber99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
 
-Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent and Dirichlet priors are better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. amber99 and charmm27) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
+Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent and Dirichlet priors are better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. amber99, charmm27, and oplsaa) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
 
 \newpage
 

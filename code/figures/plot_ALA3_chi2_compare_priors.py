@@ -38,7 +38,7 @@ plt.bar(x_local[2] + x_global, chi2_all[ff_list].ix["dirichlet"], color='c', lab
 plt.bar(x_local[3] + x_global, chi2_all[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ff_list, rotation=60, fontsize=10)
-plt.ylabel("Reduced $\chi^2$")
+plt.ylabel("Reduced $\chi^2$ (n = 10)")
 
 plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field")
@@ -54,7 +54,7 @@ plt.bar(x_local[2] + x_global, chi2_train[ff_list].ix["dirichlet"], color='c', l
 plt.bar(x_local[3] + x_global, chi2_train[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
-plt.ylabel("Reduced $\chi^2$")
+plt.ylabel("Reduced $\chi^2$  (n = 6)")
 
 plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field (Training Set)")
@@ -70,7 +70,7 @@ plt.bar(x_local[2] + x_global, chi2_test[ff_list].ix["dirichlet"], color='c', la
 plt.bar(x_local[3] + x_global, chi2_test[ff_list].ix["MVN"], color='g', label="MVN",log=use_log)
 
 plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
-plt.ylabel("Reduced $\chi^2$")
+plt.ylabel("Reduced $\chi^2$ (n = 3)")
 
 plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field (Test Set)")

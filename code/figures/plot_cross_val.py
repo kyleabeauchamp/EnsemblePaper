@@ -16,6 +16,7 @@ for ff, grp0 in d.groupby(["forcefield"]):
     plt.xlabel(r"$\lambda$")
     plt.ylabel(r"$n^{-1}\chi^2$")
     plt.legend(loc='best')
-    plt.xlim(0.0, 15.0)
+    plt.xlim(0.5, 100.0)
+    plt.xscale('log')
     plt.show()
     plt.savefig(ALA3.outdir + "/cross_val_%s.pdf" % ff, bbox_inches='tight')

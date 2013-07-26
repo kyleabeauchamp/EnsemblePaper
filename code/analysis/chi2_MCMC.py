@@ -6,11 +6,11 @@ import ALA3
 from fitensemble import belt
 import sys
 
-bayesian_bootstrap_run = 0
+bayesian_bootstrap_run = 1
 num_threads = 3
 rank = int(sys.argv[1])
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
-grid = [("charmm27", "dirichlet")]
+grid = [("amber99sbnmr-ildn", "MVN")]
 
 for k, (ff, prior) in enumerate(grid):
     if k % num_threads == rank:

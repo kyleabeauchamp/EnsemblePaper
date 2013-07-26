@@ -21,7 +21,8 @@ test_keys = pd.MultiIndex.from_tuples(tuples, names=("experiment", "resid", "nam
 #all_keys.extend(test_keys)
 
 bw_num_samples = 1000000
-num_samples = 5000000
+#num_samples = 5000000
+num_samples = 10000000
 thin = 100
 burn = 5000
 kfold = 2
@@ -34,16 +35,16 @@ regularization_strength_dict = {"maxent":
 {
 "amber96":10,
 "amber99":4,
-"amber99sbnmr-ildn":25,
+"amber99sbnmr-ildn":100,
 "charmm27":6,
-"oplsaa":12
+"oplsaa":15
 }
 ,
 "MVN":
 {
 "amber96":6,
 "amber99":1,
-"amber99sbnmr-ildn":25,
+"amber99sbnmr-ildn":100,
 "charmm27":4,
 "oplsaa":12
 },
@@ -51,7 +52,7 @@ regularization_strength_dict = {"maxent":
 {
 "amber96":7,
 "amber99":1.2,
-"amber99sbnmr-ildn":25,
+"amber99sbnmr-ildn":100,
 "charmm27":4,
 "oplsaa":13
 }
