@@ -6,7 +6,7 @@ Database file #1: belt.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 53 entries,
             3176 wiz_defined-function locations,
-            959 strings with 16292 characters,
+            957 strings with 16271 characters,
 and the built_in function-call counts, 28606 in all, are:
 = -- 1923
 > -- 1825

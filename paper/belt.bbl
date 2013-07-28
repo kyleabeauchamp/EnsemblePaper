@@ -61,28 +61,10 @@ Lang, P.~T., H.-L. Ng, J.~S. Fraser, J.~E. Corn, N.~Echols, M.~Sales, J.~M.
   polymorphism in proteins.
 \newblock \emph{Protein Science} 19:1420--1431.
 
-\bibitem[Shaw et~al.(2010)Shaw, Maragakis, Lindorff-Larsen, Piana, Dror,
-  Eastwood, Bank, Jumper, Salmon, Shan, and Wriggers]{shaw2010}
-Shaw, D.~E., P.~Maragakis, K.~Lindorff-Larsen, S.~Piana, R.~O. Dror, M.~P.
-  Eastwood, J.~A. Bank, J.~M. Jumper, J.~K. Salmon, Y.~Shan, and W.~Wriggers,
-  2010.
-\newblock Atomic-Level Characterization of the Structural Dynamics of Proteins.
-\newblock \emph{Science} 330:341--346.
-
-\bibitem[Li and Bruschweiler(2011)]{li2011iterative}
-Li, D.-W., and R.~Bruschweiler, 2011.
-\newblock Iterative optimization of molecular mechanics force fields from NMR
-  data of full-length proteins.
-\newblock \emph{J. Chem. Theory Comput.} 7:1773.
-
-\bibitem[Best et~al.(2012)Best, Zhu, Shim, Lopes, Mittal, Feig, and
-  MacKerell]{best2012optimization}
-Best, R.~B., X.~Zhu, J.~Shim, P.~E. Lopes, J.~Mittal, M.~Feig, and A.~D.
-  MacKerell, 2012.
-\newblock Optimization of the additive CHARMM all-atom protein force field
-  targeting improved sampling of the backbone $\varphi$, $\psi$ and side-chain
-  $\chi$1 and $\chi$2 dihedral angles.
-\newblock \emph{J. Chem. Theory Comput.} .
+\bibitem[Best et~al.(2008)Best, Buchete, and Hummer]{best2008}
+Best, R., N.~Buchete, and G.~Hummer, 2008.
+\newblock Are current molecular dynamics force fields too helical?
+\newblock \emph{Biophys. J.} 95:L07--L09.
 
 \bibitem[Lindorff-Larsen et~al.(2012)Lindorff-Larsen, Maragakis, Piana,
   Eastwood, Dror, and Shaw]{lindorff2012systematic}
@@ -99,6 +81,28 @@ Beauchamp, K., Y.~Lin, R.~Das, and V.~Pande, 2012.
   524 Diverse NMR Measurements.
 \newblock \emph{J. Chem. Theory Comput.} 8:1409.
 
+\bibitem[Li and Bruschweiler(2011)]{li2011iterative}
+Li, D.-W., and R.~Bruschweiler, 2011.
+\newblock Iterative optimization of molecular mechanics force fields from NMR
+  data of full-length proteins.
+\newblock \emph{J. Chem. Theory Comput.} 7:1773.
+
+\bibitem[Best et~al.(2012)Best, Zhu, Shim, Lopes, Mittal, Feig, and
+  MacKerell]{best2012optimization}
+Best, R.~B., X.~Zhu, J.~Shim, P.~E. Lopes, J.~Mittal, M.~Feig, and A.~D.
+  MacKerell, 2012.
+\newblock Optimization of the additive CHARMM all-atom protein force field
+  targeting improved sampling of the backbone $\varphi$, $\psi$ and side-chain
+  $\chi$1 and $\chi$2 dihedral angles.
+\newblock \emph{J. Chem. Theory Comput.} .
+
+\bibitem[Nerenberg and Head-Gordon(2011)]{nerenberg2011}
+Nerenberg, P., and T.~Head-Gordon, 2011.
+\newblock Optimizing Protein- Solvent Force Fields to Reproduce Intrinsic
+  Conformational Preferences of Model Peptides.
+\newblock \emph{J. Chem. Theory Comput.} 7:1220--1230.
+\newblock \urlprefix\url{http://pubs.acs.org/doi/abs/10.1021/ct2000183}.
+
 \bibitem[Pitera and Chodera(2012)]{chodera2012}
 Pitera, J., and J.~Chodera, 2012.
 \newblock On the use of experimental observations to bias simulated ensembles.
@@ -110,30 +114,16 @@ Graf, J., P.~Nguyen, G.~Stock, and H.~Schwalbe, 2007.
   a joint molecular dynamics/NMR study.
 \newblock \emph{J. Am. Chem. Soc.} 129:1179--1189.
 
-\bibitem[Shen et~al.(2008)Shen, Lange, Delaglio, Rossi, Aramini, Liu, Eletsky,
-  Wu, Singarapu, Lemak, et~al.]{shen2008consistent}
-Shen, Y., O.~Lange, F.~Delaglio, P.~Rossi, J.~M. Aramini, G.~Liu, A.~Eletsky,
-  Y.~Wu, K.~K. Singarapu, A.~Lemak, et~al., 2008.
-\newblock Consistent blind protein structure generation from NMR chemical shift
-  data.
-\newblock \emph{Proc. Natl. Acad. Sci.} 105:4685--4690.
-
-\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
-Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
-\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
-  transitions.
-\newblock \emph{Structure} 19:109--116.
-
-\bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
-Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
-\newblock Modeling intrinsically disordered proteins with bayesian statistics.
-\newblock \emph{J. Am. Chem. Soc.} 132:14919.
-
 \bibitem[Friedman et~al.(2001)Friedman, Hastie, and
   Tibshirani]{friedman2001elements}
 Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
 \newblock The elements of statistical learning, volume~1.
 \newblock Springer Series in Statistics.
+
+\bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
+Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
+\newblock Modeling intrinsically disordered proteins with bayesian statistics.
+\newblock \emph{J. Am. Chem. Soc.} 132:14919.
 
 \bibitem[Rieping et~al.(2005)Rieping, Habeck, and Nilges]{rieping2005}
 Rieping, W., M.~Habeck, and M.~Nilges, 2005.
@@ -237,18 +227,6 @@ Schmidt, J., M.~Blümel, F.~Löhr, and H.~Rüterjans, 1999.
   Karplus coefficients and evaluation of torsion angles.
 \newblock \emph{J. Biomol. NMR} 14:1--12.
 
-\bibitem[Nerenberg and Head-Gordon(2011)]{Nerenberg2011}
-Nerenberg, P., and T.~Head-Gordon, 2011.
-\newblock Optimizing Protein- Solvent Force Fields to Reproduce Intrinsic
-  Conformational Preferences of Model Peptides.
-\newblock \emph{J. Chem. Theory Comput.} 7:1220--1230.
-\newblock \urlprefix\url{http://pubs.acs.org/doi/abs/10.1021/ct2000183}.
-
-\bibitem[Best et~al.(2008)Best, Buchete, and Hummer]{Best2008}
-Best, R., N.~Buchete, and G.~Hummer, 2008.
-\newblock Are current molecular dynamics force fields too helical?
-\newblock \emph{Biophys. J.} 95:L07--L09.
-
 \bibitem[Grdadolnik et~al.(2011)Grdadolnik, Mohacek-Grosev, Baldwin, and
   Avbelj]{Grdadolnik2011}
 Grdadolnik, J., V.~Mohacek-Grosev, R.~Baldwin, and F.~Avbelj, 2011.
@@ -270,6 +248,20 @@ Avbelj, F., S.~Grdadolnik, J.~Grdadolnik, and R.~Baldwin, 2006.
 \newblock Intrinsic backbone preferences are fully present in blocked amino
   acids.
 \newblock \emph{Proc. Natl. Acad. Sci. U. S. A.} 103:1272.
+
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
+\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
+  transitions.
+\newblock \emph{Structure} 19:109--116.
+
+\bibitem[Shen et~al.(2008)Shen, Lange, Delaglio, Rossi, Aramini, Liu, Eletsky,
+  Wu, Singarapu, Lemak, et~al.]{shen2008consistent}
+Shen, Y., O.~Lange, F.~Delaglio, P.~Rossi, J.~M. Aramini, G.~Liu, A.~Eletsky,
+  Y.~Wu, K.~K. Singarapu, A.~Lemak, et~al., 2008.
+\newblock Consistent blind protein structure generation from NMR chemical shift
+  data.
+\newblock \emph{Proc. Natl. Acad. Sci.} 105:4685--4690.
 
 \bibitem[Pronk et~al.(2013)Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov,
   Shirts, Smith, Kasson, and van~der Spoel]{pronk2013gromacs}
@@ -325,6 +317,14 @@ Bowman, G.~R., V.~A. Voelz, and V.~S. Pande, 2011.
 \newblock Atomistic folding simulations of the five helix bundle protein
   $\lambda$6--85.
 \newblock \emph{J. Am. Chem. Soc.} 133:664.
+
+\bibitem[Shaw et~al.(2010)Shaw, Maragakis, Lindorff-Larsen, Piana, Dror,
+  Eastwood, Bank, Jumper, Salmon, Shan, and Wriggers]{shaw2010}
+Shaw, D.~E., P.~Maragakis, K.~Lindorff-Larsen, S.~Piana, R.~O. Dror, M.~P.
+  Eastwood, J.~A. Bank, J.~M. Jumper, J.~K. Salmon, Y.~Shan, and W.~Wriggers,
+  2010.
+\newblock Atomic-Level Characterization of the Structural Dynamics of Proteins.
+\newblock \emph{Science} 330:341--346.
 
 \bibitem[Lindorff-Larsen et~al.(2011)Lindorff-Larsen, Piana, Dror, and
   Shaw]{Shaw2011}

@@ -315,7 +315,7 @@ Thus, BELT is essentially exponential averaging applied to a weighted combinatio
 
 \section*{Appendix S3.  Alternative Error Models}
 
-The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified log likelihood:
+The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional experimental measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the predicted observables.  The net result is a modified log likelihood:
 
 $$L L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
 
@@ -349,7 +349,7 @@ For our MCMC calculations, we work with the $log$ probability:
 
 $$\log f(\alpha;s) = -\log(B(s)) + \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-Note that the constant term is unimportant, as MCMC relies on the \emph{difference} in $log$ probabilities:
+Note that the constant term is unimportant, as MCMC relies on the difference in $log$ probabilities:
 
 $$\log f(\alpha;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
@@ -369,7 +369,7 @@ Notice that this functional form is quite similar to the maxent prior that we pr
 
 $$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
 
-The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
+The relative entropy is not a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
 
 
 \subsection*{Multivariate Normal (MVN) Prior}
@@ -383,7 +383,7 @@ Another choice of prior would be to use the Jeffrey's prior, which is uninformat
 
 \subsection*{Derivation of Jeffrey's Prior}
 
-This section derives the Jeffrey's prior for the BELT likelihood.  We do \emph{not} recommend the use of this prior, as it is expensive to compute and unable to provide regularization.  This section can be skipped by most readers; we include it only for completeness.
+This section derives the Jeffrey's prior for the BELT likelihood.  We do not recommend the use of this prior, as it is expensive to compute and unable to provide regularization.  This section can be skipped by most readers; we include it only for completeness.
 
 Jeffrey's prior dictates that 
 
@@ -467,7 +467,7 @@ oplsaa            &     12.0 &    13.0  & 15 \\
 
 \vspace{5mm}
 
-The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with all priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  To some extent, we expect similar performance between the priors.  This is because the relative entropy of normal distributions reduces to a weighted Euclidean distance between the means \cite{relative_entropy_wiki}.  However, the observables in the present work are non-normal, so the priors are not expected to give identical results.
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the training set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to half the trajectory data and evaluated on the other half.  As before, we see similar performance with all priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  To some extent, we expect similar performance between the priors.  This is because the relative entropy of normal distributions reduces to a weighted Euclidean distance between the means \cite{relative_entropy_wiki}.  However, the observables in the present work are non-normal, so the priors are not expected to give identical results.
 
 For the amber99sbnmr-ildn results, cross validation recommends the use of large amounts of regularization.  This implies two things.  First, this forcefield is already in excellent agreement with experiment, so almost no reweighting is desired.  This may also indicate limitations in our estimates of the uncertainties in the chemical shifts and scalar couplings.  As a practical note, when large amounts of regularization are used, the resulting MCMC traces will contain essentially no variance.  It is thus necessary to use Bayesian Bootstrapping to get meaningful error bars.  For cases with less regularization, Bayesian Bootstrapping is less critical because the MCMC traces account for the majority of the uncertainty.
 
@@ -504,9 +504,9 @@ In practice, applying Bayesian bootstrapping involves repeating several BELT cal
 
 \section*{Appendix S7. Data Curation}
 
-Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss one example we encountered in the current analysis.  
+Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect all measured and predicted observables before performing BELT analysis.  We discuss one example we encountered in the current analysis.  
 
-Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
+Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie outside this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
 
 \newpage
 
