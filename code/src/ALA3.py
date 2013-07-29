@@ -12,7 +12,7 @@ prior_list = ["maxent", "dirichlet", "MVN"]
 tuples = [("JC", 2, "J3_HN_Cprime"), ("JC", 3, "J2_N_CA"), ("JC", 2, "J3_HN_CB"), ("CS", 2, "CA"), ("CS", 2, "H"), ("CS", 2, "CB")]
 train_keys = pd.MultiIndex.from_tuples(tuples, names=("experiment", "resid", "name"))
 
-tuples = [("JC", 2, "J3_HN_HA"), ("JC", 2, "J3_HA_Cprime"), ("JC", 2, "J1_N_CA")]
+tuples = [("JC", 2, "J3_HN_HA"), ("JC", 2, "J3_HA_Cprime"), ("JC", 2, "J1_N_CA"), ("CS", 2, "HA")]
 test_keys = pd.MultiIndex.from_tuples(tuples, names=("experiment", "resid", "name"))
 
 
