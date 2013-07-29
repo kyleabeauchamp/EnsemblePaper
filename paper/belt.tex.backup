@@ -141,15 +141,15 @@ Because ensemble inference often presents many plausible solutions  \citep{fishe
 
 \subsection*{Molecular Dynamics Simulations}
 
-Trialanine was simulated in the amber96 \citep{kollman1996}, amber99 \citep{wang2000}, amber99sbnmr-ildn \citep{li2010, Lindorff-Larsen2010}, charmm27 \citep{mackerell2004extending,bjelkmar2010implementation}, and oplsaa \citep{kaminski2001evaluation} force fields, as previously reported  \citep{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \citep{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 1 ps.  
+Trialanine was simulated in the ff96 \citep{kollman1996}, ff99 \citep{wang2000}, ff99sbnmr-ildn \citep{li2010, Lindorff-Larsen2010}, charmm27 \citep{mackerell2004extending,bjelkmar2010implementation}, and oplsaa \citep{kaminski2001evaluation} force fields, as previously reported  \citep{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \citep{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 1 ps.  
 
 \subsection*{Chemical Shifts and Scalar Couplings}
 
 All NMR measurements in this work refer to experiments  \citep{Graf2007} probing the central residue of trialanine.  Because the experimental data was measured at pH 2, which lies near the pKa of the C terminus.  This indicates that the true ensemble likely requires a constant pH simulation, rather than a fixed protonation state.  However, such simulations are challenging with current force fields and simulation packages, so we therefore focus our analysis on the central alanine residue.  
 
-Chemical shifts ($H$, $H_\alpha$, $C_\alpha$, $C_\beta$) for each frame were calculated using a weighted average of ShiftX2 \citep{han2011shiftx2}, SPARTA+  \citep{Shen2010}, and PPM \citep{li2012ppm} predictions; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight (e.g $\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$  \citep{vogeli2007limits}, $^3J(H^N H^\alpha)$  \citep{vogeli2007limits}, $^2J(N C^\alpha)$  \citep{Graf2007}, $^3J(H^\alpha C')$  \citep{Schmidt1999}, $^1J(N C^\alpha)$  \citep{Graf2007}, $^3J(H^N C^\beta)$  \citep{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
+Chemical shifts ($H$, $H^\alpha$, $C^\alpha$, $C^\beta$) for each frame were calculated using a weighted average of ShiftX2 \citep{han2011shiftx2}, SPARTA+  \citep{Shen2010}, and PPM \citep{li2012ppm} predictions; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight (e.g $\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$  \citep{vogeli2007limits}, $^3J(H^N H^\alpha)$  \citep{vogeli2007limits}, $^2J(N C^\alpha)$  \citep{Graf2007}, $^3J(H^\alpha C')$  \citep{Schmidt1999}, $^1J(N C^\alpha)$  \citep{Graf2007}, $^3J(H^N C^\beta)$  \citep{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
-We have divided the available experimental measurements into a training and test set, with the training set consisting of the $^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$ scalar couplings and the $C_\alpha$, $H$, and $C_\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, and $^1J(N C^\alpha)$.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that are approximately uncorrelated; BELT is best suited for working with uncorrelated data.  Additional suggestions for data curation are provided in Appx. S7.  
+We have divided the available experimental measurements into a training and test set, with the training set consisting of the $^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$ scalar couplings and the $C^\alpha$, $H^N$, and $C^\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, $^1J(N C^\alpha)$, and the $H^\alpha$ chemical shift.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that are approximately uncorrelated; BELT is best suited for working with uncorrelated data.  Additional suggestions for data curation are provided in Appx. S7.  
 
 \subsection*{BELT}
 
@@ -159,24 +159,21 @@ Regularization strength was determined via cross validation as described in Appx
 
 \section*{Results}
 
-\subsection*{Conformational Propensities of Trialanine}
-
 Short peptides provide crucial tests for evaluating and optimizing molecular dynamics force fields  \citep{Graf2007,beauchamp2012protein, nerenberg2011, best2008, Grdadolnik2011}.  Such peptides offer a window into the intrinsic conformational propensities of amino acids, free from the secondary structure bias found in statistical surveys of protein structures  \citep{Jha2005}.  Here, we use BELT to infer the conformational populations of trialanine from chemical shift and scalar coupling measurements  \citep{Graf2007}.  
 
-Trialanine was simulated (see Methods) in five different force fields; six experimental measurements (three scalar couplings, three chemical shifts) probing the central alanine residue were used to construct a BELT ensemble.  The five force fields show considerable variation in their agreement with experiment (Fig. \ref{figure:ChiSquared}).  The amber96, amber99, charmm27, and oplsaa force fields, for example, initially show significant deviation from the experimental measurements.  Upon reweighting, however, all five force fields agree with experiment--including experiments that were not used to fit the model (Fig. \ref{figure:ChiSquared}b).  Additionally, these results are robust to differences in the prior placed on $\alpha$.
 
-\begin{figure}
-\subfigure[]{
-\includegraphics[width=7.5cm]{figures/chi2_train_priors.pdf}
-}
-\subfigure[]{
-\includegraphics[width=7.5cm]{figures/chi2_test_priors.pdf}
-}
-\caption{
-The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements not used to fit the BELT model.  See Methods for the definition of training and test sets.  Note that the training and test sets are not fully independent because all measurements probe the $(\phi, \psi)$ backbone torsions.
-}
-\label{figure:ChiSquared}
-\end{figure}
+\subsection*{Conformational Propensities of Trialanine Simulations}
+
+Trialanine was simulated (see Methods) in five different force fields; these simulations are summarized here.  The chosen force fields show considerable variation in their predicted conformational propensities.  The ff96 force field shows a bias towards $\beta$ conformations (population: 51\%) (Fig. \ref{figure:ALA3}, red).  On the other hand, ff99 strongly favors helical conformations, with a predicted $\alpha$ population of 80\%.  The $PP_{II}$ state, predicted to be the dominant state in solution \citep{Grdadolnik2011, Graf2007, Avbelj2006}, is the dominant simulated state only in the ff99sbnmr-ildn force field--a force field that was adjusted to fit NMR measurements.  The overall lack of consistency between force fields has been thoroughly documented \citep{Graf2007,beauchamp2012protein, nerenberg2011, best2008}.  
+
+\subsection*{Agreement with NMR Measurements: MD and BELT Ensembles}
+
+Given the wide variations in conformational propensities, we expect some force fields to have poor agreement with the available experimental measurements.  This is indeed the case; only the ff99sbnmr-ildn MD simulations show good agreement with the available NMR measurements (Fig. \ref{figure:ChiSquared}, red).  Because of this considerable error, we therefore examined BELT ensembles trained on six NMR measurements.  The BELT ensembles achieve excellent agreement predicting these six measurements as well as four additional measurements that were not used to fit the model (Fig. \ref{figure:ChiSquared}).  A table of NMR predicted and observed NMR measurements is given in Tab. S1.  
+
+\subsection*{Converged Conformational Propensities Observed in BELT Ensembles}
+
+Given that
+
 
 
 
@@ -195,6 +192,20 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Di
 MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities (for central alanine residue) in each force field.  
 }
 \label{figure:ALA3}
+\end{figure}
+
+
+\begin{figure}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/chi2_train_priors.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{figures/chi2_test_priors.pdf}
+}
+\caption{
+The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements not used to fit the BELT model.  See Methods for the definition of training and test sets.  Note that the training and test sets are not fully independent because all measurements probe the $(\phi, \psi)$ backbone torsions.
+}
+\label{figure:ChiSquared}
 \end{figure}
 
 
@@ -236,16 +247,15 @@ MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities (for
 
 
 \caption{
-Ramachandran plots of MD and BELT (maxent prior) ensembles for each force field; additional priors are shown in Fig. S1.  The jagged appearance of the amber99 BELT model is due to limited sampling of PPII configurations in that forcefield.  
+Ramachandran plots of MD and BELT (maxent prior) ensembles for each force field; additional priors are shown in Fig. S1.  The jagged appearance of the ff99 BELT model is due to limited sampling of PPII configurations in that forcefield.  
 }
 \label{figure:Rama}
 \end{figure}
 
-Several independent experimental studies have shown that short alanine peptides prefer the polyproline type helix (PPII) in solution  \citep{Grdadolnik2011, Graf2007, Avbelj2006}.  Most molecular dynamics force fields, however, are known to underpopulate the PPII state  \citep{Graf2007,beauchamp2012protein, nerenberg2011, best2008}.  Our trialanine simulations recapitulate this known deficiency (Fig. \ref{figure:ALA3}; red), with amber96 showing a strong $\beta$ bias (Fig. \ref{figure:ALA3}b) and amber99 showing a strong $\alpha$ bias (Fig. \ref{figure:ALA3}c).  However, combining simulation and experiment leads to conformational ensembles that are robust to differences in force field and prior (Fig. \ref{figure:ALA3}; blue, cyan, and green).  Full Ramachandran plots of the $(\phi, \psi)$ preferences (Fig. \ref{figure:Rama}) reveal similar features in all five BELT models.  
 
 \subsection*{Bayesian Inference allows Ambiguous Experiments}
 
-BELT allows the full characterization of posterior distributions using MCMC.  Most previous approaches, however, have focused on obtaining point estimates of conformational ensembles  \citep{rozycki2011saxs,  Graf2007}.  In many cases, however, ambiguous experimental data preclude a point-estimate of the conformational ensemble.  To illustrate this point, we plot the measured  \citep{Graf2007} value of $^3J(H_NH_\alpha)$ in the context of the Karplus \citep{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH_\alpha)$.  The measured coupling corresponds to four different values of $\phi$ (Fig. \ref{figure:Ambiguity}a), suggesting that a point estimate is inappropriate for modeling conformations or ensembles.  As a concrete example of bimodality, we calculated the posterior distribution of $PP_{II}$ populations for the oplsaa force field reweighted with two NMR measurements (Fig. \ref{figure:Ambiguity}b).  The observed bimodal distribution indicates the need to fully characterize the posterior 
+BELT allows the full characterization of posterior distributions using MCMC.  Most previous approaches, however, have focused on obtaining point estimates of conformational ensembles  \citep{rozycki2011saxs,  Graf2007}.  In many cases, however, ambiguous experimental data preclude a point-estimate of the conformational ensemble.  To illustrate this point, we plot the measured  \citep{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \citep{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$.  The measured coupling corresponds to four different values of $\phi$ (Fig. \ref{figure:Ambiguity}a), suggesting that a point estimate is inappropriate for modeling conformations or ensembles.  As a concrete example of bimodality, we calculated the posterior distribution of $PP_{II}$ populations for the oplsaa force field reweighted with two NMR measurements (Fig. \ref{figure:Ambiguity}b).  The observed bimodal distribution indicates the need to fully characterize the posterior 
 distribution.  
 
 \begin{figure}
@@ -256,7 +266,7 @@ distribution.
 \includegraphics[width=7.5cm]{figures/oplsaa_PPII_histogram.pdf}
 }
 \caption{
-(a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH_\alpha)$ is ambiguous; the observed value of $^3J(H_NH_\alpha)$ is consistent multiple conformations.  (b).  BELT modeling (oplsaa force field) with two measurements ($^3J(H_N C_\beta)$, $C_\beta$ chemical shift) shows a bimodal posterior.  The mean is shown as a black line; due to the bimodality, the mean value lies near a population minimum.
+(a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$ is ambiguous; the observed value of $^3J(H_NH^\alpha)$ is consistent multiple conformations.  (b).  BELT modeling (oplsaa force field) with two measurements ($^3J(H_N C^\beta)$, $C^\beta$ chemical shift) shows a bimodal posterior.  The mean is shown as a black line; due to the bimodality, the mean value lies near a population minimum.
 }
 \label{figure:Ambiguity}
 
@@ -280,7 +290,7 @@ One might argue that structural ensembles are unnecessary because many proteins 
 \subsection*{Resolving Fine Structure May Require Improved Observables}
 
 The five BELT ensembles show near-quantitative agreement in $\alpha$, $\beta$, and $PP_{II}$ populations (Fig. \ref{figure:ALA3}).  However, the finer details of each Ramachandran plot (Fig. \ref{figure:Rama}) suggest subtle differences between the 
-five models.  Because all five BELT ensembles show excellent agreement with experiment (Fig. \ref{figure:ChiSquared}), we conclude that current predictors of chemical shifts and scalar couplings are insufficiently precise to resolve (and falsify) subtle force field differences.  The most obvious such difference is the width, shape, and orientation of the $PP_{II}$ basin.  Most strikingly, amber96 and oplsaa have $PP_{II}$ basins that are vertically oriented, while amber99, amber99sbnmr-ildn, and charmm27 show diagonally oriented $PP_{II}$ basins.  This highlights the need for more sensitive connections between simulation and experiment, such as chemical shift and scalar coupling models.  It is also possible that the NMR measurements contain insufficient information to resolve such level of differences, which would indicate the need for additional measurements.  
+five models.  Because all five BELT ensembles show excellent agreement with experiment (Fig. \ref{figure:ChiSquared}), we conclude that current predictors of chemical shifts and scalar couplings are insufficiently precise to resolve (and falsify) subtle force field differences.  The most obvious such difference is the width, shape, and orientation of the $PP_{II}$ basin.  Most strikingly, ff96 and oplsaa have $PP_{II}$ basins that are vertically oriented, while ff99, ff99sbnmr-ildn, and charmm27 show diagonally oriented $PP_{II}$ basins.  This highlights the need for more sensitive connections between simulation and experiment, such as chemical shift and scalar coupling models.  It is also possible that the NMR measurements contain insufficient information to resolve such level of differences, which would indicate the need for additional measurements.  
 
 
 \subsection*{Comparison to Previous Ensemble Methods}
@@ -296,7 +306,7 @@ We also point out some surprising differences between BELT and BW-like methods. 
 
 \section*{Limitations of BELT}
 
-There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  For example, the trialanine simulations in ff99 sampled PPII conformations--the experimentally dominant state--only about five percent of the time.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  A second limitation in BELT is the computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets used included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of $250000^{-1}$--a free energy difference of approximately $7 kcal mol^{-1}$.  
+There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  For example, the trialanine simulations in ff99 sampled PPII conformations--the experimentally dominant state--only about five percent of the time.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  The same increased sampling requirements apply as one attempts to fit many measurements simultaneously.  In the worst-case scenario, fitting $n$ measurements could require MD datasets whose size grows exponentially with $n$.  A second limitation in BELT is its computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets used included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of $250000^{-1}$--a free energy difference of approximately $7 kcal mol^{-1}$.  A third limitation is the independent normal approximation used in BELT's error model (see Appx. S3).  Most sophisticated frameworks may be possible, including the Bayesian formalisms from the Nilges group \citep{rieping2005, habeck2006, habeck2005bayesian}.  
 
 
 The BELT method can be extended in several ways.  We have already worked out some of these extensions.  In Appx. S3, we derive an approximate correction for working with dependent data.  Another obvious extension is the use of non-normal error models.  These models can be directly inserted into the current framework by replacing the $\chi^2$ term in the likelihood with some other loss function.  More sophisticated models could separately treat the uncertainties associated with predicting observables and the uncertainties of conformations.  This would replace the regularization and Bayesian Bootstrapping (Appx. S6) approaches used herein.  Another promising avenue is to combine Bayesian modeling of structural ensembles with Bayesian models for experimental observables.  A Bayesian formalism for NMR experiments has previously been developed  \citep{rieping2005, habeck2006, habeck2005bayesian}; connecting BELT to these methods may be straightforward.  
@@ -304,7 +314,7 @@ The BELT method can be extended in several ways.  We have already worked out som
 
 \section*{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  The principled combination of simulation and experiment will enable robust, incisive predictions of the atomic-scale behavior of macromolecules.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a simple tripeptide system.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  The principled combination of simulation and experiment will enable robust, incisive predictions of the atomic-scale behavior of macromolecules.  
 
 
 \section*{Acknowledgements}

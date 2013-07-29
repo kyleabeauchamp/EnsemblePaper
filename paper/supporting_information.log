@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  28 JUL 2013 19:20
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  29 JUL 2013 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,7 +528,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (70.22383pt too wide) in paragraph at lines 83--120
+Overfull \hbox (45.09215pt too wide) in paragraph at lines 83--120
 [][] 
  []
 
@@ -1014,7 +1014,7 @@ st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti10.pfb>
-Output written on supporting_information.pdf (26 pages, 2004428 bytes).
+Output written on supporting_information.pdf (26 pages, 2005115 bytes).
 PDF statistics:
  1643 PDF objects out of 1728 (max. 8388607)
  498 compressed objects within 5 object streams

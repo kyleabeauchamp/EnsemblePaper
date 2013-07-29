@@ -43,20 +43,20 @@ NMR                         & 52.38 & 19.21 & 8.57 & 4.36 \\
 Uncertainty                 &  0.90 &  1.03 & 0.45 & 0.22 \\
 
 \toprule
-amber96                     & 52.12 & 19.98 & 8.61 & 4.62 \\
-amber96\_MVN                 & 52.32 & 19.57 & 8.59 & 4.55 \\
-amber96\_dirichlet           & 52.29 & 19.64 & 8.60 & 4.56 \\
-amber96\_maxent              & 52.21 & 19.76 & 8.62 & 4.58 \\
+ff96                     & 52.12 & 19.98 & 8.61 & 4.62 \\
+ff96\_MVN                 & 52.32 & 19.57 & 8.59 & 4.55 \\
+ff96\_dirichlet           & 52.29 & 19.64 & 8.60 & 4.56 \\
+ff96\_maxent              & 52.21 & 19.76 & 8.62 & 4.58 \\
 \toprule
-amber99                     & 52.82 & 17.97 & 8.32 & 4.62 \\
-amber99\_MVN                 & 52.44 & 18.67 & 8.38 & 4.60 \\
-amber99\_dirichlet           & 52.49 & 18.71 & 8.41 & 4.61 \\
-amber99\_maxent              & 52.47 & 18.75 & 8.43 & 4.65 \\
+ff99                     & 52.82 & 17.97 & 8.32 & 4.62 \\
+ff99\_MVN                 & 52.44 & 18.67 & 8.38 & 4.60 \\
+ff99\_dirichlet           & 52.49 & 18.71 & 8.41 & 4.61 \\
+ff99\_maxent              & 52.47 & 18.75 & 8.43 & 4.65 \\
 \toprule
-amber99sbnmr-ildn           & 52.42 & 18.34 & 8.18 & 4.54 \\
-amber99sbnmr-ildn\_MVN       & 52.43 & 18.34 & 8.18 & 4.54 \\
-amber99sbnmr-ildn\_dirichlet & 52.42 & 18.35 & 8.18 & 4.54 \\
-amber99sbnmr-ildn\_maxent    & 52.43 & 18.35 & 8.18 & 4.54 \\
+ff99sbnmr-ildn           & 52.42 & 18.34 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_MVN       & 52.43 & 18.34 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_dirichlet & 52.42 & 18.35 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_maxent    & 52.43 & 18.35 & 8.18 & 4.54 \\
 \toprule
 charmm27                    & 52.52 & 18.24 & 8.25 & 4.56 \\
 charmm27\_MVN                & 52.53 & 18.37 & 8.24 & 4.53 \\
@@ -72,7 +72,7 @@ oplsaa\_maxent               & 52.22 & 19.62 & 8.57 & 4.58 \\
 
 \end{tabular}
 \caption{
-Predicted observables (chemical shift) for each force field and BELT model.  
+Predicted observables (chemical shift) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
 }
 \end{table}
 \newpage
@@ -88,20 +88,20 @@ Test     Set & X  & X  &   &   & X  &   \\
 NMR                         &    11.34 &          1.84 &      2.39 &          1.13 &      5.68 &     8.45 \\
 Uncertainty                 &     0.53 &          0.44 &      0.22 &          0.30 &      0.36 &     0.48 \\
 \toprule
-amber96                     &    11.32 &          1.99 &      1.53 &          1.49 &      6.59 &     8.51 \\
-amber96\_MVN                 &    11.20 &          1.74 &      2.28 &          1.23 &      5.63 &     8.42 \\
-amber96\_dirichlet           &    11.31 &          1.74 &      2.26 &          1.22 &      5.67 &     8.50 \\
-amber96\_maxent              &    11.54 &          1.74 &      2.26 &          1.22 &      5.69 &     8.61 \\
+ff96                     &    11.32 &          1.99 &      1.53 &          1.49 &      6.59 &     8.51 \\
+ff96\_MVN                 &    11.20 &          1.74 &      2.28 &          1.23 &      5.63 &     8.42 \\
+ff96\_dirichlet           &    11.31 &          1.74 &      2.26 &          1.22 &      5.67 &     8.50 \\
+ff96\_maxent              &    11.54 &          1.74 &      2.26 &          1.22 &      5.69 &     8.61 \\
 \toprule
-amber99                     &    10.37 &          2.23 &      0.79 &          1.78 &      7.47 &     6.41 \\
-amber99\_MVN                 &    11.52 &          1.69 &      2.41 &          1.13 &      5.56 &     8.26 \\
-amber99\_dirichlet           &    11.47 &          1.70 &      2.37 &          1.15 &      5.59 &     8.17 \\
-amber99\_maxent              &    11.84 &          1.70 &      2.31 &          1.20 &      5.61 &     8.50 \\
+ff99                     &    10.37 &          2.23 &      0.79 &          1.78 &      7.47 &     6.41 \\
+ff99\_MVN                 &    11.52 &          1.69 &      2.41 &          1.13 &      5.56 &     8.26 \\
+ff99\_dirichlet           &    11.47 &          1.70 &      2.37 &          1.15 &      5.59 &     8.17 \\
+ff99\_maxent              &    11.84 &          1.70 &      2.31 &          1.20 &      5.61 &     8.50 \\
 \toprule
-amber99sbnmr-ildn           &    11.48 &          1.84 &      2.29 &          0.99 &      6.07 &     8.47 \\
-amber99sbnmr-ildn\_MVN       &    11.47 &          1.83 &      2.31 &          1.00 &      6.02 &     8.45 \\
-amber99sbnmr-ildn\_dirichlet &    11.49 &          1.83 &      2.30 &          1.00 &      6.03 &     8.48 \\
-amber99sbnmr-ildn\_maxent    &    11.48 &          1.82 &      2.31 &          1.00 &      6.01 &     8.47 \\
+ff99sbnmr-ildn           &    11.48 &          1.84 &      2.29 &          0.99 &      6.07 &     8.47 \\
+ff99sbnmr-ildn\_MVN       &    11.47 &          1.83 &      2.31 &          1.00 &      6.02 &     8.45 \\
+ff99sbnmr-ildn\_dirichlet &    11.49 &          1.83 &      2.30 &          1.00 &      6.03 &     8.48 \\
+ff99sbnmr-ildn\_maxent    &    11.48 &          1.82 &      2.31 &          1.00 &      6.01 &     8.47 \\
 \toprule
 charmm27                    &    11.23 &          2.03 &      1.79 &          1.36 &      6.34 &     8.10 \\
 charmm27\_MVN                &    11.30 &          1.83 &      2.32 &          1.15 &      5.70 &     8.24 \\
@@ -116,7 +116,7 @@ oplsaa\_maxent               &    11.28 &          1.95 &      2.22 &          0
 
 \end{tabular}
 \caption{
-Predicted observables (scalar couplings) for each force field and BELT model.  
+Predicted observables (scalar couplings) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
 }
 \end{table}
 
