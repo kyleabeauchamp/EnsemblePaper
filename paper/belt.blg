@@ -6,37 +6,37 @@ Database file #1: belt.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 53 entries,
             3176 wiz_defined-function locations,
-            957 strings with 16271 characters,
-and the built_in function-call counts, 28606 in all, are:
-= -- 1923
-> -- 1825
+            961 strings with 16297 characters,
+and the built_in function-call counts, 28346 in all, are:
+= -- 1919
+> -- 1783
 < -- 11
-+ -- 598
-- -- 492
-* -- 2134
-:= -- 4092
++ -- 586
+- -- 480
+* -- 2109
+:= -- 4051
 add.period$ -- 160
 call.type$ -- 53
 change.case$ -- 53
 chr.to.int$ -- 53
 cite$ -- 53
-duplicate$ -- 2408
-empty$ -- 2186
-format.name$ -- 609
-if$ -- 5848
+duplicate$ -- 2390
+empty$ -- 2176
+format.name$ -- 597
+if$ -- 5798
 int.to.chr$ -- 1
 int.to.str$ -- 54
-missing$ -- 551
+missing$ -- 545
 newline$ -- 271
 num.names$ -- 159
-pop$ -- 789
+pop$ -- 784
 preamble$ -- 1
 purify$ -- 53
 quote$ -- 0
 skip$ -- 509
 stack$ -- 0
-substring$ -- 1175
-swap$ -- 1299
+substring$ -- 1163
+swap$ -- 1288
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0

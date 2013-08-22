@@ -13,23 +13,20 @@ for k, (ff, prior) in enumerate(grid):
     print(ff, prior)
     regularization_strength = ALA3.regularization_strength_dict[prior][ff]
     predictions, measurements, uncertainties = experiment_loader.load(ff, keys=None)
-    data[ff] = predictions.mean()
+    z = (predictions.mean() - measurements) / uncertainties
+    chi2_all = (z ** 2).mean()
+    chi2_train = (z[ALA3.train_keys] ** 2).mean()
+    chi2_test = (z[ALA3.test_keys] ** 2).mean()
+    data[ff] = chi2_all, chi2_train, chi2_test
     mcmc_filename = "mcmc_traces/mu_%s_%s_reg-%.1f-BB%d.h5"
     mu_mcmc = pd.concat([pd.HDFStore(mcmc_filename % (ff, prior, regularization_strength, bayesian_bootstrap_run))["data"] for bayesian_bootstrap_run in range(num_BB)])
-    data["%s_%s" % (ff, prior)] = mu_mcmc.mean()
+    z = (mu_mcmc - measurements) / uncertainties
+    chi2_all = (z ** 2).mean().mean()
+    chi2_train = (z[ALA3.train_keys] ** 2).mean().mean()
+    chi2_test = (z[ALA3.test_keys] ** 2).mean().mean()
+    data["%s_%s" % (ff, prior)] = chi2_all, chi2_train, chi2_test
     
-data["Uncertainty"] = uncertainties
-data["NMR"] = measurements
-data = pd.DataFrame(data).T
-
-print data.iloc[:, 0:4].to_latex(float_format=(lambda x: "%.2f"%x))
-print data.iloc[:, 4:].to_latex(float_format=(lambda x: "%.2f"%x))
-
-bad_ind = []
-for ff in ALA3.ff_list:
-    for prior in ["MVN", "dirichlet"]:
-        bad_ind.append("%s_%s" % (ff, prior))
-
-data = data.ix[~np.in1d(data.index, bad_ind)]
-
+columns = ["all", "train", "test"]
+data = pd.DataFrame(data, index=columns).T
+print("***********")
 print data.to_latex(float_format=(lambda x: "%.2f"%x))

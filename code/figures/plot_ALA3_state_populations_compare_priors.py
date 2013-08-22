@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 import ALA3
 
-BB_dict = {"amber96":[0,1],"amber99":[0,1],"amber99sbnmr-ildn":[0],"charmm27":[0,1],"oplsaa":[0,1]}
+BB_dict = {"amber96":[0,1],"amber99":[0,1],"amber99sbnmr-ildn":[0, 1],"charmm27":[0,1],"oplsaa":[0,1]}
 
 use_log = False
 

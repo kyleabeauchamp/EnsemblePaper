@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[margin=1.0in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -22,13 +23,282 @@
 
 %\email{rhiju@stanford.edu, pande@stanford.edu}
 
-\title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments: Application to Trialanine}
+\title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments and Molecular Dynamics: Correcting Force Field Bias in Trialanine Simulations}
 
 \begin{document}
 
 \maketitle
 
+
 \newpage
+
+\begin{table}
+ 
+\begin{tabular}{lrrrr}
+\toprule
+  &    $C^\alpha$ &    $C^\beta$ &    $H$ &   $H^\alpha$ \\
+Training & X & X & X & \\                    
+Test & &  & & X \\
+NMR                         & 52.38 & 19.21 & 8.57 & 4.36 \\
+Uncertainty                 &  0.90 &  1.03 & 0.45 & 0.22 \\
+
+\toprule
+ff96                     & 52.12 & 19.98 & 8.61 & 4.62 \\
+ff96\_MVN                 & 52.32 & 19.57 & 8.59 & 4.55 \\
+ff96\_dirichlet           & 52.29 & 19.64 & 8.60 & 4.56 \\
+ff96\_maxent              & 52.21 & 19.76 & 8.62 & 4.58 \\
+\toprule
+ff99                     & 52.82 & 17.97 & 8.32 & 4.62 \\
+ff99\_MVN                 & 52.44 & 18.67 & 8.38 & 4.60 \\
+ff99\_dirichlet           & 52.49 & 18.71 & 8.41 & 4.61 \\
+ff99\_maxent              & 52.47 & 18.75 & 8.43 & 4.65 \\
+\toprule
+ff99sbnmr-ildn           & 52.42 & 18.34 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_MVN       & 52.43 & 18.34 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_dirichlet & 52.42 & 18.35 & 8.18 & 4.54 \\
+ff99sbnmr-ildn\_maxent    & 52.43 & 18.35 & 8.18 & 4.54 \\
+\toprule
+charmm27                    & 52.52 & 18.24 & 8.25 & 4.56 \\
+charmm27\_MVN                & 52.53 & 18.37 & 8.24 & 4.53 \\
+charmm27\_dirichlet          & 52.52 & 18.45 & 8.25 & 4.54 \\
+charmm27\_maxent             & 52.43 & 18.56 & 8.25 & 4.55 \\
+\toprule
+oplsaa                      & 52.19 & 19.64 & 8.59 & 4.60 \\
+oplsaa\_MVN                  & 52.32 & 19.43 & 8.59 & 4.56 \\
+oplsaa\_dirichlet            & 52.28 & 19.51 & 8.58 & 4.57 \\
+oplsaa\_maxent               & 52.22 & 19.62 & 8.57 & 4.58 \\
+\bottomrule
+
+
+\end{tabular}
+\caption{
+Predicted observables (chemical shifts) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
+}
+\end{table}
+\newpage
+
+\small
+
+\begin{table}
+\begin{tabular}{lrrrrrr}
+\toprule
+  &  $^1J(NC^\alpha)$ & $^3J(H^\alpha C\prime)$ & $^3J(H^NC^\beta)$ &  $^3J(H^NC\prime)$ &  $^3J(H^NH^\alpha)$ &  $^2J(NC^\alpha)$ \\
+Training Set &    &    & X & X &    & X \\
+Test     Set & X  & X  &   &   & X  &   \\
+NMR                         &    11.34 &          1.84 &      2.39 &          1.13 &      5.68 &     8.45 \\
+Uncertainty                 &     0.53 &          0.44 &      0.22 &          0.30 &      0.36 &     0.48 \\
+\toprule
+ff96                     &    11.32 &          1.99 &      1.53 &          1.49 &      6.59 &     8.51 \\
+ff96\_MVN                 &    11.20 &          1.74 &      2.28 &          1.23 &      5.63 &     8.42 \\
+ff96\_dirichlet           &    11.31 &          1.74 &      2.26 &          1.22 &      5.67 &     8.50 \\
+ff96\_maxent              &    11.54 &          1.74 &      2.26 &          1.22 &      5.69 &     8.61 \\
+\toprule
+ff99                     &    10.37 &          2.23 &      0.79 &          1.78 &      7.47 &     6.41 \\
+ff99\_MVN                 &    11.52 &          1.69 &      2.41 &          1.13 &      5.56 &     8.26 \\
+ff99\_dirichlet           &    11.47 &          1.70 &      2.37 &          1.15 &      5.59 &     8.17 \\
+ff99\_maxent              &    11.84 &          1.70 &      2.31 &          1.20 &      5.61 &     8.50 \\
+\toprule
+ff99sbnmr-ildn           &    11.48 &          1.84 &      2.29 &          0.99 &      6.07 &     8.47 \\
+ff99sbnmr-ildn\_MVN       &    11.47 &          1.83 &      2.31 &          1.00 &      6.02 &     8.45 \\
+ff99sbnmr-ildn\_dirichlet &    11.49 &          1.83 &      2.30 &          1.00 &      6.03 &     8.48 \\
+ff99sbnmr-ildn\_maxent    &    11.48 &          1.82 &      2.31 &          1.00 &      6.01 &     8.47 \\
+\toprule
+charmm27                    &    11.23 &          2.03 &      1.79 &          1.36 &      6.34 &     8.10 \\
+charmm27\_MVN                &    11.30 &          1.83 &      2.32 &          1.15 &      5.70 &     8.24 \\
+charmm27\_dirichlet          &    11.34 &          1.81 &      2.33 &          1.14 &      5.69 &     8.30 \\
+charmm27\_maxent             &    11.65 &          1.78 &      2.32 &          1.15 &      5.68 &     8.57 \\
+\toprule
+oplsaa                      &    11.09 &          2.16 &      1.89 &          0.88 &      7.03 &     8.12 \\
+oplsaa\_MVN                  &    11.11 &          2.04 &      2.23 &          0.92 &      6.29 &     8.15 \\
+oplsaa\_dirichlet            &    11.14 &          1.99 &      2.20 &          0.89 &      6.40 &     8.20 \\
+oplsaa\_maxent               &    11.28 &          1.95 &      2.22 &          0.84 &      6.45 &     8.37 \\
+\bottomrule
+
+\end{tabular}
+\caption{
+Predicted observables (scalar couplings) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
+}
+\end{table}
+
+
+
+\clearpage
+
+\begin{table}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.71 &       0.68 & 0.67 \\
+amber99           &    0.69 &       0.63 & 0.67 \\
+amber99sbnmr-ildn &    0.68 &       0.68 & 0.68 \\
+charmm27          &    0.71 &       0.62 & 0.60 \\
+oplsaa            &    0.69 &       0.64 & 0.63 \\
+\bottomrule
+\end{tabular}
+
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.07 &       0.08 & 0.10 \\
+amber99           &    0.13 &       0.12 & 0.11 \\
+amber99sbnmr-ildn &    0.04 &       0.04 & 0.04 \\
+charmm27          &    0.10 &       0.11 & 0.11 \\
+oplsaa            &    0.08 &       0.08 & 0.08 \\
+\bottomrule
+\end{tabular}
+
+\caption{
+Predicted $PP_{II}$ populations (top) and uncertainties (bottom).  
+}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.27 &       0.26 & 0.25 \\
+amber99           &    0.24 &       0.19 & 0.18 \\
+amber99sbnmr-ildn &    0.24 &       0.25 & 0.24 \\
+charmm27          &    0.23 &       0.22 & 0.22 \\
+oplsaa            &    0.22 &       0.21 & 0.20 \\
+\bottomrule
+\end{tabular}
+
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.07 &       0.07 & 0.06 \\
+amber99           &    0.09 &       0.07 & 0.07 \\
+amber99sbnmr-ildn &    0.04 &       0.03 & 0.03 \\
+charmm27          &    0.08 &       0.07 & 0.07 \\
+oplsaa            &    0.06 &       0.06 & 0.05 \\
+\bottomrule
+\end{tabular}
+
+\caption{
+Predicted $\beta$ populations (top) and uncertainties (bottom).  
+}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.02 &       0.05 & 0.08 \\
+amber99           &    0.07 &       0.19 & 0.15 \\
+amber99sbnmr-ildn &    0.07 &       0.07 & 0.08 \\
+charmm27          &    0.04 &       0.13 & 0.15 \\
+oplsaa            &    0.08 &       0.12 & 0.12 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.04 &       0.07 & 0.09 \\
+amber99           &    0.14 &       0.13 & 0.12 \\
+amber99sbnmr-ildn &    0.03 &       0.02 & 0.03 \\
+charmm27          &    0.08 &       0.10 & 0.10 \\
+oplsaa            &    0.08 &       0.07 & 0.07 \\
+\bottomrule
+\end{tabular}
+
+\caption{
+Predicted $\alpha_r$ populations (top) and uncertainties (bottom).  
+}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.01 &       0.01 & 0.01 \\
+amber99           &    0.00 &       0.00 & 0.00 \\
+amber99sbnmr-ildn &    0.00 &       0.00 & 0.00 \\
+charmm27          &    0.02 &       0.02 & 0.03 \\
+oplsaa            &    0.01 &       0.02 & 0.04 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &  maxent &  dirichlet &  MVN \\
+\midrule
+amber96           &    0.01 &       0.02 & 0.02 \\
+amber99           &    0.00 &       0.00 & 0.00 \\
+amber99sbnmr-ildn &    0.00 &       0.00 & 0.00 \\
+charmm27          &    0.01 &       0.02 & 0.02 \\
+oplsaa            &    0.01 &       0.03 & 0.05 \\
+\bottomrule
+\end{tabular}
+
+\caption{
+Predicted $\alpha_l$ populations (top) and uncertainties (bottom).  
+}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\begin{tabular}{lrrr}
+\toprule
+{} &   all &  train &  test \\
+\midrule
+amber96                     &  2.55 &   2.91 &  1.99 \\
+amber96\_MVN                 &  0.58 &   0.35 &  0.93 \\
+amber96\_dirichlet           &  0.55 &   0.35 &  0.86 \\
+amber96\_maxent              &  0.58 &   0.38 &  0.88 \\
+\toprule
+amber99                     & 10.80 &  12.94 &  7.59 \\
+amber99\_MVN                 &  0.98 &   0.63 &  1.51 \\
+amber99\_dirichlet           &  0.95 &   0.63 &  1.43 \\
+amber99\_maxent              &  0.98 &   0.58 &  1.58 \\
+\toprule
+amber99sbnmr-ildn           &  0.39 &   0.31 &  0.50 \\
+amber99sbnmr-ildn\_MVN       &  0.43 &   0.35 &  0.55 \\
+amber99sbnmr-ildn\_dirichlet &  0.44 &   0.35 &  0.57 \\
+amber99sbnmr-ildn\_maxent    &  0.42 &   0.35 &  0.54 \\
+\toprule
+charmm27                    &  1.44 &   1.65 &  1.13 \\
+charmm27\_MVN                &  0.74 &   0.60 &  0.95 \\
+charmm27\_dirichlet          &  0.73 &   0.58 &  0.96 \\
+charmm27\_maxent             &  0.73 &   0.53 &  1.04 \\
+\toprule
+oplsaa                      &  2.26 &   1.10 &  4.01 \\
+oplsaa\_MVN                  &  0.94 &   0.48 &  1.64 \\
+oplsaa\_dirichlet            &  1.00 &   0.50 &  1.76 \\
+oplsaa\_maxent               &  1.06 &   0.52 &  1.87 \\
+\bottomrule
+\end{tabular}
+
+\caption{
+Reduced $\chi^2$ for MD simulations and BELT ensembles.  The `all`, `training`, and `test` datasets have 10, 6, and 4 measurements, respectively.  
+}
+\end{table}
+
+
+\newpage
+
 
 \begin{figure}
 \subfigure[]{
@@ -264,24 +534,236 @@ Cross validated reduced $\chi^2$.  Cross validation was performed using twenty-f
 \section*{Appendix S1.  Connection between Maximum Entropy and BELT}
 
 
-Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  We now show the connection between the previous maximum entropy approach \cite{chodera2012} and BELT.  The previous approach minimizes an objective function $\Lambda$; it is sufficient to consider the zeros of its gradient:
+Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  Here, we outline the previous results and detail the connection between BELT and the previous maximum entropy formalism.  
+
+\subsection*{Outline of Maximum Entropy Formalism}
+
+The previous work \cite{chodera2012} used Jaynes' maximum entropy arguments \cite{jaynes1957information} to derive a new approach to constraining simulations.  Here we outline those arguments for the case of a single observable.  
+
+The maximum entropy formalism relies on finding the least informative probability distribution that is compatible with some known constraints.  The information entropy is used as the metric for quantifying the information content of a distribution:
+
+$$S(p) = - \int p(x) \log(p(x)) dx $$
+
+The method of Chodera and Pitera uses three constraints on $p(x)$.  First, $p(x)$ must be a well-defined probability distribution:
+
+$$\int p(x) dx = 1 $$
+
+Second, $p(x)$ must give the correct average potential energy:
+
+$$\int U(x) p(x) dx = \frac{3}{2} N K_B T$$
+
+Finally, we assume that we have access to a single measurement $F$ and a function $f(x)$ that predicts the observable as a function of atomic coordinates:
+
+$$\int f(x) p(x) dx = F$$
+
+This constrained optimization problem is solved via Lagrange multipliers, eventually leading to the following gradient condition:
+
+$$\frac{\partial S}{\partial p} - \lambda_0 \frac{\partial g_0}{\partial p}- \lambda_1 \frac{\partial g_1}{\partial p}- \lambda_2 \frac{\partial g_2}{\partial p} = 0$$
+
+Here, the functions $g_0$, $g_1$, and $g_2$ are the following constraint equations:
+
+$$g_0 = \int dx p(x) - 1$$
+
+$$g_1 = \int dx U(x) p(x) - \frac{3}{2} N K_B T$$
+
+$$g_2 = \int dx f(x) p(x) - F$$
+
+The solution to this optimization problem is given by 
+
+$$p(x) \propto \exp(-\beta U(x) + \alpha f(x))$$
+
+Sampling the potential $U(x) + \alpha f(x)$ provides the least biased ensemble that is consistent with the measurement $F$.  To determine $\alpha$, Chodera and Pitera minimize an objective function $\Lambda$, which is related to the $\alpha$ dependent partition function $Z(\alpha)$ and the experimental measurements $F_i$:
+
+$$\Lambda = \log Z(\alpha) + \alpha F$$
+
+$$Z(\alpha) = \int dx \exp(-\beta U(x) + \alpha f(x))$$
+
+They also extend their calculation to include multiple measurements, leading to the following objective function:
+
+$$\Lambda = \log Z(\alpha) + \sum_i \alpha_i F_i$$
+
+To minimize $\Lambda$, we calculate the gradient and set it to zero:
 
 $$\frac{d\Lambda}{d\alpha_k} = -\langle f_k \rangle_\alpha + F_k$$
 
 The obvious solution, when feasible, is to set $\langle f_i(x) \rangle_\alpha = F_i$.  
 
-In BELT, we instead sample the following log likelihood:
 
-$$LL(\alpha) = -\sum_i \frac{1}{2\sigma_i^2}(\langle f_i\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
+\subsection*{Connecting BELT and Maximum Entropy}
 
-If we assume a constant prior and maximize the likelihood, the problem becomes equivalent to setting the derivative of $LL$ to zero:
 
-$$ \frac{dLL}{d\alpha_k} =  -\sum_i \frac{1}{\sigma_i^2} (\langle f_i\rangle _\alpha - F_i) \frac{d\langle f_i\rangle _\alpha}{d\alpha_k} = 0$$
+In BELT, we sample the following log posterior distribution:
 
-As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the log likelihood.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and BELT.  
+$$LP(\alpha) = -\sum_i \frac{1}{2\sigma_i^2}(\langle f_i\rangle _\alpha - F_i)^2 + \log P(\alpha)$$
+
+If we instead maximize the posterior probability, the problem becomes equivalent to setting the derivative of $LP$ to zero.  Assuming that the prior distribution is constant, the derivative is calculated to be the following:
+
+$$ \frac{dLP}{d\alpha_k} =  -\sum_i \frac{1}{\sigma_i^2} (\langle f_i\rangle _\alpha - F_i) \frac{d\langle f_i\rangle _\alpha}{d\alpha_k} = 0$$
+
+As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the posterior probability.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and BELT.  
 
 
 \newpage
+
+\subsection*{Connecting BELT and Hyperensembles}
+
+It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  Previous arguments led to a probability distribution on ensembles given by 
+
+$$P[\rho] = \frac{1}{Z(\lambda)} \exp(- \lambda \int dx \rho(x)\frac{\rho(x)}{\rho_0(x)})$$
+
+Here, let us suppose that we have a single measurement $F$ that can be calculated as $\langle f(x) \rangle_\rho$.  Suppose that $\rho_0$ is given by our simulation Boltzmann ensemble and the likelihood of some measurement is given by
+
+$$P(F|\rho) \sim N(\langle f\rangle_\rho, \sigma^2)$$
+
+We first consider the limit as $\sigma \rightarrow 0$.  In that limit, the posterior becomes:
+
+$$P(\rho) \propto P(\rho | F) P(F) = \delta(F - \langle f\rangle_\rho) \exp(- \lambda \int dx \rho(x) \log \frac{\rho(x)}{\rho_0(x)}) $$
+
+For small values of $\lambda$, the posterior is diffuse and contains all distributions consistent with $F$.  In the limit of large $\lambda$, however, we maximize $D(\rho || \rho_0)$ subject to the constraints $F = \langle f \rangle$ and $\int \rho(x) dx = 1$.  Analogous to \cite{crooks2007beyond, chodera2012}, the result of this constrained maximization is
+
+$$\rho(x) = \exp(c_0 + c_1 \log(\rho_0(x)) + c_2 f(x))$$
+
+Thus, we have essentially re-derived a result similar \cite{chodera2012} using arguments from \cite{crooks2007beyond}.  We now consider the case of nonzero $\sigma$.  
+
+$$P(\rho|F) = (2 \pi \sigma^2)^\frac{-1}{2} \exp(\frac{-1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+
+Consider the expectation of an observable $h$:
+
+$$E(h) = \int d\rho h(\rho) P(\rho|F)$$
+
+By Bayes Theorem, we have
+
+$$E(h) = \int d\rho h(\rho) P(F | \rho) \frac{P(\rho)}{P(F)} $$
+
+Inserting the entropic prior $P(\rho)$ and a Gaussian conditional probability:
+
+$$E(h) = \frac{1}{P(F)} \int d\rho h(\rho) \exp(-\frac{1}{\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+
+Now, let's introduce a dummy variable $\phi$ and a term $\delta(\phi -  \langle f \rangle)$, integrating over all $\phi$:  
+
+$$E(h) = \frac{1}{P(F)} \int d\phi d\rho h(\rho) \delta(\phi -  \langle f \rangle) \exp(-\frac{1}{\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+
+$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2)  d\rho h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+
+Now, recall that in the limit of $\lambda \rightarrow \infty$, $S(\rho) = \langle \log\frac{\rho}{\rho_0} \rangle$ (with applicable constraints) is maximized by the maximum entropy linear biasing function of Chodera et al \cite{chodera2012}.  We refer to this distribution as $\rho_*$.  We now change coordinates via $\rho = \delta \rho + \rho_*$.  We also assume that our space is finite:
+
+$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda S(\rho_* + \delta \rho))$$
+
+By the stationarity of $S$ at $\rho_*$, we have that $S(\rho_* + \delta \rho) \approx S(\rho_*) + \sum_i \frac{\partial S}{\partial \delta \rho_i} \delta \rho_i$
+
+$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda S(\rho_*) - \lambda \sum_i \frac{\partial S}{\partial \delta \rho_i} \delta \rho_i)$$
+
+We now expand the delta function:
+
+$$\delta(\phi - \langle f \rangle) = \frac{1}{2 \pi} \int \exp(i q (\sum_i f_i \rho_i - \phi) )dq = \frac{1}{2\pi} \int \exp(i q (\sum_i \delta \rho_i - \phi))$$
+
+We also calculate the partial derivatives of $S$:
+
+$$\frac{\partial S}{\partial \delta_rho_i} = 1 + \sum_i \log(\frac{\rho_i}{\rho_i^0})$$
+
+Inserting these two into the previous expression:
+
+$$E(h) = \frac{1}{P(F)} \frac{1}{2 \pi} \int dq \int d\phi \exp(-i q \phi) \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \exp(- q \sum_i \delta \rho_i) \exp(-\lambda S(\rho_*) - \lambda \sum_i (1 + \log \frac{\rho_i}{\rho_i^0} \delta \rho_i)$$
+
+We focus on the last integral:
+
+$$\int \prod_i d (\delta \rho_i) h(\rho) \exp(- q \sum_i \delta \rho_i) \exp(-\lambda S(\rho_*) - \lambda \sum_i (1 + \log \frac{\rho_i^*}{\rho_i^0} \delta \rho_i)$$
+
+\section*{Attempt 2}
+
+We suppress the conditioning on $F$ for brevity.  
+
+$$P(\rho) = \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0}\rangle)$$
+
+Let's decompose the ensemble populations $\rho$ as a product of the maxent populations and a multiplicative correction:
+
+$$\rho = \rho^*(\alpha) q(\alpha, \beta)$$
+
+Here, $\beta$ refers to all parameters required to specify the deviation from the maxent ensemble.  We assume that $\beta = 0$ gives the maxent solution--that is, $q(\alpha, 0) = 1$.  We seek to integrate out all these unwanted parameters:
+
+$$P(\alpha, \beta) = P(\rho) |J(\alpha, \beta)|$$
+
+$$P(\alpha) = \int \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \frac{\rho}{\rho^0}\rangle) |J(\alpha, \beta)| d\beta$$
+
+In the limit of $\sigma \rightarrow 0$ and $\lambda \rightarrow \infty$, the distribution is the maxent solution $\rho^*(\alpha)$.  We introduce a variable $\phi$ to constrain the ensemble average $\langle f \rangle$ to be the central value:
+
+$$P(\alpha) = \int d\phi \int \delta(\langle f \rangle - \phi) \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \frac{\rho}{\rho^0}\rangle) |J(\alpha, \beta)| d\beta$$
+
+Because $\langle f \rangle$ is constrained to equal $\phi$ in the inner integral, we can  therefore expand the entropy around this point:
+
+$$S(\alpha, \beta, \phi) = S(\alpha, 0, \phi) + \frac{1}{2} \sum_{i,j} \frac{\partial^2 S}{\partial \beta_i \partial \beta_j} \beta_i \beta_j = S(\alpha, 0, \phi) + \frac{1}{2} \beta^T H(\phi) \beta$$
+
+$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \int \delta(\langle f \rangle - \phi)  \exp(-\lambda S(\alpha, 0, \phi) + \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
+$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2)\exp(-\lambda S(\alpha, 0, \phi)) \int \delta(\langle f \rangle - \phi)  \exp(-\lambda \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
+$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2)\exp(-\lambda S(\alpha, 0, \phi)) \int \int dq \exp(i q (\langle f \rangle - \phi)))  \exp(-\lambda \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
+
+\section*{Attempt 3}
+
+We surpress the conditioning on $F$ for brevity of notation.  As before, we work with the probability of a particular ensemble $\rho$:
+
+$$P(\rho) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
+
+We perform a change of variables from $\rho$ to $\alpha$, $\phi$, and $\Delta$.  Here, $\alpha$ is defined as the linear biasing weights such that $\sum_i \rho_i f_i = \phi$, $\sum_i \Delta_i f_i = 0$, and $\sum_i \rho_i^* f_i = \phi$.  We let $\rho$ denote the ensemble populations, while $\rho^*(\alpha, \phi)$ refers to the maximum entropy ensemble populations.  The likelihood absorbs a Jacobian from the change of variables:
+
+$$P(\phi, \alpha, \Delta) = C |J(\phi, \alpha, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
+
+Now, we integrate over $\phi$ and $\Delta$ to calculate the marginal probability $P(\alpha)$:
+
+$$P(\alpha) = C \int d\phi \int d\Delta |J(\phi, \alpha, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
+
+Our first approximation requires us to assume a constant Jacobian:
+
+$$P(\alpha) = C |J(\alpha)| \int d\phi \int d\Delta  \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
+
+We now express the likelihood term in terms of $\phi$:
+
+$$P(\alpha) = C |J(\alpha)| \int d\phi \int d\Delta  \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
+
+$$P(\alpha) = C |J(\alpha)| \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \int d\Delta   \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
+
+Now, let us perform a Taylor expansion of $S(\rho)$:
+
+$$S(\phi, \alpha, \Delta) = S(\phi, \alpha, 0) + G^T \Delta + \frac{1}{2} \Delta^T H \Delta$$
+
+\section*{Attempt 4}
+
+We suppress the conditioning on $F$ for brevity of notation.  As before, we work with the probability of a particular ensemble $\rho$:
+
+$$P(\rho) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0)$$
+
+Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble such that $\langle f \rangle = \phi$.  We now perform a change of variables from $\rho$ to ($\phi$, $\Delta$), where $\sum_i \Delta_i = 0$ and $\sum_i \Delta_i f_i = 0$.  
+
+Thus, $\Delta$ is a (hopefully) small correction to the maximum entropy ensemble.  
+
+$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0})\rangle)$$
+
+With these assumptions, the probability can be simplified:
+
+$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0})\rangle)$$
+
+For a given value of $\phi$, $\rho^*$ maximizes the entropy.  This suggests a quadratic approximation to the entropy:
+
+$$S(\phi, \Delta) = \langle \log(\frac{\rho}{\rho^0})\rangle \approx \langle \log(\frac{\rho^*}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta$$
+
+Here, $H_{ij}(\phi) = \frac{\partial^2 S}{\partial \Delta_i \partial \Delta_j}$, evaluated at the point of the maximum entropy ensemble $(\Delta = 0)$.  Inserting this expression in the probability gives:
+
+$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta)$$
+
+From the perspect of BELT, $\Delta$ is a nuisance parameter--we wish to integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
+
+$$P(\phi) = C \int |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+
+$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle)  \int |J(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+
+To perform the integration, we must assume that $J(\phi, \Delta)$ is independent of $\Delta$.
+
+$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle) |J(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+
+$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle) |J(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
+
+To connect to BELT, we now change variables from $\phi$ to $\alpha$, which introduces another Jacobian $J_1(\alpha)$
+
+$$P(\alpha) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\alpha)}{\rho^0})\rangle) |J(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  |J_1(\alpha)|$$
 
 \section*{Appendix S2.  Derivation of Reweighting}
 
@@ -315,7 +797,7 @@ Thus, BELT is essentially exponential averaging applied to a weighted combinatio
 
 \section*{Appendix S3.  Alternative Error Models}
 
-The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional \emph{experimental} measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the \emph{predicted} observables.  The net result is a modified log likelihood:
+The model presented in the main text assumes independent normal deviations between measurements and the predicted ensemble.  This model is a useful approximation that leads to a straightforward $\chi^2$ likelihood.  However, in some situations, one might expect correlation between ensemble measurements.  Detecting this correlation would require additional experimental measurements.  However, it is possible to modify the $\chi^2$ likelihood to account for correlations between the predicted observables.  The net result is a modified log likelihood:
 
 $$L L(\alpha) = \frac{1}{2} z^T P^{-1} z$$
 
@@ -341,7 +823,11 @@ We also consider the Dirichlet prior.  Dirichlet priors are commonly used as con
 
 $$f(\pi;s) = \frac{1}{B(s)} \prod_j \pi_j^{s_j - 1}$$
 
-The Dirichlet prior is an obvious choice for BELT, because the object of interest is the probability distribution on conformations.  However, in BELT, we must restrict the distribution to the subset of probability distributions that can be achieved via reweighting.  Thus, instead of $x_j$, we have $\pi_j(\alpha)$:
+In the above equation, $s$ is a vector of hyperparameters that are represent prior ``pseudocounts'' on frames, while $B(s)$ is a normalization constant containing a product of gamma functions:
+
+$$B(s) = \frac{\prod_i \Gamma(s_i)}{\Gamma(\sum_i s_i)}$$
+
+The Dirichlet prior is an obvious choice for BELT, because the object of interest is the probability distribution on conformations.  However, in BELT, we must restrict the distribution to the subset of probability distributions that can be achieved via reweighting.  Thus, instead of $\pi_j$, we have $\pi_j(\alpha)$:
 
 $$f(\alpha;s) = \frac{1}{B(s)} \prod_j \pi_j(\alpha)^{s_j - 1}$$
 
@@ -349,11 +835,11 @@ For our MCMC calculations, we work with the $log$ probability:
 
 $$\log f(\alpha;s) = -\log(B(s)) + \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-Note that the constant term is unimportant, as MCMC relies on the \emph{difference} in $log$ probabilities:
+Note that the constant term is unimportant, as MCMC relies on the difference in $log$ probabilities:
 
 $$\log f(\alpha;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-In practice, the maxent prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
+In practice, the Dirichlet prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
 
 $$s_j - 1 = \lambda \pi_j^0$$
 
@@ -369,7 +855,7 @@ Notice that this functional form is quite similar to the maxent prior that we pr
 
 $$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
 
-The relative entropy is \emph{not} a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
+The relative entropy is not a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
 
 
 \subsection*{Multivariate Normal (MVN) Prior}
@@ -379,50 +865,7 @@ In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the M
 
 \subsection*{Jeffrey's Prior}
 
-Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to provide regularization.  Regardless, we derive Jeffrey's prior below.
-
-\subsection*{Derivation of Jeffrey's Prior}
-
-This section derives the Jeffrey's prior for the BELT likelihood.  We do \emph{not} recommend the use of this prior, as it is expensive to compute and unable to provide regularization.  This section can be skipped by most readers; we include it only for completeness.
-
-Jeffrey's prior dictates that 
-
-$$P(\alpha) \propto \det(I(\alpha))^\frac{1}{2}$$
-
-The Fisher information matrix, $I(\alpha)$, is given by
-
-$$I_{ab}(\alpha) = E_\alpha(\frac{d\log P(F|\alpha)}{d\alpha_{a}}\frac{d\log P(F|\alpha)}{d\alpha_{b}})$$
-
-First, we examine the log likelihood (dropping terms independent of $\alpha$) and calculate its derivative:
-
-$$LL = \log P(F|\alpha) = - \frac{1}{2}\sum_i (\frac{F_i - \langle F_i\rangle_\alpha}{\sigma_i})^2$$
-
-$$\frac{d(LL)}{d\alpha_a} = \sum_i \frac{1}{\sigma_i}(F_i - \langle F_i \rangle_\alpha) \frac{d\langle F_i \rangle_\alpha}{d\alpha_a}$$
-
-When we insert this equation into the expectation, only $(F_i - \langle F_i \rangle_\alpha)$ depends on $F_i$.  The remaining terms can be pulled outside the expectation:
-
-$$I_{ab} = \sum_{ij} \frac{d\langle F_i \rangle_\alpha}{d\alpha_a} \frac{d\langle F_j \rangle_\alpha}{d\alpha_b} E(\frac{1}{\sigma_i \sigma_j}(F_i - \langle F_i \rangle_\alpha)(F_j - \langle F_j \rangle_\alpha))$$
-
-Because the conditional likelihood is a diagonal multivariate normal, the expectation is simply $\delta_{ij}$, leading to 
-
-$$I_{ab} = \sum_{i} \frac{d\langle F_i \rangle_\alpha}{d\alpha_a} \frac{d\langle F_i \rangle_\alpha}{d\alpha_b} $$
-
-Now, we know that 
-
-$$\frac{d\langle F_i \rangle_\alpha}{d\alpha_a} = \sum_k f_{ak} \frac{d\pi_k}{d\alpha_a}$$
-
-where $f_{ak} = f_a(x_k)$.  Similarly, we can show that
-
-$$\frac{d\pi_k}{d\alpha_a} = \pi_k (\langle F_a \rangle_{\alpha} - f_{ak})$$
-
-
-Putting all this together, we can show that
-
-$$I = S^T S$$
-
-Where 
-
-$$S_{ia} = \sum_k \pi_k (<F_a>_\alpha - f_{ka}) f_{ki}$$
+Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to provide regularization. 
 
 \newpage
 
@@ -439,7 +882,7 @@ Each prior in this work contains a single free parameter, $\lambda$, which contr
 
 We first discuss cross-validating on the simulation data.  The underlying idea is that too little regularization ($\lambda = 0$) leads to models that overfit the available simulation data and generalize poorly--that is, repeating or extending the MD simulations would lead to a different result.  At the other extreme, underfit models ($\lambda = \infty$) will simply report the unbiased simulations, leading to poor agreement with experiment.  To perform this form of cross-validation, first separate the simulation data into several independent subsets.  Mark one subset as the ``test'' set and fit the model on the remaining data (the ``training'' set).  The $\chi^2$ score is evaluated on the test data.  We then repeat the process, letting the test set be equal to each of the other subsets.  The final $\chi^2$ square is averaged over each of these iterations.  The value of $\lambda$ is chosen to minimize the test set error.
 
-When using MD to generate conformations, you must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose you do cross validation by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
+When using MD to generate conformations, one must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose one cross validates by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
 
 \subsection*{Cross validation on experimental data}
 
@@ -467,9 +910,11 @@ oplsaa            &     12.0 &    13.0  & 15 \\
 
 \vspace{5mm}
 
-The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the \emph{training} set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to \emph{half} the trajectory data and evaluated on the other half.  As before, we see similar performance with all priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  To some extent, we expect similar performance between the priors.  This is because the relative entropy of normal distributions reduces to a weighted Euclidean distance between the means \cite{relative_entropy_wiki}.  However, the observables in the present work are non-normal, so the priors are not expected to give identical results.
+The corresponding cross-validated reduced $\chi^2$ scores are given below.  These scores were generated using the training set of experimental measurements, but done in the setting of cross-validation on the simulation data.  Thus, the models were fit to half the trajectory data and evaluated on the other half.  As before, we see similar performance with all priors.  Full sweeps of $\lambda$ are depicted in Fig. \ref{figure:cross_val}.  To some extent, we expect similar performance between the priors.  This is because the relative entropy of normal distributions reduces to a weighted Euclidean distance between the means \cite{relative_entropy_wiki}.  However, the observables in the present work are non-normal, so the priors are not expected to give identical results.
 
-For the amber99sbnmr-ildn results, cross validation recommends the use of large amounts of regularization.  This implies two things.  First, this forcefield is already in excellent agreement with experiment, so almost no reweighting is desired.  This may also indicate limitations in our estimates of the uncertainties in the chemical shifts and scalar couplings.  As a practical note, when large amounts of regularization are used, the resulting MCMC traces will contain essentially no variance.  It is thus necessary to use Bayesian Bootstrapping to get meaningful error bars.  For cases with less regularization, Bayesian Bootstrapping is less critical because the MCMC traces account for the majority of the uncertainty.  
+For the amber99sbnmr-ildn results, cross validation recommends the use of large amounts of regularization.  This implies two things.  First, this forcefield is already in excellent agreement with experiment, so almost no reweighting is desired.  This may also indicate limitations in our estimates of the uncertainties in the chemical shifts and scalar couplings.  As a practical note, when large amounts of regularization are used, the resulting MCMC traces will contain essentially no variance.  It is thus necessary to use Bayesian Bootstrapping to get meaningful error bars.  For cases with less regularization, Bayesian Bootstrapping is less critical because the MCMC traces account for the majority of the uncertainty.
+
+For amber99 with the maxent prior, we found that calculations with very low amounts of regularization suffer from occasional numerical instabilities.  Essentially, it appears that the regularization does not sufficiently penalize $\alpha_i \rightarrow \pm \infty$.
 
 \vspace{5mm}
 
@@ -481,7 +926,7 @@ For the amber99sbnmr-ildn results, cross validation recommends the use of large 
 prior &       MVN &  dirichlet & maxent  \\
 forcefield        &           &  &       \\
 amber96           &      0.39 &       0.37 &    0.39 \\
-amber99           &      0.71 &       0.70 &    0.69 \\
+amber99           &      0.71 &       0.70 &    0.67 \\
 amber99sbnmr-ildn &      0.35 &       0.35 &    0.34 \\
 charmm27          &      0.62 &       0.59 &    0.54 \\
 oplsaa            &      0.53 &       0.57 &    0.55 \\
@@ -500,15 +945,7 @@ In practice, applying Bayesian bootstrapping involves repeating several BELT cal
 
 \newpage
 
-\section*{Appendix S7. Data Curation}
-
-Because the BELT log likelihood weights errors quadratically, it is vital to use the highest quality experimental measurements and predictions.  We recommend that users manually inspect \emph{all} measured and predicted observables before performing BELT analysis.  We discuss one example we encountered in the current analysis.  
-
-Scalar couplings predicted using parameterized Karplus relations will span a limited range that is determined by the Karplus coefficients.  In several cases, however, experimentally measured J couplings lie \emph{outside} this range--meaning that even a perfect force field would be unable to recapitulate the experimental measurements.  Such measurements indicate limits in the transferability of simple Karplus prediction of scalar couplings; any such examples are best excluded from BELT analysis.  Improved  Karplus models for scalar couplings are clearly desirable.  
-
-\newpage
-
-\section*{Appendix S8.  Convergence Analysis}
+\section*{Appendix S7.  Convergence Analysis}
 
 Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as observed in Fig. \ref{figure:MCMC}.  A few interesting features are worth noting.  The charmm27 and amber99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
 

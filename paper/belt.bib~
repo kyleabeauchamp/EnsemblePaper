@@ -1,6 +1,30 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+@article{markwick2009structural,
+  title={Structural dynamics of protein backbone $\varphi$ angles: extended molecular dynamics simulations versus experimental 3 J scalar couplings},
+  author={Markwick, Phineus RL and Showalter, Scott A and Bouvignies, Guillaume and Br{\"u}schweiler, Rafael and Blackledge, Martin},
+  journal={Journal of biomolecular NMR},
+  volume={45},
+  number={1-2},
+  pages={17--21},
+  year={2009},
+  publisher={Springer}
+}
+
+
+@article{jaynes1957information,
+  title={Information theory and statistical mechanics},
+  author={Jaynes, Edwin T},
+  journal={Physical review},
+  volume={106},
+  number={4},
+  pages={620},
+  year={1957},
+  publisher={APS}
+}
+
+
 
 @article{shen2008consistent,
   title={Consistent blind protein structure generation from NMR chemical shift data},
@@ -37,7 +61,7 @@
 @article{shi2013structural,
   title={Structural ensemble and microscopic elasticity of freely diffusing DNA by direct measurement of fluctuations},
   author={Shi, Xuesong and Herschlag, Daniel and Harbury, Pehr AB},
-  journal={Proceedings of the National Academy of Sciences},
+  journal={Proc. Natl. Acad. Sci.},
   volume={110},
   number={16},
   pages={E1444--E1451},
@@ -1181,7 +1205,7 @@ journal = {J. Mol. Biol.},
 
 @article{noe2007hierarchical,
   title={Hierarchical analysis of conformational dynamics in biomolecules: Transition networks of metastable states},
-  author={No{\'e}, F. and Horenko, I. and Sch{\"u}tte, C. and Smith, J.C.},
+  author={No{\'e}, F. and Horenko, I. and Schutte, C. and Smith, J.C.},
   journal = {J. Chem. Phys.},
   volume={126},
   pages={155102},
@@ -1373,7 +1397,7 @@ journal = {Proc. Natl. Acad. Sci. U. S. A.},
 }
 
 @article{shalongo1994,
-  title={Distribution of helicity within the model peptide acetyl (AAQAA) 3amide},
+  title={Distribution of helicity within the model peptide acetyl (AAQAA) 3 amide},
   author={Shalongo, W. and Dugad, L. and Stellwagen, E.},
   journal = {J. Am. Chem. Soc.},
   volume={116},
@@ -1456,7 +1480,7 @@ eprint = {http://pubs.acs.org/doi/pdf/10.1021/ja00111a021}
 
 @article{Hu1997,
 author = {Hu, Jin-Shan and Bax, Ad},
-title = {Determination of φ and χ1 Angles in Proteins from 13C−13C Three-Bond J Couplings Measured by Three-Dimensional Heteronuclear NMR. How Planar Is the Peptide Bond?},
+title = {Determination of $\phi$ and $\chi_1$ Angles in Proteins from 13C−13C Three-Bond J Couplings Measured by Three-Dimensional Heteronuclear NMR. How Planar Is the Peptide Bond?},
 journal = {J. Am. Chem. Soc.},
 volume = {119},
 number = {27},
@@ -2065,7 +2089,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 @ARTICLE{Haque2011,
   author = {Haque, I. and Beauchamp, K.A. and Pande, V.},
   title = {A Fast 3xN Matrix Multiply Routine for Calculation of Protein RMSD},
-  journal = {Submitted},
+  journal = {In Prep.},
   year = {2011}
 }
 
@@ -2392,7 +2416,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{noe2008a,
-  author = {Noé, F.},
+  author = {Noe, F.},
   title = {Probability distributions of molecular observables computed from
 	Markov models},
   journal = {J. Chem. Phys.},
@@ -2402,7 +2426,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{noe2011,
-  author = {Noé, Frank and Doose, Sören and Daidone, Isabella and Löllmann, Marc
+  author = {Noe, Frank and Doose, Sören and Daidone, Isabella and Löllmann, Marc
 	and Sauer, Markus and Chodera, John D. and Smith, Jeremy C.},
   title = {Dynamical fingerprints for probing individual relaxation processes
 	in biomolecular dynamics with simulations and kinetic experiments.},
@@ -2457,7 +2481,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{noe2009,
-  author = {Noé, F. and Schütte, C. and Vanden-Eijnden, E. and Reich, L. and
+  author = {Noe, F. and Schutte, C. and Vanden-Eijnden, E. and Reich, L. and
 	Weikl, T.R.},
   title = {Constructing the equilibrium ensemble of folding pathways from short
 	off-equilibrium simulations},
@@ -2541,7 +2565,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 
 @ARTICLE{prinz2011,
   author = {Prinz, J.H. and Wu, H. and Sarich, M. and Keller, B. and Senne, M.
-	and Held, M. and Chodera, J.D. and Schütte, C. and Noé, F.},
+	and Held, M. and Chodera, J.D. and Schutte, C. and Noe, F.},
   title = {Markov models of molecular kinetics: Generation and validation},
   journal = {J. Chem. Phys.},
   year = {2011},
@@ -2575,7 +2599,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{sarich2010,
-  author = {Sarich, M. and No{\'e}, F. and Schütte, C.},
+  author = {Sarich, M. and Noe, F. and Schutte, C.},
   title = {On the approximation quality of Markov state models},
   journal = {Multiscale Model. Simul.},
   year = {2010},
@@ -2632,7 +2656,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{Schutte2011,
-  author = {Schütte, Christof and Noé, Frank and Lu, Jianfeng and Sarich, Marco
+  author = {Schutte, Christof and Noe, Frank and Lu, Jianfeng and Sarich, Marco
 	and Vanden-Eijnden, Eric},
   title = {Markov state models based on milestoning.},
   journal = {J. Chem. Phys.},
@@ -2771,7 +2795,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 
 @ARTICLE{Vijay-kumar1987,
   author = {Vijay-kumar, S. and Bugg, C.E. and Cook, W.J.},
-  title = {Structure of ubiquitin refined at 1.8 {\AA} resolution* 1},
+  title = {Structure of ubiquitin refined at 1.8 {A} resolution* 1},
   journal = {J. Mol. Biol.},
   year = {1987},
   volume = {194},
@@ -2819,7 +2843,7 @@ The PyMOL Molecular Graphics System, Version 1.3, Schrodinger, LLC.},
 }
 
 @ARTICLE{Wuthrich1990,
-  author = {Wüthrich, K},
+  author = {Wuthrich, K},
   title = {Protein structure determination in solution by NMR spectroscopy.},
   journal = {J. Biol. Chem.},
   year = {1990},

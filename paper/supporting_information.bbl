@@ -1,9 +1,20 @@
 \begin{thebibliography}{1}
 
+\bibitem{crooks2007beyond}
+Gavin~E Crooks.
+\newblock Beyond boltzmann-gibbs statistics: Maximum entropy hyperensembles out
+  of equilibrium.
+\newblock {\em Physical Review E}, 75(4):041119, 2007.
+
 \bibitem{flyvbjerg1989error}
 Henrik Flyvbjerg and Henrik~Gordon Petersen.
 \newblock Error estimates on averages of correlated data.
 \newblock {\em J. Chem. Phys.}, 91:461, 1989.
+
+\bibitem{jaynes1957information}
+Edwin~T Jaynes.
+\newblock Information theory and statistical mechanics.
+\newblock {\em Physical review}, 106(4):620, 1957.
 
 \bibitem{chodera2012}
 J.W. Pitera and J.D. Chodera.

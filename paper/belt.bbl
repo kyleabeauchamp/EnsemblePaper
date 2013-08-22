@@ -108,11 +108,29 @@ Pitera, J., and J.~Chodera, 2012.
 \newblock On the use of experimental observations to bias simulated ensembles.
 \newblock \emph{J. Chem. Theory Comput.} .
 
+\bibitem[Patil et~al.(2010)Patil, Huard, and Fonnesbeck]{patil2010pymc}
+Patil, A., D.~Huard, and C.~J. Fonnesbeck, 2010.
+\newblock PyMC: Bayesian stochastic modelling in Python.
+\newblock \emph{Journal of statistical software} 35:1.
+
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
+\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
+  transitions.
+\newblock \emph{Structure} 19:109--116.
+
 \bibitem[Graf et~al.(2007)Graf, Nguyen, Stock, and Schwalbe]{Graf2007}
 Graf, J., P.~Nguyen, G.~Stock, and H.~Schwalbe, 2007.
 \newblock Structure and dynamics of the homologous series of alanine peptides:
   a joint molecular dynamics/NMR study.
 \newblock \emph{J. Am. Chem. Soc.} 129:1179--1189.
+
+\bibitem[V{\"o}geli et~al.(2007)V{\"o}geli, Ying, Grishaev, and
+  Bax]{vogeli2007limits}
+V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
+\newblock Limits on variations in protein backbone dynamics from precise
+  measurements of scalar couplings.
+\newblock \emph{J. Am. Chem. Soc.} 129:9377--9385.
 
 \bibitem[Friedman et~al.(2001)Friedman, Hastie, and
   Tibshirani]{friedman2001elements}
@@ -129,11 +147,6 @@ Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
 Rieping, W., M.~Habeck, and M.~Nilges, 2005.
 \newblock Inferential structure determination.
 \newblock \emph{Science} 309:303--306.
-
-\bibitem[Patil et~al.(2010)Patil, Huard, and Fonnesbeck]{patil2010pymc}
-Patil, A., D.~Huard, and C.~J. Fonnesbeck, 2010.
-\newblock PyMC: Bayesian stochastic modelling in Python.
-\newblock \emph{Journal of statistical software} 35:1.
 
 \bibitem[Rubin(1981)]{rubin1981}
 Rubin, D., 1981.
@@ -213,13 +226,6 @@ Li, D.-W., and R.~Br{\"u}schweiler, 2012.
   assessment of protein conformational ensembles.
 \newblock \emph{J. Biol. NMR} 1--9.
 
-\bibitem[V{\"o}geli et~al.(2007)V{\"o}geli, Ying, Grishaev, and
-  Bax]{vogeli2007limits}
-V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
-\newblock Limits on variations in protein backbone dynamics from precise
-  measurements of scalar couplings.
-\newblock \emph{J. Am. Chem. Soc.} 129:9377--9385.
-
 \bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Löhr, and
   Rüterjans]{Schmidt1999}
 Schmidt, J., M.~Blümel, F.~Löhr, and H.~Rüterjans, 1999.
@@ -248,20 +254,6 @@ Avbelj, F., S.~Grdadolnik, J.~Grdadolnik, and R.~Baldwin, 2006.
 \newblock Intrinsic backbone preferences are fully present in blocked amino
   acids.
 \newblock \emph{Proc. Natl. Acad. Sci. U. S. A.} 103:1272.
-
-\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
-Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
-\newblock SAXS ensemble refinement of ESCRT-III CHMP3 conformational
-  transitions.
-\newblock \emph{Structure} 19:109--116.
-
-\bibitem[Shen et~al.(2008)Shen, Lange, Delaglio, Rossi, Aramini, Liu, Eletsky,
-  Wu, Singarapu, Lemak, et~al.]{shen2008consistent}
-Shen, Y., O.~Lange, F.~Delaglio, P.~Rossi, J.~M. Aramini, G.~Liu, A.~Eletsky,
-  Y.~Wu, K.~K. Singarapu, A.~Lemak, et~al., 2008.
-\newblock Consistent blind protein structure generation from NMR chemical shift
-  data.
-\newblock \emph{Proc. Natl. Acad. Sci.} 105:4685--4690.
 
 \bibitem[Pronk et~al.(2013)Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov,
   Shirts, Smith, Kasson, and van~der Spoel]{pronk2013gromacs}
@@ -344,6 +336,14 @@ Wang, L.-P., T.~L. Head-Gordon, J.~W. Ponder, P.~Ren, J.~D. Chodera, P.~K.
   Eastman, T.~J. Mart{\'\i}nez, and V.~S. Pande, 2013.
 \newblock Systematic Improvement of a Classical Molecular Model of Water.
 \newblock \emph{J. Phys. Chem. B} .
+
+\bibitem[Markwick et~al.(2009)Markwick, Showalter, Bouvignies,
+  Br{\"u}schweiler, and Blackledge]{markwick2009structural}
+Markwick, P.~R., S.~A. Showalter, G.~Bouvignies, R.~Br{\"u}schweiler, and
+  M.~Blackledge, 2009.
+\newblock Structural dynamics of protein backbone $\varphi$ angles: extended
+  molecular dynamics simulations versus experimental 3 J scalar couplings.
+\newblock \emph{Journal of biomolecular NMR} 45:17--21.
 
 \bibitem[Habeck et~al.(2006)Habeck, Rieping, and Nilges]{habeck2006}
 Habeck, M., W.~Rieping, and M.~Nilges, 2006.
