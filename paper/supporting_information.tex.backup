@@ -531,8 +531,7 @@ Cross validated reduced $\chi^2$.  Cross validation was performed using twenty-f
 
 \clearpage
 
-\section*{Appendix S1.  Connection between Maximum Entropy and BELT}
-
+\section*{Appendix S1.  Connecting BELT, Maximum Entropy, and Hyperensembles}
 
 Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  Here, we outline the previous results and detail the connection between BELT and the previous maximum entropy formalism.  
 
@@ -602,168 +601,63 @@ $$ \frac{dLP}{d\alpha_k} =  -\sum_i \frac{1}{\sigma_i^2} (\langle f_i\rangle _\a
 
 As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$, we will maximize the posterior probability.  Thus, under ideal conditions, we expect similar results using the maximum entropy approach and BELT.  
 
-
-\newpage
-
 \subsection*{Connecting BELT and Hyperensembles}
 
-It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  Previous arguments led to a probability distribution on ensembles given by 
+It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  In that work, Crooks defines a probability distribution on ensembles given by 
 
-$$P[\rho] = \frac{1}{Z(\lambda)} \exp(- \lambda \int dx \rho(x)\frac{\rho(x)}{\rho_0(x)})$$
+$$P(\rho) = \frac{1}{Z(\lambda)} \exp(- \lambda D(\rho || \rho^0))$$
 
-Here, let us suppose that we have a single measurement $F$ that can be calculated as $\langle f(x) \rangle_\rho$.  Suppose that $\rho_0$ is given by our simulation Boltzmann ensemble and the likelihood of some measurement is given by
+In the above expression, we $D(\rho || \rho^0)$ refers to the KL divergence of ensembles $\rho$ and $\rho^0$.  We let $\rho_0$ be a reference Boltzmann ensemble, which in our case will be simulation performed in a particular force field. 
+
+$$D(\rho || \rho^0) = \langle \log(\frac{\rho}{\rho^0})\rangle_\rho$$
+
+Now, let us suppose that we have a single measurement $F$ that can be calculated via the ensemble average $\langle f(x) \rangle_\rho$.  Suppose that the likelihood of some measurement is given by
 
 $$P(F|\rho) \sim N(\langle f\rangle_\rho, \sigma^2)$$
 
-We first consider the limit as $\sigma \rightarrow 0$.  In that limit, the posterior becomes:
+By Bayes' Theorem, we have that:
 
-$$P(\rho) \propto P(\rho | F) P(F) = \delta(F - \langle f\rangle_\rho) \exp(- \lambda \int dx \rho(x) \log \frac{\rho(x)}{\rho_0(x)}) $$
+$$P(\rho | F) \propto P(F | \rho) P(\rho)$$
 
-For small values of $\lambda$, the posterior is diffuse and contains all distributions consistent with $F$.  In the limit of large $\lambda$, however, we maximize $D(\rho || \rho_0)$ subject to the constraints $F = \langle f \rangle$ and $\int \rho(x) dx = 1$.  Analogous to \cite{crooks2007beyond, chodera2012}, the result of this constrained maximization is
+$$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0))$$
 
-$$\rho(x) = \exp(c_0 + c_1 \log(\rho_0(x)) + c_2 f(x))$$
+Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble such that $\langle f \rangle = \phi$.  We now perform a change of variables from $\rho_i$ to ($\phi$, $\Delta_i$), where $\sum_i \Delta_i = 0$ and $\sum_i \Delta_i f_i = 0$.  For mathematical simplicity, we assume a conformational space with $n$ states.  $\Delta$ is a (hopefully) small correction to the maximum entropy ensemble $\rho^*(\phi)$.  
 
-Thus, we have essentially re-derived a result similar \cite{chodera2012} using arguments from \cite{crooks2007beyond}.  We now consider the case of nonzero $\sigma$.  
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\phi, \Delta)) $$
 
-$$P(\rho|F) = (2 \pi \sigma^2)^\frac{-1}{2} \exp(\frac{-1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+In the above expression, $J_1(\phi, \Delta)$ is the Jacobian of the coordinate transformation.  With the above assumptions, the probability can be simplified:
 
-Consider the expectation of an observable $h$:
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda D(\phi, \Delta)) $$
 
-$$E(h) = \int d\rho h(\rho) P(\rho|F)$$
+For a given value of $\phi$, $\rho^*(\phi)$ (e.g. $\Delta = 0$) maximizes the entropy.  This suggests a quadratic approximation to the entropy:
 
-By Bayes Theorem, we have
+$$D(\phi, \Delta) = \langle \log(\frac{\rho}{\rho^0})\rangle \approx D(\phi, 0) + \frac{1}{2} \Delta^T H(\phi) \Delta$$
 
-$$E(h) = \int d\rho h(\rho) P(F | \rho) \frac{P(\rho)}{P(F)} $$
+Here, $H_{ij}(\phi) = \frac{\partial^2 D}{\partial \Delta_i \partial \Delta_j}$, evaluated at the point of the maximum entropy ensemble $(\Delta = 0)$.  Inserting this expression in the probability gives:
 
-Inserting the entropic prior $P(\rho)$ and a Gaussian conditional probability:
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta)$$
 
-$$E(h) = \frac{1}{P(F)} \int d\rho h(\rho) \exp(-\frac{1}{\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+From the perspective of BELT, $\Delta$ is a nuisance parameter--we wish to integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
 
-Now, let's introduce a dummy variable $\phi$ and a term $\delta(\phi -  \langle f \rangle)$, integrating over all $\phi$:  
+$$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-$$E(h) = \frac{1}{P(F)} \int d\phi d\rho h(\rho) \delta(\phi -  \langle f \rangle) \exp(-\frac{1}{\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0))  \int |J_1(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2)  d\rho h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda \langle \log \frac{\rho}{\rho_0} \rangle)$$
+For algebraic simplicity, we assume that $J_1(\phi, \Delta)$ is independent of $\Delta$.  The integration would also be possible with linear or quadratic approximations to $\Delta$; such extensions would lead to additional corrections to the BELT expression.  
 
-Now, recall that in the limit of $\lambda \rightarrow \infty$, $S(\rho) = \langle \log\frac{\rho}{\rho_0} \rangle$ (with applicable constraints) is maximized by the maximum entropy linear biasing function of Chodera et al \cite{chodera2012}.  We refer to this distribution as $\rho_*$.  We now change coordinates via $\rho = \delta \rho + \rho_*$.  We also assume that our space is finite:
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0)) |J_1(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda S(\rho_* + \delta \rho))$$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0)) |J_1(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
 
-By the stationarity of $S$ at $\rho_*$, we have that $S(\rho_* + \delta \rho) \approx S(\rho_*) + \sum_i \frac{\partial S}{\partial \delta \rho_i} \delta \rho_i$
+To connect to BELT, we now change variables from $\phi$ to $\alpha$, which introduces another Jacobian $J_2(\alpha)$
 
-$$E(h) = \frac{1}{P(F)} \int d\phi \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \delta(\phi -  \langle f \rangle)  \exp(-\lambda S(\rho_*) - \lambda \sum_i \frac{\partial S}{\partial \delta \rho_i} \delta \rho_i)$$
+$$P(\alpha | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  D(\alpha, 0)) |J_1(\alpha)|  |J_2(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\alpha))}}$$
 
-We now expand the delta function:
+To gain perspective in the comparison to BELT, we calculate the logarithm and drop all terms that are independent of $\alpha$:
 
-$$\delta(\phi - \langle f \rangle) = \frac{1}{2 \pi} \int \exp(i q (\sum_i f_i \rho_i - \phi) )dq = \frac{1}{2\pi} \int \exp(i q (\sum_i \delta \rho_i - \phi))$$
+$$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 -\lambda  D(\alpha, 0) + \log |J_1(\alpha)| + \log |J_2(\alpha)| - \frac{1}{2} \log \det H(\alpha)$$
 
-We also calculate the partial derivatives of $S$:
-
-$$\frac{\partial S}{\partial \delta_rho_i} = 1 + \sum_i \log(\frac{\rho_i}{\rho_i^0})$$
-
-Inserting these two into the previous expression:
-
-$$E(h) = \frac{1}{P(F)} \frac{1}{2 \pi} \int dq \int d\phi \exp(-i q \phi) \exp(-\frac{1}{\sigma^2} (\phi - F)^2) \int \prod_i d (\delta \rho_i) h(\rho) \exp(- q \sum_i \delta \rho_i) \exp(-\lambda S(\rho_*) - \lambda \sum_i (1 + \log \frac{\rho_i}{\rho_i^0} \delta \rho_i)$$
-
-We focus on the last integral:
-
-$$\int \prod_i d (\delta \rho_i) h(\rho) \exp(- q \sum_i \delta \rho_i) \exp(-\lambda S(\rho_*) - \lambda \sum_i (1 + \log \frac{\rho_i^*}{\rho_i^0} \delta \rho_i)$$
-
-\section*{Attempt 2}
-
-We suppress the conditioning on $F$ for brevity.  
-
-$$P(\rho) = \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log \frac{\rho}{\rho_0}\rangle)$$
-
-Let's decompose the ensemble populations $\rho$ as a product of the maxent populations and a multiplicative correction:
-
-$$\rho = \rho^*(\alpha) q(\alpha, \beta)$$
-
-Here, $\beta$ refers to all parameters required to specify the deviation from the maxent ensemble.  We assume that $\beta = 0$ gives the maxent solution--that is, $q(\alpha, 0) = 1$.  We seek to integrate out all these unwanted parameters:
-
-$$P(\alpha, \beta) = P(\rho) |J(\alpha, \beta)|$$
-
-$$P(\alpha) = \int \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \frac{\rho}{\rho^0}\rangle) |J(\alpha, \beta)| d\beta$$
-
-In the limit of $\sigma \rightarrow 0$ and $\lambda \rightarrow \infty$, the distribution is the maxent solution $\rho^*(\alpha)$.  We introduce a variable $\phi$ to constrain the ensemble average $\langle f \rangle$ to be the central value:
-
-$$P(\alpha) = \int d\phi \int \delta(\langle f \rangle - \phi) \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \frac{\rho}{\rho^0}\rangle) |J(\alpha, \beta)| d\beta$$
-
-Because $\langle f \rangle$ is constrained to equal $\phi$ in the inner integral, we can  therefore expand the entropy around this point:
-
-$$S(\alpha, \beta, \phi) = S(\alpha, 0, \phi) + \frac{1}{2} \sum_{i,j} \frac{\partial^2 S}{\partial \beta_i \partial \beta_j} \beta_i \beta_j = S(\alpha, 0, \phi) + \frac{1}{2} \beta^T H(\phi) \beta$$
-
-$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \int \delta(\langle f \rangle - \phi)  \exp(-\lambda S(\alpha, 0, \phi) + \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
-$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2)\exp(-\lambda S(\alpha, 0, \phi)) \int \delta(\langle f \rangle - \phi)  \exp(-\lambda \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
-$$P(\alpha) = \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2)\exp(-\lambda S(\alpha, 0, \phi)) \int \int dq \exp(i q (\langle f \rangle - \phi)))  \exp(-\lambda \frac{1}{2} \beta^T H(\phi) \beta) |J(\alpha, \beta)| d\beta$$
-
-\section*{Attempt 3}
-
-We surpress the conditioning on $F$ for brevity of notation.  As before, we work with the probability of a particular ensemble $\rho$:
-
-$$P(\rho) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
-
-We perform a change of variables from $\rho$ to $\alpha$, $\phi$, and $\Delta$.  Here, $\alpha$ is defined as the linear biasing weights such that $\sum_i \rho_i f_i = \phi$, $\sum_i \Delta_i f_i = 0$, and $\sum_i \rho_i^* f_i = \phi$.  We let $\rho$ denote the ensemble populations, while $\rho^*(\alpha, \phi)$ refers to the maximum entropy ensemble populations.  The likelihood absorbs a Jacobian from the change of variables:
-
-$$P(\phi, \alpha, \Delta) = C |J(\phi, \alpha, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
-
-Now, we integrate over $\phi$ and $\Delta$ to calculate the marginal probability $P(\alpha)$:
-
-$$P(\alpha) = C \int d\phi \int d\Delta |J(\phi, \alpha, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}))$$
-
-Our first approximation requires us to assume a constant Jacobian:
-
-$$P(\alpha) = C |J(\alpha)| \int d\phi \int d\Delta  \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
-
-We now express the likelihood term in terms of $\phi$:
-
-$$P(\alpha) = C |J(\alpha)| \int d\phi \int d\Delta  \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
-
-$$P(\alpha) = C |J(\alpha)| \int d\phi \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \int d\Delta   \exp(-\lambda \langle \log(\frac{\rho}{\rho^0}\rangle))$$
-
-Now, let us perform a Taylor expansion of $S(\rho)$:
-
-$$S(\phi, \alpha, \Delta) = S(\phi, \alpha, 0) + G^T \Delta + \frac{1}{2} \Delta^T H \Delta$$
-
-\section*{Attempt 4}
-
-We suppress the conditioning on $F$ for brevity of notation.  As before, we work with the probability of a particular ensemble $\rho$:
-
-$$P(\rho) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0)$$
-
-Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble such that $\langle f \rangle = \phi$.  We now perform a change of variables from $\rho$ to ($\phi$, $\Delta$), where $\sum_i \Delta_i = 0$ and $\sum_i \Delta_i f_i = 0$.  
-
-Thus, $\Delta$ is a (hopefully) small correction to the maximum entropy ensemble.  
-
-$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0})\rangle)$$
-
-With these assumptions, the probability can be simplified:
-
-$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda \langle \log(\frac{\rho}{\rho^0})\rangle)$$
-
-For a given value of $\phi$, $\rho^*$ maximizes the entropy.  This suggests a quadratic approximation to the entropy:
-
-$$S(\phi, \Delta) = \langle \log(\frac{\rho}{\rho^0})\rangle \approx \langle \log(\frac{\rho^*}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta$$
-
-Here, $H_{ij}(\phi) = \frac{\partial^2 S}{\partial \Delta_i \partial \Delta_j}$, evaluated at the point of the maximum entropy ensemble $(\Delta = 0)$.  Inserting this expression in the probability gives:
-
-$$P(\phi, \Delta) = C |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta)$$
-
-From the perspect of BELT, $\Delta$ is a nuisance parameter--we wish to integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
-
-$$P(\phi) = C \int |J(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle + \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
-
-$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle)  \int |J(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
-
-To perform the integration, we must assume that $J(\phi, \Delta)$ is independent of $\Delta$.
-
-$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle) |J(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
-
-$$P(\phi) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\phi)}{\rho^0})\rangle) |J(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
-
-To connect to BELT, we now change variables from $\phi$ to $\alpha$, which introduces another Jacobian $J_1(\alpha)$
-
-$$P(\alpha) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  \langle \log(\frac{\rho^*(\alpha)}{\rho^0})\rangle) |J(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  |J_1(\alpha)|$$
+The first two terms are identical to BELT with the maxent prior.  The remaining terms are corrections that account for the entropic cost of restricting our ensemble to be described by $\alpha$, rather than the entire space of possible ensembles.  The advantage of working with $\alpha$ are the dramatic reduction in the size of the parameter space.  In the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$ (and the approximations made above), the non-BELT terms vanish from the log likelihood.
 
 \section*{Appendix S2.  Derivation of Reweighting}
 

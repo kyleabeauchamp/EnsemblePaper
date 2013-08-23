@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  18 AUG 2013 15:13
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  22 AUG 2013 18:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,13 +870,13 @@ inclusion: multiple pdfs with page group included in a single page
 
 ] [16] [17]) [18] (./belt.aux) ) 
 Here is how much of TeX's memory you used:
- 4099 strings out of 495059
- 57643 string characters out of 3182030
- 126434 words of memory out of 3000000
- 7171 multiletter control sequences out of 15000+200000
+ 4102 strings out of 495059
+ 57715 string characters out of 3182030
+ 126460 words of memory out of 3000000
+ 7174 multiletter control sequences out of 15000+200000
  13864 words of font info for 54 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,32p,1483b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,8n,32p,1057b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
@@ -895,7 +895,7 @@ r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on belt.pdf (20 pages, 1350699 bytes).
+Output written on belt.pdf (20 pages, 1351534 bytes).
 PDF statistics:
  1542 PDF objects out of 1728 (max. 8388607)
  425 compressed objects within 5 object streams

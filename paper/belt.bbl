@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{54}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -137,6 +137,12 @@ V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
 Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
 \newblock The elements of statistical learning, volume~1.
 \newblock Springer Series in Statistics.
+
+\bibitem[Crooks(2007)]{crooks2007beyond}
+Crooks, G.~E., 2007.
+\newblock Beyond Boltzmann-Gibbs statistics: Maximum entropy hyperensembles out
+  of equilibrium.
+\newblock \emph{Physical Review E} 75:041119.
 
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
