@@ -607,9 +607,9 @@ It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho
 
 $$P(\rho) = \frac{1}{Z(\lambda)} \exp(- \lambda D(\rho || \rho^0))$$
 
-In the above expression, $D(\rho || \rho^0)$ refers to the KL divergence of ensembles $\rho$ and $\rho^0$:
+In the above expression, $D(\rho || \rho^0)$ refers to the KL divergence of ensembles $\rho$ and $\rho^0$, which can be expressed as a sum over the conformational states $j = 1, ..., m$:
 
-$$D(\rho || \rho^0) = \langle \log(\frac{\rho}{\rho^0})\rangle_\rho$$
+$$D(\rho || \rho^0) = \langle \log(\frac{\rho}{\rho^0})\rangle_\rho = \sum_j \rho_j \log \frac{\rho_j}{\rho^0_j}$$
 
 We let $\rho_0$ be a reference Boltzmann ensemble, which in our case will be simulation performed in a particular force field. Now, let us suppose that we have a single measurement $F$ that can be calculated via the ensemble average $\langle f(x) \rangle_\rho$.  Suppose that the likelihood of some measurement is given by
 
@@ -621,49 +621,55 @@ $$P(\rho | F) \propto P(F | \rho) P(\rho)$$
 
 $$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0))$$
 
-Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}) such that $\langle f \rangle = \phi$.  We now perform a change of variables from $\rho_i$ to ($\phi$, $\Delta_i$), where $\sum_i \Delta_i = 0$ and $\sum_i \Delta_i f_i = 0$.  For mathematical simplicity, we assume a conformational space with $n$ states.  $\Delta$ is a small correction to the maximum entropy ensemble $\rho^*(\phi)$.  
+For convenience, we let $\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$.  Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}) such that $\langle f \rangle_{\rho*} = \phi$.  
 
-$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\phi, \Delta)) $$
+We now wish to express the arbitrary ensemble $\rho$ as a perturbation from some maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
+
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\phi, \Delta|| \rho^0)) $$
 
 In the above expression, $J_1(\phi, \Delta)$ is the Jacobian of the coordinate transformation.  With the above assumptions, the probability can be simplified:
 
-$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda D(\phi, \Delta)) $$
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda D(\phi, \Delta|| \rho^0)) $$
 
 For a given value of $\phi$, $\rho^*(\phi)$ (e.g. $\Delta = 0$) maximizes the entropy.  This suggests a quadratic approximation to the entropy:
 
-$$D(\phi, \Delta) = \langle \log(\frac{\rho}{\rho^0})\rangle \approx D(\phi, 0) + \frac{1}{2} \Delta^T H(\phi) \Delta$$
+$$D(\phi, \Delta|| \rho^0) = \langle \log(\frac{\rho}{\rho^0})\rangle \approx D(\phi, 0|| \rho^0) + \frac{1}{2} \Delta^T H(\phi) \Delta$$
 
-Here, $H_{ij}(\phi) = \frac{\partial^2 D}{\partial \Delta_i \partial \Delta_j}$, evaluated at the point of the maximum entropy ensemble $(\Delta = 0)$.  Inserting this expression in the probability gives:
+Here, $H_{ij}(\phi) = \frac{\partial^2 D}{\partial \Delta_j \partial \Delta_j}$, evaluated at the point of the maximum entropy ensemble $(\Delta = 0)$.  Inserting this expression in the probability gives:
 
-$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta)$$
+$$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta)$$
 
-From the perspective of BELT, $\Delta$ is a nuisance parameter--we wish to integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
+From the perspective of BELT, $\Delta$ is a nuisance parameter--we want an ensemble that is described by a more parsimonious representation.  We therefore integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
 
-$$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+$$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0))  \int |J_1(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0))  \int |J_1(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-For algebraic simplicity, we assume that $J_1(\phi, \Delta)$ is independent of $\Delta$.  The integration would also be possible with linear or quadratic approximations to $\Delta$; such extensions would lead to additional corrections to the BELT expression.  We also integrate $\Delta$ over $\mathbf{R}^n$, ignoring the constraints on $\Delta$; this will lead to another small correction.  
+For an analytically tractable calculation, we would like $J_1(\phi, \Delta)$ to be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is allowed, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{n-1}$; $\rho_n$ can then be calculated as $\rho_n = 1 - \sum_{j=1}^{n-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{n-2}, \phi$.  The transformation between these coordinate systems is linear, so the Jacobian is constant.  
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0)) |J_1(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0)) |J_1(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
+We also integrate $\Delta$ over $\mathbf{R}^n$, ignoring the constraints on $\Delta$ (such as $\sum_j \Delta_j = 1$ and $\sum_j \Delta_j f_j = \phi$); this will lead to another small correction.  
 
-To connect to BELT, we now change variables from $\phi$ to $\alpha$, which introduces another Jacobian $J_2(\alpha)$
 
-$$P(\alpha | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  D(\alpha, 0)) |J_1(\alpha)|  |J_2(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\alpha))}}$$
+
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
+
+To connect to BELT, we now change variables from $\phi$ to $\alpha$ (the tilting parameter of a BELT model), which introduces another Jacobian $J_2(\alpha)$
+
+$$P(\alpha | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  D(\alpha, 0|| \rho^0)) |J_1(\alpha)|  |J_2(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\alpha))}}$$
 
 To gain perspective in the comparison to BELT, we calculate the logarithm and drop all terms that are independent of $\alpha$:
 
-$$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 -\lambda  D(\alpha, 0) + \log |J_1(\alpha)| + \log |J_2(\alpha)| - \frac{1}{2} \log \det H(\alpha)$$
+$$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 -\lambda  D(\alpha, 0|| \rho^0) + \log |J_1(\alpha)| + \log |J_2(\alpha)| - \frac{1}{2} \log \det H(\alpha)$$
 
 Assuming that our conformational samples were drawn from the Boltzmann ensemble $\rho^0$, the first two terms are identical to BELT with the maxent prior.  The remaining terms are corrections that account for the entropic cost of restricting our ensemble to be described by $\alpha$, rather than the entire space of possible ensembles.  The advantage of working with $\alpha$ is the dramatic reduction in the size of the parameter space.  In the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$ (and the approximations made above), the non-BELT terms vanish from the log likelihood.  
 
-Similar derivations with fewer approximations (such as that on $J_1$) would likely introduce additional terms that depend on both $\lambda$ and $\alpha$--terms that do not disappear in the large $\lambda$ limit.  However, the $\chi^2$ log likelihood would remain the only term dependent on $F$.  This implies that we can collect all the terms independent of $F$ and label them an effective prior:
+Similar derivations with fewer approximations (such as that on $J_1$) could introduce additional terms that depend on both $\lambda$ and $\alpha$--terms that do not disappear in the large $\lambda$ limit.  However, the $\chi^2$ log likelihood would remain the only term dependent on $F$.  This implies that we can collect all the terms independent of $F$ and label them an effective prior:
 
 $$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 + \log P_{eff}(\alpha)$$
 
-Improved priors on $\alpha$ could possibly have the effect of correcting for the various approximations used in BELT.   
+Improved priors on $\alpha$ could possibly have the effect of correcting for the various approximations used here in deriving BELT.   
 
 \section*{Appendix S2.  Derivation of Reweighting}
 

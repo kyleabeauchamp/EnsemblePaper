@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  22 AUG 2013 18:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  26 AUG 2013 10:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -593,14 +593,14 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 File: figures/single_karplus.pdf Graphic file (type pdf)
 
 <use figures/single_karplus.pdf>
-Package pdftex.def Info: figures/single_karplus.pdf used on input line 58.
+Package pdftex.def Info: figures/single_karplus.pdf used on input line 67.
 (pdftex.def)             Requested size: 209.76265pt x 177.82971pt.
 
 <figures/four_phi_histograms.pdf, id=17, 515.57622pt x 439.79622pt>
 File: figures/four_phi_histograms.pdf Graphic file (type pdf)
 
 <use figures/four_phi_histograms.pdf>
-Package pdftex.def Info: figures/four_phi_histograms.pdf used on input line 61.
+Package pdftex.def Info: figures/four_phi_histograms.pdf used on input line 70.
 
 (pdftex.def)             Requested size: 208.4768pt x 177.82971pt.
  [1]
@@ -609,7 +609,7 @@ File: figures/info_graphic/info_graphic.png Graphic file (type png)
 
 <use figures/info_graphic/info_graphic.png>
 Package pdftex.def Info: figures/info_graphic/info_graphic.png used on input li
-ne 80.
+ne 90.
 (pdftex.def)             Requested size: 455.24408pt x 455.24431pt.
  [2 <./figures/single_karplus.pdf> <./figures/four_phi_histograms.pdf
 
@@ -620,44 +620,44 @@ pdfTeX warning: /usr/bin/pdflatex (file ./figures/four_phi_histograms.pdf): PDF
 File: figures/model_hist-1.pdf Graphic file (type pdf)
 
 <use figures/model_hist-1.pdf>
-Package pdftex.def Info: figures/model_hist-1.pdf used on input line 104.
+Package pdftex.def Info: figures/model_hist-1.pdf used on input line 116.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
 <figures/model_hist0.pdf, id=124, 538.86635pt x 434.5422pt>
 File: figures/model_hist0.pdf Graphic file (type pdf)
 
 <use figures/model_hist0.pdf>
-Package pdftex.def Info: figures/model_hist0.pdf used on input line 107.
+Package pdftex.def Info: figures/model_hist0.pdf used on input line 119.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
 <figures/model_hist1.pdf, id=125, 538.86635pt x 434.5422pt>
 File: figures/model_hist1.pdf Graphic file (type pdf)
 
 <use figures/model_hist1.pdf>
-Package pdftex.def Info: figures/model_hist1.pdf used on input line 110.
+Package pdftex.def Info: figures/model_hist1.pdf used on input line 122.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
 <figures/model_landscape-1.pdf, id=126, 527.51143pt x 434.5422pt>
 File: figures/model_landscape-1.pdf Graphic file (type pdf)
 
 <use figures/model_landscape-1.pdf>
-Package pdftex.def Info: figures/model_landscape-1.pdf used on input line 114.
+Package pdftex.def Info: figures/model_landscape-1.pdf used on input line 126.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
 
 <figures/model_landscape0.pdf, id=127, 527.51143pt x 434.5422pt>
 File: figures/model_landscape0.pdf Graphic file (type pdf)
 
 <use figures/model_landscape0.pdf>
-Package pdftex.def Info: figures/model_landscape0.pdf used on input line 117.
+Package pdftex.def Info: figures/model_landscape0.pdf used on input line 129.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
 
 <figures/model_landscape1.pdf, id=128, 527.51143pt x 434.5422pt>
 File: figures/model_landscape1.pdf Graphic file (type pdf)
 
 <use figures/model_landscape1.pdf>
-Package pdftex.def Info: figures/model_landscape1.pdf used on input line 120.
+Package pdftex.def Info: figures/model_landscape1.pdf used on input line 132.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
- [4 <./figures/model_hist-1.pdf> <./figures/model_hist0.pdf
+ [4] [5 <./figures/model_hist-1.pdf> <./figures/model_hist0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_hist0.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -677,19 +677,13 @@ clusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_landscape1.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
->] [5]
-Overfull \hbox (1.58217pt too wide) in paragraph at lines 174--175
-\OT1/cmr/m/n/10.95 Trialanine was sim-u-lated in the am-ber96 ([]), am-ber99 ([
-]), amber99sbnmr-ildn ([], []), charmm27
- []
-
-[6] [7]
+>] [6] [7]
 <figures/state_0_by_forcefield_priors.pdf, id=432, 522.57109pt x 483.33485pt>
 File: figures/state_0_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_0_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_0_by_forcefield_priors.pdf used on input
- line 219.
+ line 231.
 (pdftex.def)             Requested size: 213.39566pt x 197.37206pt.
 
 <figures/state_1_by_forcefield_priors.pdf, id=433, 523.15138pt x 483.61716pt>
@@ -697,7 +691,7 @@ File: figures/state_1_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_1_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_1_by_forcefield_priors.pdf used on input
- line 223.
+ line 235.
 (pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
 
 <figures/state_2_by_forcefield_priors.pdf, id=434, 523.15138pt x 483.61716pt>
@@ -705,21 +699,21 @@ File: figures/state_2_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_2_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_2_by_forcefield_priors.pdf used on input
- line 226.
+ line 238.
 (pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
 
 <figures/chi2_train_priors.pdf, id=435, 539.79169pt x 486.6284pt>
 File: figures/chi2_train_priors.pdf Graphic file (type pdf)
 
 <use figures/chi2_train_priors.pdf>
-Package pdftex.def Info: figures/chi2_train_priors.pdf used on input line 237.
+Package pdftex.def Info: figures/chi2_train_priors.pdf used on input line 249.
 (pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
 
 <figures/chi2_test_priors.pdf, id=436, 539.79169pt x 486.6284pt>
 File: figures/chi2_test_priors.pdf Graphic file (type pdf)
 
 <use figures/chi2_test_priors.pdf>
-Package pdftex.def Info: figures/chi2_test_priors.pdf used on input line 240.
+Package pdftex.def Info: figures/chi2_test_priors.pdf used on input line 252.
 (pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
 
 <figures/ALA3_rama_amber96_raw.pdf, id=437, 442.1958pt x 434.96567pt>
@@ -727,7 +721,7 @@ File: figures/ALA3_rama_amber96_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber96_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber96_raw.pdf used on input line 2
-51.
+63.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_amber96_maxent_belt.pdf, id=438, 442.1958pt x 434.96567pt>
@@ -735,7 +729,7 @@ File: figures/ALA3_rama_amber96_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber96_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber96_maxent_belt.pdf used on inpu
-t line 254.
+t line 266.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_amber99_raw.pdf, id=439, 442.1958pt x 434.96567pt>
@@ -743,7 +737,7 @@ File: figures/ALA3_rama_amber99_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber99_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99_raw.pdf used on input line 2
-58.
+70.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_amber99_maxent_belt.pdf, id=440, 442.1958pt x 434.96567pt>
@@ -751,14 +745,14 @@ File: figures/ALA3_rama_amber99_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber99_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99_maxent_belt.pdf used on inpu
-t line 261.
+t line 273.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf, id=441, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf Graphic file (type pdf)
 <use figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf used on in
-put line 265.
+put line 277.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf, id=442, 442.1958pt x 434.
@@ -767,7 +761,7 @@ File: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf Graphic file (type pd
 f)
  <use figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf us
-ed on input line 268.
+ed on input line 280.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_charmm27_raw.pdf, id=443, 442.1958pt x 434.96567pt>
@@ -775,7 +769,7 @@ File: figures/ALA3_rama_charmm27_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_charmm27_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_charmm27_raw.pdf used on input line 
-272.
+284.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_charmm27_maxent_belt.pdf, id=444, 442.1958pt x 434.96567pt>
@@ -783,15 +777,15 @@ File: figures/ALA3_rama_charmm27_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_charmm27_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_charmm27_maxent_belt.pdf used on inp
-ut line 275.
+ut line 287.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_oplsaa_raw.pdf, id=445, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_oplsaa_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_oplsaa_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 27
-9.
+Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 29
+1.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_oplsaa_maxent_belt.pdf, id=446, 442.1958pt x 434.96567pt>
@@ -799,14 +793,14 @@ File: figures/ALA3_rama_oplsaa_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_oplsaa_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_oplsaa_maxent_belt.pdf used on input
- line 282.
+ line 294.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
 <figures/ALA3_rama_colorbar.pdf, id=447, 429.41367pt x 81.94992pt>
 File: figures/ALA3_rama_colorbar.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_colorbar.pdf>
-Package pdftex.def Info: figures/ALA3_rama_colorbar.pdf used on input line 283.
+Package pdftex.def Info: figures/ALA3_rama_colorbar.pdf used on input line 295.
 
 (pdftex.def)             Requested size: 86.78099pt x 16.56099pt.
  [8] [9 <./figures/state_0_by_forcefield_priors.pdf> <./figures/state_1_by_forc
@@ -865,18 +859,18 @@ pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_colorbar.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
->] [12] [13] [14] (./belt.bbl [15
+>] [12] [13] [14] [15] (./belt.bbl [16
 
 
-] [16] [17]) [18] (./belt.aux) ) 
+] [17] [18]) [19] (./belt.aux) ) 
 Here is how much of TeX's memory you used:
- 4102 strings out of 495059
- 57715 string characters out of 3182030
- 126460 words of memory out of 3000000
- 7174 multiletter control sequences out of 15000+200000
+ 4105 strings out of 495059
+ 57802 string characters out of 3182030
+ 128481 words of memory out of 3000000
+ 7177 multiletter control sequences out of 15000+200000
  13864 words of font info for 54 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,32p,1057b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,8n,32p,1055b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
@@ -895,10 +889,10 @@ r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on belt.pdf (20 pages, 1351534 bytes).
+Output written on belt.pdf (21 pages, 1354258 bytes).
 PDF statistics:
- 1542 PDF objects out of 1728 (max. 8388607)
- 425 compressed objects within 5 object streams
+ 1545 PDF objects out of 1728 (max. 8388607)
+ 427 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{54}
+\begin{thebibliography}{55}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -25,8 +25,8 @@ Fink, A.~L., 2005.
   Davidson, Dobson, and Kay]{korzhnev2004}
 Korzhnev, D.~M., X.~Salvatella, M.~Vendruscolo, A.~A. Di~Nardo, A.~R. Davidson,
   C.~M. Dobson, and L.~E. Kay, 2004.
-\newblock Low-populated folding intermediates of Fyn SH3 characterized by
-  relaxation dispersion NMR.
+\newblock Low-populated folding intermediates of {Fyn SH3} characterized by
+  relaxation dispersion {NMR}.
 \newblock \emph{Nature} 430:586--590.
 
 \bibitem[Lindorff-Larsen et~al.(2005)Lindorff-Larsen, Best, DePristo, Dobson,
@@ -78,12 +78,12 @@ Lindorff-Larsen, K., P.~Maragakis, S.~Piana, M.~Eastwood, R.~Dror, and D.~Shaw,
   Pande]{beauchamp2012protein}
 Beauchamp, K., Y.~Lin, R.~Das, and V.~Pande, 2012.
 \newblock Are Protein Force Fields Getting Better? A Systematic Benchmark on
-  524 Diverse NMR Measurements.
+  524 Diverse {NMR} Measurements.
 \newblock \emph{J. Chem. Theory Comput.} 8:1409.
 
 \bibitem[Li and Bruschweiler(2011)]{li2011iterative}
 Li, D.-W., and R.~Bruschweiler, 2011.
-\newblock Iterative optimization of molecular mechanics force fields from NMR
+\newblock Iterative optimization of molecular mechanics force fields from {NMR}
   data of full-length proteins.
 \newblock \emph{J. Chem. Theory Comput.} 7:1773.
 
@@ -132,17 +132,25 @@ V{\"o}geli, B., J.~Ying, A.~Grishaev, and A.~Bax, 2007.
   measurements of scalar couplings.
 \newblock \emph{J. Am. Chem. Soc.} 129:9377--9385.
 
+\bibitem[Crooks(2007)]{crooks2007beyond}
+Crooks, G.~E., 2007.
+\newblock Beyond Boltzmann-Gibbs statistics: Maximum entropy hyperensembles out
+  of equilibrium.
+\newblock \emph{Physical Review E} 75:041119.
+
 \bibitem[Friedman et~al.(2001)Friedman, Hastie, and
   Tibshirani]{friedman2001elements}
 Friedman, J., T.~Hastie, and R.~Tibshirani, 2001.
 \newblock The elements of statistical learning, volume~1.
 \newblock Springer Series in Statistics.
 
-\bibitem[Crooks(2007)]{crooks2007beyond}
-Crooks, G.~E., 2007.
-\newblock Beyond Boltzmann-Gibbs statistics: Maximum entropy hyperensembles out
-  of equilibrium.
-\newblock \emph{Physical Review E} 75:041119.
+\bibitem[Wikipedia(2004)]{relative_entropy_wiki}
+Wikipedia, 2004.
+\newblock Kullback–Leibler divergence --- {W}ikipedia{,} The Free
+  Encyclopedia.
+\newblock
+  \urlprefix\url{http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence},
+  [Online; accessed 15-July-2013].
 
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher, C.~K., A.~Huang, and C.~M. Stultz, 2010.
@@ -222,7 +230,7 @@ Han, B., Y.~Liu, S.~Ginzinger, and D.~Wishart, 2011.
 
 \bibitem[Shen and Bax(2010)]{Shen2010}
 Shen, Y., and A.~Bax, 2010.
-\newblock SPARTA+: a modest improvement in empirical NMR chemical shift
+\newblock SPARTA+: a modest improvement in empirical {NMR} chemical shift
   prediction by means of an artificial neural network.
 \newblock \emph{J. Biomol. NMR} 48:13--22.
 
@@ -232,9 +240,9 @@ Li, D.-W., and R.~Br{\"u}schweiler, 2012.
   assessment of protein conformational ensembles.
 \newblock \emph{J. Biol. NMR} 1--9.
 
-\bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Löhr, and
-  Rüterjans]{Schmidt1999}
-Schmidt, J., M.~Blümel, F.~Löhr, and H.~Rüterjans, 1999.
+\bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Lohr, and
+  Ruterjans]{Schmidt1999}
+Schmidt, J., M.~Blümel, F.~Lohr, and H.~Ruterjans, 1999.
 \newblock Self-consistent 3J coupling analysis for the joint calibration of
   Karplus coefficients and evaluation of torsion angles.
 \newblock \emph{J. Biomol. NMR} 14:1--12.
@@ -250,7 +258,7 @@ Grdadolnik, J., V.~Mohacek-Grosev, R.~Baldwin, and F.~Avbelj, 2011.
   Freed]{Jha2005}
 Jha, A.~K., A.~Colubri, M.~H. Zaman, S.~Koide, T.~R. Sosnick, and K.~F. Freed,
   2005.
-\newblock Helix, sheet, and polyproline II frequencies and strong nearest
+\newblock Helix, sheet, and polyproline {II} frequencies and strong nearest
   neighbor effects in a restricted coil library.
 \newblock \emph{Biochemistry} 44:9691--9702.
 
@@ -307,7 +315,7 @@ Beauchamp, K., G.~Bowman, T.~Lane, L.~Maibaum, I.~Haque, and V.~Pande, 2011.
 \bibitem[Voelz et~al.(2010)Voelz, Bowman, Beauchamp, and Pande]{voelz2010}
 Voelz, V., G.~Bowman, K.~Beauchamp, and V.~Pande, 2010.
 \newblock Molecular Simulation of ab Initio Protein Folding for a Millisecond
-  Folder NTL9 (1- 39).
+  Folder {NTL9} (1- 39).
 \newblock \emph{J. Am. Chem. Soc.} 132:1526--1528.
 
 \bibitem[Bowman et~al.(2011)Bowman, Voelz, and Pande]{bowman2011atomistic}

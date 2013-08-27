@@ -32,8 +32,16 @@ Stanford University, Stanford, CA
 
 \begin{abstract}
 
-Inferring biomolecular conformation from experiment is a fundamental goal of structural biology.  Structure determination often requires the combination of modeling and experiment, but the vast majority of approaches model only a single conformation, provide limited uncertainty information, and inherit biases from assumed force fields when data are limited.  Building on recent conceptual advances, we hypothesized that these biases and missing uncertainty estimates could be addressed through Bayesian Energy Landscape Tilting (BELT), a scheme that leverages Bayesian statistics to model conformational ensembles.  As a test of predictive power, BELT modeling of trialanine with chemical shift and scalar coupling measurements recovers, within systematic error, measurements not used during fitting.  BELT corrects biases of five different force fields (amber96, amber99, amber99sbnmr-ildn, charmm27, and oplsasa), as assessed by the convergence of $\alpha$, $\beta$, and $PP_{II}$ conformational populations between the 
-five BELT ensembles.  These converged analyses suggest lower $PP_{II}$ populations ($67 \pm 9 \%$) than found ($92 \pm 5\%$) in a previous analysis.  BELT's principled combination of simulation and limited experimental data promises rigorous assessment of force field bias and sets a foundation for modeling ensembles and uncertainties in complex biomolecular systems.   
+Inferring biomolecular conformation from experiment is a fundamental goal of structural biology.  Structure determination often requires the combination of modeling and experiment, but the vast majority of approaches model only a single conformation, provide limited uncertainty information, and inherit biases from assumed force fields when data are limited.  Building on recent conceptual advances, we hypothesized that these biases and missing uncertainty estimates could be addressed through Bayesian Energy Landscape Tilting (BELT), a scheme that enables the systematic computation of fully Bayesian 'hyperensembles' over conformational ensembles.  
+
+As a test of BELT's ability to correct force field bias, we show that conformational ensembles of trialanine derived from five different force fields (ff96, ff99, ff99sbnmr-ildn, CHARMM27, and OPLS-AA) and chemical shift and scalar coupling measurements give convergent values of the peptide's $\alpha$, $\beta$, and $PP_{II}$ conformational populations. Furthermore, the ensembles recover set-aside measurements not used in the fitting.
+
+As a test of predictive power, BELT modeling of trialanine with chemical shift and scalar coupling measurements recovers, within systematic error, measurements not used during fitting.  
+
+BELT corrects biases of five different force fields (ff96, ff99, ff99sbnmr-ildn, CHARMM27, and oplsasa), as assessed by the convergence of $\alpha$, $\beta$, and $PP_{II}$ conformational populations between the 
+five BELT ensembles.  
+
+These converged analyses suggest lower $PP_{II}$ populations ($67 \pm 9 \%$) than found ($92 \pm 5\%$) in a previous analysis.  BELT's principled combination of simulation and limited experimental data promises rigorous assessment of force field bias and sets a foundation for modeling ensembles and uncertainties in complex biomolecular systems.   
 
 \end{abstract}
 
@@ -43,14 +51,15 @@ five BELT ensembles.  These converged analyses suggest lower $PP_{II}$ populatio
 
 Over the past forty years, structural biologists have solved ``ground-state'' structures of countless biological macromolecules \citep{Berman2000}. Modern biology, however, presents many systems that do not fit the single-structure paradigm.  Excited states of nucleic acids \citep{dethoff2012}, natively disordered proteins \citep{fink2005}, and protein folding intermediates \citep{korzhnev2004} alike are poorly described by single conformation models.  For such systems, models of conformational ensembles are required to understand and predict structural and equilibrium properties.  
 
-A growing body of research has sought to characterize structural ensembles.  Much of it has focused on incorporating dynamical information during NMR structure determination  \citep{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \citep{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection, the unified treatment of heterogeneous experimental data, and the availability of substantially fewer data points than the number required to describe a conformational ensemble.  In particular, conformational ensemble modeling requires the estimation of not just a single structure, but a collection of structures and their associated equilibrium populations.  This highly under-determined problem involves the simultaneous estimation of approximately $m\times 3 \times N$ parameters, where $m$ is the number of states in the ensemble and $N$ is the number of atoms in the molecule.  
-Inference in this regime necessarily requires additional information, which can be provided by combining measurements with an atomistic force field.  
+A growing body of research has sought to characterize structural ensembles.  Much of it has focused on incorporating dynamical information during NMR structure determination  \citep{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \citep{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection, the unified treatment of heterogeneous experimental data, and the data sparseness relative to the number of degrees of freedom.  In particular, conformational ensemble modeling requires the estimation of not just a single structure, but a collection of structures and their associated equilibrium populations.  This highly under-determined problem involves the simultaneous estimation of approximately $3 \times m \times N$ parameters, where $m$ is the number of states in the ensemble and $N$ is the number of atoms in the molecule.  Inference in this regime necessarily requires 
+additional information, which can be provided by combining measurements with an atomistic force field.  
 
 Unfortunately, simulation benchmark studies have demonstrated continuing inaccuracies in molecular dynamics force fields \citep{best2008, lindorff2012systematic, beauchamp2012protein}.  Force field modifications based on direct fitting to NMR measurements have also been demonstrated \cite{li2011iterative, best2012optimization, nerenberg2011}, but such work has optimized only a small fraction of the required force field parameters.  Thus, simulations are often unable to fully recapitulate the wide variety of measurements available on molecular systems.  This inaccuracy poses a challenge when one desires atomic-scale models that are both consistent with presently available measurements and predictive of those yet to be measured.  
 
-Here we introduce a statistical approach to modeling solution ensembles of biological macromolecules.  The algorithm, Bayesian Energy Landscape Tilting (BELT), uses solution experiments to reweight a collection of atomistic models.  BELT extends a recent maximum entropy method for restraining simulations  \citep{chodera2012} to reweight existing simulations.  Furthermore, BELT leverages Markov Chain Monte Carlo \citep{patil2010pymc} to transform experimental ambiguity into error bars on arbitrary structural features.  BELT modeling produces an ``ensemble of ensembles''; the output of BELT is a collection of statistical samples, each of which is a conformational ensemble. 
+Here we introduce a statistical approach to modeling solution ensembles of biological macromolecules.  The algorithm, Bayesian Energy Landscape Tilting (BELT), uses solution experiments to reweight a collection of atomistic models.  BELT extends a recent maximum entropy method for restraining simulations  \citep{chodera2012} to reweight existing simulations.  Furthermore, BELT leverages Markov Chain Monte Carlo \citep{patil2010pymc} to transform experimental ambiguity into error bars on arbitrary structural features.  BELT modeling produces a hyperensemble or an ``ensemble of ensembles''; the output of BELT is a collection of statistical samples, each of which is a conformational ensemble. 
 
-BELT allows the full characterization of posterior distributions using MCMC.  Most previous approaches, however, have focused on obtaining estimates of a single best-fit conformational ensemble  \citep{rozycki2011saxs,  Graf2007}.  In many cases, however, ambiguous experimental data preclude such a point-estimate of the conformational ensemble.  For example, we plot one measured  \citep{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \citep{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$.  The measured coupling corresponds to four different values of $\phi$ (Fig. \ref{figure:Ambiguity}a), showing that a point estimate can be inappropriate for modeling conformations.  As previously stated, a point estimate of conformational ensembles is even more ill-posed.  In such cases, it is most appropriate to report a collection of ensembles that are consistent with the available measurements (Fig. \ref{figure:Ambiguity}b).
+BELT allows the full characterization of posterior distributions using MCMC.  Most previous approaches, however, have focused on obtaining estimates of a single best-fit conformational ensemble  \citep{rozycki2011saxs,  Graf2007}.  In many cases, however, ambiguous experimental data preclude such a point-estimate of the conformational ensemble.  For example, we plot one measured  \citep{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \citep{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$.  The measured coupling corresponds to four different values of $\phi$ (Fig. \ref{figure:Ambiguity}a), showing that a point estimate can be inappropriate for modeling conformations.  As previously stated, a point estimate of conformational ensembles is even more ill-posed.  In such cases, it is most appropriate to report a collection of ensembles that are consistent with the available measurements (Fig. \ref{figure:Ambiguity}b).  The BELT approach offers a practical recipe for describing 
+such a hyperensemble, computing the hyperensemble's predictions for new experimental observables, and giving error estimates on these predictions.
 
 \begin{figure}
 \subfigure[]{
@@ -67,13 +76,14 @@ BELT allows the full characterization of posterior distributions using MCMC.  Mo
 \end{figure}
 
 
-One stringent validation of BELT is to assess the convergence of ensembles constructed from force fields with radically different properties.  We therefore investigated the conformational propensities of trialanine using NMR measurements \citep{Graf2007} and MD simulations performed in five different force fields.  The small size of this model system enabled assessment of BELT without complications from incomplete sampling.  At the same time, trialanine populates multiple conformational states and allows a powerful illustration of ensemble modeling.  Although the raw simulations show wide variations in their conformational preferences, BELT corrects force field errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  The ability to correct the biases of all tested forcefields illustrates the power of BELT for connecting simulation and equilibrium measurements.  
+One stringent validation of BELT is to assess the convergence of ensembles constructed from force fields with radically different properties.  We therefore investigated the conformational propensities of trialanine using NMR measurements \citep{Graf2007} and MD simulations performed in five different force fields.  The small size of this model system enabled assessment of BELT without complications from incomplete sampling.  At the same time, trialanine populates multiple conformational states and allows a powerful illustration of ensemble modeling.  Although the raw simulations show wide variations in their conformational preferences, BELT corrects force field errors to provide self-consistent estimates of the $\alpha$, $\beta$, and $PP_{II}$ populations.  The ability to correct the biases of diverse forcefields provides a stringent and foundational test of the BELT approach for connecting simulation and equilibrium measurements. 
+
 
 \section*{Theory: Bayesian Energy Landscape Tilting}
 
 \subsection*{Model Inputs}
 
-To model an ensemble using BELT requires three components (Fig. \ref{figure:BELT}).  First, we need conformations $(x_j)_{j=1}^{m}$ sampled from the equilibrium distribution of some physically realistic model.  This model will serve as a prior on structural properties; in the absence of experimental data, the BELT model inherits the properties of the conformations $x_j$.  In the present work, such conformations will be generated from molecular dynamics simulations.  Second, we require equilibrium experimental measurements $(F_i)_{i=1}^n$ and their associated uncertainties $(\sigma_i)_{i=1}^{n}$.  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
+To model an ensemble using BELT requires three components (Fig. \ref{figure:BELT}).  First, we need conformations $x_j$  $(j = 1 , ... , m)$ sampled from the equilibrium distribution of some physically realistic model.  This model will serve as a prior on structural properties; in the absence of experimental data, the BELT model inherits the properties of the conformations $x_j$.  In the present work, such conformations will be generated from molecular dynamics simulations.  Second, we require equilibrium experimental measurements $F_i$ $(i = 1 , ... , n)$ and their associated uncertainties $\sigma_i$ $(i = 1 , ... , n)$.  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
 
 \begin{figure}
 
@@ -91,7 +101,9 @@ The next step in constructing an ensemble is to calculate the population of each
 
 $$\Delta U(x;\alpha) = \sum_{i=1}^n \alpha_i f_i(x)$$
 
-In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  One way to think about each $\alpha_i$ is via ``tilting'' the energy landscape along the order parameters $f_i(x)$.  Given the biasing potential, the population of each conformation can be calculated using exponential averaging (see Appx. S2):
+In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  As shown previously \citep{chodera2012}, such a linear biasing potential gives a maximum entropy ensemble for some set of experimental observations. The BELT strategy is to look beyond the single best such ensemble so as to estimate the uncertainty in the ensemble modeling. BELT instead samples over a distribution of such maximum entropy ensembles each parametrized by $\alpha_i$. This approach is connected to prior work by Crooks and others that has proposed to model hyper ensembles in general physical problems by using an entropic prior (see derivation in Appx. S1). 
+
+The end result is a collection of `landscape-tilted' ensembles. That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
@@ -120,7 +132,7 @@ It is informative to consider the case of a single observable $f_1(x)$ (and ther
 }
 
 \caption{
-(a, b, c): Raw ($\alpha_1 = 0$) and reweighted (e.g. tilted) histograms of a one dimensional observable.  (d, e, f): The same, but plotted as free energys (e.g. $-kT \log(p)$).  
+(a, b, c): Raw ($\alpha_1 = 0$) and reweighted (e.g. tilted) histograms of a one dimensional observable.  (d, e, f): The same, but plotted as free energies (e.g. $-kT \log(p)$).  
 }
 \label{figure:Hist}
 \end{figure}
@@ -137,11 +149,11 @@ Forcing this to be an exact equality recovers previous results \citep{chodera201
 
 \subsection*{Determining $\alpha$}
 
-We now derive a Bayesian framework for determining the coefficients $\alpha$ used in the biasing potential.  Given a realistic force field, adequate sampling, and self-consistent experiments, there should exist some true value of $\alpha$ whose ensemble matches the experimental data.  However, systematic uncertainty ($\sigma_i)$ prevents exact agreement between the measurements and the observables derived from the true ensemble.  For the current work, we model $\sigma_i$ as the uncertainty associated with predicting chemical shifts and scalar couplings from structures; this error is quantified by the RMS uncertainty estimated during the parameterization of chemical shift and scalar coupling models.  We use an independent normal approximation (see Appx. S3) to model the likelihood of the model specified by $\alpha$:
+We now derive a Bayesian framework for determining the coefficients $\alpha$ used in the biasing potential.  An alternative derivation using the Crooks hyperensemble formalism \cite{crooks2007beyond} is given in Appx. S1.  BELT assumes that, given the correct choice of $\alpha$, the predicted observables $f_i(x)$ provide unbiased (but noisy) predictions of the measurements $F_i$.  This assumption is codified by the following conditional probability:
 
 $$P(F_i | \alpha) \sim N(\langle f_i(x)\rangle _\alpha, \sigma_i^2)$$
 
-Using Bayes' Theorem, we can calculate the posterior distribution of $\alpha$:
+For the current work, we model $\sigma_i$ as the uncertainty associated with predicting chemical shifts and scalar couplings from structures; this error is quantified by the RMS uncertainty estimated during the parameterization of chemical shift and scalar coupling models.  Using Bayes' Theorem, we can calculate the posterior distribution of $\alpha$:
 
 $$P(\alpha | F_1, ..., F_n) \propto P(F_1, ..., F_n | \alpha) P(\alpha)$$
 
@@ -161,17 +173,17 @@ $$\log P(\alpha) = -\lambda \sum_j \pi_j^0 \log \frac{\pi_j^0}{\pi_j(\alpha)}$$
 
 The third prior we consider is a multivariate normal prior, where  $\alpha \sim N(0, \Sigma)$.  The value of $\Sigma$ is given by $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, as derived in Appx. S4.
 
-These priors can be used to achieve regularization, which is a powerful technique to reduce overfitting \cite{friedman2001elements}.  Large values of $\lambda$ favor the raw simulation results (i.e. uniform conformational populations): $\pi_j \approx \pi_j^0 = \frac{1}{m}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  When using the maxent prior in the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$, BELT recovers the hyperensemble picture of nonequilibrium statistical mechanics as developed \citep{crooks2007beyond} by Crooks (See Appx. S1).  
+These priors can be used to achieve regularization, which is a powerful technique to reduce overfitting \cite{friedman2001elements}.  Large values of $\lambda$ favor the raw simulation results (i.e. uniform conformational populations): $\pi_j \approx \pi_j^0 = \frac{1}{m}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  When using the maxent prior in the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$, BELT recovers the hyperensemble picture of nonequilibrium statistical mechanics as developed \citep{crooks2007beyond} by Crooks (See Appx. S1).  The Dirichlet and Normal priors do not share the same connection to the Crooks hyperensemble formalism; however, for normal distributions of observables, all three priors will give identical results \citep{relative_entropy_wiki}.  
 
 \subsection*{MCMC Sampling of Structural Ensembles}
 
-Because ensemble inference often presents many plausible solutions  \citep{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \citep{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \citep{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
+As noted above, because ensemble inference often presents many plausible solutions  \citep{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \citep{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \citep{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
 
 \section*{Methods}
 
 \subsection*{Molecular Dynamics Simulations}
 
-Trialanine was simulated in the amber96 \citep{kollman1996}, amber99 \citep{wang2000}, amber99sbnmr-ildn \citep{li2010, Lindorff-Larsen2010}, charmm27 \citep{mackerell2004extending,bjelkmar2010implementation}, and oplsaa \citep{kaminski2001evaluation} force fields, as previously reported  \citep{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \citep{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 1 ps.  
+Trialanine was simulated in the ff96 \citep{kollman1996}, ff99 \citep{wang2000}, ff99sbnmr-ildn \citep{li2010, Lindorff-Larsen2010}, CHARMM27 \citep{mackerell2004extending,bjelkmar2010implementation}, and OPLS-AA \citep{kaminski2001evaluation} force fields, as previously reported  \citep{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \citep{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long.  Conformations were stored every 1 ps.  
 
 \subsection*{Chemical Shifts and Scalar Couplings}
 
@@ -185,7 +197,7 @@ We have divided the available experimental measurements into training and test s
 
 All BELT calculations were performed using the FitEnsemble package (\url{https://github.com/kyleabeauchamp/FitEnsemble}).  The online FitEnsemble tutorial demonstrates the use of BELT with a single experimental measurement ($^3J(H^N H^\alpha)$).  Source code for calculations in this work will be made available at \url{https://github.com/kyleabeauchamp/EnsemblePaper}.  
 
-Regularization strength was determined via cross validation on the simulation data, as described in Appx. S5; this form of cross validation reduces errors based on finite sampling of equilibrium properties.  For each model, we used PyMC to sample at least 5,000,000 values of $\alpha$; sampled values of $\alpha$ were thinned 100-fold to reduce correlation.  The first 5,000 samples (before thinning) were discarded as burn-in.  Convergence of MCMC sampling was assessed by visual examination of MCMC traces; a well-sampled and thinned trace will appear to be white noise, without correlation between one sample and the next.  MCMC traces are shown in Fig. S2 and discussed in Appx. S7.  To incorporate simulation uncertainty, we used Bayesian Bootstrapping (Appx. S6).  Two Bayesian bootstrap replicates were performed.  
+Regularization strength was determined via cross validation on the simulation data, as described in Appx. S5; this form of cross validation reduces errors due to finite sampling of equilibrium properties.  For each model, we used PyMC to sample at least 5,000,000 values of $\alpha$; sampled values of $\alpha$ were thinned 100-fold to reduce correlation.  The first 5,000 samples (before thinning) were discarded as burn-in.  Convergence of MCMC sampling was assessed by visual examination of MCMC traces; a well-sampled and thinned trace will appear to be white noise, without correlation between one sample and the next.  MCMC traces are shown in Fig. S2 and discussed in Appx. S7.  To incorporate simulation uncertainty, we used Bayesian Bootstrapping (Appx. S6).  Two Bayesian bootstrap replicates were performed.  
 
 \section*{Results}
 
@@ -194,7 +206,7 @@ Short peptides provide crucial tests for evaluating and optimizing molecular dyn
 
 \subsection*{Conformational Propensities of Trialanine Simulations}
 
-Trialanine was simulated (see Methods) in five different force fields; these simulations are summarized here.  The chosen force fields show considerable variation in their predicted conformational propensities.  The amber96 force field shows a bias towards $\beta$ conformations (population: 51\%) (Fig. \ref{figure:ALA3}b, red).  On the other hand, amber99 strongly favors helical conformations, with a predicted $\alpha$ population of 80\% (Fig. \ref{figure:ALA3}c, red).  The $PP_{II}$ state, known to be the dominant state in solution \citep{Grdadolnik2011, Graf2007, Avbelj2006}, is the dominant simulated state only in the amber99sbnmr-ildn force field (Fig. \ref{figure:ALA3}a, red).  Low $PP_{II}$ populations and inconsistency between force fields have been previously noted \citep{Graf2007, beauchamp2012protein, nerenberg2011, best2008}.  
+Trialanine was simulated (see Methods) in five different force fields; these simulations are summarized here.  The chosen force fields show considerable variation in their predicted conformational propensities.  The ff96 force field shows a bias towards $\beta$ conformations (population: 51\%) (Fig. \ref{figure:ALA3}b, red).  On the other hand, ff99 strongly favors helical conformations, with a predicted $\alpha$ population of 80\% (Fig. \ref{figure:ALA3}c, red).  The $PP_{II}$ state, known to be the dominant state in solution \citep{Grdadolnik2011, Graf2007, Avbelj2006}, is the dominant simulated state only in the ff99sbnmr-ildn force field (Fig. \ref{figure:ALA3}a, red).  Low $PP_{II}$ populations and inconsistency between force fields have been previously noted \citep{Graf2007, beauchamp2012protein, nerenberg2011, best2008}.  
 
 \subsection*{Agreement with NMR Measurements: MD and BELT Ensembles}
 
@@ -210,7 +222,7 @@ In addition to convergence between models constructed from different force field
 
 \subsection*{The Resolution Limit of Trialanine BELT Ensembles}
 
-Despite the near-quantitative agreement in $\alpha$, $\beta$, and $PP_{II}$ populations (Fig. \ref{figure:ALA3}) and overall Ramachandran features (Fig. \ref{figure:Rama}), the fine structure of the Ramachandran plots differs between the five models.  Because all five BELT ensembles show excellent agreement with experiment (Fig. \ref{figure:ChiSquared}), we conclude that six chemical shifts and scalar couplings are insufficiently informative to resolve (and falsify) subtle force field differences.  The most obvious such difference is the width, shape, and orientation of the $PP_{II}$ basin.  Most strikingly, amber96 and oplsaa have $PP_{II}$ basins that are vertically oriented, while amber99, amber99sbnmr-ildn, and charmm27 show diagonally oriented $PP_{II}$ basins.  Two different effects contribute to this resolution limit: the information content in the experimental measurement and the uncertainty in predictors of experimental observables.
+Despite the near-quantitative agreement in $\alpha$, $\beta$, and $PP_{II}$ populations (Fig. \ref{figure:ALA3}) and overall Ramachandran features (Fig. \ref{figure:Rama}), the fine structure of the Ramachandran plots differs between the five models.  Because all five BELT ensembles show excellent agreement with experiment (Fig. \ref{figure:ChiSquared}), we conclude that six chemical shifts and scalar couplings are insufficiently informative to resolve (and falsify) subtle force field differences.  The most obvious such difference is the width, shape, and orientation of the $PP_{II}$ basin.  Most strikingly, ff96 and OPLS-AA have $PP_{II}$ basins that are vertically oriented, while ff99, ff99sbnmr-ildn, and CHARMM27 show diagonally oriented $PP_{II}$ basins.  Two different effects contribute to this resolution limit: the information content in the experimental measurement and the uncertainty in predictors of experimental observables.
 
 
 \begin{figure}
@@ -284,14 +296,14 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Di
 
 
 \caption{
-Ramachandran plots of MD and BELT (maxent prior) ensembles for each force field; additional priors are shown in Fig. S1.  The jagged appearance of the amber99 BELT model is due to limited sampling of PPII configurations in that forcefield.  
+Ramachandran plots of MD and BELT (maxent prior) ensembles for each force field; additional priors are shown in Fig. S1.  The jagged appearance of the ff99 BELT model is due to limited sampling of PPII configurations in that forcefield.  
 }
 \label{figure:Rama}
 \end{figure}
 
 \section*{Discussion}
 
-\subsection*{Structural (Ensemble?) Biology}
+\subsection*{Structural Ensemble Biology}
 
 Why model structural ensembles, rather than just structures?  At least three compelling reasons favor ensembles.  First, biological molecules are multi-state machines that fold, unfold, bind ligands, aggregate, and change conformation.  Biology is controlled by the relative populations of these states.  Ensembles capture aspects of these phenomena by encoding equilibrium populations with structures.  A second argument for ensemble modeling is fidelity to experiment.  Most solution experiments measure ensemble average equilibrium properties--chemical shifts, scalar couplings, NOEs, SAXS, and FRET can often be approximated as equilibrium properties.  A truly quantitative connection to these measurements requires modeling the equilibrium ensemble.  Finally, recent advances in atomistic simulation  \citep{hess2008, pronk2013gromacs, eastman2012openmm, eastman2010openmm}, special-purpose hardware  \citep{Shaw2008}, and distributed computing analysis  \citep{emma, msmb2} have enabled atomistic simulations to 
 reach the millisecond timescale  \citep{voelz2010, bowman2011atomistic, shaw2010, Shaw2011}; the computational cost of ensemble modeling is quickly becoming manageable.
@@ -345,7 +357,7 @@ We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Da
 
 \begin{tabular}{lrrrrrrrrrrrr}
 \toprule
-   &  $F_i$ &  $\sigma_i$ &  \multicolumn{2}{c}{ff96}             &  \multicolumn{2}{c}{ff99}    &  \multicolumn{2}{c}{ff99sbnmr-ildn}   &  \multicolumn{2}{c}{charmm27}       &  \multicolumn{2}{c}{oplsaa}               \\
+   &  $F_i$ &  $\sigma_i$ &  \multicolumn{2}{c}{ff96}             &  \multicolumn{2}{c}{ff99}    &  \multicolumn{2}{c}{ff99sbnmr-ildn}   &  \multicolumn{2}{c}{CHARMM27}       &  \multicolumn{2}{c}{OPLS-AA}               \\
    &        &             &  MD   & BELT & MD   & BELT & MD   & BELT & MD   & BELT & MD   & BELT  \\
          &      &              &          &                 &          &                 &                    &                           &           &                  &         &                \\
 $C^\alpha$           & 52.4 &          0.9 &     52.1 &            52.2 &     52.8 &            52.5 &               52.4 &                      52.4 &      52.5 &             52.4 &    52.2 &           52.2 \\
@@ -364,7 +376,7 @@ $\chi^2$ (test)                          &    &            &      2.0 &         
 \bottomrule
 \end{tabular}
 \caption{
-Predicted and measured observables are given.  BELT predictions are calculated using the maxent prior; see Tables S1-S7 for complete table.  The `all`, `training`, and `test` datasets have 10, 6, and 4 measurements, respectively.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
+Predicted and measured observables are given.  BELT predictions are calculated using the maxent prior; see Tables S1-S7 for complete table.  The `all`, `training`, and `test` datasets have 10, 6, and 4 measurements, respectively.  
 }
 \label{table:Predictions}
 \end{table}
