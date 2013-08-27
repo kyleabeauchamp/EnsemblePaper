@@ -645,30 +645,32 @@ $$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^
 
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0))  \int |J_1(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-For an analytically tractable calculation, we would like $J_1(\phi, \Delta)$ to be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is allowed, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{n-1}$; $\rho_n$ can then be calculated as $\rho_n = 1 - \sum_{j=1}^{n-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{n-2}, \phi$.  The transformation between these coordinate systems is linear, so the Jacobian is constant.  
+For an analytically tractable calculation, $J_1(\phi, \Delta)$ must be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is true, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{m-1}$; $\rho_m$ can then be calculated as $\rho_m = 1 - \sum_{j=1}^{m-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{m-2}, \phi$; the remaining terms can be calculated by noting that $\sum_j^m \Delta_j = 0$ and $\sum_j^m \Delta_j f_j = 0$.  The transformation between these coordinate systems is linear, so the Jacobian is constant.  The integral therefore simplifies as:
 
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-We also integrate $\Delta$ over $\mathbf{R}^n$, ignoring the constraints on $\Delta$ (such as $\sum_j \Delta_j = 1$ and $\sum_j \Delta_j f_j = \phi$); this will lead to another small correction.  
+The above expression requires integrating over $\Delta_1, ..., \Delta_{m-2}$ subject to the constraints $\sum_{j=1}^m \Delta_j = 0$, $\sum_{j=1}^{m} \Delta_j f_j = 0$, and $-1 \le \Delta_j \le 1$.  We assume that the likelihood is peaked around $\Delta=0$, so that the likelihood vanishes as we move far from $\Delta = 0$.  We can therefore replace the constrained integral to one over all space:
+
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta_1 ... d\Delta_{m-2}$$
 
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \sqrt{(2\pi)^{m-2} \frac{1}{\lambda^{m-2} \det (H(\phi))}}  $$
 
 To connect to BELT, we now change variables from $\phi$ to $\alpha$ (the tilting parameter of a BELT model), which introduces another Jacobian $J_2(\alpha)$
 
-$$P(\alpha | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  D(\alpha, 0|| \rho^0)) |J_1(\alpha)|  |J_2(\alpha)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\alpha))}}$$
+$$P(\alpha | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2) \exp(-\lambda  D(\alpha, 0|| \rho^0)) |J_1|  |J_2(\alpha)|  \sqrt{(2\pi)^{m-2} \frac{1}{\lambda^{m-2} \det (H(\alpha))}}$$
 
 To gain perspective in the comparison to BELT, we calculate the logarithm and drop all terms that are independent of $\alpha$:
 
-$$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 -\lambda  D(\alpha, 0|| \rho^0) + \log |J_1(\alpha)| + \log |J_2(\alpha)| - \frac{1}{2} \log \det H(\alpha)$$
+$$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 -\lambda  D(\alpha, 0|| \rho^0) + \log |J_2(\alpha)| - \frac{1}{2} \log \det H(\alpha)$$
 
 Assuming that our conformational samples were drawn from the Boltzmann ensemble $\rho^0$, the first two terms are identical to BELT with the maxent prior.  The remaining terms are corrections that account for the entropic cost of restricting our ensemble to be described by $\alpha$, rather than the entire space of possible ensembles.  The advantage of working with $\alpha$ is the dramatic reduction in the size of the parameter space.  In the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$ (and the approximations made above), the non-BELT terms vanish from the log likelihood.  
 
-Similar derivations with fewer approximations (such as that on $J_1$) could introduce additional terms that depend on both $\lambda$ and $\alpha$--terms that do not disappear in the large $\lambda$ limit.  However, the $\chi^2$ log likelihood would remain the only term dependent on $F$.  This implies that we can collect all the terms independent of $F$ and label them an effective prior:
+Another property to note is that the $\chi^2$ log likelihood is the only term dependent on $F$.  This implies that we can collect all the terms independent of $F$ and label them an effective prior:
 
 $$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 + \log P_{eff}(\alpha)$$
 
-Improved priors on $\alpha$ could possibly have the effect of correcting for the various approximations used here in deriving BELT.   
+Improved priors on $\alpha$ could possibly have the effect of correcting for the approximations (e.g. $\sigma\rightarrow 0$, $\lambda \rightarrow \infty$) used here in deriving BELT.   
 
 \section*{Appendix S2.  Derivation of Reweighting}
 
