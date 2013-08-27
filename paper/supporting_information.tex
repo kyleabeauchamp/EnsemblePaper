@@ -647,12 +647,12 @@ $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi,
 
 For an analytically tractable calculation, we would like $J_1(\phi, \Delta)$ to be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is allowed, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{n-1}$; $\rho_n$ can then be calculated as $\rho_n = 1 - \sum_{j=1}^{n-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{n-2}, \phi$.  The transformation between these coordinate systems is linear, so the Jacobian is constant.  
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1(\phi)|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
 We also integrate $\Delta$ over $\mathbf{R}^n$, ignoring the constraints on $\Delta$ (such as $\sum_j \Delta_j = 1$ and $\sum_j \Delta_j f_j = \phi$); this will lead to another small correction.  
 
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
 
 To connect to BELT, we now change variables from $\phi$ to $\alpha$ (the tilting parameter of a BELT model), which introduces another Jacobian $J_2(\alpha)$
 

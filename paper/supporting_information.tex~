@@ -652,7 +652,6 @@ $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi,
 We also integrate $\Delta$ over $\mathbf{R}^n$, ignoring the constraints on $\Delta$ (such as $\sum_j \Delta_j = 1$ and $\sum_j \Delta_j f_j = \phi$); this will lead to another small correction.  
 
 
-
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1(\phi)|  \sqrt{(2\pi)^n \frac{1}{\lambda^n \det (H(\phi))}}  $$
 
 To connect to BELT, we now change variables from $\phi$ to $\alpha$ (the tilting parameter of a BELT model), which introduces another Jacobian $J_2(\alpha)$

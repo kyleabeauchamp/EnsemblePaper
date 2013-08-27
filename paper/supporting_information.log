@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  26 AUG 2013 17:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  26 AUG 2013 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1021,7 +1021,7 @@ nts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type
 /amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti10.pfb>
-Output written on supporting_information.pdf (32 pages, 2031758 bytes).
+Output written on supporting_information.pdf (32 pages, 2031746 bytes).
 PDF statistics:
  1667 PDF objects out of 1728 (max. 8388607)
  514 compressed objects within 6 object streams
