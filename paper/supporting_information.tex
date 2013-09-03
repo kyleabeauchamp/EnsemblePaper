@@ -533,7 +533,7 @@ Cross validated reduced $\chi^2$.  Cross validation was performed using twenty-f
 
 \section*{Appendix S1.  Connecting BELT, Maximum Entropy, and Hyperensembles}
 
-Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  Here, we outline the previous results and detail the connection between BELT and the previous maximum entropy formalism.  
+Bayesian Energy Landscape Tilting generalizes a recent maximum entropy formalism \cite{chodera2012} to include statistical uncertainty.  Here, we outline the previous results and detail the connection between BELT and the previous maximum entropy formalism.  We also show how a hyperensemble formalism of Crooks \cite{crooks2007beyond} naturally leads to BELT-like models.
 
 \subsection*{Outline of Maximum Entropy Formalism}
 
@@ -551,7 +551,7 @@ Second, $p(x)$ must give the correct average potential energy:
 
 $$\int U(x) p(x) dx = \frac{3}{2} N K_B T$$
 
-Finally, we assume that we have access to a single measurement $F$ and a function $f(x)$ that predicts the observable as a function of atomic coordinates:
+Finally, we assume that we have access to an ensemble-average measurement $F$ and a function $f(x)$ that predicts the observable as a function of atomic coordinates:
 
 $$\int f(x) p(x) dx = F$$
 
@@ -607,7 +607,7 @@ It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho
 
 $$P(\rho) = \frac{1}{Z(\lambda)} \exp(- \lambda D(\rho || \rho^0))$$
 
-In the above expression, $D(\rho || \rho^0)$ refers to the KL divergence of ensembles $\rho$ and $\rho^0$, which can be expressed as a sum over the conformational states $j = 1, ..., m$:
+In the above expression, $D(\rho || \rho^0)$ refers to the KL divergence of ensembles $\rho$ and $\rho^0$, while $\lambda$ is a parameter that characterizes the distance from equilibrium.  Note that the KL divergence, $D(\rho || \rho^0)$, can be expressed as a sum over the conformational states $j = 1, ..., m$:
 
 $$D(\rho || \rho^0) = \langle \log(\frac{\rho}{\rho^0})\rangle_\rho = \sum_j \rho_j \log \frac{\rho_j}{\rho^0_j}$$
 
@@ -619,11 +619,13 @@ By Bayes' Theorem, we have that:
 
 $$P(\rho | F) \propto P(F | \rho) P(\rho)$$
 
+Letting $C$ be a normalizing constant, we have:
+
 $$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0))$$
 
-For convenience, we let $\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$.  Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}) such that $\langle f \rangle_{\rho*} = \phi$.  
+For convenience, let $\phi$ denote the ensemble average, in the ensemble $\rho$, of the experimental observable of interest: $\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$.  Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  
 
-We now wish to express the arbitrary ensemble $\rho$ as a perturbation from some maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
+We now wish to express the arbitrary ensemble $\rho$ as a perturbation from the maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
 
 $$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\phi, \Delta|| \rho^0)) $$
 
@@ -639,19 +641,26 @@ Here, $H_{ij}(\phi) = \frac{\partial^2 D}{\partial \Delta_j \partial \Delta_j}$,
 
 $$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta)$$
 
-From the perspective of BELT, $\Delta$ is a nuisance parameter--we want an ensemble that is described by a more parsimonious representation.  We therefore integrate over $\Delta$ to achieve a probability that depends entirely on $\phi$.  
+From the perspective of BELT, $\Delta$ is a nuisance parameter--we want an ensemble that is described by a more parsimonious representation.  We therefore integrate over $\Delta$ (e.g. marginalize) to achieve a probability that depends entirely on $\phi$.  
 
 $$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0))  \int |J_1(\phi, \Delta)|  \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-For an analytically tractable calculation, $J_1(\phi, \Delta)$ must be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is true, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{m-1}$; $\rho_m$ can then be calculated as $\rho_m = 1 - \sum_{j=1}^{m-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{m-2}, \phi$; the remaining terms can be calculated by noting that $\sum_j^m \Delta_j = 0$ and $\sum_j^m \Delta_j f_j = 0$.  The transformation between these coordinate systems is linear, so the Jacobian is constant.  The integral therefore simplifies as:
+For an analytically tractable calculation, $J_1(\phi, \Delta)$ must be independent of $\Delta$, so that we can remove it from under the integral.  To see that this is true, we first explicitly list all free parameters in the two representations.  In the $\rho$ representation, the free parameters are $\rho_1$, ..., $\rho_{m-1}$; $\rho_m$ can then be calculated as $\rho_m = 1 - \sum_{j=1}^{m-1} \rho_j$.  In the new representation, the free parameters are $\Delta_1, ..., \Delta_{m-2}, \phi$; the remaining terms can be calculated by noting that $\sum_j^m \Delta_j = 0$ and $\sum_j^m \Delta_j f_j = 0$.  The transformation between these coordinate systems is explicitly given by
+
+$$\Delta_1 \rightarrow \rho_1 - \rho_1^*$$
+$$...$$
+$$\Delta_{m-2} \rightarrow \rho_{m-2} - \rho_{m-2}^*$$
+$$\phi \rightarrow \sum_{j=1}^{m-1} \rho_i f_i + (1 - \sum_{j=1}^{m-1} \rho_j) f_n$$
+
+This transformation is linear in $\rho_j$, so the Jacobian is constant.  The integral therefore simplifies as:
 
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
-The above expression requires integrating over $\Delta_1, ..., \Delta_{m-2}$ subject to the constraints $\sum_{j=1}^m \Delta_j = 0$, $\sum_{j=1}^{m} \Delta_j f_j = 0$, and $-1 \le \Delta_j \le 1$.  We assume that the likelihood is peaked around $\Delta=0$, so that the likelihood vanishes as we move far from $\Delta = 0$.  We can therefore replace the constrained integral to one over all space:
+The above expression requires integrating subject to the constraints $-\rho_j^*(\phi) \le \Delta_j \le 1 - \rho_j^*(\phi)$.  We assume that the likelihood is peaked around $\Delta=0$, so that the likelihood vanishes as we move far from $\Delta = 0$.  We can therefore replace the constrained integral to one over all space:
 
-$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta_1 ... d\Delta_{m-2}$$
+$$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \int_{-\infty}^\infty   \exp(-\lambda \frac{1}{2} \Delta^T H(\phi) \Delta) d\Delta_1 ... d\Delta_{m-2}$$
 
 
 $$P(\phi | F) = C \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0)) |J_1|  \sqrt{(2\pi)^{m-2} \frac{1}{\lambda^{m-2} \det (H(\phi))}}  $$

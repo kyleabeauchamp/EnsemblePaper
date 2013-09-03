@@ -15,11 +15,11 @@
 \author{Kyle A. Beauchamp, \\
 Biophysics Program, \\
 Stanford University, Stanford, CA
-\and Rhiju Das \\
-Biochemistry and Physics Departments, \\
-Stanford University, Stanford, CA
 \and Vijay S. Pande, \\
 Chemistry Department and Structural Biology Program, \\
+Stanford University, Stanford, CA
+\and Rhiju Das \\
+Biochemistry and Physics Departments, \\
 Stanford University, Stanford, CA
 }
 
@@ -32,16 +32,7 @@ Stanford University, Stanford, CA
 
 \begin{abstract}
 
-Inferring biomolecular conformation from experiment is a fundamental goal of structural biology.  Structure determination often requires the combination of modeling and experiment, but the vast majority of approaches model only a single conformation, provide limited uncertainty information, and inherit biases from assumed force fields when data are limited.  Building on recent conceptual advances, we hypothesized that these biases and missing uncertainty estimates could be addressed through Bayesian Energy Landscape Tilting (BELT), a scheme that enables the systematic computation of fully Bayesian 'hyperensembles' over conformational ensembles.  
-
-As a test of BELT's ability to correct force field bias, we show that conformational ensembles of trialanine derived from five different force fields (ff96, ff99, ff99sbnmr-ildn, CHARMM27, and OPLS-AA) and chemical shift and scalar coupling measurements give convergent values of the peptide's $\alpha$, $\beta$, and $PP_{II}$ conformational populations. Furthermore, the ensembles recover set-aside measurements not used in the fitting.
-
-As a test of predictive power, BELT modeling of trialanine with chemical shift and scalar coupling measurements recovers, within systematic error, measurements not used during fitting.  
-
-BELT corrects biases of five different force fields (ff96, ff99, ff99sbnmr-ildn, CHARMM27, and oplsasa), as assessed by the convergence of $\alpha$, $\beta$, and $PP_{II}$ conformational populations between the 
-five BELT ensembles.  
-
-These converged analyses suggest lower $PP_{II}$ populations ($67 \pm 9 \%$) than found ($92 \pm 5\%$) in a previous analysis.  BELT's principled combination of simulation and limited experimental data promises rigorous assessment of force field bias and sets a foundation for modeling ensembles and uncertainties in complex biomolecular systems.   
+Inferring biomolecular conformation from experiment is a fundamental goal of structural biology.  Structure determination often requires the combination of modeling and experiment, but the vast majority of approaches model only a single conformation, provide limited uncertainty information, and inherit biases from assumed force fields when data are limited.  Building on recent conceptual advances, we hypothesized that these biases and missing uncertainty estimates could be addressed through Bayesian Energy Landscape Tilting (BELT), a scheme that enables the systematic computation of fully Bayesian 'hyperensembles' over conformational ensembles.  As a test of BELT's ability to correct force field bias, we show that conformational ensembles of trialanine derived from five different force fields (ff96, ff99, ff99sbnmr-ildn, CHARMM27, and OPLS-AA) and chemical shift and scalar coupling measurements give convergent values of the peptide's $\alpha$, $\beta$, and $PP_{II}$ conformational populations. Furthermore, the ensembles recover set-aside measurements not used in the fitting. BELT's principled combination of simulation and limited experimental data promises rigorous assessment of force field bias and sets a foundation for modeling ensembles and uncertainties in complex biomolecular systems.   
 
 \end{abstract}
 
@@ -101,7 +92,7 @@ The next step in constructing an ensemble is to calculate the population of each
 
 $$\Delta U(x;\alpha) = \sum_{i=1}^n \alpha_i f_i(x)$$
 
-In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  As shown previously \citep{chodera2012}, such a linear biasing potential gives a maximum entropy ensemble for some set of experimental observations. The BELT strategy is to look beyond the single best such ensemble so as to estimate the uncertainty in the ensemble modeling. BELT instead samples over a distribution of such maximum entropy ensembles each parametrized by $\alpha_i$. This approach is connected to prior work by Crooks and others that has proposed to model hyper ensembles in general physical problems by using an entropic prior (see derivation in Appx. S1). 
+In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  As shown previously \citep{chodera2012}, such a linear biasing potential gives a maximum entropy ensemble for some set of experimental observations. The BELT strategy is to look beyond the single best such ensemble so as to estimate the uncertainty in the ensemble modeling. BELT instead samples over a distribution of such maximum entropy ensembles each parametrized by $\alpha_i$. This approach is connected to prior work by Crooks that proposed to model hyper ensembles in general physical problems by using an entropic prior (see derivation in Appx. S1). 
 
 The end result is a collection of `landscape-tilted' ensembles. That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
 
@@ -167,17 +158,17 @@ In the present work, we evaluate three different choices of prior (Appx. S4), fi
 
 $$\log P(\alpha) = -\lambda \sum_j^m \pi_j(\alpha) \log \frac{\pi_j(\alpha)}{\pi_j^0}$$
 
-In the previous expression, $\pi_j^0$ refers to the populations of an unweighted ensemble, which are typically $\frac{1}{m}$.  We also consider using a Dirichlet prior, which is functionally similar to the maxent prior (Appx. S4):
+In the previous expression, $\pi_j^0$ refers to the populations of an unweighted ensemble, which are typically $\frac{1}{m}$, while $\lambda$ is a hyperparameter that controls the strength of the prior.  We also consider using a Dirichlet prior, which is functionally similar to the maxent prior (Appx. S4):
 
 $$\log P(\alpha) = -\lambda \sum_j \pi_j^0 \log \frac{\pi_j^0}{\pi_j(\alpha)}$$
 
 The third prior we consider is a multivariate normal prior, where  $\alpha \sim N(0, \Sigma)$.  The value of $\Sigma$ is given by $\Sigma_{ij} = \lambda Cov(f_i(x), f_j(x))$, as derived in Appx. S4.
 
-These priors can be used to achieve regularization, which is a powerful technique to reduce overfitting \cite{friedman2001elements}.  Large values of $\lambda$ favor the raw simulation results (i.e. uniform conformational populations): $\pi_j \approx \pi_j^0 = \frac{1}{m}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  When using the maxent prior in the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$, BELT recovers the hyperensemble picture of nonequilibrium statistical mechanics as developed \citep{crooks2007beyond} by Crooks (See Appx. S1).  The Dirichlet and Normal priors do not share the same connection to the Crooks hyperensemble formalism; however, for normal distributions of observables, all three priors will give identical results \citep{relative_entropy_wiki}.  
+These priors can be used to achieve regularization, which is a powerful technique to reduce overfitting \cite{friedman2001elements}.  Large values of $\lambda$ favor the raw simulation results (i.e. uniform conformational populations): $\pi_j \approx \pi_j^0 = \frac{1}{m}$.  The value of $\lambda$ can be chosen via cross-validation or other methods (see Appx. S5).  When using the maxent prior in the limit of $\lambda \rightarrow \infty$ and $\sigma \rightarrow 0$, BELT recovers the hyperensemble picture of nonequilibrium statistical mechanics as developed \citep{crooks2007beyond} by Crooks (See Appx. S1).  The Dirichlet and Normal priors do not share the same connection to the Crooks hyperensemble formalism; however, for normally distributed observables, all three priors will give identical results \citep{relative_entropy_wiki}.  
 
 \subsection*{MCMC Sampling of Structural Ensembles}
 
-As noted above, because ensemble inference often presents many plausible solutions  \citep{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \citep{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \citep{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
+As noted above, because ensemble inference often presents many plausible solutions  \citep{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood or maximum entropy).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \citep{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \citep{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
 
 \section*{Methods}
 
@@ -337,8 +328,7 @@ Scalar couplings predicted using parameterized Karplus relations will span a lim
 
 \section*{Limitations of BELT}
 
-There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  The same increased sampling requirements apply as one attempts to fit many measurements simultaneously.  In the worst-case scenario, fitting $n$ measurements could require MD datasets whose size grows exponentially with $n$.  A second limitation in BELT is its computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of $\frac{1}{250000}$--a free energy difference of approximately $7$ kcal mol$^{-1}$.  A 
-third limitation is the independent normal approximation used in BELT's error model (see Appx. S3).  More sophisticated error models may be possible, including the Bayesian formalisms from the Nilges group \citep{rieping2005, habeck2006, habeck2005bayesian}.  Finally, BELT is currently formulated for use with equilibrium measurements, meaning that the present framework cannot be used to predict kinetic properties.  
+There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  The same increased sampling requirements apply as one attempts to fit many measurements simultaneously.  In the worst-case scenario, fitting $n$ measurements could require MD datasets whose size grows exponentially with $n$.  A second limitation in BELT is its computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of at least $\frac{1}{250000}$.  A third limitation is the independent normal approximation used in BELT's error model (see Appx. S3).  More sophisticated error models may be possible, including the Bayesian formalisms from the Nilges group \citep{rieping2005, habeck2006, habeck2005bayesian}.  Finally, BELT is currently formulated for use with equilibrium measurements, meaning that the present framework cannot be used to predict kinetic properties.  
 
 \section*{Conclusion}
 
