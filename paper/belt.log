@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  5 SEP 2013 10:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  5 SEP 2013 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7,10 +7,12 @@ entering extended mode
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
 aded.
+(/usr/share/texlive/texmf-dist/tex/latex/achemso/achemso.cls
+Document Class: achemso 2012/05/08 v3.7a Submission to ACS journals
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -24,10 +26,204 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+\XKV@depth=\count87
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))
+\acs@bib@file=\write3
+
+(/usr/share/texlive/texmf-dist/tex/latex/mciteplus/mciteplus.sty
+Package: mciteplus 2008/09/30 v1.1 enhanced mcite
+\@mcitetmptoksA=\toks16
+\@mcitetmpdima=\dimen103
+\@mcitetmpdimb=\dimen104
+\@mcitetmpcnta=\count88
+\@mcitetmpcntb=\count89
+\c@mcitebibitemcount=\count90
+\c@mcitesubitemcount=\count91
+)
+\c@bibnote=\count92
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count93
+\Gm@cntv=\count94
+\c@Gm@tempcnt=\count95
+\Gm@bindingoffset=\dimen105
+\Gm@wd@mp=\dimen106
+\Gm@odd@mp=\dimen107
+\Gm@even@mp=\dimen108
+\Gm@layoutwidth=\dimen109
+\Gm@layoutheight=\dimen110
+\Gm@layouthoffset=\dimen111
+\Gm@layoutvoffset=\dimen112
+\Gm@dimlist=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+\captionmargin=\dimen113
+\captionmargin@=\dimen114
+\captionwidth=\dimen115
+\caption@indent=\dimen116
+\caption@parindent=\dimen117
+\caption@hangindent=\dimen118
+)
+\c@ContinuedFloat=\count96
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count97
+\float@exts=\toks18
+\float@box=\box26
+\@float@everytoks=\toks19
+\@floatcapt=\box27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count98
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup4
+\symitalic=\mathgroup5
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+LaTeX Info: Redefining \hbar on input line 50.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+\acs@author@cnt=\count99
+\acs@affil@cnt=\count100
+\acs@affil@alt@cnt=\count101
+\acs@footnote@cnt=\count102
+\acs@affil@marker@cnt=\count103
+\acs@space@pre@title=\skip43
+\acs@space@post@title=\skip44
+\acs@space@post@author=\skip45
+\acs@space@post@address=\skip46
+\acs@space@post@email=\skip47
+\acs@maketitle@width=\skip48
+\@float@every@scheme=\toks20
+\c@scheme=\count104
+\@float@every@chart=\toks21
+\c@chart=\count105
+\@float@every@graph=\toks22
+\c@graph=\count106
+\@float@every@table=\toks23
+\acs@collect@toks=\toks24
+\acs@collect@empty@toks=\toks25
+\acs@tocentry@height=\skip49
+\acs@tocentry@width=\skip50
+
+(/usr/share/texlive/texmf-dist/tex/latex/achemso/config/jctcce.cfg
+File: jctcce.cfg 2012/05/08 v3.7a achemso configuration: J. Chem. Theory Comput
+.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip51
+\bibsep=\skip52
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count107
+)
+(/usr/share/texlive/texmf-dist/tex/latex/achemso/natmove.sty
+Package: natmove 2010/01/15 v1.1a Automatic citation moving with natbib
+))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
@@ -241,99 +437,40 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks16
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-\Gm@cnth=\count87
-\Gm@cntv=\count88
-\c@Gm@tempcnt=\count89
-\Gm@bindingoffset=\dimen103
-\Gm@wd@mp=\dimen104
-\Gm@odd@mp=\dimen105
-\Gm@even@mp=\dimen106
-\Gm@layoutwidth=\dimen107
-\Gm@layoutheight=\dimen108
-\Gm@layouthoffset=\dimen109
-\Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks17
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
-)
-Package graphics Info: Driver file: pdftex.def on input line 91.
-
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count90
-))
-\Gin@req@height=\dimen111
-\Gin@req@width=\dimen112
-)
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip43
-\subfigcapskip=\skip44
-\subfigcaptopadj=\dimen113
-\subfigbottomskip=\skip45
-\subfigcapmargin=\dimen114
-\subfiglabelskip=\skip46
-\c@subfigure=\count91
-\c@lofdepth=\count92
-\c@subtable=\count93
-\c@lotdepth=\count94
+\subfigtopskip=\skip53
+\subfigcapskip=\skip54
+\subfigcaptopadj=\dimen121
+\subfigbottomskip=\skip55
+\subfigcapmargin=\dimen122
+\subfiglabelskip=\skip56
+\c@subfigure=\count108
+\c@lofdepth=\count109
+\c@subtable=\count110
+\c@lotdepth=\count111
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip47
-\subfig@bottom=\skip48
+\subfig@top=\skip57
+\subfig@bottom=\skip58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
-\@emptytoks=\toks18
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
+\@emptytoks=\toks28
+\symAMSa=\mathgroup6
+\symAMSb=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip49
+\@mathmargin=\skip59
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -341,102 +478,96 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks19
-\ex@=\dimen115
+\@emptytoks=\toks29
+\ex@=\dimen123
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen116
+\pmbraise@=\dimen124
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count95
+\inf@bad=\count112
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count96
-\leftroot@=\count97
+\uproot@=\count113
+\leftroot@=\count114
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count98
-\DOTSCASE@=\count99
+\classnum@=\count115
+\DOTSCASE@=\count116
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen117
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen125
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count100
-\c@MaxMatrixCols=\count101
-\dotsspace@=\muskip10
-\c@parentequation=\count102
-\dspbrk@lvl=\count103
-\tag@help=\toks20
-\row@=\count104
-\column@=\count105
-\maxfields@=\count106
-\andhelp@=\toks21
-\eqnshift@=\dimen118
-\alignsep@=\dimen119
-\tagshift@=\dimen120
-\tagwidth@=\dimen121
-\totwidth@=\dimen122
-\lineht@=\dimen123
-\@envbody=\toks22
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks23
+\macc@depth=\count117
+\c@MaxMatrixCols=\count118
+\dotsspace@=\muskip11
+\c@parentequation=\count119
+\dspbrk@lvl=\count120
+\tag@help=\toks30
+\row@=\count121
+\column@=\count122
+\maxfields@=\count123
+\andhelp@=\toks31
+\eqnshift@=\dimen126
+\alignsep@=\dimen127
+\tagshift@=\dimen128
+\tagwidth@=\dimen129
+\totwidth@=\dimen130
+\lineht@=\dimen131
+\@envbody=\toks32
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks33
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip11
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen124
-\lightrulewidth=\dimen125
-\cmidrulewidth=\dimen126
-\belowrulesep=\dimen127
-\belowbottomsep=\dimen128
-\aboverulesep=\dimen129
-\abovetopsep=\dimen130
-\cmidrulesep=\dimen131
-\cmidrulekern=\dimen132
-\defaultaddspace=\dimen133
-\@cmidla=\count107
-\@cmidlb=\count108
-\@aboverulesep=\dimen134
-\@belowrulesep=\dimen135
-\@thisruleclass=\count109
-\@lastruleclass=\count110
-\@thisrulewidth=\dimen136
+\heavyrulewidth=\dimen132
+\lightrulewidth=\dimen133
+\cmidrulewidth=\dimen134
+\belowrulesep=\dimen135
+\belowbottomsep=\dimen136
+\aboverulesep=\dimen137
+\abovetopsep=\dimen138
+\cmidrulesep=\dimen139
+\cmidrulekern=\dimen140
+\defaultaddspace=\dimen141
+\@cmidla=\count124
+\@cmidlb=\count125
+\@aboverulesep=\dimen142
+\@belowrulesep=\dimen143
+\@thisruleclass=\count126
+\@lastruleclass=\count127
+\@thisrulewidth=\dimen144
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count111
-\mult@box=\box28
-\multicol@leftmargin=\dimen137
-\c@unbalance=\count112
-\c@collectmore=\count113
-\doublecol@number=\count114
-\multicoltolerance=\count115
-\multicolpretolerance=\count116
-\full@width=\dimen138
-\page@free=\dimen139
-\premulticols=\dimen140
-\postmulticols=\dimen141
-\multicolsep=\skip52
-\multicolbaselineskip=\skip53
-\partial@page=\box29
-\last@line=\box30
-\mult@rightbox=\box31
-\mult@grightbox=\box32
-\mult@gfirstbox=\box33
-\mult@firstbox=\box34
-\@tempa=\box35
-\@tempa=\box36
+\c@tracingmulticols=\count128
+\mult@box=\box30
+\multicol@leftmargin=\dimen145
+\c@unbalance=\count129
+\c@collectmore=\count130
+\doublecol@number=\count131
+\multicoltolerance=\count132
+\multicolpretolerance=\count133
+\full@width=\dimen146
+\page@free=\dimen147
+\premulticols=\dimen148
+\postmulticols=\dimen149
+\multicolsep=\skip62
+\multicolbaselineskip=\skip63
+\partial@page=\box31
+\last@line=\box32
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
 \@tempa=\box37
 \@tempa=\box38
 \@tempa=\box39
@@ -452,39 +583,41 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box49
 \@tempa=\box50
 \@tempa=\box51
-\c@columnbadness=\count117
-\c@finalcolumnbadness=\count118
-\last@try=\dimen142
-\multicolovershoot=\dimen143
-\multicolundershoot=\dimen144
-\mult@nat@firstbox=\box52
-\colbreak@box=\box53
-\multicol@sort@counter=\count119
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count134
+\c@finalcolumnbadness=\count135
+\last@try=\dimen150
+\multicolovershoot=\dimen151
+\multicolundershoot=\dimen152
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+\multicol@sort@counter=\count136
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen145
-)
-(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip54
-\bibsep=\skip55
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count120
+\bigstrutjot=\dimen153
 ) (./belt.aux)
 \openout1 = `belt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 44.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+\openout3 = `acs-belt.bib'.
+
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -494,23 +627,23 @@ LaTeX Font Info:    ... okay on input line 29.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* h-part:(L,W,R)=(72.2698pt, 469.75539pt, 72.2698pt)
+* v-part:(T,H,B)=(72.2698pt, 650.43037pt, 72.2698pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=469.75539pt
+* \textheight=650.43037pt
+* \oddsidemargin=-0.00018pt
+* \evensidemargin=-0.00018pt
+* \topmargin=-37.00018pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=59.0pt
+* \marginparwidth=44.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -520,19 +653,23 @@ LaTeX Font Info:    ... okay on input line 29.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: subfigure package is loaded.
+Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen146
-\scratchbox=\box54
-\nofMPsegments=\count122
-\nofMParguments=\count123
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen147
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count137
+\scratchdimen=\dimen154
+\scratchbox=\box56
+\nofMPsegments=\count138
+\nofMParguments=\count139
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count140
+\MPscratchDim=\dimen155
+\MPnumerator=\count141
+\makeMPintoPDFobject=\count142
+\everyMPtoPDFconversion=\toks35
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -577,87 +714,164 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 44.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 18.66588pt on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 44.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 44
+.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [1
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 44
+.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
-<figures/single_karplus.pdf, id=15, 521.63008pt x 442.21149pt>
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 44
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 44
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 44.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 9.85492pt on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 10.79993pt on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Calculating math sizes for size <7.4> on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.47603> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <4.44003> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 44.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 48.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
+ [2]
+<figures/single_karplus.pdf, id=16, 521.63008pt x 442.21149pt>
 File: figures/single_karplus.pdf Graphic file (type pdf)
 
 <use figures/single_karplus.pdf>
-Package pdftex.def Info: figures/single_karplus.pdf used on input line 59.
+Package pdftex.def Info: figures/single_karplus.pdf used on input line 74.
 (pdftex.def)             Requested size: 209.76265pt x 177.82971pt.
 
-<figures/four_phi_histograms.pdf, id=16, 515.57622pt x 439.79622pt>
+<figures/four_phi_histograms.pdf, id=17, 515.57622pt x 439.79622pt>
 File: figures/four_phi_histograms.pdf Graphic file (type pdf)
 
 <use figures/four_phi_histograms.pdf>
-Package pdftex.def Info: figures/four_phi_histograms.pdf used on input line 62.
+Package pdftex.def Info: figures/four_phi_histograms.pdf used on input line 77.
 
 (pdftex.def)             Requested size: 208.4768pt x 177.82971pt.
- [1]
-<figures/info_graphic/info_graphic.png, id=24, 284.5029pt x 284.5029pt>
+
+Overfull \hbox (4.08394pt too wide) in paragraph at lines 86--87
+\T1/ptm/m/n/12 force fields with rad-i-cally dif-fer-ent prop-er-ties. We there
+-fore in-ves-ti-gated the con-for-ma-tional propen-
+ []
+
+[3]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 91.
+ [4 <./figures/single_karplus.pdf> <./figures/four_phi_histograms.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./figures/four_phi_histograms.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+>] <figures/info_graphic/info_graphic.png, id=115, 284.5029pt x 284.5029pt>
 File: figures/info_graphic/info_graphic.png Graphic file (type png)
 
 <use figures/info_graphic/info_graphic.png>
 Package pdftex.def Info: figures/info_graphic/info_graphic.png used on input li
-ne 82.
+ne 97.
 (pdftex.def)             Requested size: 455.24408pt x 455.24431pt.
- [2 <./figures/single_karplus.pdf> <./figures/four_phi_histograms.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/four_phi_histograms.pdf): PDF
- inclusion: multiple pdfs with page group included in a single page
->] [3 <./figures/info_graphic/info_graphic.png>]
-<figures/model_hist-1.pdf, id=123, 538.86635pt x 434.5422pt>
+ [5 <./figures/info_graphic/info_graphic.png>] <figures/model_hist-1.pdf, id=12
+1, 538.86635pt x 434.5422pt>
 File: figures/model_hist-1.pdf Graphic file (type pdf)
 
 <use figures/model_hist-1.pdf>
-Package pdftex.def Info: figures/model_hist-1.pdf used on input line 108.
+Package pdftex.def Info: figures/model_hist-1.pdf used on input line 123.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
-<figures/model_hist0.pdf, id=124, 538.86635pt x 434.5422pt>
+<figures/model_hist0.pdf, id=122, 538.86635pt x 434.5422pt>
 File: figures/model_hist0.pdf Graphic file (type pdf)
 
 <use figures/model_hist0.pdf>
-Package pdftex.def Info: figures/model_hist0.pdf used on input line 111.
+Package pdftex.def Info: figures/model_hist0.pdf used on input line 126.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
-<figures/model_hist1.pdf, id=125, 538.86635pt x 434.5422pt>
+<figures/model_hist1.pdf, id=123, 538.86635pt x 434.5422pt>
 File: figures/model_hist1.pdf Graphic file (type pdf)
 
 <use figures/model_hist1.pdf>
-Package pdftex.def Info: figures/model_hist1.pdf used on input line 114.
+Package pdftex.def Info: figures/model_hist1.pdf used on input line 129.
 (pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
 
-<figures/model_landscape-1.pdf, id=126, 527.51143pt x 434.5422pt>
+<figures/model_landscape-1.pdf, id=124, 527.51143pt x 434.5422pt>
 File: figures/model_landscape-1.pdf Graphic file (type pdf)
 
 <use figures/model_landscape-1.pdf>
-Package pdftex.def Info: figures/model_landscape-1.pdf used on input line 118.
+Package pdftex.def Info: figures/model_landscape-1.pdf used on input line 133.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
 
-<figures/model_landscape0.pdf, id=127, 527.51143pt x 434.5422pt>
+<figures/model_landscape0.pdf, id=125, 527.51143pt x 434.5422pt>
 File: figures/model_landscape0.pdf Graphic file (type pdf)
 
 <use figures/model_landscape0.pdf>
-Package pdftex.def Info: figures/model_landscape0.pdf used on input line 121.
+Package pdftex.def Info: figures/model_landscape0.pdf used on input line 136.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
 
-<figures/model_landscape1.pdf, id=128, 527.51143pt x 434.5422pt>
+<figures/model_landscape1.pdf, id=126, 527.51143pt x 434.5422pt>
 File: figures/model_landscape1.pdf Graphic file (type pdf)
 
 <use figures/model_landscape1.pdf>
-Package pdftex.def Info: figures/model_landscape1.pdf used on input line 124.
+Package pdftex.def Info: figures/model_landscape1.pdf used on input line 139.
 (pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
- [4] [5 <./figures/model_hist-1.pdf> <./figures/model_hist0.pdf
+ [6] [7 <./figures/model_hist-1.pdf> <./figures/model_hist0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_hist0.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -677,134 +891,144 @@ clusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_landscape1.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
->] [6] [7]
-<figures/state_0_by_forcefield_priors.pdf, id=432, 522.57109pt x 483.33485pt>
+>] [8] [9] [10]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 205.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (45.42377pt too wide) in paragraph at lines 211--212
+\T1/ptm/m/n/12 Short pep-tides pro-vide cru-cial tests for eval-u-at-ing and op
+-ti-miz-ing molec-u-lar dy-nam-ics force fields.$[]$
+ []
+
+[11] [12]
+<figures/state_0_by_forcefield_priors.pdf, id=436, 522.57109pt x 483.33485pt>
 File: figures/state_0_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_0_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_0_by_forcefield_priors.pdf used on input
- line 223.
+ line 238.
 (pdftex.def)             Requested size: 213.39566pt x 197.37206pt.
 
-<figures/state_1_by_forcefield_priors.pdf, id=433, 523.15138pt x 483.61716pt>
+<figures/state_1_by_forcefield_priors.pdf, id=437, 523.15138pt x 483.61716pt>
 File: figures/state_1_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_1_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_1_by_forcefield_priors.pdf used on input
- line 227.
+ line 242.
 (pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
 
-<figures/state_2_by_forcefield_priors.pdf, id=434, 523.15138pt x 483.61716pt>
+<figures/state_2_by_forcefield_priors.pdf, id=438, 523.15138pt x 483.61716pt>
 File: figures/state_2_by_forcefield_priors.pdf Graphic file (type pdf)
 
 <use figures/state_2_by_forcefield_priors.pdf>
 Package pdftex.def Info: figures/state_2_by_forcefield_priors.pdf used on input
- line 230.
+ line 245.
 (pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
 
-<figures/chi2_train_priors.pdf, id=435, 539.79169pt x 486.6284pt>
+<figures/chi2_train_priors.pdf, id=439, 539.79169pt x 486.6284pt>
 File: figures/chi2_train_priors.pdf Graphic file (type pdf)
 
 <use figures/chi2_train_priors.pdf>
-Package pdftex.def Info: figures/chi2_train_priors.pdf used on input line 241.
+Package pdftex.def Info: figures/chi2_train_priors.pdf used on input line 256.
 (pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
 
-<figures/chi2_test_priors.pdf, id=436, 539.79169pt x 486.6284pt>
+<figures/chi2_test_priors.pdf, id=440, 539.79169pt x 486.6284pt>
 File: figures/chi2_test_priors.pdf Graphic file (type pdf)
 
 <use figures/chi2_test_priors.pdf>
-Package pdftex.def Info: figures/chi2_test_priors.pdf used on input line 244.
+Package pdftex.def Info: figures/chi2_test_priors.pdf used on input line 259.
 (pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
 
-<figures/ALA3_rama_amber96_raw.pdf, id=437, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_amber96_raw.pdf, id=441, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber96_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber96_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber96_raw.pdf used on input line 2
-55.
+70.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_amber96_maxent_belt.pdf, id=438, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_amber96_maxent_belt.pdf, id=442, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber96_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber96_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber96_maxent_belt.pdf used on inpu
-t line 258.
+t line 273.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_amber99_raw.pdf, id=439, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_amber99_raw.pdf, id=443, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber99_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber99_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99_raw.pdf used on input line 2
-62.
+77.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_amber99_maxent_belt.pdf, id=440, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_amber99_maxent_belt.pdf, id=444, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber99_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_amber99_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99_maxent_belt.pdf used on inpu
-t line 265.
+t line 280.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf, id=441, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf, id=445, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf Graphic file (type pdf)
 <use figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf used on in
-put line 269.
+put line 284.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf, id=442, 442.1958pt x 434.
+<figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf, id=446, 442.1958pt x 434.
 96567pt>
 File: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf Graphic file (type pd
 f)
  <use figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf us
-ed on input line 272.
+ed on input line 287.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_charmm27_raw.pdf, id=443, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_charmm27_raw.pdf, id=447, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_charmm27_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_charmm27_raw.pdf>
 Package pdftex.def Info: figures/ALA3_rama_charmm27_raw.pdf used on input line 
-276.
+291.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_charmm27_maxent_belt.pdf, id=444, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_charmm27_maxent_belt.pdf, id=448, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_charmm27_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_charmm27_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_charmm27_maxent_belt.pdf used on inp
-ut line 279.
+ut line 294.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_oplsaa_raw.pdf, id=445, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_oplsaa_raw.pdf, id=449, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_oplsaa_raw.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_oplsaa_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 28
-3.
+Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 29
+8.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_oplsaa_maxent_belt.pdf, id=446, 442.1958pt x 434.96567pt>
+<figures/ALA3_rama_oplsaa_maxent_belt.pdf, id=450, 442.1958pt x 434.96567pt>
 File: figures/ALA3_rama_oplsaa_maxent_belt.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_oplsaa_maxent_belt.pdf>
 Package pdftex.def Info: figures/ALA3_rama_oplsaa_maxent_belt.pdf used on input
- line 286.
+ line 301.
 (pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
 
-<figures/ALA3_rama_colorbar.pdf, id=447, 429.41367pt x 81.94992pt>
+<figures/ALA3_rama_colorbar.pdf, id=451, 429.41367pt x 81.94992pt>
 File: figures/ALA3_rama_colorbar.pdf Graphic file (type pdf)
 
 <use figures/ALA3_rama_colorbar.pdf>
-Package pdftex.def Info: figures/ALA3_rama_colorbar.pdf used on input line 287.
+Package pdftex.def Info: figures/ALA3_rama_colorbar.pdf used on input line 303.
 
 (pdftex.def)             Requested size: 86.78099pt x 16.56099pt.
- [8] [9 <./figures/state_0_by_forcefield_priors.pdf> <./figures/state_1_by_forc
-efield_priors.pdf
+ [13] [14 <./figures/state_0_by_forcefield_priors.pdf> <./figures/state_1_by_fo
+rcefield_priors.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/state_1_by_forcefield_priors.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -812,11 +1036,11 @@ pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/state_2_by_forcefield_priors.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [10 <./figures/chi2_train_priors.pdf> <./figures/chi2_test_priors.pdf
+>] [15 <./figures/chi2_train_priors.pdf> <./figures/chi2_test_priors.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/chi2_test_priors.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
->] [11 <./figures/ALA3_rama_amber96_raw.pdf> <./figures/ALA3_rama_amber96_maxen
+>] [16 <./figures/ALA3_rama_amber96_raw.pdf> <./figures/ALA3_rama_amber96_maxen
 t_belt.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber96_maxent_belt
@@ -859,40 +1083,58 @@ pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_colorbar.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
->] [12] [13] [14] [15] (./belt.bbl [16
+>] [17] [18] [19] [20]
+Overfull \hbox (6.57683pt too wide) in paragraph at lines 365--387
+ [][] 
+ []
+
+[21
+
+] (./belt.bbl
+Underfull \hbox (badness 1117) in paragraph at lines 24--32
+[]\T1/ptm/m/n/12 Berman, H. M.; West-brook, J.; Feng, Z.; Gilliland, G.; Bhat, 
+T. N.; Weis-sig, H.;
+ []
+
+[22
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 186--194
+[]\T1/ptm/m/n/12 Wikipedia, Kull-back^^ULeibler di-ver-gence --- Wikipedia, The
+ Free En-cy-clo-pe-dia.
+ []
 
 
-] [17] [18]) [19] (./belt.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 186--194
+\T1/ptm/m/n/12 2004; $\T1/pcr/m/n/12 http : / / en . wikipedia . org / wiki / K
+ullback % E2 % 80 % 93Leibler _
+ []
+
+[23] [24]) [25] (./belt.aux) ) 
 Here is how much of TeX's memory you used:
- 4105 strings out of 495059
- 57802 string characters out of 3182030
- 128481 words of memory out of 3000000
- 7177 multiletter control sequences out of 15000+200000
- 13864 words of font info for 54 fonts, out of 3000000 for 9000
+ 6597 strings out of 495059
+ 99324 string characters out of 3182030
+ 160810 words of memory out of 3000000
+ 9548 multiletter control sequences out of 15000+200000
+ 101762 words of font info for 178 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,32p,1416b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on belt.pdf (21 pages, 1353965 bytes).
+ 60i,8n,94p,1436b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
+se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbo
+l/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on belt.pdf (25 pages, 1254105 bytes).
 PDF statistics:
- 1545 PDF objects out of 1728 (max. 8388607)
- 427 compressed objects within 5 object streams
+ 1531 PDF objects out of 1728 (max. 8388607)
+ 416 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

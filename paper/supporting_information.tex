@@ -12,7 +12,7 @@
 \makeatletter 
 \renewcommand{\thetable}{S\@arabic\c@table}
 
-\author{Kyle A. Beauchamp,   Rhiju Das,  and Vijay S. Pande}
+\author{Kyle A. Beauchamp, Vijay S. Pande, and Rhiju Das}
 %\affiliation[Biophysics Program]{Biophysics Program}
 
 %\author{}
@@ -549,7 +549,7 @@ $$\int p(x) dx = 1 $$
 
 Second, $p(x)$ must give the correct average potential energy:
 
-$$\int U(x) p(x) dx = \frac{3}{2} N K_B T$$
+$$\int U(x) p(x) dx = \frac{3}{2} N k_B T$$
 
 Finally, we assume that we have access to an ensemble-average measurement $F$ and a function $f(x)$ that predicts the observable as a function of atomic coordinates:
 
@@ -585,7 +585,7 @@ To minimize $\Lambda$, we calculate the gradient and set it to zero:
 
 $$\frac{d\Lambda}{d\alpha_k} = -\langle f_k \rangle_\alpha + F_k$$
 
-The obvious solution, when feasible, is to set $\langle f_i(x) \rangle_\alpha = F_i$.  
+The obvious solution, when feasible, is the choice of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$.  
 
 
 \subsection*{Connecting BELT and Maximum Entropy}
@@ -623,7 +623,10 @@ Letting $C$ be a normalizing constant, we have:
 
 $$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\lambda D(\rho || \rho^0))$$
 
-For convenience, let $\phi$ denote the ensemble average, in the ensemble $\rho$, of the experimental observable of interest: $\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$.  Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  
+For convenience, let $\phi$ denote the ensemble average, in the ensemble $\rho$, of the experimental observable of interest: 
+$$\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$$
+
+Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  
 
 We now wish to express the arbitrary ensemble $\rho$ as a perturbation from the maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
 

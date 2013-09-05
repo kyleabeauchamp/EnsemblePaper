@@ -1,47 +1,48 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: belt.aux
-The style file: biophysj.bst
-Database file #1: belt.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 55 entries,
-            3176 wiz_defined-function locations,
-            973 strings with 16647 characters,
-and the built_in function-call counts, 29035 in all, are:
-= -- 1974
-> -- 1799
-< -- 13
-+ -- 594
-- -- 484
-* -- 2142
-:= -- 4147
-add.period$ -- 166
-call.type$ -- 55
-change.case$ -- 56
-chr.to.int$ -- 55
-cite$ -- 55
-duplicate$ -- 2451
-empty$ -- 2246
-format.name$ -- 603
-if$ -- 5945
-int.to.chr$ -- 1
-int.to.str$ -- 56
-missing$ -- 557
-newline$ -- 281
+The style file: achemso.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: acs-belt.bib
+Database file #2: belt.bib
+You've used 56 entries,
+            2470 wiz_defined-function locations,
+            1063 strings with 17752 characters,
+and the built_in function-call counts, 20134 in all, are:
+= -- 1540
+> -- 1377
+< -- 15
++ -- 541
+- -- 485
+* -- 2286
+:= -- 2779
+add.period$ -- 56
+call.type$ -- 56
+change.case$ -- 3
+chr.to.int$ -- 1
+cite$ -- 56
+duplicate$ -- 1140
+empty$ -- 1199
+format.name$ -- 553
+if$ -- 3723
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 351
 num.names$ -- 165
-pop$ -- 810
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 55
+purify$ -- 0
 quote$ -- 0
-skip$ -- 529
+skip$ -- 1
 stack$ -- 0
-substring$ -- 1187
-swap$ -- 1317
-text.length$ -- 1
+substring$ -- 1043
+swap$ -- 1281
+text.length$ -- 111
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 382
+type$ -- 386
 warning$ -- 0
-while$ -- 193
+while$ -- 197
 width$ -- 0
-write$ -- 715
+write$ -- 673
