@@ -603,7 +603,7 @@ As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alp
 
 \subsection*{Connecting BELT and Hyperensembles}
 
-It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  In that work, Crooks defines a probability distribution on ensembles given by 
+It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  Here we drive the BELT model using this entropic prior as a starting point.  In that work, Crooks defines a probability distribution on ensembles given by 
 
 $$P(\rho) = \frac{1}{Z(\lambda)} \exp(- \lambda D(\rho || \rho^0))$$
 
@@ -625,6 +625,7 @@ $$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\la
 
 For convenience, let $\phi$ denote the ensemble average, in the ensemble $\rho$, of the experimental observable of interest: 
 $$\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$$
+
 Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  
 
 We now wish to express the arbitrary ensemble $\rho$ as a perturbation from the maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
