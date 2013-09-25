@@ -603,7 +603,7 @@ As before, if we find a value of $\alpha$ such that $\langle f_i(x) \rangle_\alp
 
 \subsection*{Connecting BELT and Hyperensembles}
 
-It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  Here we drive the BELT model using this entropic prior as a starting point.  In that work, Crooks defines a probability distribution on ensembles given by 
+It has been argued \cite{crooks2007beyond} that a non-equilibrium ensemble $\rho$ ought to be characterized by the distance from equilibrium, as measured by the relative entropy.  Here we derive the BELT model using this entropic prior as a starting point.  In that work, Crooks defines a probability distribution on ensembles given by 
 
 $$P(\rho) = \frac{1}{Z(\lambda)} \exp(- \lambda D(\rho || \rho^0))$$
 
@@ -683,6 +683,42 @@ Another property to note is that the $\chi^2$ log likelihood is the only term de
 $$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 + \log P_{eff}(\alpha)$$
 
 Improved priors on $\alpha$ could possibly have the effect of correcting for the approximations (e.g. $\sigma\rightarrow 0$, $\lambda \rightarrow \infty$) used here in deriving BELT.   
+
+\subsection*{Modifying BELT with HyperEnsembles}
+
+The above derivation suggested how BELT might be modified to better match the hyperensemble picture of Crooks.  One such way is to include a log likelihood term of the form $- \frac{1}{2} \log \det H(\alpha)$--the addition of such a term accounts for the ``volume'' of phase space occupied around each value of $\alpha$.  Here we derive an expression for this term.  The first step is to calculate the Hessian matrix of the function
+
+$$f(\Delta) = D(\rho|\rho^0) = \sum_j \rho_j \log \frac{\rho_j}{\rho^0_j} = \sum_j \rho_j \log \rho_j - \sum_j \rho_j \log \rho^0_j$$
+
+Before we proceed, we must eliminate the coordinates that are defined by constraints.  Although in practice, BELT may have several constraints, for simplicity, here we include only the first constraint:
+
+$$\rho_n = 1 - \sum_{j=1}^{m-1} \rho_j$$
+
+$$f(\Delta) = \sum_{j=1}^{m-1} \rho_j \log \rho_j - \sum_{j=1}^{m-1} \rho_j \log \rho^0_j + \rho_n \log \rho_n - \rho_n \log \rho^0_n$$
+$$f(\Delta) = \sum_{j=1}^{m-1} \rho_j \log \rho_j - \sum_{j=1}^{m-1} \rho_j \log \rho^0_j + (1 - \sum_{j=1}^{m-1}\rho_j) \log (1 - \sum_{j=1}^{m-1}\rho_j) - (1 - \sum_{j=1}^{m-1}\rho_j) \log \rho^0_n$$
+
+Now we calculate the partial derivatives.  Note that $\Delta_j = \rho_j - \rho^0_j$ is linearly related to $\rho$, so $\partial \Delta_a = \partial \rho_a$:
+
+$$\frac{\partial f}{\partial \Delta_a} = \log \rho_a - \log (1 - \sum_{j=1}^{m-1} \rho_j) - \log \rho^0_a + \log \rho^0_n$$
+$$\frac{\partial^2 f}{\partial \Delta_a \partial \Delta_b} = \frac{1}{\rho_a} \delta_{ab} + \frac{1}{1 - \sum_{j=1}^{m-1} \rho_j} = \frac{1}{\rho_a}\delta_{ab} + \frac{1}{\rho_n}$$
+
+We wish to calculate $\log \det (H)$.  To do so, we first notice that $H$ has a special structure:
+
+$$H = D + a 1$$
+
+Here, $D$ is a diagonal matrix and $1$ is a matrix of ones.  By using elementary row operations and expansion by minors, one can show that determinants of this form are given by:
+
+$$ \log \det H = \log(1 + a \sum_i \frac{1}{d_i}) + \sum_j \log d_j$$
+
+Inserting $d_j = \frac{1}{\rho_j}$ and $a = \frac{1}{\rho_n}$, this simplifies to 
+
+$$ \log \det H = - \sum_{j=1}^m \log \rho_j$$
+
+Thus, the additional term in the log likelihood is given by
+
+$$-\frac{1}{2} \log \det H = \frac{1}{2} \sum_{j=1}^m \log \rho_j$$
+
+Note that this approximation neglects the off-diagonal entries that arise from additional constraints on the system.
 
 \section*{Appendix S2.  Derivation of Reweighting}
 

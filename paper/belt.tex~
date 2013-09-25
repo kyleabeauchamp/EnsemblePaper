@@ -299,6 +299,7 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Di
 \subfigure[]{
 \includegraphics[width=3.05cm]{figures/ALA3_rama_oplsaa_maxent_belt.pdf}
 }
+
 \includegraphics[width=3.05cm]{figures/ALA3_rama_colorbar.pdf}
 
 
@@ -344,7 +345,8 @@ Scalar couplings predicted using parameterized Karplus relations will span a lim
 
 \section*{Limitations of BELT}
 
-There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  The same increased sampling requirements apply as one attempts to fit many measurements simultaneously.  In the worst-case scenario, fitting $n$ measurements could require MD datasets whose size grows exponentially with $n$.  A second limitation in BELT is its computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of at least $\frac{1}{250000}$.  A third limitation is the independent normal approximation used in BELT's error model (see Appx. S3).  More sophisticated error models may be possible, including the Bayesian formalisms from the Nilges group \cite{rieping2005, habeck2006, habeck2005bayesian}.  Finally, BELT is currently formulated for use with equilibrium measurements, meaning that the present framework cannot be used to predict kinetic properties.  
+There are several limitations of the BELT method.  Most obvious is that BELT can only reweight existing simulations.  The force field used must be sufficiently accurate to sample experimentally-consistent conformations.  Achieving accurate predictions using poor force fields may require orders of magnitude more MD sampling.  The same increased sampling requirements apply as one attempts to fit many measurements simultaneously.  In the worst-case scenario, fitting $n$ measurements could require MD datasets whose size grows exponentially with $n$.  A second limitation in BELT is its computational cost.  In the present calculations, MCMC sampling for each model took approximately 24 hours.  These datasets included six measurements and approximately 250,000 conformations.  Because using additional conformations is computationally prohibitive, BELT ensembles are essentially limited to resolving states that have populations of at least $\frac{1}{250000}$.  A third limitation is the independent normal approximation 
+used in BELT's error model (see Appx. S3).  More sophisticated error models may be possible, including the Bayesian formalisms from the Nilges group \cite{rieping2005, habeck2006, habeck2005bayesian}.  Finally, BELT is currently formulated for use with equilibrium measurements, meaning that the present framework cannot be used to predict kinetic properties.  
 
 \section*{Conclusion}
 
