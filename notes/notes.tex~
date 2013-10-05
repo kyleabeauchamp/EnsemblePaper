@@ -1,12 +1,49 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
-\usepackage{url}
-
 
 \begin{document}
+
+\section{Using Rhiju's derivation}
+
+We wish to calculate the following integral over ensembles $\rho$:
+
+$$\int d\phi \exp(-\frac{1}{2 \sigma^2} (F - \phi)^2 \int d\rho  \exp(-\lambda \sum_j \rho_j \log \frac{\rho_j}{\rho_j^0}) \delta(\sum_j \rho_j - 1) \delta(\sum_j \rho_j f_j - \phi)$$
+
+We will expand $f(\rho) = -\sum \rho_j \log \frac{\rho_j}{\rho_j^0}$, so we need to calculate derivatives:
+
+$$\frac{\partial f }{\partial \rho_j} = - \log \frac{\rho_i}{\rho_i^0} - 1$$
+$$\frac{\partial^2 f}{\partial \rho_i \partial \rho_j} = - \frac{\delta_{ij}}{\rho_i}$$
+
+We can expand $f$ via:
+
+$$f(\rho^* + \Delta) = f(\rho^*) -  \sum_j (\log \frac{\rho_j^*}{\rho_j^0} + 1) \Delta_j - \sum_j \frac{\Delta_j^2}{\rho_j^*}$$
+
+Thus, we have
+
+$$\int d\phi \exp(-\frac{1}{2 \sigma^2} (F - \phi)^2 \exp(-\lambda \sum_j \rho_j(\phi) \log \frac{\rho_j(\phi)}{\rho_j^0}) * $$
+
+$$ * \int d\Delta  \exp( -\lambda \sum_j (\log \frac{\rho_j}{\rho_j^0} + 1) \Delta_j -\frac{\lambda}{2} \sum_j \frac{\Delta_j^2}{\rho_j}) \delta(\sum_j \rho_j) \delta(\sum_j \rho_j f_j)$$
+
+We now re-write the delta functions as $\delta(x) = \frac{1}{2\pi} \int \exp(-i k x) dk$.  We consider only the second half of the overall expression:
+
+$$ * \int dk_1 dk_2 d\Delta  \exp[ -\lambda \sum_j (\log \frac{\rho_j}{\rho_j^0} + 1) \Delta_j -\frac{\lambda}{2} \sum_j \frac{\Delta_j^2}{\rho_j} + k_1 \sum_j \Delta_j  + k_2 \sum_j \Delta_j f_j]$$
+
+
+$$ * \int dk_1 dk_2 \prod_j d\Delta_j  \exp[ -\lambda (\log \frac{\rho_j}{\rho_j^0} + 1) \Delta_j -\frac{\lambda}{2} \frac{\Delta_j^2}{\rho_j} + k_1 \Delta_j  + k_2 \Delta_j f_j]$$
+
+Rearranging terms and pulling out a factor of $-\frac{1}{2}$, 
+
+$$ * \int dk_1 dk_2 \prod_j d\Delta_j  \exp[ -\frac{1}{2}(\Delta_j^2 \frac{\lambda}{\rho_j} + \Delta_j (2 \lambda \log \frac{\rho_j}{\rho_j^0} + 2 \lambda  + 2 k_1 + 2 k_2 f_j))]$$
+
+Let $x_j = \sqrt{\frac{\lambda}{\rho_j}} \Delta_j$:
+
+$$ * \int dk_1 dk_2 \prod_j dx_j \sqrt{\frac{\rho_j}{\lambda}}  \exp[ -\frac{1}{2}(x_j^2  + x_j \sqrt{\frac{\rho_j}{\lambda}}(2 \lambda \log \frac{\rho_j}{\rho_j^0} + 2 \lambda  + 2 k_1 + 2 k_2 f_j))]$$
+
+Completing the square and performing the integration of $x$, we have
+
+$$ * \int dk_1 dk_2 \prod_j  \sqrt{\frac{\rho_j}{\lambda}} \sqrt{2 \pi}  \exp[ \frac{1}{2}(\sqrt{\frac{\rho_j}{\lambda}}( \lambda \log \frac{\rho_j}{\rho_j^0} +  \lambda  +  k_1 +  k_2 f_j)^2)]$$
+
 
 \section{Calculating the Hessian Matrix}
 
@@ -185,7 +222,8 @@ The Jacobian is
 
 $$\prod \rho_j$$
 
-This should lead to a slightly different result
+This should lead to a slightly different result by adjusting the exponent on the $\prod \rho_j$ term.
+
 
 
 \end{document}

@@ -40,11 +40,6 @@ Let $x_j = \sqrt{\frac{\lambda}{\rho_j}} \Delta_j$:
 
 $$ * \int dk_1 dk_2 \prod_j dx_j \sqrt{\frac{\rho_j}{\lambda}}  \exp[ -\frac{1}{2}(x_j^2  + x_j \sqrt{\frac{\rho_j}{\lambda}}(2 \lambda \log \frac{\rho_j}{\rho_j^0} + 2 \lambda  + 2 k_1 + 2 k_2 f_j))]$$
 
-Completing the square and performing the integration of $x$, we have
-
-$$ * \int dk_1 dk_2 \prod_j  \sqrt{\frac{\rho_j}{\lambda}} \sqrt{2 \pi}  \exp[ \frac{1}{2}(\sqrt{\frac{\rho_j}{\lambda}}( \lambda \log \frac{\rho_j}{\rho_j^0} +  \lambda  +  k_1 +  k_2 f_j))^2]$$
-
-
 \section{Calculating the Hessian Matrix}
 
 $$f = \sum_i p_i \log p_i$$
