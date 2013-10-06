@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  7 SEP 2013 16:15
+This is XeTeX, Version 3.1415926-2.4-0.9998 (TeX Live 2012/Debian) (format=xelatex 2013.9.22)  30 SEP 2013 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -14,14 +14,14 @@ Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -32,7 +32,7 @@ Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks14
 \XKV@tempa@toks=\toks15
-\XKV@depth=\count87
+\XKV@depth=\count88
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 
 (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex)))
@@ -43,12 +43,12 @@ Package: mciteplus 2008/09/30 v1.1 enhanced mcite
 \@mcitetmptoksA=\toks16
 \@mcitetmpdima=\dimen103
 \@mcitetmpdimb=\dimen104
-\@mcitetmpcnta=\count88
-\@mcitetmpcntb=\count89
-\c@mcitebibitemcount=\count90
-\c@mcitesubitemcount=\count91
+\@mcitetmpcnta=\count89
+\@mcitetmpcntb=\count90
+\c@mcitebibitemcount=\count91
+\c@mcitesubitemcount=\count92
 )
-\c@bibnote=\count92
+\c@bibnote=\count93
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
@@ -62,7 +62,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -71,9 +71,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count93
-\Gm@cntv=\count94
-\c@Gm@tempcnt=\count95
+\Gm@cnth=\count94
+\Gm@cntv=\count95
+\c@Gm@tempcnt=\count96
 \Gm@bindingoffset=\dimen105
 \Gm@wd@mp=\dimen106
 \Gm@odd@mp=\dimen107
@@ -99,14 +99,14 @@ Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \caption@parindent=\dimen117
 \caption@hangindent=\dimen118
 )
-\c@ContinuedFloat=\count96
+\c@ContinuedFloat=\count97
 )
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count97
+\c@float@type=\count98
 \float@exts=\toks18
 \float@box=\box26
 \@float@everytoks=\toks19
@@ -124,18 +124,11 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: xetex.def on input line 91.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2009/11/22 v0.94 LaTeX color/graphics driver for XeTeX (RRM/JK)
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count98
 ))
 \Gin@req@height=\dimen119
 \Gin@req@width=\dimen120
@@ -620,9 +613,9 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: xetex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -657,67 +650,9 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count137
-\scratchdimen=\dimen154
-\scratchbox=\box56
-\nofMPsegments=\count138
-\nofMParguments=\count139
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count140
-\MPscratchDim=\dimen155
-\MPnumerator=\count141
-\makeMPintoPDFobject=\count142
-\everyMPtoPDFconversion=\toks35
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Try loading font information for T1+phv on input line 44.
-
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
@@ -791,25 +726,15 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 48.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 57.
  [2]
-<figures/single_karplus.pdf, id=16, 521.63008pt x 442.21149pt>
-File: figures/single_karplus.pdf Graphic file (type pdf)
+File: figures/single_karplus.pdf Graphic file (type QTm)
 
-<use figures/single_karplus.pdf>
-Package pdftex.def Info: figures/single_karplus.pdf used on input line 74.
-(pdftex.def)             Requested size: 209.76265pt x 177.82971pt.
-
-<figures/four_phi_histograms.pdf, id=17, 515.57622pt x 439.79622pt>
-File: figures/four_phi_histograms.pdf Graphic file (type pdf)
-
-<use figures/four_phi_histograms.pdf>
-Package pdftex.def Info: figures/four_phi_histograms.pdf used on input line 77.
-
-(pdftex.def)             Requested size: 208.4768pt x 177.82971pt.
-
+<use  "figures/single_karplus.pdf" >
+File: figures/four_phi_histograms.pdf Graphic file (type QTm)
+ <use  "figures/four_phi_histograms.pdf" >
 Overfull \hbox (4.08394pt too wide) in paragraph at lines 86--87
 \T1/ptm/m/n/12 force fields with rad-i-cally dif-fer-ent prop-er-ties. We there
 -fore in-ves-ti-gated the con-for-ma-tional propen-
@@ -818,80 +743,25 @@ Overfull \hbox (4.08394pt too wide) in paragraph at lines 86--87
 [3]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 91.
- [4 <./figures/single_karplus.pdf> <./figures/four_phi_histograms.pdf
+ [4]
+File: figures/info_graphic/info_graphic.png Graphic file (type QTm)
+ <use  "figures/info_graphic/info_graphic.png" > [5]
+File: figures/model_hist-1.pdf Graphic file (type QTm)
 
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/four_phi_histograms.pdf): PDF
- inclusion: multiple pdfs with page group included in a single page
->] <figures/info_graphic/info_graphic.png, id=115, 284.5029pt x 284.5029pt>
-File: figures/info_graphic/info_graphic.png Graphic file (type png)
+<use  "figures/model_hist-1.pdf" >
+File: figures/model_hist0.pdf Graphic file (type QTm)
+ <use  "figures/model_hist0.pdf" >
+File: figures/model_hist1.pdf Graphic file (type QTm)
 
-<use figures/info_graphic/info_graphic.png>
-Package pdftex.def Info: figures/info_graphic/info_graphic.png used on input li
-ne 97.
-(pdftex.def)             Requested size: 455.24408pt x 455.24431pt.
- [5 <./figures/info_graphic/info_graphic.png>] <figures/model_hist-1.pdf, id=12
-1, 538.86635pt x 434.5422pt>
-File: figures/model_hist-1.pdf Graphic file (type pdf)
+<use  "figures/model_hist1.pdf" >
+File: figures/model_landscape-1.pdf Graphic file (type QTm)
+ <use  "figures/model_landscape-1.pdf" >
+File: figures/model_landscape0.pdf Graphic file (type QTm)
 
-<use figures/model_hist-1.pdf>
-Package pdftex.def Info: figures/model_hist-1.pdf used on input line 123.
-(pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
-
-<figures/model_hist0.pdf, id=122, 538.86635pt x 434.5422pt>
-File: figures/model_hist0.pdf Graphic file (type pdf)
-
-<use figures/model_hist0.pdf>
-Package pdftex.def Info: figures/model_hist0.pdf used on input line 126.
-(pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
-
-<figures/model_hist1.pdf, id=123, 538.86635pt x 434.5422pt>
-File: figures/model_hist1.pdf Graphic file (type pdf)
-
-<use figures/model_hist1.pdf>
-Package pdftex.def Info: figures/model_hist1.pdf used on input line 129.
-(pdftex.def)             Requested size: 142.26378pt x 114.72214pt.
-
-<figures/model_landscape-1.pdf, id=124, 527.51143pt x 434.5422pt>
-File: figures/model_landscape-1.pdf Graphic file (type pdf)
-
-<use figures/model_landscape-1.pdf>
-Package pdftex.def Info: figures/model_landscape-1.pdf used on input line 133.
-(pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
-
-<figures/model_landscape0.pdf, id=125, 527.51143pt x 434.5422pt>
-File: figures/model_landscape0.pdf Graphic file (type pdf)
-
-<use figures/model_landscape0.pdf>
-Package pdftex.def Info: figures/model_landscape0.pdf used on input line 136.
-(pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
-
-<figures/model_landscape1.pdf, id=126, 527.51143pt x 434.5422pt>
-File: figures/model_landscape1.pdf Graphic file (type pdf)
-
-<use figures/model_landscape1.pdf>
-Package pdftex.def Info: figures/model_landscape1.pdf used on input line 139.
-(pdftex.def)             Requested size: 142.26378pt x 117.18872pt.
- [6] [7 <./figures/model_hist-1.pdf> <./figures/model_hist0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_hist0.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
-> <./figures/model_hist1.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_hist1.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
-> <./figures/model_landscape-1.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_landscape-1.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> <./figures/model_landscape0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_landscape0.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
-> <./figures/model_landscape1.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/model_landscape1.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
->] [8] [9] [10]
+<use  "figures/model_landscape0.pdf" >
+File: figures/model_landscape1.pdf Graphic file (type QTm)
+ <use  "figures/model_landscape1.pdf" >
+[6] [7] [8] [9] [10]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 205.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -902,188 +772,54 @@ Overfull \hbox (45.42377pt too wide) in paragraph at lines 211--212
  []
 
 [11] [12]
-<figures/state_0_by_forcefield_priors.pdf, id=436, 522.57109pt x 483.33485pt>
-File: figures/state_0_by_forcefield_priors.pdf Graphic file (type pdf)
+File: figures/state_0_by_forcefield_priors.pdf Graphic file (type QTm)
+ <use  "figures/state_0_by_forcefield_priors.pdf" >
+File: figures/state_1_by_forcefield_priors.pdf Graphic file (type QTm)
 
-<use figures/state_0_by_forcefield_priors.pdf>
-Package pdftex.def Info: figures/state_0_by_forcefield_priors.pdf used on input
- line 238.
-(pdftex.def)             Requested size: 213.39566pt x 197.37206pt.
+<use  "figures/state_1_by_forcefield_priors.pdf" >
+File: figures/state_2_by_forcefield_priors.pdf Graphic file (type QTm)
 
-<figures/state_1_by_forcefield_priors.pdf, id=437, 523.15138pt x 483.61716pt>
-File: figures/state_1_by_forcefield_priors.pdf Graphic file (type pdf)
+<use  "figures/state_2_by_forcefield_priors.pdf" >
+File: figures/chi2_train_priors.pdf Graphic file (type QTm)
 
-<use figures/state_1_by_forcefield_priors.pdf>
-Package pdftex.def Info: figures/state_1_by_forcefield_priors.pdf used on input
- line 242.
-(pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
+<use  "figures/chi2_train_priors.pdf" >
+File: figures/chi2_test_priors.pdf Graphic file (type QTm)
+ <use  "figures/chi2_test_priors.pdf" >
+File: figures/ALA3_rama_amber96_raw.pdf Graphic file (type QTm)
 
-<figures/state_2_by_forcefield_priors.pdf, id=438, 523.15138pt x 483.61716pt>
-File: figures/state_2_by_forcefield_priors.pdf Graphic file (type pdf)
+<use  "figures/ALA3_rama_amber96_raw.pdf" >
+File: figures/ALA3_rama_amber96_maxent_belt.pdf Graphic file (type QTm)
 
-<use figures/state_2_by_forcefield_priors.pdf>
-Package pdftex.def Info: figures/state_2_by_forcefield_priors.pdf used on input
- line 245.
-(pdftex.def)             Requested size: 213.39566pt x 197.26596pt.
+<use  "figures/ALA3_rama_amber96_maxent_belt.pdf" >
+File: figures/ALA3_rama_amber99_raw.pdf Graphic file (type QTm)
 
-<figures/chi2_train_priors.pdf, id=439, 539.79169pt x 486.6284pt>
-File: figures/chi2_train_priors.pdf Graphic file (type pdf)
+<use  "figures/ALA3_rama_amber99_raw.pdf" >
+File: figures/ALA3_rama_amber99_maxent_belt.pdf Graphic file (type QTm)
 
-<use figures/chi2_train_priors.pdf>
-Package pdftex.def Info: figures/chi2_train_priors.pdf used on input line 256.
-(pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
+<use  "figures/ALA3_rama_amber99_maxent_belt.pdf" >
+File: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf Graphic file (type QTm)
 
-<figures/chi2_test_priors.pdf, id=440, 539.79169pt x 486.6284pt>
-File: figures/chi2_test_priors.pdf Graphic file (type pdf)
+<use  "figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf" >
+File: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf Graphic file (type QT
+m)
 
-<use figures/chi2_test_priors.pdf>
-Package pdftex.def Info: figures/chi2_test_priors.pdf used on input line 259.
-(pdftex.def)             Requested size: 213.39566pt x 192.37575pt.
+<use  "figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf" >
+File: figures/ALA3_rama_charmm27_raw.pdf Graphic file (type QTm)
 
-<figures/ALA3_rama_amber96_raw.pdf, id=441, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber96_raw.pdf Graphic file (type pdf)
+<use  "figures/ALA3_rama_charmm27_raw.pdf" >
+File: figures/ALA3_rama_charmm27_maxent_belt.pdf Graphic file (type QTm)
 
-<use figures/ALA3_rama_amber96_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber96_raw.pdf used on input line 2
-70.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
+<use  "figures/ALA3_rama_charmm27_maxent_belt.pdf" >
+File: figures/ALA3_rama_oplsaa_raw.pdf Graphic file (type QTm)
 
-<figures/ALA3_rama_amber96_maxent_belt.pdf, id=442, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber96_maxent_belt.pdf Graphic file (type pdf)
+<use  "figures/ALA3_rama_oplsaa_raw.pdf" >
+File: figures/ALA3_rama_oplsaa_maxent_belt.pdf Graphic file (type QTm)
 
-<use figures/ALA3_rama_amber96_maxent_belt.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber96_maxent_belt.pdf used on inpu
-t line 273.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
+<use  "figures/ALA3_rama_oplsaa_maxent_belt.pdf" >
+File: figures/ALA3_rama_colorbar.pdf Graphic file (type QTm)
 
-<figures/ALA3_rama_amber99_raw.pdf, id=443, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber99_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99_raw.pdf used on input line 2
-77.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_amber99_maxent_belt.pdf, id=444, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99_maxent_belt.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_amber99_maxent_belt.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99_maxent_belt.pdf used on inpu
-t line 280.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf, id=445, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf Graphic file (type pdf)
-<use figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf used on in
-put line 284.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf, id=446, 442.1958pt x 434.
-96567pt>
-File: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf Graphic file (type pd
-f)
- <use figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf>
-Package pdftex.def Info: figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf us
-ed on input line 287.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_charmm27_raw.pdf, id=447, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_charmm27_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_charmm27_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_charmm27_raw.pdf used on input line 
-291.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_charmm27_maxent_belt.pdf, id=448, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_charmm27_maxent_belt.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_charmm27_maxent_belt.pdf>
-Package pdftex.def Info: figures/ALA3_rama_charmm27_maxent_belt.pdf used on inp
-ut line 294.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_oplsaa_raw.pdf, id=449, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_oplsaa_raw.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_oplsaa_raw.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_raw.pdf used on input line 29
-8.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_oplsaa_maxent_belt.pdf, id=450, 442.1958pt x 434.96567pt>
-File: figures/ALA3_rama_oplsaa_maxent_belt.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_oplsaa_maxent_belt.pdf>
-Package pdftex.def Info: figures/ALA3_rama_oplsaa_maxent_belt.pdf used on input
- line 301.
-(pdftex.def)             Requested size: 86.78099pt x 85.35887pt.
-
-<figures/ALA3_rama_colorbar.pdf, id=451, 429.41367pt x 81.94992pt>
-File: figures/ALA3_rama_colorbar.pdf Graphic file (type pdf)
-
-<use figures/ALA3_rama_colorbar.pdf>
-Package pdftex.def Info: figures/ALA3_rama_colorbar.pdf used on input line 303.
-
-(pdftex.def)             Requested size: 86.78099pt x 16.56099pt.
- [13] [14 <./figures/state_0_by_forcefield_priors.pdf> <./figures/state_1_by_fo
-rcefield_priors.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/state_1_by_forcefield_priors.
-pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/state_2_by_forcefield_priors.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/state_2_by_forcefield_priors.
-pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [15 <./figures/chi2_train_priors.pdf> <./figures/chi2_test_priors.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/chi2_test_priors.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
->] [16 <./figures/ALA3_rama_amber96_raw.pdf> <./figures/ALA3_rama_amber96_maxen
-t_belt.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber96_maxent_belt
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99_raw.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99_maxent_belt.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99_maxent_belt
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_amber99sbnmr-ildn_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99sbnmr-ildn_r
-aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-
-> <./figures/ALA3_rama_amber99sbnmr-ildn_maxent_belt.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_amber99sbnmr-ildn_m
-axent_belt.pdf): PDF inclusion: multiple pdfs with page group included in a sin
-gle page
-> <./figures/ALA3_rama_charmm27_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_charmm27_raw.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_charmm27_maxent_belt.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_charmm27_maxent_bel
-t.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_oplsaa_raw.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_oplsaa_raw.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_oplsaa_maxent_belt.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_oplsaa_maxent_belt.
-pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/ALA3_rama_colorbar.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./figures/ALA3_rama_colorbar.pdf): PDF 
-inclusion: multiple pdfs with page group included in a single page
->] [17] [18] [19] [20]
+<use  "figures/ALA3_rama_colorbar.pdf" > [13] [14] [15] [16] [17] [18] [19]
+[20]
 Overfull \hbox (6.57683pt too wide) in paragraph at lines 365--387
  [][] 
  []
@@ -1099,42 +835,89 @@ T. N.; Weis-sig, H.;
 [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 186--194
-[]\T1/ptm/m/n/12 Wikipedia, Kull-back^^ULeibler di-ver-gence --- Wikipedia, The
- Free En-cy-clo-pe-dia.
- []
-
+Missing character: There is no – in font ptmr8t!
 
 Underfull \hbox (badness 10000) in paragraph at lines 186--194
-\T1/ptm/m/n/12 2004; $\T1/pcr/m/n/12 http : / / en . wikipedia . org / wiki / K
-ullback % E2 % 80 % 93Leibler _
+\T1/pcr/m/n/12 / / en . wikipedia . org / wiki / Kullback % E2 % 80 % 93Leibler
+ _ divergence$\T1/ptm/m/n/12 ,
  []
 
-[23] [24]) [25] (./belt.aux) ) 
+[23]
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 Schmidt,~J.; Blü
+                       mel,~M.; Lohr,~F.; Ruterjans,~H. \emph{J. Biomol. NMR}
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+[24]
+! Argument of \UTFviii@three@octets has an extra }.
+<inserted text> 
+                \par 
+l.362   Noé]{emma}
+                   
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \UTFviii@three@octets was complete.
+<to be read again> 
+                   \par 
+l.362   Noé]{emma}
+                   
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+
+! Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `utf8'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.363 ...kamp-Schroer,~B.; Mey,~A. S. J.~S.; Schü
+                                                  tte,~C.; Noé,~F.
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+! Package inputenc Error: Unicode char \u8:é,~ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.363 ....; Mey,~A. S. J.~S.; Schütte,~C.; Noé,~
+                                                  F.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) [25] (./belt.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) ) 
 Here is how much of TeX's memory you used:
- 6597 strings out of 495059
- 99324 string characters out of 3182030
- 160810 words of memory out of 3000000
- 9548 multiletter control sequences out of 15000+200000
- 101762 words of font info for 178 fonts, out of 3000000 for 9000
+ 5572 strings out of 495716
+ 82009 string characters out of 3188883
+ 146907 words of memory out of 3000000
+ 8576 multiletter control sequences out of 15000+200000
+ 67800 words of font info for 122 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,8n,94p,1121b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
-se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbo
-l/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/times/utmri8a.pfb>
-Output written on belt.pdf (25 pages, 1254105 bytes).
-PDF statistics:
- 1531 PDF objects out of 1728 (max. 8388607)
- 416 compressed objects within 5 object streams
- 0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+Output written on belt.pdf (25 pages).

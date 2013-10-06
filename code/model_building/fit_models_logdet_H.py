@@ -9,11 +9,12 @@ regularization_strength = 1E-6
 stride = 40
 
 thin = 500
-steps = 15000000
+steps = 150000
 
 predictions, measurements, uncertainties = experiment_loader.load(ff, stride=stride)
 phi, psi, ass_raw, state_ind = experiment_loader.load_rama(ff, stride)
 
+regularization_strength = 10.0
 model2 = belt.MaxEntBELT(predictions.values, measurements.values, uncertainties.values, regularization_strength, log_det_correction=True)
 model2.sample(steps, thin=thin, burn=ALA3.burn)
 
@@ -37,3 +38,9 @@ z2 = (mu2 - measurements) / uncertainties
 
 state_pops_trace = model.trace_observable(state_ind.T)
 state_pops_trace2 = model2.trace_observable(state_ind.T)
+
+data = []
+for p in model.iterate_populations():
+    mu2s = (predictions ** 2.).T.dot(p)
+    mu2 = predictions.T.dot(p)
+    data.append(-0.5 * np.log((mu2s - mu2 ** 2)).sum())

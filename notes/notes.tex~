@@ -4,6 +4,23 @@
 
 \begin{document}
 
+\section{My way, with f and p constraints}
+
+$$f(\rho) = \sum_{j=1}^{m-2} \rho_j \log \rho_j - \sum_j^{m-2} \rho_j \log \rho_j^0 + $$
+$$\rho_{n-1} \log \rho_{n-1} - \rho_{n-1} \log \rho_{n-1}^0 +$$
+$$\rho_n \log \rho_n  - \rho_n \log \rho_n^0$$
+
+
+$$\rho_{n-1} = \frac{\phi - f_n + f_n \sum_j^{n-2}  \rho_j - \sum_j^{n-2} f_j \rho_j}{f_{n-1} - f_n}$$
+$$\rho_{n} = \frac{f_{n-1} - f_{n-1}\sum_{j}^{n-2} \rho_j  - \phi  + \sum_j^{n-2} f_j \rho_j}{f_{n-1} - f_n}$$
+
+$$\frac{\partial \rho_n}{\partial \Delta_k} = \frac{f_k - f_{n-1}}{f_{n-1} - f_n}$$
+$$\frac{\partial \rho_{n-1}}{\partial \Delta_k} = \frac{f_n - f_k}{f_{n-1} - f_n}$$
+
+$$\frac{\partial f}{\partial \Delta_k} = 1 + \log \rho_k - \log \rho_k^0 + \frac{\partial \rho_{n-1}}{\partial \Delta_k} (1 + \log \rho_{n-1} - \log \rho_{n-1}^0) + \frac{\partial \rho_{n}}{\partial \Delta_k} (1 + \log \rho_{n} - \log \rho_{n}^0)$$
+
+$$\frac{\partial^2 f}{\partial \Delta_a \partial \Delta_b} = \frac{\delta_{ab}}{\rho_a} + \frac{f_n - f_a}{f_{n-1} - f_n} \frac{f_n - f_b}{f_{n-1} - f_n} \frac{1}{\rho_{n-1} + \frac{f_a - f_{n-1}}{f_{n-1} - f_n} \frac{f_b - f_{n-1}}{f_{n-1} - f_n} \frac{1}{\rho_n}$$
+
 \section{Using Rhiju's derivation}
 
 We wish to calculate the following integral over ensembles $\rho$:
@@ -42,7 +59,7 @@ $$ * \int dk_1 dk_2 \prod_j dx_j \sqrt{\frac{\rho_j}{\lambda}}  \exp[ -\frac{1}{
 
 Completing the square and performing the integration of $x$, we have
 
-$$ * \int dk_1 dk_2 \prod_j  \sqrt{\frac{\rho_j}{\lambda}} \sqrt{2 \pi}  \exp[ \frac{1}{2}(\sqrt{\frac{\rho_j}{\lambda}}( \lambda \log \frac{\rho_j}{\rho_j^0} +  \lambda  +  k_1 +  k_2 f_j)^2)]$$
+$$ * \int dk_1 dk_2 \prod_j  \sqrt{\frac{\rho_j}{\lambda}} \sqrt{2 \pi}  \exp[ \frac{1}{2}(\sqrt{\frac{\rho_j}{\lambda}}( \lambda \log \frac{\rho_j}{\rho_j^0} +  \lambda  +  k_1 +  k_2 f_j))^2]$$
 
 
 \section{Calculating the Hessian Matrix}
