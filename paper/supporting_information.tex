@@ -72,7 +72,7 @@ oplsaa\_maxent               & 52.22 & 19.62 & 8.57 & 4.58 \\
 
 \end{tabular}
 \caption{
-Predicted observables (chemical shifts) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
+Predicted observables (chemical shifts) for each force field and BELT model.  Because of limited page space, we refer to the amber forcefields as ``ff''.  
 }
 \end{table}
 \newpage
@@ -116,7 +116,7 @@ oplsaa\_maxent               &    11.28 &          1.95 &      2.22 &          0
 
 \end{tabular}
 \caption{
-Predicted observables (scalar couplings) for each force field and BELT model.  Because of limited page space, we refer to the ``amber'' forcefields as ``ff''.  
+Predicted observables (scalar couplings) for each force field and BELT model.  Because of limited page space, we refer to the amber forcefields as ``ff''.  
 }
 \end{table}
 
@@ -626,7 +626,7 @@ $$P(\rho | F) = C \exp(-\frac{1}{2\sigma^2} (\langle f \rangle - F)^2) \exp(-\la
 For convenience, let $\phi$ denote the ensemble average, in the ensemble $\rho$, of the experimental observable of interest: 
 $$\phi = \langle f \rangle_\rho = \sum_j f_j \rho_j$$
 
-Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  
+Suppose that $\rho^*(\phi)$ is the maximum entropy ensemble (in the sense of \cite{chodera2012}; see ``Outline of Maximum Entropy Formalism'') such that $\langle f \rangle_{\rho*} = \phi$.  The set of $\{ \rho^*(\phi)\}$ is a small subset of the set of all ensembles.  We now wish to see what happens when we integrate out or marginalize over the larger class of ensembles.  
 
 We now wish to express the arbitrary ensemble $\rho$ as a perturbation from the maximum entropy ensemble $\rho^*(\phi)$.  We introduce a perturbation variable $\Delta_j = \rho_j - \rho^*_j$ and change variables from $\{\rho_j\}$ to ($\phi$, $\{\Delta_j \}$), where $\Delta$ is a correction to the maximum entropy ensemble $\rho^*(\phi)$.  We express the posterior probability in the new variables $\phi$ and $\Delta$:
 
@@ -684,41 +684,6 @@ $$\log P(\alpha | F) = -\frac{1}{2\sigma^2} (\langle f \rangle_\alpha - F)^2 + \
 
 Improved priors on $\alpha$ could possibly have the effect of correcting for the approximations (e.g. $\sigma\rightarrow 0$, $\lambda \rightarrow \infty$) used here in deriving BELT.   
 
-\subsection*{Modifying BELT with HyperEnsembles}
-
-The above derivation suggested how BELT might be modified to better match the hyperensemble picture of Crooks.  One such way is to include a log likelihood term of the form $- \frac{1}{2} \log \det H(\alpha)$--the addition of such a term accounts for the ``volume'' of phase space occupied around each value of $\alpha$.  Here we derive an expression for this term.  The first step is to calculate the Hessian matrix of the function
-
-$$f(\Delta) = D(\rho|\rho^0) = \sum_j \rho_j \log \frac{\rho_j}{\rho^0_j} = \sum_j \rho_j \log \rho_j - \sum_j \rho_j \log \rho^0_j$$
-
-Before we proceed, we must eliminate the coordinates that are defined by constraints.  Although in practice, BELT may have several constraints, for simplicity, here we include only the first constraint:
-
-$$\rho_n = 1 - \sum_{j=1}^{m-1} \rho_j$$
-
-$$f(\Delta) = \sum_{j=1}^{m-1} \rho_j \log \rho_j - \sum_{j=1}^{m-1} \rho_j \log \rho^0_j + \rho_n \log \rho_n - \rho_n \log \rho^0_n$$
-$$f(\Delta) = \sum_{j=1}^{m-1} \rho_j \log \rho_j - \sum_{j=1}^{m-1} \rho_j \log \rho^0_j + (1 - \sum_{j=1}^{m-1}\rho_j) \log (1 - \sum_{j=1}^{m-1}\rho_j) - (1 - \sum_{j=1}^{m-1}\rho_j) \log \rho^0_n$$
-
-Now we calculate the partial derivatives.  Note that $\Delta_j = \rho_j - \rho^0_j$, so $\partial \Delta_a = \partial \rho_a$:
-
-$$\frac{\partial f}{\partial \Delta_a} = \log \rho_a - \log (1 - \sum_{j=1}^{m-1} \rho_j) - \log \rho^0_a + \log \rho^0_n$$
-$$\frac{\partial^2 f}{\partial \Delta_a \partial \Delta_b} = \frac{1}{\rho_a} \delta_{ab} + \frac{1}{1 - \sum_{j=1}^{m-1} \rho_j} = \frac{1}{\rho_a}\delta_{ab} + \frac{1}{\rho_n}$$
-
-We wish to calculate $\log \det (H)$.  To do so, we first notice that $H$ has a special structure:
-
-$$H = D + a 1$$
-
-Here, $D$ is a diagonal matrix and $1$ is a matrix of ones.  By using elementary row operations and expansion by minors, one can show that determinants of this form are given by:
-
-$$ \log \det H = \log(1 + a \sum_i \frac{1}{d_i}) + \sum_j \log d_j$$
-
-Inserting $d_j = \frac{1}{\rho_j}$ and $a = \frac{1}{\rho_n}$, this simplifies to 
-
-$$ \log \det H = - \sum_{j=1}^m \log \rho_j$$
-
-Thus, the additional term in the log likelihood is given by
-
-$$-\frac{1}{2} \log \det H = \frac{1}{2} \sum_{j=1}^m \log \rho_j$$
-
-Note that this approximation neglects the off-diagonal entries that arise from additional constraints on the system.
 
 \section*{Appendix S2.  Derivation of Reweighting}
 
