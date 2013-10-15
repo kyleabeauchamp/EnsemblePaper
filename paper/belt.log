@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  8 OCT 2013 17:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.21)  9 OCT 2013 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -206,9 +206,8 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 \acs@tocentry@height=\skip49
 \acs@tocentry@width=\skip50
 
-(/usr/share/texlive/texmf-dist/tex/latex/achemso/config/jctcce.cfg
-File: jctcce.cfg 2012/05/08 v3.7a achemso configuration: J. Chem. Theory Comput
-.
+(/usr/share/texlive/texmf-dist/tex/latex/achemso/config/jacsat.cfg
+File: jacsat.cfg 2012/05/08 v3.7a achemso configuration: J. Am. Chem. Soc.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
@@ -1108,7 +1107,7 @@ ullback % E2 % 80 % 93Leibler _
 Here is how much of TeX's memory you used:
  6597 strings out of 495059
  99324 string characters out of 3182030
- 160810 words of memory out of 3000000
+ 160819 words of memory out of 3000000
  9548 multiletter control sequences out of 15000+200000
  101762 words of font info for 178 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191

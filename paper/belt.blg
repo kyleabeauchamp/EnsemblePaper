@@ -8,23 +8,23 @@ Database file #2: belt.bib
 You've used 56 entries,
             2470 wiz_defined-function locations,
             1063 strings with 17740 characters,
-and the built_in function-call counts, 20134 in all, are:
-= -- 1540
-> -- 1377
-< -- 15
-+ -- 541
-- -- 485
+and the built_in function-call counts, 20054 in all, are:
+= -- 1485
+> -- 1380
+< -- 17
++ -- 543
+- -- 487
 * -- 2286
-:= -- 2779
+:= -- 2783
 add.period$ -- 56
 call.type$ -- 56
 change.case$ -- 3
-chr.to.int$ -- 1
+chr.to.int$ -- 2
 cite$ -- 56
-duplicate$ -- 1140
-empty$ -- 1199
+duplicate$ -- 1144
+empty$ -- 1200
 format.name$ -- 553
-if$ -- 3723
+if$ -- 3673
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
@@ -36,13 +36,13 @@ purify$ -- 0
 quote$ -- 0
 skip$ -- 1
 stack$ -- 0
-substring$ -- 1043
-swap$ -- 1281
+substring$ -- 1045
+swap$ -- 1284
 text.length$ -- 111
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 386
 warning$ -- 0
-while$ -- 197
+while$ -- 198
 width$ -- 0
 write$ -- 673
