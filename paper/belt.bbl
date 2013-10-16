@@ -146,6 +146,12 @@ Patil,~A.; Huard,~D.; Fonnesbeck,~C.~J. \emph{Journal of statistical software}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Crooks(2007)]{crooks2007beyond}
+Crooks,~G.~E. \emph{Physical Review E} \textbf{2007}, \emph{75}, 041119\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
 Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
   109--116\relax
@@ -164,12 +170,6 @@ Graf,~J.; Nguyen,~P.; Stock,~G.; Schwalbe,~H. \emph{J. Am. Chem. Soc.}
   Bax]{vogeli2007limits}
 V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{J. Am. Chem. Soc.}
   \textbf{2007}, \emph{129}, 9377--9385\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Crooks(2007)]{crooks2007beyond}
-Crooks,~G.~E. \emph{Physical Review E} \textbf{2007}, \emph{75}, 041119\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

@@ -349,7 +349,7 @@ used in BELT's error model (see Appx. S3).  More sophisticated error models may 
 
 \section*{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--i.e. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a simple tripeptide system.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  The principled combination of simulation and experiment will enable robust, incisive predictions of the atomic-scale behavior of macromolecules--predictions that might not be achievable using either simulation or experiment alone.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--e.g. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a simple tripeptide system.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles.  The principled combination of simulation and experiment will enable robust, incisive predictions of the atomic-scale behavior of macromolecules--predictions that might not be achievable using either simulation or experiment alone.  
 
 
 \section*{Acknowledgements}
