@@ -23,7 +23,7 @@
 
 %\email{rhiju@stanford.edu, pande@stanford.edu}
 
-\title{Supporting Information for Inferring Structural Ensembles from Noisy Experiments and Molecular Dynamics: Correcting Force Field Bias in Trialanine Simulations}
+\title{{\it Supporting Information for } Bayesian Energy Landscape Tilting: Towards Concordant Models of Molecular Ensembles}
 
 \begin{document}
 
@@ -586,6 +586,37 @@ To minimize $\Lambda$, we calculate the gradient and set it to zero:
 $$\frac{d\Lambda}{d\alpha_k} = -\langle f_k \rangle_\alpha + F_k$$
 
 The obvious solution, when feasible, is the choice of $\alpha$ such that $\langle f_i(x) \rangle_\alpha = F_i$.  
+
+To illustrate this approach, consider the case of a single observable $f_1(x)$ (and therefore a single parameter $\alpha_1$).  Suppose the molecule of interest shows a bimodal observable with two equally populated states.  If we let $\alpha_1$ = 0, then the biasing potential is $0$ everywhere and our reweighted ensemble simply returns the results of the MD simulation (Fig. \ref{figure:Hist}b).  If we let $\alpha_1 = -1$, conformations with large values of $f_1(x)$ are upweighted, while conformations with lower values of $f_1(x)$ are downweighted (Fig. \ref{figure:Hist}a).  Finally, if $\alpha_1 = 1$, the ensemble shifts in the opposite direction (Fig. \ref{figure:Hist}c).  
+
+\begin{figure}
+
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist-1.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist0.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_hist1.pdf}
+}
+
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_landscape-1.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_landscape0.pdf}
+}
+\subfigure[]{
+\includegraphics[width=5.0cm]{figures/model_landscape1.pdf}
+}
+
+\caption{
+(a, b, c): Raw ($\alpha_1 = 0$) and reweighted (e.g. tilted) histograms of a one dimensional observable.  (d, e, f): The same, but plotted as free energies (e.g. $-kT \log(p)$).  
+}
+\label{figure:Hist}
+\end{figure}
+
 
 
 \subsection*{Connecting BELT and Maximum Entropy}
