@@ -12,7 +12,7 @@ for ff, grp0 in d.groupby(["forcefield"]):
     for prior, grp1 in grp0.groupby(["prior"]):
         print(grp1.iloc[argmin(grp1["test_chi"])])
         plt.plot(grp1["regularization_strength"], grp1["test_chi"] / num_expt, 'o', label=prior)
-    plt.title("Cross validation (%s)" % ff)
+    plt.title("Cross validation (%s)" % ALA3.ff_map[ff])
     plt.xlabel(r"$\lambda$")
     plt.ylabel(r"$n^{-1}\chi^2$")
     plt.legend(loc='best')

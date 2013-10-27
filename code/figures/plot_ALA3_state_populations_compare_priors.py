@@ -76,7 +76,7 @@ for state, state_name in enumerate(state_name_list):
     plt.bar(x_local[1] + x_global,maxent_pops,color='b',label="maxent",yerr=errs_maxent,log=use_log,ecolor='k')
     plt.bar(x_local[2] + x_global,dirichlet_pops,color='c',label="dirichlet",yerr=errs_maxent,log=use_log,ecolor='k')    
     plt.bar(x_local[3] + x_global,mvn_pops,color='g',label="MVN",log=use_log,yerr=errs_MVN,ecolor="k")
-    plt.xticks(x_global + 1, ALA3.ff_list,rotation=60,fontsize=10)
+    plt.xticks(x_global + 1, ALA3.mapped_ff_list,rotation=60,fontsize=10)
     plt.ylabel("%s Population"%state_name)
     plt.legend(loc=0,numpoints=1,scatterpoints=1)
     plt.title("%s Populations by Forcefield"%(state_name))

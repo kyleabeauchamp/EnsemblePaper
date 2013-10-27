@@ -9,11 +9,9 @@ import matplotlib
 matplotlib.rcParams.update({'font.size': 18})
 
 bayesian_bootstrap_run_list = [0,1]
-#ff = "amber96"
-#prior = "dirichlet"
 
 grid = itertools.product(ALA3.ff_list, ALA3.prior_list)
-grid = [("amber96", "maxent")]
+grid = [("charmm27", "maxent")]
 
 for k, (ff, prior) in enumerate(grid):
     print(ff, prior)
@@ -42,7 +40,7 @@ for k, (ff, prior) in enumerate(grid):
     plt.plot([-100,-100],[50,180],line_color,linewidth=linewidth)
     plt.plot([-100,-100],[-180,-100],line_color,linewidth=linewidth)
 
-    plt.title("%s Raw" % ff)
+    plt.title("%s Raw" % ALA3.ff_map[ff])
     plt.xlabel(r"$\phi$ [$\circ$]")
     plt.ylabel(r"$\psi$ [$\circ$]")
 
@@ -69,7 +67,7 @@ for k, (ff, prior) in enumerate(grid):
     plt.plot([-100,-100],[50,180],line_color,linewidth=linewidth)
     plt.plot([-100,-100],[-180,-100],line_color,linewidth=linewidth)
 
-    plt.title("%s %s" % (ff, prior))
+    plt.title("%s %s" % (ALA3.ff_map[ff], prior))
     plt.xlabel(r"$\phi$ [$\circ$]")
     plt.ylabel(r"$\psi$ [$\circ$]")
 

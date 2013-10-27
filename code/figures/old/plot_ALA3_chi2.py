@@ -33,7 +33,7 @@ ylim = np.array([0.05,20.0])
 plt.bar(x_local[0] + x_global, chi2_all[ff_list].ix["raw"], color='b', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_all[ff_list].ix["belt"], color='g', label="BELT",log=use_log)
 
-plt.xticks(x_global + 1, ff_list, rotation=60, fontsize=10)
+plt.xticks(x_global + 1, ALA3.mapped_ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")
 
 plt.legend(loc=0)
@@ -47,7 +47,7 @@ plt.figure()
 plt.bar(x_local[0] + x_global, chi2_train[ff_list].ix["raw"], color='b', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_train[ff_list].ix["belt"], color='g', label="BELT",log=use_log)
 
-plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
+plt.xticks(x_global + 1, ALA3.mapped_ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")
 
 plt.legend(loc=0)
@@ -61,7 +61,7 @@ plt.figure()
 plt.bar(x_local[0] + x_global, chi2_test[ff_list].ix["raw"], color='b', label="MD",log=use_log)
 plt.bar(x_local[1] + x_global, chi2_test[ff_list].ix["belt"], color='g', label="BELT",log=use_log)
 
-plt.xticks(x_global + 1, ALA3.ff_list, rotation=60, fontsize=10)
+plt.xticks(x_global + 1, ALA3.mapped_ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$")
 
 plt.legend(loc=0)

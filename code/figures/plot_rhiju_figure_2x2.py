@@ -49,9 +49,9 @@ ax2 = subplot(221)
 d1 = np.random.normal(-163.8, 4, size=n)
 #d2 = np.random.normal(-76.0, 5, size=n)
 #d3 = np.concatenate((np.random.normal(32, 9, size=n / 2), np.random.normal(-10, 9, size=n / 2)))
-d3 = np.concatenate((np.random.normal(-76, 9, size=n * 1 / 3), np.random.normal(32, 9, size=n * 2 / 3)))
+d3 = np.concatenate((np.random.normal(-76, 15, size=n * (6. / 10.)), np.random.normal(32, 15, size=n * (3. / 10.)), np.random.normal(0, 25, size=n * (1 / 10.))))
 d4 = np.random.normal(88, 8, size=n)
-d5 = np.random.normal(-76.0, 20, size=n)
+d5 = np.random.normal(-76.0, 8, size=n)
 
 hist(d5, bins=num_bins_gauss, color='purple', normed=True, histtype='step')
 hist(d1, bins=num_bins_gauss, color='magenta', normed=True, histtype='step')
@@ -65,6 +65,7 @@ setp(ax2.get_yticklabels(), visible=False)
 xlim(-180, 180)
 xticks([-180, -90, 0, 90, 180])
 ylabel("Population")
+title("b")
 
 
 
@@ -90,6 +91,7 @@ for k, location in enumerate(locations):
 xticks([-180, -90, 0, 90, 180])
 ylabel("Population")
 xlabel(r"$\phi[^{\circ}]$")
+title("d")
 
 ax2 = subplot(222)
 
@@ -122,6 +124,7 @@ setp(ax2.get_xticklabels(), visible=False)
 setp(ax2.get_yticklabels(), visible=False)
 xlim(0, 11)
 xticks([0, 5, 10])
+title("c")
 #ylabel("Population")
 
 #plot([], [], color='k', label="NMR")
@@ -129,6 +132,8 @@ xticks([0, 5, 10])
 #plot([], [], color='b', label="BELT")
 #plot([], [], color='purple', label="Normal")
 #legend(loc=0, fontsize="small")
+
+
 
 ax2 = subplot(224)
 
@@ -159,7 +164,7 @@ for k, location in enumerate(locations):
 xlabel(r"J [Hz]")
 xticks([0, 5, 10])
 
-
+title("e")
 plt.savefig(ALA3.outdir + "/karplus_2x2.pdf", bbox_inches='tight')
 
 
@@ -183,7 +188,7 @@ plot([], [], color='b', label="BELT")
 plot([], [], color='purple', label="Normal")
 ylabel(r"J [Hz]")
 xlabel(r"$\phi[^{\circ}]$")
-
+title("a")
 
 plt.savefig(ALA3.outdir + "/karplus_top_panel_karplus.pdf", bbox_inches='tight')
 

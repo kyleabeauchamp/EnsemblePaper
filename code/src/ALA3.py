@@ -1,9 +1,19 @@
 import pandas as pd
 
+ff_map = {  # Used to rename forcefields from 'amber96' to 'ff96' without having to re-name the raw data files.
+"""#amber99""":"""#ff99""",  # Some messed up values of cross validation that were discarded
+"amber96":"ff96",
+"amber99":"ff99",
+"amber99sbnmr-ildn":"ff99sbnmr-ildn",
+"oplsaa":"oplsaa",
+"charmm27":"charmm27"
+}
+
 #model = "combined_shifts"
 model = "maxent"
 
 ff_list = ["amber96","amber99","amber99sbnmr-ildn","charmm27","oplsaa"]
+mapped_ff_list = [ff_map[x] for x in ff_list]
 prior_list = ["maxent", "dirichlet", "MVN"]
 
 #train_keys = ['JC_2_J3_HN_Cprime', 'CS_2_CA', 'CS_2_H', 'JC_3_J2_N_CA', 'CS_2_CB', 'JC_2_J3_HN_CB']

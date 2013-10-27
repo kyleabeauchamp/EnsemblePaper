@@ -17,11 +17,11 @@ for k, (ff, prior) in enumerate(grid):
         belt_model = belt.BELT.load(pymc_filename)
         a = belt_model.mcmc.trace("alpha")[:]
         plt.figure()
-        plt.title("%s - %s" % (ff, prior))
+        plt.title("%s - %s" % (ALA3.ff_map[ff], prior))
         y = a[:,0]
         x = np.arange(len(y)) * ALA3.thin
         plt.plot(x, y)
         plt.xlabel("MCMC steps")
         #plt.ylabel(r"$\alpha$:" + str(predictions.columns[0]))
         plt.ylabel(predictions.columns[0])
-        plt.savefig(ALA3.outdir+"/%s-%s-MCMC_Trace.png"%(prior, ff), bbox_inches='tight')
+        plt.savefig(ALA3.outdir+"/%s-%s-MCMC_Trace.png" % (prior, ff), bbox_inches='tight')
