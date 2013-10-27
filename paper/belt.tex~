@@ -67,19 +67,17 @@ Unfortunately, simulation benchmark studies have demonstrated continuing inaccur
 Here, we introduce a practical statistical approach to modeling solution ensembles of biological macromolecules.  The algorithm, Bayesian Energy Landscape Tilting (BELT), uses solution experiments to reweight an ensemble of atomistic models predicted (perhaps inaccurately) by molecular dynamics.  BELT generalizes a recently proposed maximum entropy method for such reweighting \cite{chodera2012} to the practical scenario in which the experimental measurements and their estimated relationships to atomic conformation carry error. In particular, BELT leverages Markov Chain Monte Carlo \cite{patil2010pymc} to transform experimental ambiguity into error bars on arbitrary structural features. The final output of BELT modeling is a hyperensemble, or an ``ensemble of ensembles'', which we show is closely connected to a generalized ensemble theory proposed by Crooks \cite{crooks2007beyond}. The result of BELT is a collection of statistical samples, each of which is itself a conformational ensemble that corresponds to 
 a maximum-entropy solution associated with a particular set of experimental observables. 
 
-The necessity and utility of this approach can be illustrated with a simple example with one experimental observable. Most previous methods have focused on obtaining estimates of a single best-fit conformational ensemble  \cite{rozycki2011saxs,  Graf2007, chodera2012}.  However, ambiguous experimental data often disallow such a point-estimate of the conformational ensemble.  For example, we plot one measured  \cite{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \cite{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$ (Fig. \ref{figure:Ambiguity}a).  The measured coupling corresponds to four different values of $\phi$, precluding description by a single point estimate of $\phi$, much less a single estimate of the distribution of $\phi$. Many different ensembles are consistent with the measurement, leading to nearly completely loss of predictive power. A molecular dynamics simulation can establish a prior estimate for the ensemble, but may disagree with the observed data 
-beyond measurement error (Fig. \ref{figure:Ambiguity}b). In this case, how to compute a statistical collection of ensembles that leverages both the simulation and the data has not been obvious; for example, several prior Bayesian approaches return uncertainties assuming single conformations, not full ensembles \cite{rieping2005}.  The BELT approach offers a practical recipe for describing such a hyperensemble, for computing the hyperensemble's predictions for new experimental observables not used in the modeling, and for giving rigorous error estimates on these predictions.
+The necessity and utility of this approach can be illustrated with a simple example with one experimental observable. Most previous methods have focused on obtaining estimates of a single best-fit conformational ensemble  \cite{rozycki2011saxs,  Graf2007, chodera2012}.  However, ambiguous experimental data often disallow such a point-estimate of the conformational ensemble.  For example, we plot one measured  \cite{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \cite{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$ (Fig. \ref{figure:Ambiguity}).  The measured coupling corresponds to four different values of $\phi$, precluding description by a single point estimate of $\phi$, much less a single estimate of the distribution of $\phi$. Many different ensembles are consistent with the measurement, leading to nearly completely loss of predictive power. A molecular dynamics simulation can establish a prior estimate for the ensemble, but may disagree with the observed data 
+beyond measurement error (Fig. \ref{figure:Ambiguity}). In this case, how to compute a statistical collection of ensembles that leverages both the simulation and the data has not been obvious; for example, prior Bayesian approaches return uncertainties assuming single conformations, not full ensembles \cite{rieping2005}.  The BELT approach offers a practical recipe for describing such a hyperensemble, for computing the hyperensemble's predictions for new experimental observables not used in the modeling, and for giving rigorous error estimates on these predictions.
 
 \begin{figure}
 
-\includegraphics[height=4.25cm]{figures/karplus_top_panel_karplus.pdf}
+\includegraphics[height=5.5cm]{figures/karplus_top_panel_karplus.pdf}
 
-\includegraphics[height=7.25cm]{figures/karplus_2x2.pdf}
+\includegraphics[height=10.0cm]{figures/karplus_2x2.pdf}
 
 \caption{
-(Top).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$.  (Middle).  Histograms of four arbitrary ensembles that recapitulate the measured (gray) value of $^3J(H_NH^\alpha)$.  
-
-the observed value of $^3J(H_NH^\alpha)$ is consistent multiple conformations.  (b).  Four conformational ensembles that fit the data; each ensemble was randomly sampled using BELT as detailed below.  The uncertainty ($\sigma$) on $^3J(H_NH^\alpha)$ was increased 2.5-fold to better illustrate differences.
+(a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$.  The measured value of $^3J(H_NH^\alpha)$ is shaded gray and is consistent with multiple values of $\phi$.  (b, c).  Histograms of four chemically unrealistic ensembles that recapitulate the measured (gray) value of $^3J(H_NH^\alpha)$.  Each histogram is represented in both the backbone torsion $\phi$ (b) and the projection (via Karplus equation) onto $^3J(H_NH^\alpha)$ (c).  Colored vertical bars represent the average $^3J(H_NH^\alpha)$ for each corresponding ensemble.  (d, e).  The molecular dynamics (ff99) ensemble (red) is inconsistent with the measured $^3J(H_NH^\alpha)$.  Four samples (blue) from the BELT hyperensemble show good agreement with measured values of $^3J(H_NH^\alpha)$.  For this figure only, the uncertainty ($\sigma$) on $^3J(H_NH^\alpha)$ was increased 2.5-fold to better illustrate differences.  Density spikes in (c, e) correspond to places where $\frac{dJ}{d\phi} \rightarrow 0$.  
 }
 \label{figure:Ambiguity}
 
@@ -102,7 +100,7 @@ $$\Delta U(x;\alpha) = \sum_{i=1}^n \alpha_i f_i(x)$$
 
 In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  As shown previously \cite{chodera2012}, such a linear biasing potential gives a maximum entropy ensemble for some set of experimental observations. The BELT strategy is to look beyond the single best such ensemble so as to estimate the uncertainty in the ensemble modeling. BELT instead samples over a distribution of such maximum entropy ensembles each parametrized by $\alpha_i$. This approach is connected (see Appx. S1) to prior work by Crooks that proposed an entropic prior for modeling hyperensembles in general physical problems. 
 
-The end result is a collection of `landscape-tilted' ensembles (Fig. \ref{figure:Ambiguity}b). That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
+The end result is a collection of `landscape-tilted' ensembles (Fig. \ref{figure:Ambiguity}e). That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
@@ -118,7 +116,7 @@ Forcing this to be an exact equality recovers previous results \cite{chodera2012
 
 \subsection*{Determining $\alpha$}
 
-A Bayesian framework enables determination of the coefficients $\alpha$ used in the biasing potential.  An alternative derivation using the Crooks hyperensemble formalism \cite{crooks2007beyond} is given in Appx. S1.  BELT assumes that, given the correct choice of $\alpha$, the predicted observables $f_i(x)$ provide unbiased (but noisy) predictions of the measurements $F_i$.  This assumption is codified by the following conditional probability:
+A Bayesian framework enables determination of the coefficients $\alpha$ used in the biasing potential.  An alternative derivation using the Crooks hyperensemble formalism \cite{crooks2007beyond} is given in Appx. S1.  BELT assumes that, given the correct choice of $\alpha$, the predicted observables $f_i(x)$ provide unbiased (but noisy) predictions of the measurements $F_i$.  This recipe assumes independence (see Appx. S3) and the following conditional probabilities:
 
 $$P(F_i | \alpha) \sim N(\langle f_i(x)\rangle _\alpha, \sigma_i^2)$$
 
@@ -302,7 +300,7 @@ determined when fitting the Karplus equations.  This weights the measurements di
 
 \section*{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--i.e. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a tripeptide system with a complex ensemble.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles. Important frontiers for the BELT include the integration of numerous rather than sparse data and extension of the current equilibrium framework to prediction of kinetic properties.  The principled combination of simulation and experiment -- and demonstrating convergence from multiple force fields --  will enable predictive models that might not be achievable using either simulation or experiment alone.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--i.e. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a tripeptide system with a complex ensemble.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles. Important frontiers for BELT include the integration of numerous rather than sparse data and extension of the current equilibrium framework to prediction of kinetic properties.  The principled combination of simulation and experiment -- and demonstrating convergence from multiple force fields --  will enable predictive models that might not be achievable using either simulation or experiment alone.  
 
 
 \section*{Acknowledgements}
@@ -345,6 +343,16 @@ Predicted and measured observables are given.  BELT predictions are calculated u
 
 
 \bibliography{belt}
+
+\clearpage
+
+\section{TOC Graphical Abstract}
+
+\begin{figure}
+
+\includegraphics[height=6.0cm]{figures/new_info_graphic/info_graphic.png}
+
+\end{figure}
 
 
 \end{document}

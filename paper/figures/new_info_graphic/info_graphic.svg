@@ -27,7 +27,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.9257598"
-     inkscape:cx="194.94673"
+     inkscape:cx="133.15294"
      inkscape:cy="203.88965"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -5087,7 +5087,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5341,5 +5341,17 @@
        xlink:href="file:///home/kyleb/src/kyleabeauchamp/EnsemblePaper/paper/figures/new_info_graphic/EETI_N15_HSQC_white.png"
        height="112.82484"
        width="112.82484" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7647"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(73.737129,1024.2677)"><flowRegion
+         id="flowRegion7649"><rect
+           id="rect7651"
+           width="70.102203"
+           height="46.215527"
+           x="56.08176"
+           y="-92.857948" /></flowRegion><flowPara
+         id="flowPara7653"
+         style="font-size:25px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">+</flowPara></flowRoot>  </g>
 </svg>

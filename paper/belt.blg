@@ -5,44 +5,44 @@ The style file: achemso.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-belt.bib
 Database file #2: belt.bib
-You've used 56 entries,
+You've used 54 entries,
             2470 wiz_defined-function locations,
-            1063 strings with 17740 characters,
-and the built_in function-call counts, 20054 in all, are:
-= -- 1485
-> -- 1380
+            1053 strings with 17421 characters,
+and the built_in function-call counts, 19370 in all, are:
+= -- 1427
+> -- 1344
 < -- 17
-+ -- 543
-- -- 487
-* -- 2286
-:= -- 2783
-add.period$ -- 56
-call.type$ -- 56
++ -- 529
+- -- 475
+* -- 2208
+:= -- 2691
+add.period$ -- 54
+call.type$ -- 54
 change.case$ -- 3
 chr.to.int$ -- 2
-cite$ -- 56
-duplicate$ -- 1144
-empty$ -- 1200
-format.name$ -- 553
-if$ -- 3673
+cite$ -- 54
+duplicate$ -- 1108
+empty$ -- 1152
+format.name$ -- 539
+if$ -- 3545
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 351
-num.names$ -- 165
-pop$ -- 114
+newline$ -- 339
+num.names$ -- 159
+pop$ -- 110
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 1
 stack$ -- 0
-substring$ -- 1045
-swap$ -- 1284
-text.length$ -- 111
+substring$ -- 991
+swap$ -- 1248
+text.length$ -- 107
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 386
+type$ -- 372
 warning$ -- 0
-while$ -- 198
+while$ -- 190
 width$ -- 0
-write$ -- 673
+write$ -- 649

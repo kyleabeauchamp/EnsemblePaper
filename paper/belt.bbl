@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{56}
+\begin{mcitethebibliography}{54}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -174,6 +174,13 @@ V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{J. Am. Chem. Soc.}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Rieping et~al.(2005)Rieping, Habeck, and Nilges]{rieping2005}
+Rieping,~W.; Habeck,~M.; Nilges,~M. \emph{Science} \textbf{2005}, \emph{309},
+  303--306\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Friedman et~al.(2001)Friedman, Hastie, and
   Tibshirani]{friedman2001elements}
 Friedman,~J.; Hastie,~T.; Tibshirani,~R. \emph{The elements of statistical
@@ -194,13 +201,6 @@ Wikipedia, Kullback–Leibler divergence --- {W}ikipedia{,} The Free
 \bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
 Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{J. Am. Chem. Soc.} \textbf{2010},
   \emph{132}, 14919\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rieping et~al.(2005)Rieping, Habeck, and Nilges]{rieping2005}
-Rieping,~W.; Habeck,~M.; Nilges,~M. \emph{Science} \textbf{2005}, \emph{309},
-  303--306\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -426,20 +426,6 @@ Wang,~L.-P.; Head-Gordon,~T.~L.; Ponder,~J.~W.; Ren,~P.; Chodera,~J.~D.;
 Markwick,~P.~R.; Showalter,~S.~A.; Bouvignies,~G.; Br{\"u}schweiler,~R.;
   Blackledge,~M. \emph{Journal of biomolecular NMR} \textbf{2009}, \emph{45},
   17--21\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Habeck et~al.(2006)Habeck, Rieping, and Nilges]{habeck2006}
-Habeck,~M.; Rieping,~W.; Nilges,~M. \emph{Proc. Natl. Acad. Sci.}
-  \textbf{2006}, \emph{103}, 1756--1761\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Habeck et~al.(2005)Habeck, Rieping, and Nilges]{habeck2005bayesian}
-Habeck,~M.; Rieping,~W.; Nilges,~M. \emph{J. Mag. Res.} \textbf{2005},
-  \emph{177}, 160--165\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

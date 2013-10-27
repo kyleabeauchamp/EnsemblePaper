@@ -766,7 +766,7 @@ As described in the main text, the maximum entropy prior is given by
 
 $$\log P(\alpha) = -\lambda \sum_j^m \pi_j(\alpha) \log \frac{\pi_j(\alpha)}{\pi_j^0}$$
 
-Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}$.  This form of regularization has previously been used in a formalism for modeling SAXS ensembles \cite{rozycki2011saxs}.  
+Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}$.  This form of regularization has previously been used in a formalism to model SAXS ensembles \cite{rozycki2011saxs}.  
 
 \subsection*{Dirichlet Prior}
 
