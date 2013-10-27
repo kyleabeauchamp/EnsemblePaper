@@ -168,6 +168,9 @@ plt.savefig(ALA3.outdir + "/karplus_2x2.pdf", bbox_inches='tight')
 figure()
 
 plt.plot(phi, J, 'k', linewidth=8)
+lower = yi - oi
+upper = yi + oi
+plt.fill_between(phi, lower * O, upper * O, color='k', alpha=alpha)
 #plt.legend(loc=0, numpoints=1, scatterpoints=1, fontsize=7, fontsize='small')
 yticks([0, 5, 10])
 xticks([-180, -90, 0, 90, 180])
