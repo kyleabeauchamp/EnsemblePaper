@@ -40,7 +40,7 @@ plt.bar(x_local[3] + x_global, chi2_all[ff_list].ix["MVN"], color='g', label="MV
 plt.xticks(x_global + 1, ALA3.mapped_ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$ (n = 10)")
 
-plt.legend(loc=0)
+#plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field")
 plt.ylim(ylim)
 plt.xlim(-0.5,x_global.max() + x_local.max() + 1.5)
@@ -56,7 +56,7 @@ plt.bar(x_local[3] + x_global, chi2_train[ff_list].ix["MVN"], color='g', label="
 plt.xticks(x_global + 1, ALA3.mapped_ff_list, rotation=60, fontsize=10)
 plt.ylabel("Reduced $\chi^2$  (n = 6)")
 
-plt.legend(loc=0)
+#plt.legend(loc=0)
 plt.title("Reduced $\chi^2$ by force field (Training Set)")
 plt.ylim(ylim)
 plt.xlim(-0.5,x_global.max() + x_local.max() + 1.5)

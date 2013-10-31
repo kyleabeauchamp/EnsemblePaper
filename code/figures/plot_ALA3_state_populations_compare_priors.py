@@ -78,7 +78,8 @@ for state, state_name in enumerate(state_name_list):
     plt.bar(x_local[3] + x_global,mvn_pops,color='g',label="MVN",log=use_log,yerr=errs_MVN,ecolor="k")
     plt.xticks(x_global + 1, ALA3.mapped_ff_list,rotation=60,fontsize=10)
     plt.ylabel("%s Population"%state_name)
-    plt.legend(loc=0,numpoints=1,scatterpoints=1)
+    if state == 2:
+        plt.legend(loc=0,numpoints=1,scatterpoints=1)
     plt.title("%s Populations by Forcefield"%(state_name))
     plt.ylim(ylim)
     plt.xlim(-0.5,x_global.max() + x_local.max() + 1.5)

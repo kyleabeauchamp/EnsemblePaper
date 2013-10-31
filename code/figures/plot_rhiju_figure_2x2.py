@@ -41,7 +41,7 @@ sigma = uncertainties.values[0]
 val = measurements.values[0]
 
 
-
+ymax_JC = 0.75
 figure()
 
 ax2 = subplot(221)
@@ -66,6 +66,7 @@ xlim(-180, 180)
 xticks([-180, -90, 0, 90, 180])
 ylabel("Population")
 title("b")
+
 
 
 
@@ -101,11 +102,11 @@ J3 = scalar_couplings.J3_HN_HA(d3)
 J4 = scalar_couplings.J3_HN_HA(d4)
 J5 = scalar_couplings.J3_HN_HA(d5)
 
-plot([J5.mean()] * 2, [0, 1], color='purple')
-plot([J1.mean()] * 2, [0, 1], color='magenta')
-#plot([J2.mean()] * 2, [0, 1], color='orange')
-plot([J3.mean()] * 2, [0, 1], color='cyan')
-plot([J4.mean()] * 2, [0, 1], color='green')
+plot([J5.mean()] * 2, [0, 1], '--', color='purple')
+plot([J1.mean()] * 2, [0, 1], '--', color='magenta')
+#plot([J2.mean()] * 2, [0, 1], '--', color='orange')
+plot([J3.mean()] * 2, [0, 1], '--', color='cyan')
+plot([J4.mean()] * 2, [0, 1], '--', color='green')
 
 #plot([val - sigma, val + sigma], [0, 1], color='k')
 fill_betweenx([0, 1], [val - sigma] * 2, [val + sigma] * 2, color='k', alpha=0.25)
@@ -118,13 +119,12 @@ hist(J3, bins=num_bins_gauss, color='cyan', normed=True, histtype='step')
 hist(J4, bins=num_bins_gauss, color='green', normed=True, histtype='step')
 
 
-
-
 setp(ax2.get_xticklabels(), visible=False)
 setp(ax2.get_yticklabels(), visible=False)
 xlim(0, 11)
 xticks([0, 5, 10])
 title("c")
+ylim(0, ymax_JC)
 #ylabel("Population")
 
 #plot([], [], color='k', label="NMR")
@@ -155,7 +155,7 @@ for k, location in enumerate(locations):
     pops = belt.get_populations_from_alpha(ai[location], predictions.values, prior_pops)
     hist(predictions.values[:,0], bins=num_bins, weights=pops, normed=True, histtype='step', color='b', alpha=0.5) 
     mu_i = predictions.T.dot(pops).values[0]
-    plot([mu_i] * 2, [0, 0.5], color='b')
+    plot([mu_i] * 2, [0, 0.5], '--', color='b')
     setp(ax2.get_yticklabels(), visible=False)
     xlim(0, 11)
 
@@ -163,6 +163,7 @@ for k, location in enumerate(locations):
 #ylabel("Population")
 xlabel(r"J [Hz]")
 xticks([0, 5, 10])
+#ylim(0, ymax_JC)
 
 title("e")
 plt.savefig(ALA3.outdir + "/karplus_2x2.pdf", bbox_inches='tight')
