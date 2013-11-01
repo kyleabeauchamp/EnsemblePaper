@@ -293,7 +293,8 @@ We also point out some surprising differences between BELT and BW-like methods. 
 
 \section*{Comparison to a Previous Trialanine Study}
 
-Our results are in qualitative, but not quantitative, agreement with a previous study of trialanine \cite{Graf2007}.  That study suggested a $PP_{II}$ population as high as $92 \pm 5\%$, somewhat higher than our $67 \pm 9 \%$ and with a twofold lower estimated uncertainty.  The difference can be attributed to three methodological differences.  First, the previous study used likelihood maximization to directly fit the ($PP_{II}$, $\beta$, and $\alpha$) populations from a three-state decomposition of their simulations.  The use of likelihood maximization may give misleading results when the likelihood surface is broad and shallowly peaked, as was found in the previous study.  However, this does not appear to be the primary cause of disagreement, as maximization of the BELT likelihood recovers populations within $\pm 5\%$ of the values obtained via MCMC sampling.  Second, the previous study assumed each scalar coupling to have an uncertainty of 1, while we approximate the uncertainties as the RMS errors 
+Our results are in qualitative, but not quantitative, agreement with a previous study of trialanine \cite{Graf2007} using the same experimental measurements.  That study suggested a $PP_{II}$ population as high as $92 \pm 5\%$, somewhat higher than our $67 \pm 9 \%$ and with a twofold lower estimated uncertainty.  The difference can be attributed to three methodological differences.  First, the previous study used likelihood maximization to directly fit the ($PP_{II}$, $\beta$, and $\alpha$) populations from a three-state decomposition of their simulations.  The use of likelihood maximization may give misleading results when the likelihood surface is broad and shallowly peaked, as was found in the previous study.  However, this does not appear to be the primary cause of disagreement, as maximization of the BELT likelihood recovers populations within $\pm 5\%$ of the values obtained via MCMC sampling.  Second, the previous study assumed each scalar coupling to have an uncertainty of 1, while we approximate 
+the uncertainties as the RMS errors 
 determined when fitting the Karplus equations.  This weights the measurements differently and will lead to quantitative differences in estimated populations.  Different choices of Karplus coefficients also may lead to different predicted properties, as has been discussed elsewhere \cite{markwick2009structural}.    Finally, differences in state decomposition may cause slight differences in estimated conformational populations.  
 
 
@@ -306,6 +307,10 @@ Bayesian Energy Landscape Tilting allows the simultaneous characterization of st
 \section*{Acknowledgements}
 
 We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Dan Herschlag for helpful discussions.  
+
+\section*{Supporting Information}
+
+Tables S1-S7, Figures S1-S4, and Appendices S1-S7 are available in the supporting information.  This material isavailable free of charge via the Internet at http://pubs.acs.org.
 
 \clearpage
 
