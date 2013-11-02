@@ -1,7 +1,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{54}
+\begin{mcitethebibliography}{56}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -272,6 +272,14 @@ Hess,~B.; Kutzner,~C.; Van Der~Spoel,~D.; Lindahl,~E. \emph{J. Chem. Theory
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Horn et~al.(2004)Horn, Swope, Pitera, Madura, Dick, Hura, and
+  Head-Gordon]{horn2004}
+Horn,~H.; Swope,~W.; Pitera,~J.; Madura,~J.; Dick,~T.; Hura,~G.;
+  Head-Gordon,~T. \emph{J. Chem. Phys.} \textbf{2004}, \emph{120}, 9665\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Han et~al.(2011)Han, Liu, Ginzinger, and Wishart]{han2011shiftx2}
 Han,~B.; Liu,~Y.; Ginzinger,~S.; Wishart,~D. \emph{J. Biomol. NMR}
   \textbf{2011}, 1--15\relax
@@ -420,6 +428,14 @@ Wang,~L.-P.; Head-Gordon,~T.~L.; Ponder,~J.~W.; Ren,~P.; Chodera,~J.~D.;
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Richter et~al.(2007)Richter, Gsponer, V{\'a}rnai, Salvatella, and
+  Vendruscolo]{richter2007mumo}
+Richter,~B.; Gsponer,~J.; V{\'a}rnai,~P.; Salvatella,~X.; Vendruscolo,~M.
+  \emph{Journal of biomolecular NMR} \textbf{2007}, \emph{37}, 117--135\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Markwick et~al.(2009)Markwick, Showalter, Bouvignies,
   Br{\"u}schweiler, and Blackledge]{markwick2009structural}

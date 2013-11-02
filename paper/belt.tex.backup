@@ -48,7 +48,7 @@ Stanford University, Stanford, CA
 
 \begin{abstract}
 
-Predicting biological structure has remained challenging for systems such as disordered proteins that take on myriad conformations. Strategies that guide simulation with experiments have been undermined by the difficulty of evaluating the effects of biases in underlying computational models and of errors in available data. Building on recent proposals from maximum entropy theory and nonequilibrium thermodynamics, we address these issues through a Bayesian Energy Landscape Tilting (BELT) scheme for computing Bayesian \enquote{hyperensembles} over conformational ensembles.  To test this framework, we applied BELT to model trialanine, starting from disagreeing simulations with the force fields ff96, ff99, ff99sbnmr-ildn, CHARMM27, and OPLS-AA. BELT incorporation of limited chemical shift and $^3J$ measurements gives convergent values of the peptide's $\alpha$, $\beta$, and $PP_{II}$ conformational populations in all cases. As a test of predictive power, all five BELT hyperensembles recover set-aside 
+Predicting biological structure has remained challenging for systems such as disordered proteins that take on myriad conformations. Strategies that guide simulation with experiments have been undermined by the difficulty of evaluating the effects of biases in underlying computational models and of errors in available data. Building on recent proposals from maximum entropy theory and nonequilibrium thermodynamics, we address these issues through a Bayesian Energy Landscape Tilting (BELT) scheme for computing Bayesian \enquote{hyperensembles} over conformational ensembles.  BELT directly samples conformational ensembles consistent with a set of input experimental observables.  To test this framework, we applied BELT to model trialanine, starting from disagreeing simulations with the force fields ff96, ff99, ff99sbnmr-ildn, CHARMM27, and OPLS-AA. BELT incorporation of limited chemical shift and $^3J$ measurements gives convergent values of the peptide's $\alpha$, $\beta$, and $PP_{II}$ conformational populations in all cases. As a test of predictive power, all five BELT hyperensembles recover set-aside 
 measurements not used in the fitting and report accurate errors, even when starting from highly inaccurate simulations. BELT's principled framework thus enables practical predictions for complex biomolecular systems from discordant simulations and sparse data.   
 
 \end{abstract}
@@ -68,18 +68,16 @@ Here, we introduce a practical statistical approach to modeling solution ensembl
 a maximum-entropy solution associated with a particular set of experimental observables. 
 
 The necessity and utility of this approach can be illustrated with a simple example with one experimental observable. Most previous methods have focused on obtaining estimates of a single best-fit conformational ensemble  \cite{rozycki2011saxs,  Graf2007, chodera2012}.  However, ambiguous experimental data often disallow such a point-estimate of the conformational ensemble.  For example, we plot one measured  \cite{Graf2007} value of $^3J(H_NH^\alpha)$ in the context of the Karplus \cite{vogeli2007limits} equation relating $\phi$ to $^3J(H_NH^\alpha)$ (Fig. \ref{figure:Ambiguity}a).  The measured coupling corresponds to four different values of $\phi$, precluding description by a single point estimate of $\phi$, much less a single estimate of the distribution of $\phi$. Many different ensembles are consistent with the measurement, leading to nearly completely loss of predictive power. A molecular dynamics simulation can establish a prior estimate for the ensemble, but may disagree with the observed data 
-beyond measurement error (Fig. \ref{figure:Ambiguity}b). In this case, how to compute a statistical collection of ensembles that leverages both the simulation and the data has not been obvious; for example, several prior Bayesian approaches return uncertainties assuming single conformations, not full ensembles \cite{rieping2005}.  The BELT approach offers a practical recipe for describing such a hyperensemble, for computing the hyperensemble's predictions for new experimental observables not used in the modeling, and for giving rigorous error estimates on these predictions.
+beyond measurement error (Fig. \ref{figure:Ambiguity}). In this case, how to compute a statistical collection of ensembles that leverages both the simulation and the data has not been obvious; for example, prior Bayesian approaches return uncertainties assuming single conformations, not full ensembles \cite{rieping2005}.  The BELT approach offers a practical recipe for describing such a hyperensemble, for computing the hyperensemble's predictions for new experimental observables not used in the modeling, and for giving rigorous error estimates on these predictions.
 
 \begin{figure}
 
-\includegraphics[height=4.25cm]{figures/karplus_top_panel_karplus.pdf}
+\includegraphics[height=5.5cm]{figures/karplus_top_panel_karplus.pdf}
 
-\includegraphics[height=7.25cm]{figures/karplus_2x2.pdf}
+\includegraphics[height=10.0cm]{figures/karplus_2x2.pdf}
 
 \caption{
-(Top).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$.  (Middle).  Histograms of four arbitrary ensembles that recapitulate the measured (gray) value of $^3J(H_NH^\alpha)$.  
-
-the observed value of $^3J(H_NH^\alpha)$ is consistent multiple conformations.  (b).  Four conformational ensembles that fit the data; each ensemble was randomly sampled using BELT as detailed below.  The uncertainty ($\sigma$) on $^3J(H_NH^\alpha)$ was increased 2.5-fold to better illustrate differences.
+(a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$.  The measured value of $^3J(H_NH^\alpha)$ is shaded gray and is consistent with multiple values of $\phi$.  (b, c).  Histograms of four chemically unrealistic ensembles that recapitulate the measured (gray) value of $^3J(H_NH^\alpha)$.  Each histogram is represented in both the backbone torsion $\phi$ (b) and the projection (via Karplus equation) onto $^3J(H_NH^\alpha)$ (c).  Dashed vertical bars represent the average $^3J(H_NH^\alpha)$ for each corresponding ensemble.  (d, e).  The molecular dynamics (ff99) ensemble (red) is inconsistent with the measured $^3J(H_NH^\alpha)$.  Four samples (blue) from the BELT hyperensemble show good agreement with measured values of $^3J(H_NH^\alpha)$.  For this figure only, the uncertainty ($\sigma$) on $^3J(H_NH^\alpha)$ was increased 2.5-fold to better illustrate differences.  Density spikes in (c, e) correspond to places where $\frac{dJ}{d\phi} \rightarrow 0$.  
 }
 \label{figure:Ambiguity}
 
@@ -92,7 +90,7 @@ One stringent test of BELT is to assess the convergence of ensembles constructed
 
 \subsection*{Model Inputs}
 
-To model an ensemble using BELT requires three components (Fig. \ref{figure:Ambiguity}).  First, we need conformations $x_j$  $(j = 1 , ... , m)$ sampled from the equilibrium distribution of some physically realistic model.  This model will serve as a prior on structural properties; in the absence of experimental data, the BELT model inherits the properties of the conformations $x_j$.  In the present work, such conformations will be generated from molecular dynamics simulations.  Second, we require equilibrium experimental measurements $F_i$ $(i = 1 , ... , n)$ and their associated uncertainties $\sigma_i$ $(i = 1 , ... , n)$.  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
+To model an ensemble using BELT requires three components.  First, we need conformations $x_j$  $(j = 1 , ... , m)$ sampled from the equilibrium distribution of some physically realistic model.  This model will serve as a prior on structural properties; in the absence of experimental data, the BELT model inherits the properties of the conformations $x_j$.  In the present work, such conformations will be generated from molecular dynamics simulations.  Second, we require equilibrium experimental measurements $F_i$ $(i = 1 , ... , n)$ and their associated uncertainties $\sigma_i$ $(i = 1 , ... , n)$.  Third, it is necessary to have a direct connection between simulation and experiment.  This connection is achieved by predicting each experimental observable at each conformation: $f_i(x_j)$ is the predicted value of experiment $i$ at conformation $x_j$.  
 
 \subsection*{Reweighting}
 
@@ -102,7 +100,7 @@ $$\Delta U(x;\alpha) = \sum_{i=1}^n \alpha_i f_i(x)$$
 
 In $\Delta U(x;\alpha)$, the parameters $\alpha_i$ determine how strongly each experiment contributes to the biasing potential.  As shown previously \cite{chodera2012}, such a linear biasing potential gives a maximum entropy ensemble for some set of experimental observations. The BELT strategy is to look beyond the single best such ensemble so as to estimate the uncertainty in the ensemble modeling. BELT instead samples over a distribution of such maximum entropy ensembles each parametrized by $\alpha_i$. This approach is connected (see Appx. S1) to prior work by Crooks that proposed an entropic prior for modeling hyperensembles in general physical problems. 
 
-The end result is a collection of `landscape-tilted' ensembles (Fig. \ref{figure:Ambiguity}b). That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
+The end result is a collection of `landscape-tilted' ensembles (Fig. \ref{figure:Ambiguity}e). That is, each conformational ensemble is a perturbed version of the initial molecular dynamics ensemble but reweighted (see Appx. S2) according to energetic perturbations that are linear in the experimental observables $f_i(x)$:
 
 $$\pi_j(\alpha) = \frac{1}{\sum_k \exp[-\Delta U(x_k;\alpha)]} \exp[-\Delta U(x_j;\alpha)]$$
 
@@ -118,7 +116,7 @@ Forcing this to be an exact equality recovers previous results \cite{chodera2012
 
 \subsection*{Determining $\alpha$}
 
-A Bayesian framework enables determination of the coefficients $\alpha$ used in the biasing potential.  An alternative derivation using the Crooks hyperensemble formalism \cite{crooks2007beyond} is given in Appx. S1.  BELT assumes that, given the correct choice of $\alpha$, the predicted observables $f_i(x)$ provide unbiased (but noisy) predictions of the measurements $F_i$.  This assumption is codified by the following conditional probability:
+A Bayesian framework enables determination of the coefficients $\alpha$ used in the biasing potential.  An alternative derivation using the Crooks hyperensemble formalism \cite{crooks2007beyond} is given in Appx. S1.  BELT assumes that, given the correct choice of $\alpha$, the predicted observables $f_i(x)$ provide unbiased (but noisy) predictions of the measurements $F_i$.  This recipe assumes independence (see Appx. S3) and the following conditional probabilities:
 
 $$P(F_i | \alpha) \sim N(\langle f_i(x)\rangle _\alpha, \sigma_i^2)$$
 
@@ -146,7 +144,7 @@ Each of these priors can be used to achieve regularization, which is a powerful 
 
 \subsection*{MCMC Sampling of Structural Ensembles}
 
-As noted above, because ensemble inference often presents many plausible solutions  \cite{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood or maximum entropy).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \cite{patil2010pymc}, to sample the distribution of structural ensembles consistent with experiment.  The result is an ensemble of ensembles -- a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \cite{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
+As noted above, because ensemble inference often presents many plausible solutions  \cite{fisher2010, rieping2005}, we avoid statistical methods that return a single solution (e.g. maximum likelihood or maximum entropy).  We therefore use Markov chain Monte Carlo (MCMC), as implemented in PyMC  \cite{patil2010pymc}, to sample the distribution of structural ensembles--one ensemble per sampled $\alpha$--consistent with experiment.  The result is an ensemble of ensembles--a statistical ensemble of conformational ensembles.  Averaging all MCMC samples provides posterior mean  estimates of arbitrary structural features or experimental observables.  Similarly, examining the MCMC variances provides statistical uncertainties of equilibrium or structural features.  A Bayesian bootstrapping procedure  \cite{rubin1981} can also be used to model the statistical uncertainty of the MD simulations (see Appx. S6).
 
 \section*{Methods}
 
@@ -160,7 +158,7 @@ All NMR measurements in this work refer to experiments  \cite{Graf2007} probing 
 
 Chemical shifts ($H$, $H^\alpha$, $C^\alpha$, $C^\beta$) for each frame were calculated using a weighted average of ShiftX2 \cite{han2011shiftx2}, SPARTA+  \cite{Shen2010}, and PPM \cite{li2012ppm} predictions; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight ($\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$  \cite{vogeli2007limits}, $^3J(H^N H^\alpha)$  \cite{vogeli2007limits}, $^2J(N C^\alpha)$  \cite{Graf2007}, $^3J(H^\alpha C')$  \cite{Schmidt1999}, $^1J(N C^\alpha)$  \cite{Graf2007}, $^3J(H^N C^\beta)$  \cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
-We have divided the available experimental measurements into training and test sets, with the training set consisting of the $^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$ scalar couplings and the $C^\alpha$, $H^N$, and $C^\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, $^1J(N C^\alpha)$, and the $H^\alpha$ chemical shift.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that are approximately uncorrelated; BELT is best suited for working with uncorrelated data.  Additional suggestions for data curation are provided in Discussion.  
+We have divided the available experimental measurements into training and test sets, with the training set consisting of the $^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$ scalar couplings and the $C^\alpha$, $H^N$, and $C^\beta$ chemical shifts.  The test set consists of $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$, $^1J(N C^\alpha)$, and the $H^\alpha$ chemical shift.  The division into training and test sets serves three purposes.  First, it provides a test of overfitting.  Second, it allows us to reduce the computational cost of BELT calculations.  Third, it allows us to train on data that are approximately uncorrelated; BELT is best suited for working with uncorrelated data.  
 
 \subsection*{BELT}
 
@@ -295,19 +293,24 @@ We also point out some surprising differences between BELT and BW-like methods. 
 
 \section*{Comparison to a Previous Trialanine Study}
 
-Our results are in qualitative, but not quantitative, agreement with a previous study of trialanine \cite{Graf2007}.  That study suggested a $PP_{II}$ population as high as $92 \pm 5\%$, somewhat higher than our $67 \pm 9 \%$ and with a twofold lower estimated uncertainty.  The difference can be attributed to three methodological differences.  First, the previous study used likelihood maximization to directly fit the ($PP_{II}$, $\beta$, and $\alpha$) populations from a three-state decomposition of their simulations.  The use of likelihood maximization may give misleading results when the likelihood surface is broad and shallowly peaked, as was found in the previous study.  However, this does not appear to be the primary cause of disagreement, as maximization of the BELT likelihood recovers populations within $\pm 5\%$ of the values obtained via MCMC sampling.  Second, the previous study assumed each scalar coupling to have an uncertainty of 1, while we approximate the uncertainties as the RMS errors 
+Our results are in qualitative, but not quantitative, agreement with a previous study of trialanine \cite{Graf2007} using the same experimental measurements.  That study suggested a $PP_{II}$ population as high as $92 \pm 5\%$, somewhat higher than our $67 \pm 9 \%$ and with a twofold lower estimated uncertainty.  The difference can be attributed to three methodological differences.  First, the previous study used likelihood maximization to directly fit the ($PP_{II}$, $\beta$, and $\alpha$) populations from a three-state decomposition of their simulations.  The use of likelihood maximization may give misleading results when the likelihood surface is broad and shallowly peaked, as was found in the previous study.  However, this does not appear to be the primary cause of disagreement, as maximization of the BELT likelihood recovers populations within $\pm 5\%$ of the values obtained via MCMC sampling.  Second, the previous study assumed each scalar coupling to have an uncertainty of 1, while we approximate 
+the uncertainties as the RMS errors 
 determined when fitting the Karplus equations.  This weights the measurements differently and will lead to quantitative differences in estimated populations.  Different choices of Karplus coefficients also may lead to different predicted properties, as has been discussed elsewhere \cite{markwick2009structural}.    Finally, differences in state decomposition may cause slight differences in estimated conformational populations.  
 
 
 
 \section*{Conclusion}
 
-Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--i.e. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a tripeptide system with a complex ensemble.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles. Important frontiers for the BELT include the integration of numerous rather than sparse data and extension of the current equilibrium framework to prediction of kinetic properties.  The principled combination of simulation and experiment -- and demonstrating convergence from multiple force fields --  will enable predictive models that might not be achievable using either simulation or experiment alone.  
+Bayesian Energy Landscape Tilting allows the simultaneous characterization of structural and equilibrium properties by generating a Bayesian ensemble of conformational ensembles--i.e. a hyperensemble.  Through its use of MCMC, BELT is robust to ambiguous experiments and provides rigorous uncertainty estimates, as illustrated here in the case of a tripeptide system with a complex ensemble.  BELT models constructed with a handful of NMR measurements correct significant force field bias and provide generalizable, force field independent trialanine ensembles. Important frontiers for BELT include the integration of numerous rather than sparse data and extension of the current equilibrium framework to prediction of kinetic properties.  The principled combination of simulation and experiment -- and demonstrating convergence from multiple force fields --  will enable predictive models that might not be achievable using either simulation or experiment alone.  
 
 
 \section*{Acknowledgements}
 
 We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Dan Herschlag for helpful discussions.  
+
+\section*{Supporting Information}
+
+Tables S1-S7, Figures S1-S4, and Appendices S1-S7 are available in the supporting information.  This material is available free of charge via the Internet at http://pubs.acs.org.
 
 \clearpage
 
@@ -345,6 +348,16 @@ Predicted and measured observables are given.  BELT predictions are calculated u
 
 
 \bibliography{belt}
+
+\clearpage
+
+\section{TOC Graphical Abstract}
+
+\begin{figure}
+
+\includegraphics[height=6.0cm]{figures/new_info_graphic/info_graphic.png}
+
+\end{figure}
 
 
 \end{document}
