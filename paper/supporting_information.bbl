@@ -1,47 +1,78 @@
-\begin{thebibliography}{1}
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{9}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
 
-\bibitem{crooks2007beyond}
-Gavin~E Crooks.
-\newblock Beyond boltzmann-gibbs statistics: Maximum entropy hyperensembles out
-  of equilibrium.
-\newblock {\em Physical Review E}, 75(4):041119, 2007.
-
-\bibitem{flyvbjerg1989error}
-Henrik Flyvbjerg and Henrik~Gordon Petersen.
-\newblock Error estimates on averages of correlated data.
-\newblock {\em J. Chem. Phys.}, 91:461, 1989.
-
-\bibitem{jaynes1957information}
-Edwin~T Jaynes.
-\newblock Information theory and statistical mechanics.
-\newblock {\em Physical review}, 106(4):620, 1957.
-
-\bibitem{chodera2012}
-J.W. Pitera and J.D. Chodera.
-\newblock On the use of experimental observations to bias simulated ensembles.
-\newblock {\em J. Chem. Theory Comput.}, 2012.
-
-\bibitem{rozycki2011saxs}
-Bartosz Rozycki, Young~C Kim, and Gerhard Hummer.
-\newblock Saxs ensemble refinement of escrt-iii chmp3 conformational
-  transitions.
-\newblock {\em Structure}, 19(1):109--116, 2011.
-
-\bibitem{rubin1981}
-D.B. Rubin.
-\newblock The bayesian bootstrap.
-\newblock {\em The annals of statistics}, 9(1):130--134, 1981.
-
-\bibitem{shirts2008}
-M.R. Shirts and J.D. Chodera.
-\newblock Statistically optimal analysis of samples from multiple equilibrium
-  states.
-\newblock {\em J. Chem. Phys.}, 129:124105, 2008.
-
-\bibitem{relative_entropy_wiki}
-Wikipedia.
-\newblock Kullback–leibler divergence --- {W}ikipedia{,} the free
-  encyclopedia, 2004.
-\newblock [Online; accessed 15-July-2013].
-
-\end{thebibliography}
+\bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
+Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Crooks(2007)]{crooks2007beyond}
+Crooks,~G.~E. \emph{Physical Review E} \textbf{2007}, \emph{75}, 041119\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jaynes(1957)]{jaynes1957information}
+Jaynes,~E.~T. \emph{Physical review} \textbf{1957}, \emph{106}, 620\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
+  109--116\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wikipedia(2004)]{relative_entropy_wiki}
+Wikipedia, Kullback–Leibler divergence --- {W}ikipedia{,} The Free
+  Encyclopedia. 2004;
+  \url{http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence},
+  [Online; accessed 15-July-2013]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rubin(1981)]{rubin1981}
+Rubin,~D. \emph{The annals of statistics} \textbf{1981}, \emph{9},
+  130--134\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Flyvbjerg and Petersen(1989)Flyvbjerg, and
+  Petersen]{flyvbjerg1989error}
+Flyvbjerg,~H.; Petersen,~H.~G. \emph{J. Chem. Phys.} \textbf{1989}, \emph{91},
+  461\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shirts and Chodera(2008)Shirts, and Chodera]{shirts2008}
+Shirts,~M.; Chodera,~J. \emph{J. Chem. Phys.} \textbf{2008}, \emph{129},
+  124105\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}
