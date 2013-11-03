@@ -143,7 +143,7 @@ fill_betweenx([0, .5], [val - sigma] * 2, [val + sigma] * 2, color='k', alpha=0.
 
 hist(predictions.values[:,0], bins=num_bins, color='r', normed=True, histtype='step')
 mu0 = predictions.mean(0).values[0]
-plot([mu0] * 2, [0, 0.5], color='r')
+plot([mu0] * 2, [0, 0.5], "--", color='r')
 #setp(ax2.get_xticklabels(), visible=False)
 setp(ax2.get_yticklabels(), visible=False)
 xlim(0, 11)

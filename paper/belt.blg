@@ -5,49 +5,49 @@ The style file: achemso.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-belt.bib
 Database file #2: belt.bib
-Repeated entry---line 2488 of file belt.bib
+Repeated entry---line 2510 of file belt.bib
  : @article{Horn2004
  :                  ,
 I'm skipping whatever remains of this entry
-You've used 56 entries,
+You've used 58 entries,
             2470 wiz_defined-function locations,
-            1064 strings with 17909 characters,
-and the built_in function-call counts, 20193 in all, are:
-= -- 1483
-> -- 1410
-< -- 17
-+ -- 555
-- -- 499
-* -- 2305
-:= -- 2807
-add.period$ -- 56
-call.type$ -- 56
+            1075 strings with 18318 characters,
+and the built_in function-call counts, 20774 in all, are:
+= -- 1529
+> -- 1441
+< -- 18
++ -- 567
+- -- 509
+* -- 2371
+:= -- 2886
+add.period$ -- 58
+call.type$ -- 58
 change.case$ -- 3
 chr.to.int$ -- 2
-cite$ -- 56
-duplicate$ -- 1156
-empty$ -- 1195
-format.name$ -- 565
-if$ -- 3693
+cite$ -- 58
+duplicate$ -- 1190
+empty$ -- 1236
+format.name$ -- 579
+if$ -- 3802
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 351
-num.names$ -- 165
-pop$ -- 114
+newline$ -- 363
+num.names$ -- 171
+pop$ -- 119
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 1
 stack$ -- 0
-substring$ -- 1027
-swap$ -- 1308
-text.length$ -- 111
+substring$ -- 1057
+swap$ -- 1339
+text.length$ -- 115
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 386
+type$ -- 400
 warning$ -- 0
-while$ -- 197
+while$ -- 204
 width$ -- 0
-write$ -- 673
+write$ -- 696
 (There was 1 error message)

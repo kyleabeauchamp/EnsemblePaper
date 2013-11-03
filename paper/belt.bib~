@@ -1,6 +1,18 @@
 % This file was created with JabRef 2.7.
 % Encoding: UTF-8
 
+@article{richter2007mumo,
+  title={The MUMO (minimal under-restraining minimal over-restraining) method for the determination of native state ensembles of proteins},
+  author={Richter, Barbara and Gsponer, Joerg and V{\'a}rnai, P{\'e}ter and Salvatella, Xavier and Vendruscolo, Michele},
+  journal={Journal of biomolecular NMR},
+  volume={37},
+  number={2},
+  pages={117--135},
+  year={2007},
+  publisher={Springer}
+}
+
+
 @article{morton1995energetic,
   title={Energetic origins of specificity of ligand binding in an interior nonpolar cavity of T4 lysozyme},
   author={Morton, Andrew and Baase, Walter A and Matthews, Brian W},
@@ -937,6 +949,28 @@ journal = {J. Chem. Theory Comput.},
   year={2010},
   publisher={Wellcome Trust Public Access}
 }
+
+@article{fisher2011constructing,
+  title={Constructing ensembles for intrinsically disordered proteins},
+  author={Fisher, Charles K and Stultz, Collin M},
+  journal={Current opinion in structural biology},
+  volume={21},
+  number={3},
+  pages={426--431},
+  year={2011},
+  publisher={Elsevier}
+}
+
+
+@article{fisher2012efficient,
+  title={Efficient construction of disordered protein ensembles in a Bayesian framework with optimal selection of conformations},
+  author={Fisher, Charles K and Ullman, Orly and Stultz, Collin M and others},
+  journal={Pacific Symposium on Biocomputing.},
+  pages={82},
+  year={2012},
+  organization={World Scientific}
+}
+
 
 @article{fisher2010,
   title={Modeling intrinsically disordered proteins with bayesian statistics},
