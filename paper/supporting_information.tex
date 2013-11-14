@@ -1,11 +1,13 @@
-\documentclass[journal=jctcce,manuscript=article]{achemso}
-%\usepackage[margin=1.0in]{geometry}
+%\documentclass[journal=jctcce,manuscript=article]{achemso}
+\documentclass[12pt]{article}
+\usepackage[margin=1.0in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{booktabs}
-\pdfminorversion=4
+\usepackage[round,sort,comma,numbers]{natbib}
+%\pdfminorversion=4
 
 \makeatletter 
 \renewcommand{\thefigure}{S\@arabic\c@figure} 
@@ -14,17 +16,18 @@
 \renewcommand{\thetable}{S\@arabic\c@table}
 
 %\author{Kyle A. Beauchamp, Vijay S. Pande, and Rhiju Das}
-\author{Kyle A. Beauchamp}
-\affiliation[Biophysics Program]{Biophysics Program}
+%\author{Kyle A. Beauchamp}
+%\affiliation[Biophysics Program]{Biophysics Program}
 
-\author{Vijay S. Pande$^\dagger$}
-\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
+%\author{Vijay S. Pande$^\dagger$}
+%\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
 
-\author{Rhiju Das$^\dagger$}
-\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
+%\author{Rhiju Das$^\dagger$}
+%\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
 
+\author{Kyle A. Beauchamp \and Vijay S. Pande \and Rhiju Das}
 
-\email{pande@stanford.edu, rhiju@stanford.edu}
+%\email{pande@stanford.edu, rhiju@stanford.edu}
 
 \title{{\it Supporting Information for } Bayesian Energy Landscape Tilting: Towards Concordant Models of Molecular Ensembles}
 
@@ -907,7 +910,7 @@ Based on this and our other experience, we offer some suggestions for achieving 
 
 \newpage
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{supporting_information}
 
 \end{document}

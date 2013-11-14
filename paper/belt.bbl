@@ -1,463 +1,354 @@
-\providecommand*\mcitethebibliography{\thebibliography}
-\csname @ifundefined\endcsname{endmcitethebibliography}
-  {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{58}
-\providecommand*\natexlab[1]{#1}
-\providecommand*\mciteSetBstSublistMode[1]{}
-\providecommand*\mciteSetBstMaxWidthForm[2]{}
-\providecommand*\mciteBstWouldAddEndPuncttrue
-  {\def\EndOfBibitem{\unskip.}}
-\providecommand*\mciteBstWouldAddEndPunctfalse
-  {\let\EndOfBibitem\relax}
-\providecommand*\mciteSetBstMidEndSepPunct[3]{}
-\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
-\providecommand*\EndOfBibitem{}
-\mciteSetBstSublistMode{f}
-\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
-\mciteSetBstSublistLabelBeginEnd
-  {\mcitemaxwidthsubitemform\space}
-  {\relax}
-  {\relax}
+\begin{thebibliography}{10}
 
-\bibitem[Berman et~al.(2000)Berman, Westbrook, Feng, Gilliland, Bhat, Weissig,
-  Shindyalov, and Bourne]{Berman2000}
-Berman,~H.~M.; Westbrook,~J.; Feng,~Z.; Gilliland,~G.; Bhat,~T.~N.;
-  Weissig,~H.; Shindyalov,~I.~N.; Bourne,~P.~E. \emph{Nucleic Acids Res.}
-  \textbf{2000}, \emph{28}, 235--242\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Dethoff et~al.(2012)Dethoff, Petzold, Chugh, Casiano-Negroni, and
-  Al-Hashimi]{dethoff2012}
-Dethoff,~E.~A.; Petzold,~K.; Chugh,~J.; Casiano-Negroni,~A.; Al-Hashimi,~H.~M.
-  \emph{Nature} \textbf{2012}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Fink(2005)]{fink2005}
-Fink,~A.~L. \emph{Curr. Opin. Struct. Biol.} \textbf{2005}, \emph{15},
-  35--41\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Korzhnev et~al.(2004)Korzhnev, Salvatella, Vendruscolo, Di~Nardo,
-  Davidson, Dobson, and Kay]{korzhnev2004}
-Korzhnev,~D.~M.; Salvatella,~X.; Vendruscolo,~M.; Di~Nardo,~A.~A.;
-  Davidson,~A.~R.; Dobson,~C.~M.; Kay,~L.~E. \emph{Nature} \textbf{2004},
-  \emph{430}, 586--590\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lindorff-Larsen et~al.(2005)Lindorff-Larsen, Best, DePristo, Dobson,
-  and Vendruscolo]{lindorff2005simultaneous}
-Lindorff-Larsen,~K.; Best,~R.~B.; DePristo,~M.~A.; Dobson,~C.~M.;
-  Vendruscolo,~M. \emph{Nature} \textbf{2005}, \emph{433}, 128--132\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lange et~al.(2008)Lange, Lakomek, Far{\`e}s, Schr{\"o}der, Walter,
-  Becker, Meiler, Grubm{\"u}ller, Griesinger, and
-  de~Groot]{lange2008recognition}
-Lange,~O.~F.; Lakomek,~N.-A.; Far{\`e}s,~C.; Schr{\"o}der,~G.~F.;
-  Walter,~K.~F.; Becker,~S.; Meiler,~J.; Grubm{\"u}ller,~H.; Griesinger,~C.;
-  de~Groot,~B.~L. \emph{Science} \textbf{2008}, \emph{320}, 1471--1475\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[DePristo et~al.(2004)DePristo, de~Bakker, and
-  Blundell]{depristo2004heterogeneity}
-DePristo,~M.~A.; de~Bakker,~P.~I.; Blundell,~T.~L. \emph{Structure}
-  \textbf{2004}, \emph{12}, 831--838\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lang et~al.(2010)Lang, Ng, Fraser, Corn, Echols, Sales, Holton, and
-  Alber]{lang2010automated}
-Lang,~P.~T.; Ng,~H.-L.; Fraser,~J.~S.; Corn,~J.~E.; Echols,~N.; Sales,~M.;
-  Holton,~J.~M.; Alber,~T. \emph{Protein Science} \textbf{2010}, \emph{19},
-  1420--1431\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Best et~al.(2008)Best, Buchete, and Hummer]{best2008}
-Best,~R.; Buchete,~N.; Hummer,~G. \emph{Biophys. J.} \textbf{2008}, \emph{95},
-  L07--L09\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lindorff-Larsen et~al.(2012)Lindorff-Larsen, Maragakis, Piana,
-  Eastwood, Dror, and Shaw]{lindorff2012systematic}
-Lindorff-Larsen,~K.; Maragakis,~P.; Piana,~S.; Eastwood,~M.; Dror,~R.; Shaw,~D.
-  \emph{PloS one} \textbf{2012}, \emph{7}, e32131\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beauchamp et~al.(2012)Beauchamp, Lin, Das, and
-  Pande]{beauchamp2012protein}
-Beauchamp,~K.; Lin,~Y.; Das,~R.; Pande,~V. \emph{J. Chem. Theory Comput.}
-  \textbf{2012}, \emph{8}, 1409\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Li and Bruschweiler(2011)Li, and Bruschweiler]{li2011iterative}
-Li,~D.-W.; Bruschweiler,~R. \emph{J. Chem. Theory Comput.} \textbf{2011},
-  \emph{7}, 1773\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Best et~al.(2012)Best, Zhu, Shim, Lopes, Mittal, Feig, and
-  MacKerell]{best2012optimization}
-Best,~R.~B.; Zhu,~X.; Shim,~J.; Lopes,~P.~E.; Mittal,~J.; Feig,~M.;
-  MacKerell,~A.~D. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Nerenberg and Head-Gordon(2011)Nerenberg, and
-  Head-Gordon]{nerenberg2011}
-Nerenberg,~P.; Head-Gordon,~T. \emph{J. Chem. Theory Comput.} \textbf{2011},
-  \emph{7}, 1220--1230\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Pitera and Chodera(2012)Pitera, and Chodera]{chodera2012}
-Pitera,~J.; Chodera,~J. \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Patil et~al.(2010)Patil, Huard, and Fonnesbeck]{patil2010pymc}
-Patil,~A.; Huard,~D.; Fonnesbeck,~C.~J. \emph{Journal of statistical software}
-  \textbf{2010}, \emph{35}, 1\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Crooks(2007)]{crooks2007beyond}
-Crooks,~G.~E. \emph{Physical Review E} \textbf{2007}, \emph{75}, 041119\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
-Rozycki,~B.; Kim,~Y.~C.; Hummer,~G. \emph{Structure} \textbf{2011}, \emph{19},
-  109--116\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Graf et~al.(2007)Graf, Nguyen, Stock, and Schwalbe]{Graf2007}
-Graf,~J.; Nguyen,~P.; Stock,~G.; Schwalbe,~H. \emph{J. Am. Chem. Soc.}
-  \textbf{2007}, \emph{129}, 1179--1189\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[V{\"o}geli et~al.(2007)V{\"o}geli, Ying, Grishaev, and
-  Bax]{vogeli2007limits}
-V{\"o}geli,~B.; Ying,~J.; Grishaev,~A.; Bax,~A. \emph{J. Am. Chem. Soc.}
-  \textbf{2007}, \emph{129}, 9377--9385\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rieping et~al.(2005)Rieping, Habeck, and Nilges]{rieping2005}
-Rieping,~W.; Habeck,~M.; Nilges,~M. \emph{Science} \textbf{2005}, \emph{309},
-  303--306\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Friedman et~al.(2001)Friedman, Hastie, and
-  Tibshirani]{friedman2001elements}
-Friedman,~J.; Hastie,~T.; Tibshirani,~R. \emph{The elements of statistical
-  learning}; Springer Series in Statistics, 2001; Vol.~1\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Wikipedia(2004)]{relative_entropy_wiki}
-Wikipedia, Kullback–Leibler divergence --- {W}ikipedia{,} The Free
-  Encyclopedia. 2004;
-  \url{http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence},
-  [Online; accessed 15-July-2013]\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Fisher et~al.(2010)Fisher, Huang, and Stultz]{fisher2010}
-Fisher,~C.~K.; Huang,~A.; Stultz,~C.~M. \emph{J. Am. Chem. Soc.} \textbf{2010},
-  \emph{132}, 14919\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Fisher and Stultz(2011)Fisher, and Stultz]{fisher2011constructing}
-Fisher,~C.~K.; Stultz,~C.~M. \emph{Current opinion in structural biology}
-  \textbf{2011}, \emph{21}, 426--431\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rubin(1981)]{rubin1981}
-Rubin,~D. \emph{The annals of statistics} \textbf{1981}, \emph{9},
-  130--134\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kollman(1996)]{kollman1996}
-Kollman,~P. \emph{Acc. Chem. Res.} \textbf{1996}, \emph{29}, 461--469\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Wang et~al.(2000)Wang, Cieplak, and Kollman]{wang2000}
-Wang,~J.; Cieplak,~P.; Kollman,~P. \emph{J. Comput. Chem.} \textbf{2000},
-  \emph{21}, 1049--1074\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Li and Bruschweiler(2010)Li, and Bruschweiler]{li2010}
-Li,~D.; Bruschweiler,~R. \emph{Angew. Chem.} \textbf{2010}, \emph{122},
-  6930--6932\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lindorff-Larsen et~al.(2010)Lindorff-Larsen, Piana, Palmo, Maragakis,
-  Klepeis, Dror, and Shaw]{Lindorff-Larsen2010}
-Lindorff-Larsen,~K.; Piana,~S.; Palmo,~K.; Maragakis,~P.; Klepeis,~J.;
-  Dror,~R.; Shaw,~D. \emph{Proteins: Struct., Funct., Bioinf.} \textbf{2010},
-  \emph{78}, 1950--1958\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Mackerell~Jr et~al.(2004)Mackerell~Jr, Feig, and
-  Brooks~III]{mackerell2004extending}
-Mackerell~Jr,~A.; Feig,~M.; Brooks~III,~C. \emph{J. Comput. Chem.}
-  \textbf{2004}, \emph{25}, 1400--1415\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Bjelkmar et~al.(2010)Bjelkmar, Larsson, Cuendet, Hess, and
-  Lindahl]{bjelkmar2010implementation}
-Bjelkmar,~P.; Larsson,~P.; Cuendet,~M.; Hess,~B.; Lindahl,~E. \emph{J. Chem.
-  Theory Comput.} \textbf{2010}, \emph{6}, 459--466\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kaminski et~al.(2001)Kaminski, Friesner, Tirado-Rives, and
-  Jorgensen]{kaminski2001evaluation}
-Kaminski,~G.; Friesner,~R.; Tirado-Rives,~J.; Jorgensen,~W. \emph{J. Phys.
-  Chem. B} \textbf{2001}, \emph{105}, 6474--6487\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hess et~al.(2008)Hess, Kutzner, Van Der~Spoel, and Lindahl]{hess2008}
-Hess,~B.; Kutzner,~C.; Van Der~Spoel,~D.; Lindahl,~E. \emph{J. Chem. Theory
-  Comput.} \textbf{2008}, \emph{4}, 435--447\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Horn et~al.(2004)Horn, Swope, Pitera, Madura, Dick, Hura, and
-  Head-Gordon]{horn2004}
-Horn,~H.; Swope,~W.; Pitera,~J.; Madura,~J.; Dick,~T.; Hura,~G.;
-  Head-Gordon,~T. \emph{J. Chem. Phys.} \textbf{2004}, \emph{120}, 9665\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Han et~al.(2011)Han, Liu, Ginzinger, and Wishart]{han2011shiftx2}
-Han,~B.; Liu,~Y.; Ginzinger,~S.; Wishart,~D. \emph{J. Biomol. NMR}
-  \textbf{2011}, 1--15\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Shen and Bax(2010)Shen, and Bax]{Shen2010}
-Shen,~Y.; Bax,~A. \emph{J. Biomol. NMR} \textbf{2010}, \emph{48}, 13--22\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Li and Br{\"u}schweiler(2012)Li, and Br{\"u}schweiler]{li2012ppm}
-Li,~D.-W.; Br{\"u}schweiler,~R. \emph{J. Biol. NMR} \textbf{2012}, 1--9\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Schmidt et~al.(1999)Schmidt, Blümel, Lohr, and
-  Ruterjans]{Schmidt1999}
-Schmidt,~J.; Blümel,~M.; Lohr,~F.; Ruterjans,~H. \emph{J. Biomol. NMR}
-  \textbf{1999}, \emph{14}, 1--12\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Grdadolnik et~al.(2011)Grdadolnik, Mohacek-Grosev, Baldwin, and
-  Avbelj]{Grdadolnik2011}
-Grdadolnik,~J.; Mohacek-Grosev,~V.; Baldwin,~R.; Avbelj,~F. \emph{Proc. Natl.
-  Acad. Sci. U. S. A.} \textbf{2011}, \emph{108}, 1794\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jha et~al.(2005)Jha, Colubri, Zaman, Koide, Sosnick, and
-  Freed]{Jha2005}
-Jha,~A.~K.; Colubri,~A.; Zaman,~M.~H.; Koide,~S.; Sosnick,~T.~R.; Freed,~K.~F.
-  \emph{Biochemistry} \textbf{2005}, \emph{44}, 9691--9702\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Avbelj et~al.(2006)Avbelj, Grdadolnik, Grdadolnik, and
-  Baldwin]{Avbelj2006}
-Avbelj,~F.; Grdadolnik,~S.; Grdadolnik,~J.; Baldwin,~R. \emph{Proc. Natl. Acad.
-  Sci. U. S. A.} \textbf{2006}, \emph{103}, 1272\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Pronk et~al.(2013)Pronk, Pall, Schulz, Larsson, Bjelkmar, Apostolov,
-  Shirts, Smith, Kasson, and van~der Spoel]{pronk2013gromacs}
-Pronk,~S.; Pall,~S.; Schulz,~R.; Larsson,~P.; Bjelkmar,~P.; Apostolov,~R.;
-  Shirts,~M.~R.; Smith,~J.~C.; Kasson,~P.~M.; van~der Spoel,~D.
-  \emph{Bioinformatics} \textbf{2013}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Eastman et~al.(2012)Eastman, Friedrichs, Chodera, Radmer, Bruns, Ku,
-  Beauchamp, Lane, Wang, Shukla, and Pande]{eastman2012openmm}
-Eastman,~P.; Friedrichs,~M.~S.; Chodera,~J.~D.; Radmer,~R.~J.; Bruns,~C.~M.;
-  Ku,~J.~P.; Beauchamp,~K.~A.; Lane,~T.~J.; Wang,~L.-P.; Shukla,~D.;
-  Pande,~V.~S. \emph{J. Chem. Theory Comput.} \textbf{2012}, \emph{9},
-  461--469\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Eastman and Pande(2010)Eastman, and Pande]{eastman2010openmm}
-Eastman,~P.; Pande,~V. \emph{Comp. in Sci. Eng.} \textbf{2010}, \emph{12},
-  34--39\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Shaw et~al.(2008)Shaw, Deneroff, Dror, Kuskin, Larson, Salmon, Young,
-  Batson, Bowers, and Chao]{Shaw2008}
-Shaw,~D.; Deneroff,~M.; Dror,~R.; Kuskin,~J.; Larson,~R.; Salmon,~J.;
-  Young,~C.; Batson,~B.; Bowers,~K.; Chao,~J. \emph{Commun. ACM} \textbf{2008},
-  \emph{51}, 91--97\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Senne et~al.(2012)Senne, Trendelkamp-Schroer, Mey, Schütte, and
-  Noé]{emma}
-Senne,~M.; Trendelkamp-Schroer,~B.; Mey,~A. S. J.~S.; Schütte,~C.; Noé,~F.
-  \emph{J. Chem. Theory Comput.} \textbf{2012}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beauchamp et~al.(2011)Beauchamp, Bowman, Lane, Maibaum, Haque, and
-  Pande]{msmb2}
-Beauchamp,~K.; Bowman,~G.; Lane,~T.; Maibaum,~L.; Haque,~I.; Pande,~V. \emph{J.
-  Chem. Theory Comput.} \textbf{2011}, \emph{7}, 3412--3419\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Voelz et~al.(2010)Voelz, Bowman, Beauchamp, and Pande]{voelz2010}
-Voelz,~V.; Bowman,~G.; Beauchamp,~K.; Pande,~V. \emph{J. Am. Chem. Soc.}
-  \textbf{2010}, \emph{132}, 1526--1528\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Bowman et~al.(2011)Bowman, Voelz, and Pande]{bowman2011atomistic}
-Bowman,~G.~R.; Voelz,~V.~A.; Pande,~V.~S. \emph{J. Am. Chem. Soc.}
-  \textbf{2011}, \emph{133}, 664\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Shaw et~al.(2010)Shaw, Maragakis, Lindorff-Larsen, Piana, Dror,
-  Eastwood, Bank, Jumper, Salmon, Shan, and Wriggers]{shaw2010}
-Shaw,~D.~E.; Maragakis,~P.; Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.~O.;
-  Eastwood,~M.~P.; Bank,~J.~A.; Jumper,~J.~M.; Salmon,~J.~K.; Shan,~Y.;
-  Wriggers,~W. \emph{Science} \textbf{2010}, \emph{330}, 341--346\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lindorff-Larsen et~al.(2011)Lindorff-Larsen, Piana, Dror, and
-  Shaw]{Shaw2011}
-Lindorff-Larsen,~K.; Piana,~S.; Dror,~R.; Shaw,~D. \emph{Science}
-  \textbf{2011}, \emph{334}, 517--520\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Fisher et~al.(2012)Fisher, Ullman, and Stultz]{fisher2012efficient}
-Fisher,~C.~K.; Ullman,~O.; Stultz,~C.~M. \emph{Pacific Symposium on
-  Biocomputing.} \textbf{2012}, 82\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Wang et~al.(2012)Wang, Chen, and Van~Voorhis]{wang2012}
-Wang,~L.-P.; Chen,~J.; Van~Voorhis,~T. \emph{J. Chem. Theory Comput.}
-  \textbf{2012}, \emph{9}, 452--460\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Wang et~al.(2013)Wang, Head-Gordon, Ponder, Ren, Chodera, Eastman,
-  Mart{\'\i}nez, and Pande]{wang2013systematic}
-Wang,~L.-P.; Head-Gordon,~T.~L.; Ponder,~J.~W.; Ren,~P.; Chodera,~J.~D.;
-  Eastman,~P.~K.; Mart{\'\i}nez,~T.~J.; Pande,~V.~S. \emph{J. Phys. Chem. B}
-  \textbf{2013}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Richter et~al.(2007)Richter, Gsponer, V{\'a}rnai, Salvatella, and
-  Vendruscolo]{richter2007mumo}
-Richter,~B.; Gsponer,~J.; V{\'a}rnai,~P.; Salvatella,~X.; Vendruscolo,~M.
-  \emph{Journal of biomolecular NMR} \textbf{2007}, \emph{37}, 117--135\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Markwick et~al.(2009)Markwick, Showalter, Bouvignies,
-  Br{\"u}schweiler, and Blackledge]{markwick2009structural}
-Markwick,~P.~R.; Showalter,~S.~A.; Bouvignies,~G.; Br{\"u}schweiler,~R.;
-  Blackledge,~M. \emph{Journal of biomolecular NMR} \textbf{2009}, \emph{45},
-  17--21\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\end{mcitethebibliography}
+\bibitem{Berman2000}
+H.~M. Berman, J.~Westbrook, Z.~Feng, G.~Gilliland, T.~N. Bhat, H.~Weissig,
+  I.~N. Shindyalov, and P.~E. Bourne.
+\newblock {{T}he {P}rotein {D}ata {B}ank}.
+\newblock {\em Nucleic Acids Res.}, 28:235--242, Jan 2000.
+
+\bibitem{dethoff2012}
+Elizabeth~A Dethoff, Katja Petzold, Jeetender Chugh, Anette Casiano-Negroni,
+  and Hashim~M Al-Hashimi.
+\newblock Visualizing transient low-populated structures of rna.
+\newblock {\em Nature}, 2012.
+
+\bibitem{fink2005}
+Anthony~L Fink.
+\newblock Natively unfolded proteins.
+\newblock {\em Curr. Opin. Struct. Biol.}, 15(1):35--41, 2005.
+
+\bibitem{korzhnev2004}
+Dmitry~M Korzhnev, Xavier Salvatella, Michele Vendruscolo, Ariel~A Di~Nardo,
+  Alan~R Davidson, Christopher~M Dobson, and Lewis~E Kay.
+\newblock Low-populated folding intermediates of {Fyn SH3} characterized by
+  relaxation dispersion {NMR}.
+\newblock {\em Nature}, 430(6999):586--590, 2004.
+
+\bibitem{lindorff2005simultaneous}
+Kresten Lindorff-Larsen, Robert~B Best, Mark~A DePristo, Christopher~M Dobson,
+  and Michele Vendruscolo.
+\newblock Simultaneous determination of protein structure and dynamics.
+\newblock {\em Nature}, 433(7022):128--132, 2005.
+
+\bibitem{lange2008recognition}
+Oliver~F Lange, Nils-Alexander Lakomek, Christophe Far{\`e}s, Gunnar~F
+  Schr{\"o}der, Korvin~FA Walter, Stefan Becker, Jens Meiler, Helmut
+  Grubm{\"u}ller, Christian Griesinger, and Bert~L de~Groot.
+\newblock Recognition dynamics up to microseconds revealed from an rdc-derived
+  ubiquitin ensemble in solution.
+\newblock {\em Science}, 320(5882):1471--1475, 2008.
+
+\bibitem{depristo2004heterogeneity}
+Mark~A DePristo, Paul~IW de~Bakker, and Tom~L Blundell.
+\newblock Heterogeneity and inaccuracy in protein structures solved by x-ray
+  crystallography.
+\newblock {\em Structure}, 12(5):831--838, 2004.
+
+\bibitem{lang2010automated}
+P~Therese Lang, Ho-Leung Ng, James~S Fraser, Jacob~E Corn, Nathaniel Echols,
+  Mark Sales, James~M Holton, and Tom Alber.
+\newblock Automated electron-density sampling reveals widespread conformational
+  polymorphism in proteins.
+\newblock {\em Protein Science}, 19(7):1420--1431, 2010.
+
+\bibitem{best2008}
+R.B. Best, N.V. Buchete, and G.~Hummer.
+\newblock Are current molecular dynamics force fields too helical?
+\newblock {\em Biophys. J.}, 95(1):L07--L09, 2008.
+
+\bibitem{lindorff2012systematic}
+K.~Lindorff-Larsen, P.~Maragakis, S.~Piana, M.P. Eastwood, R.O. Dror, and D.E.
+  Shaw.
+\newblock Systematic validation of protein force fields against experimental
+  data.
+\newblock {\em PloS one}, 7(2):e32131, 2012.
+
+\bibitem{beauchamp2012protein}
+K.A. Beauchamp, Y.S. Lin, R.~Das, and V.S. Pande.
+\newblock Are protein force fields getting better? a systematic benchmark on
+  524 diverse {NMR} measurements.
+\newblock {\em J. Chem. Theory Comput.}, 8(4):1409, 2012.
+
+\bibitem{li2011iterative}
+Da-Wei Li and Rafael Bruschweiler.
+\newblock Iterative optimization of molecular mechanics force fields from {NMR}
+  data of full-length proteins.
+\newblock {\em J. Chem. Theory Comput.}, 7(6):1773, 2011.
+
+\bibitem{best2012optimization}
+Robert~B Best, Xiao Zhu, Jihyun Shim, Pedro~EM Lopes, Jeetain Mittal, Michael
+  Feig, and Alexander~D MacKerell.
+\newblock Optimization of the additive charmm all-atom protein force field
+  targeting improved sampling of the backbone $\varphi$, $\psi$ and side-chain
+  $\chi$1 and $\chi$2 dihedral angles.
+\newblock {\em J. Chem. Theory Comput.}, 2012.
+
+\bibitem{nerenberg2011}
+P.S. Nerenberg and T.~Head-Gordon.
+\newblock Optimizing protein- solvent force fields to reproduce intrinsic
+  conformational preferences of model peptides.
+\newblock {\em J. Chem. Theory Comput.}, 7(4):1220--1230, 2011.
+
+\bibitem{chodera2012}
+J.W. Pitera and J.D. Chodera.
+\newblock On the use of experimental observations to bias simulated ensembles.
+\newblock {\em J. Chem. Theory Comput.}, 2012.
+
+\bibitem{patil2010pymc}
+Anand Patil, David Huard, and Christopher~J Fonnesbeck.
+\newblock Pymc: Bayesian stochastic modelling in python.
+\newblock {\em Journal of statistical software}, 35(4):1, 2010.
+
+\bibitem{crooks2007beyond}
+Gavin~E Crooks.
+\newblock Beyond boltzmann-gibbs statistics: Maximum entropy hyperensembles out
+  of equilibrium.
+\newblock {\em Physical Review E}, 75(4):041119, 2007.
+
+\bibitem{rozycki2011saxs}
+Bartosz Rozycki, Young~C Kim, and Gerhard Hummer.
+\newblock Saxs ensemble refinement of escrt-iii chmp3 conformational
+  transitions.
+\newblock {\em Structure}, 19(1):109--116, 2011.
+
+\bibitem{Graf2007}
+J.~Graf, P.H. Nguyen, G.~Stock, and H.~Schwalbe.
+\newblock Structure and dynamics of the homologous series of alanine peptides:
+  a joint molecular dynamics/nmr study.
+\newblock {\em J. Am. Chem. Soc.}, 129(5):1179--1189, 2007.
+
+\bibitem{vogeli2007limits}
+Beat V{\"o}geli, Jinfa Ying, Alexander Grishaev, and Ad~Bax.
+\newblock Limits on variations in protein backbone dynamics from precise
+  measurements of scalar couplings.
+\newblock {\em J. Am. Chem. Soc.}, 129(30):9377--9385, 2007.
+
+\bibitem{rieping2005}
+Wolfgang Rieping, Michael Habeck, and Michael Nilges.
+\newblock Inferential structure determination.
+\newblock {\em Science}, 309(5732):303--306, 2005.
+
+\bibitem{friedman2001elements}
+J.~Friedman, T.~Hastie, and R.~Tibshirani.
+\newblock {\em The elements of statistical learning}, volume~1.
+\newblock Springer Series in Statistics, 2001.
+
+\bibitem{relative_entropy_wiki}
+Wikipedia.
+\newblock Kullback–leibler divergence --- {W}ikipedia{,} the free
+  encyclopedia, 2004.
+\newblock [Online; accessed 15-July-2013].
+
+\bibitem{fisher2010}
+Charles~K Fisher, Austin Huang, and Collin~M Stultz.
+\newblock Modeling intrinsically disordered proteins with bayesian statistics.
+\newblock {\em J. Am. Chem. Soc.}, 132(42):14919, 2010.
+
+\bibitem{fisher2011constructing}
+Charles~K Fisher and Collin~M Stultz.
+\newblock Constructing ensembles for intrinsically disordered proteins.
+\newblock {\em Current opinion in structural biology}, 21(3):426--431, 2011.
+
+\bibitem{rubin1981}
+D.B. Rubin.
+\newblock The bayesian bootstrap.
+\newblock {\em The annals of statistics}, 9(1):130--134, 1981.
+
+\bibitem{kollman1996}
+P.A. Kollman.
+\newblock Advances and continuing challenges in achieving realistic and
+  predictive simulations of the properties of organic and biological molecules.
+\newblock {\em Acc. Chem. Res.}, 29(10):461--469, 1996.
+
+\bibitem{wang2000}
+J.~Wang, P.~Cieplak, and P.A. Kollman.
+\newblock How well does a restrained electrostatic potential(resp) model
+  perform in calculating conformational energies of organic and biological
+  molecules?
+\newblock {\em J. Comput. Chem.}, 21(12):1049--1074, 2000.
+
+\bibitem{li2010}
+D.W. Li and R.~Bruschweiler.
+\newblock Nmr-based protein potentials.
+\newblock {\em Angew. Chem.}, 122(38):6930--6932, 2010.
+
+\bibitem{Lindorff-Larsen2010}
+K.~Lindorff-Larsen, S.~Piana, K.~Palmo, P.~Maragakis, J.L. Klepeis, R.O. Dror,
+  and D.E. Shaw.
+\newblock Improved side-chain torsion potentials for the amber ff99sb protein
+  force field.
+\newblock {\em Proteins: Struct., Funct., Bioinf.}, 78(8):1950--1958, 2010.
+
+\bibitem{mackerell2004extending}
+A.D. Mackerell~Jr, M.~Feig, and C.L. Brooks~III.
+\newblock Extending the treatment of backbone energetics in protein force
+  fields: Limitations of gas-phase quantum mechanics in reproducing protein
+  conformational distributions in molecular dynamics simulations.
+\newblock {\em J. Comput. Chem.}, 25(11):1400--1415, 2004.
+
+\bibitem{bjelkmar2010implementation}
+P.~Bjelkmar, P.~Larsson, M.A. Cuendet, B.~Hess, and E.~Lindahl.
+\newblock Implementation of the charmm force field in gromacs: Analysis of
+  protein stability effects from correction maps, virtual interaction sites,
+  and water models.
+\newblock {\em J. Chem. Theory Comput.}, 6(2):459--466, 2010.
+
+\bibitem{kaminski2001evaluation}
+G.A. Kaminski, R.A. Friesner, J.~Tirado-Rives, and W.L. Jorgensen.
+\newblock Evaluation and reparametrization of the opls-aa force field for
+  proteins via comparison with accurate quantum chemical calculations on
+  peptides.
+\newblock {\em J. Phys. Chem. B}, 105(28):6474--6487, 2001.
+
+\bibitem{hess2008}
+B.~Hess, C.~Kutzner, D.~Van Der~Spoel, and E.~Lindahl.
+\newblock Gromacs 4: Algorithms for highly efficient, load-balanced, and
+  scalable molecular simulation.
+\newblock {\em J. Chem. Theory Comput.}, 4(3):435--447, 2008.
+
+\bibitem{horn2004}
+H.W. Horn, W.C. Swope, J.W. Pitera, J.D. Madura, T.J. Dick, G.L. Hura, and
+  T.~Head-Gordon.
+\newblock Development of an improved four-site water model for biomolecular
+  simulations: Tip4p-ew.
+\newblock {\em J. Chem. Phys.}, 120:9665, 2004.
+
+\bibitem{han2011shiftx2}
+B.~Han, Y.~Liu, S.W. Ginzinger, and D.S. Wishart.
+\newblock Shiftx2: significantly improved protein chemical shift prediction.
+\newblock {\em J. Biomol. NMR}, pages 1--15, 2011.
+
+\bibitem{Shen2010}
+Yang Shen and Ad~Bax.
+\newblock Sparta+: a modest improvement in empirical {NMR} chemical shift
+  prediction by means of an artificial neural network.
+\newblock {\em J. Biomol. NMR}, 48(1):13--22, Sep 2010.
+
+\bibitem{li2012ppm}
+Da-Wei Li and Rafael Br{\"u}schweiler.
+\newblock Ppm: a side-chain and backbone chemical shift predictor for the
+  assessment of protein conformational ensembles.
+\newblock {\em J. Biol. NMR}, pages 1--9, 2012.
+
+\bibitem{Schmidt1999}
+Jürgen Schmidt, Markus Blümel, Frank Lohr, and Heinz Ruterjans.
+\newblock Self-consistent 3j coupling analysis for the joint calibration of
+  karplus coefficients and evaluation of torsion angles.
+\newblock {\em J. Biomol. NMR}, 14:1--12, 1999.
+
+\bibitem{Grdadolnik2011}
+J.~Grdadolnik, V.~Mohacek-Grosev, R.L. Baldwin, and F.~Avbelj.
+\newblock Populations of the three major backbone conformations in 19 amino
+  acid dipeptides.
+\newblock {\em Proc. Natl. Acad. Sci. U. S. A.}, 108(5):1794, 2011.
+
+\bibitem{Jha2005}
+Abhishek~K Jha, Andres Colubri, Muhammad~H Zaman, Shohei Koide, Tobin~R
+  Sosnick, and Karl~F Freed.
+\newblock Helix, sheet, and polyproline {II} frequencies and strong nearest
+  neighbor effects in a restricted coil library.
+\newblock {\em Biochemistry}, 44(28):9691--9702, 2005.
+
+\bibitem{Avbelj2006}
+F.~Avbelj, S.G. Grdadolnik, J.~Grdadolnik, and R.L. Baldwin.
+\newblock Intrinsic backbone preferences are fully present in blocked amino
+  acids.
+\newblock {\em Proc. Natl. Acad. Sci. U. S. A.}, 103(5):1272, 2006.
+
+\bibitem{pronk2013gromacs}
+Sander Pronk, Szilard Pall, Roland Schulz, Per Larsson, Par Bjelkmar, Rossen
+  Apostolov, Michael~R Shirts, Jeremy~C Smith, Peter~M Kasson, and David
+  van~der Spoel.
+\newblock Gromacs 4.5: a high-throughput and highly parallel open source
+  molecular simulation toolkit.
+\newblock {\em Bioinformatics}, 2013.
+
+\bibitem{eastman2012openmm}
+Peter Eastman, Mark~S Friedrichs, John~D Chodera, Randall~J Radmer,
+  Christopher~M Bruns, Joy~P Ku, Kyle~A Beauchamp, Thomas~J Lane, Lee-Ping
+  Wang, Diwakar Shukla, and V.~S. Pande.
+\newblock Openmm 4: A reusable, extensible, hardware independent library for
+  high performance molecular simulation.
+\newblock {\em J. Chem. Theory Comput.}, 9(1):461--469, 2012.
+
+\bibitem{eastman2010openmm}
+P.~Eastman and V.~Pande.
+\newblock Openmm: a hardware-independent framework for molecular simulations.
+\newblock {\em Comp. in Sci. Eng.}, 12(4):34--39, 2010.
+
+\bibitem{Shaw2008}
+D.E. Shaw, M.M. Deneroff, R.O. Dror, J.S. Kuskin, R.H. Larson, J.K. Salmon,
+  C.~Young, B.~Batson, K.J. Bowers, and J.C. Chao.
+\newblock Anton, a special-purpose machine for molecular dynamics simulation.
+\newblock {\em Commun. ACM}, 51(7):91--97, 2008.
+
+\bibitem{emma}
+Martin Senne, Benjamin Trendelkamp-Schroer, Antonia Silke Julia~Susanna Mey,
+  Christof Schütte, and Frank Noé.
+\newblock Emma - a software package for markov model building and analysis.
+\newblock {\em J. Chem. Theory Comput.}, 2012.
+
+\bibitem{msmb2}
+K.A. Beauchamp, G.R. Bowman, T.J. Lane, L.~Maibaum, I.S. Haque, and V.S. Pande.
+\newblock Msmbuilder2: Modeling conformational dynamics at the picosecond to
+  millisecond scale.
+\newblock {\em J. Chem. Theory Comput.}, 7(10):3412--3419, 2011.
+
+\bibitem{voelz2010}
+V.A. Voelz, G.R. Bowman, K.~Beauchamp, and V.S. Pande.
+\newblock Molecular simulation of ab initio protein folding for a millisecond
+  folder {NTL9} (1- 39).
+\newblock {\em J. Am. Chem. Soc.}, 132(5):1526--1528, 2010.
+
+\bibitem{bowman2011atomistic}
+Gregory~R Bowman, Vincent~A Voelz, and Vijay~S Pande.
+\newblock Atomistic folding simulations of the five helix bundle protein
+  $\lambda$6--85.
+\newblock {\em J. Am. Chem. Soc.}, 133(4):664, 2011.
+
+\bibitem{shaw2010}
+David~E. Shaw, Paul Maragakis, Kresten Lindorff-Larsen, Stefano Piana, Ron~O.
+  Dror, Michael~P. Eastwood, Joseph~A. Bank, John~M. Jumper, John~K. Salmon,
+  Yibing Shan, and Willy Wriggers.
+\newblock Atomic-level characterization of the structural dynamics of proteins.
+\newblock {\em Science}, 330(6002):341--346, 2010.
+
+\bibitem{Shaw2011}
+K.~Lindorff-Larsen, S.~Piana, R.O. Dror, and D.E. Shaw.
+\newblock How fast-folding proteins fold.
+\newblock {\em Science}, 334(6055):517--520, 2011.
+
+\bibitem{fisher2012efficient}
+Charles~K Fisher, Orly Ullman, and Collin~M Stultz.
+\newblock Efficient construction of disordered protein ensembles in a bayesian
+  framework with optimal selection of conformations.
+\newblock {\em Pacific Symposium on Biocomputing.}, page~82, 2012.
+
+\bibitem{wang2012}
+Lee-Ping Wang, Jiahao Chen, and Troy Van~Voorhis.
+\newblock Systematic parametrization of polarizable force fields from quantum
+  chemistry data.
+\newblock {\em J. Chem. Theory Comput.}, 9(1):452--460, 2012.
+
+\bibitem{wang2013systematic}
+Lee-Ping Wang, Teresa~Lyn Head-Gordon, Jay~William Ponder, Pengyu Ren,
+  John~Damon Chodera, Peter~Kenneth Eastman, Todd~J Mart{\'\i}nez, and Vijay~S
+  Pande.
+\newblock Systematic improvement of a classical molecular model of water.
+\newblock {\em J. Phys. Chem. B}, 2013.
+
+\bibitem{richter2007mumo}
+Barbara Richter, Joerg Gsponer, P{\'e}ter V{\'a}rnai, Xavier Salvatella, and
+  Michele Vendruscolo.
+\newblock The mumo (minimal under-restraining minimal over-restraining) method
+  for the determination of native state ensembles of proteins.
+\newblock {\em Journal of biomolecular NMR}, 37(2):117--135, 2007.
+
+\bibitem{markwick2009structural}
+Phineus~RL Markwick, Scott~A Showalter, Guillaume Bouvignies, Rafael
+  Br{\"u}schweiler, and Martin Blackledge.
+\newblock Structural dynamics of protein backbone $\varphi$ angles: extended
+  molecular dynamics simulations versus experimental 3 j scalar couplings.
+\newblock {\em Journal of biomolecular NMR}, 45(1-2):17--21, 2009.
+
+\end{thebibliography}

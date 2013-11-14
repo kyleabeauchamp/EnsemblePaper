@@ -1,11 +1,13 @@
-\documentclass[journal=jctcce,manuscript=article]{achemso}
-%\usepackage[margin=1.0in]{geometry}
+%\documentclass[journal=jctcce,manuscript=article]{achemso}
+\documentclass[12pt]{article}
+\usepackage[margin=1.0in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{booktabs}
-\pdfminorversion=4
+\usepackage[round,sort,comma,numbers]{natbib}
+%\pdfminorversion=4
 
 \makeatletter 
 \renewcommand{\thefigure}{S\@arabic\c@figure} 
@@ -15,16 +17,16 @@
 
 %\author{Kyle A. Beauchamp, Vijay S. Pande, and Rhiju Das}
 \author{Kyle A. Beauchamp}
-\affiliation[Biophysics Program]{Biophysics Program}
+%\affiliation[Biophysics Program]{Biophysics Program}
 
 \author{Vijay S. Pande$^\dagger$}
-\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
+%\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
 
 \author{Rhiju Das$^\dagger$}
-\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
+%\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
 
 
-\email{pande@stanford.edu, rhiju@stanford.edu}
+%\email{pande@stanford.edu, rhiju@stanford.edu}
 
 \title{{\it Supporting Information for } Bayesian Energy Landscape Tilting: Towards Concordant Models of Molecular Ensembles}
 
@@ -678,7 +680,7 @@ Here, $H_{ij}(\phi) = \frac{\partial^2 D}{\partial \Delta_j \partial \Delta_j}$,
 
 $$P(\phi, \Delta | F) = C |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta)$$
 
-From the perspective of BELT, $\Delta$ is a nuisance parameter--we want an ensemble that is described by a more parsimonious representation.  We therefore integrate over $\Delta$ (e.g. marginalize) to achieve a probability that depends entirely on $\phi$.  
+From the perspective of BELT, $\Delta$ is a nuisance parameter---we want an ensemble that is described by a more parsimonious representation.  We therefore integrate over $\Delta$ (e.g. marginalize) to achieve a probability that depends entirely on $\phi$.  
 
 $$P(\phi | F) = C \int |J_1(\phi, \Delta)| \exp(-\frac{1}{2\sigma^2} (\phi - F)^2) \exp(-\lambda  D(\phi, 0|| \rho^0) - \frac{\lambda}{2} \Delta^T H(\phi) \Delta) d\Delta $$
 
@@ -773,7 +775,7 @@ Typically the reference populations are uniform; that is, $\pi_j^0 = \frac{1}{m}
 
 \subsection*{Dirichlet Prior}
 
-We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables--that is, when dealing with counts and probabilities of categorical data.  The Dirichlet distribution is nonzero on the unit simplex and has the following functional form:
+We also consider the Dirichlet prior.  Dirichlet priors are commonly used as conjugate priors to multinomial random variables---that is, when dealing with counts and probabilities of categorical data.  The Dirichlet distribution is nonzero on the unit simplex and has the following functional form:
 
 $$f(\pi;s) = \frac{1}{B(s)} \prod_j \pi_j^{s_j - 1}$$
 
@@ -793,7 +795,7 @@ Note that the constant term is unimportant, as MCMC relies on the difference in 
 
 $$\log f(\alpha;s) \approx \sum_j (s_j - 1) \log \pi_j(\alpha)$$
 
-In practice, the Dirichlet prior has a large number of hyperparameters--the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
+In practice, the Dirichlet prior has a large number of hyperparameters---the pseudocounts $s_i$ on each conformation.  To avoid the need for many hyperparameters, we assume that 
 
 $$s_j - 1 = \lambda \pi_j^0$$
 
@@ -809,7 +811,7 @@ Notice that this functional form is quite similar to the maxent prior that we pr
 
 $$D_{KL}(P||Q) = \sum_i P_i \log \frac{P_i}{Q_i}$$
 
-The relative entropy is not a symmetric relationship--that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
+The relative entropy is not a symmetric relationship---that is, $D_{KL}(P||Q) \ne D_{KL}(Q||P)$.  The maxent and Dirichlet priors are simply the relative entropy between $\pi(\alpha)$ and a reference distribution $\pi^0$, calculated in either direction.    For equilibrium molecular dynamics, the reference distribution is simply uniform ($\frac{1}{m}$).
 
 
 \subsection*{Multivariate Normal (MVN) Prior}
@@ -819,7 +821,7 @@ In the MVN prior, $\alpha \sim N(\mu,\Sigma)$.  We let $\mu = 0$ to center the M
 
 \subsection*{Jeffrey's Prior}
 
-Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$--thus, Jeffrey's prior was unable to provide regularization. 
+Another choice of prior would be to use the Jeffrey's prior, which is uninformative and invariant under reparameterization.  We found Jeffrey's prior to be less desirable, however, because it does not necessarily place the prior maximum at $\alpha = 0$---thus, Jeffrey's prior was unable to provide regularization. 
 
 \newpage
 
@@ -834,13 +836,13 @@ Each prior in this work contains a single free parameter, $\lambda$, which contr
 
 \subsection*{Cross validation on simulation data}
 
-We first discuss cross-validating on the simulation data.  The underlying idea is that too little regularization ($\lambda = 0$) leads to models that overfit the available simulation data and generalize poorly--that is, repeating or extending the MD simulations would lead to a different result.  At the other extreme, underfit models ($\lambda = \infty$) will simply report the unbiased simulations, leading to poor agreement with experiment.  To perform this form of cross-validation, first separate the simulation data into several independent subsets.  Mark one subset as the ``test'' set and fit the model on the remaining data (the ``training'' set).  The $\chi^2$ score is evaluated on the test data.  We then repeat the process, letting the test set be equal to each of the other subsets.  The final $\chi^2$ square is averaged over each of these iterations.  The value of $\lambda$ is chosen to minimize the test set error.
+We first discuss cross-validating on the simulation data.  The underlying idea is that too little regularization ($\lambda = 0$) leads to models that overfit the available simulation data and generalize poorly---that is, repeating or extending the MD simulations would lead to a different result.  At the other extreme, underfit models ($\lambda = \infty$) will simply report the unbiased simulations, leading to poor agreement with experiment.  To perform this form of cross-validation, first separate the simulation data into several independent subsets.  Mark one subset as the ``test'' set and fit the model on the remaining data (the ``training'' set).  The $\chi^2$ score is evaluated on the test data.  We then repeat the process, letting the test set be equal to each of the other subsets.  The final $\chi^2$ square is averaged over each of these iterations.  The value of $\lambda$ is chosen to minimize the test set error.
 
-When using MD to generate conformations, one must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data--randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose one cross validates by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information--ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
+When using MD to generate conformations, one must perform cross-validation using uncorrelated subsets of the data.  This precludes the typical standard cross-validation approach that uses randomly selected subsets of your data---randomly selected folds will be tainted by correlation between the folds.  As a thought experiment, suppose one cross validates by dividing your trajectory into even and odd frames.  Because of time-correlation in the data, the even and odd subsets will essentially contain the same information---ruining the cross-validation.  To avoid these perilous correlations, we recommend that you split the trajectory into time-contiguous blocks.  For the present work, we divided each trajectory into two halves.  
 
 \subsection*{Cross validation on experimental data}
 
-Cross validating on experimental data instead sets aside experimental measurements that can then be used to evaluate model quality.  One key difficulty with this approach, however, is that experimental datasets are often sparse--that is, there are often only few information-rich measurements.  This can lead to difficulties defining meaningful training and test sets.  
+Cross validating on experimental data instead sets aside experimental measurements that can then be used to evaluate model quality.  One key difficulty with this approach, however, is that experimental datasets are often sparse---that is, there are often only few information-rich measurements.  This can lead to difficulties defining meaningful training and test sets.  
 
 \subsection*{Cross Validation Results}
 
@@ -893,7 +895,7 @@ oplsaa            &      0.53 &       0.57 &    0.55 \\
 
 The BELT model presented in the main text does not directly model simulation uncertainty.  This effect, however, can be introduced using a resampling technique known as Bayesian bootstrapping \cite{rubin1981}.  In Bayesian bootstrapping, every data point (e.g. conformation) is associated with a Dirichlet random variable that models the effect of resampling the given data points.  In effect, each conformation is given a ``prior'' population that is allowed to fluctuate around its average value of $\frac{1}{n}$.  
 
-One additional complication arises when using molecular dynamics simulations, which produce a correlated time series.  Because of this, it is not sufficient to simply use a Dirichlet whose dimension is the same as the number of snapshots--such a procedure will significantly underestimate uncertainties due to correlation between frames.  Instead, one must first divide the trajectory into independent blocks.  The Dirichlet random variable is then chosen to sample the relative weights of each of the independent blocks.  Choosing the length of each block can be done by applying Bayesian bootstrapping to the un-reweighted trajectory.  Given some observable of interest, $O$, one calculates $O(B)$ for a sequence of block lengths, choosing the value of $B$ that maximizes the estimated uncertainty of $O$.  The block length could also be calculated using other blocking methods \cite{flyvbjerg1989error} or by statistical inefficiency analysis \cite{shirts2008}.  
+One additional complication arises when using molecular dynamics simulations, which produce a correlated time series.  Because of this, it is not sufficient to simply use a Dirichlet whose dimension is the same as the number of snapshots---such a procedure will significantly underestimate uncertainties due to correlation between frames.  Instead, one must first divide the trajectory into independent blocks.  The Dirichlet random variable is then chosen to sample the relative weights of each of the independent blocks.  Choosing the length of each block can be done by applying Bayesian bootstrapping to the un-reweighted trajectory.  Given some observable of interest, $O$, one calculates $O(B)$ for a sequence of block lengths, choosing the value of $B$ that maximizes the estimated uncertainty of $O$.  The block length could also be calculated using other blocking methods \cite{flyvbjerg1989error} or by statistical inefficiency analysis \cite{shirts2008}.  
 
 In practice, applying Bayesian bootstrapping involves repeating several BELT calculations using different values of ``prior'' conformational populations that were drawn from a Dirichlet random variable.  The MCMC traces of each run are then pooled.  
 
@@ -903,11 +905,11 @@ In practice, applying Bayesian bootstrapping involves repeating several BELT cal
 
 Although more sophisticated convergence tests are available, we evaluated convergence of MCMC traces by visual analysis.  A properly sampled and thinned model will appear similar to white noise, as observed in Fig. \ref{figure:MCMC}.  A few interesting features are worth noting.  The charmm27 and ff99 forcefields with MVN prior seem to suffer from increased correlation in their MCMC traces.  
 
-Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent and Dirichlet priors are better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. ff99, charmm27, and oplsaa) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models--that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements--particularly ones that are correlated to previous measurements--leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
+Based on this and our other experience, we offer some suggestions for achieving converged traces.  First, it seems that the maxent and Dirichlet priors are better able to achieve independent MCMC samples than the MVN prior.  Second, poorer force fields (e.g. ff99, charmm27, and oplsaa) seem more prone to correlated MCMC samples.  This is likely because the sampler is forced to explore ``extreme'' models---that is, models that lie further from the raw forcefield.  Finally, we find that adding additional measurements---particularly ones that are correlated to previous measurements---leads to increased correlation within the MCMC traces.  We think these observations should help guide users towards achieving convergence without excessive computational resources.  
 
 \newpage
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{supporting_information}
 
 \end{document}

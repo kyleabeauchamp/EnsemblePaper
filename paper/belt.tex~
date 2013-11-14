@@ -1,4 +1,6 @@
-\documentclass[journal=jacsat,manuscript=article]{achemso}
+%\documentclass[journal=jacsat,manuscript=article]{achemso}
+\documentclass[12pt]{article}
+\usepackage[margin=1.0in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{graphicx}
@@ -6,19 +8,21 @@
 \usepackage{amssymb,amsfonts,amsmath}
 \usepackage{url}
 \usepackage{booktabs, multicol, multirow}
-\pdfminorversion=4
+\usepackage[round,sort,comma,numbers]{natbib}
+%\pdfminorversion=4
 
-\author{Kyle A. Beauchamp}
-\affiliation[Biophysics Program]{Biophysics Program}
+%\author{Kyle A. Beauchamp}
+%\affiliation[Biophysics Program]{Biophysics Program}
 
-\author{Vijay S. Pande$^\dagger$}
-\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
+%\author{Vijay S. Pande$^\dagger$}
+%\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
 
-\author{Rhiju Das$^\dagger$}
-\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
+%\author{Rhiju Das$^\dagger$}
+%\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
 
+\author{Kyle A. Beauchamp \and Vijay S. Pande \and Rhiju Das}
 
-\email{pande@stanford.edu, rhiju@stanford.edu}
+%\email{pande@stanford.edu, rhiju@stanford.edu}
 
 \title{Bayesian Energy Landscape Tilting: Towards Concordant Models of Molecular Ensembles}
 
@@ -35,11 +39,16 @@ conformational populations in all cases. As a test of predictive power, all five
 
 \emph{Key words:} Molecular Dynamics, NMR, Conformational Ensembles,  Bayesian Statistics
 
+Running Title: Bayesian Energy Landscape Tilting
+
+\clearpage
+
 \section*{Introduction}
 
 The past forty years have seen the experimental determination of ``ground-state'' structures for countless biological macromolecules \cite{Berman2000}. Modern biology, however, presents many systems that do not fit a single-structure paradigm.  ``Excited'' conformational states of nucleic acids \cite{dethoff2012}, natively disordered proteins \cite{fink2005}, and protein folding intermediates \cite{korzhnev2004} are all poorly described by single conformation models.  For such systems, models of conformational ensembles are required to understand and to predict structural and equilibrium properties.  
 
-A growing body of research has sought to characterize structural ensembles.  Much of this work has focused on incorporating dynamical information during NMR structure determination  \cite{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \cite{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection, the unified treatment of heterogeneous experimental data, and data sparseness relative to the number of degrees of freedom.  In particular, conformational ensemble modeling requires the estimation of not just a single structure, but a collection of structures and their associated equilibrium populations.  This highly under-determined problem involves the simultaneous estimation of approximately $3 \times N \times m$ parameters, where $m$ is the number of states in the ensemble and $N$ is the number of atoms in the molecule. Estimating uncertainties of these ensembles further 
+A growing body of research has sought to characterize structural ensembles.  Much of this work has focused on incorporating dynamical information during NMR structure determination  \cite{lindorff2005simultaneous, lange2008recognition} or the extraction of multiple conformers from X-ray diffraction data  \cite{depristo2004heterogeneity, lang2010automated}.  While these techniques are powerful, they share difficulties in data collection, the unified treatment of heterogeneous experimental data, and data sparseness relative to the number of degrees of freedom.  In particular, conformational ensemble modeling requires the estimation of not just a single structure, but a collection of structures and their associated equilibrium populations.  This highly under-determined problem involves the simultaneous estimation of approximately $3 \times N \times m$ parameters, where $m$ is the number of states in the ensemble and $N$ is the number of atoms in the molecule. Estimating uncertainties of these ensembles 
+further 
 amplifies this challenge.  Inference in this regime necessarily requires more information, which in principle can be attained by combining measurements with simulations that leverage prior physical understanding encoded in atomistic force fields. 
 
 Despite recent advances in force field development \cite{best2008, lindorff2012systematic}, simulation benchmark studies have demonstrated continuing inaccuracies in molecular dynamics (MD) force fields \cite{beauchamp2012protein}.  Force field modifications based on direct fitting to NMR measurements have also been demonstrated \cite{li2011iterative, best2012optimization, nerenberg2011}, but such work has optimized only a small fraction of the required force field parameters.  Thus, simulations are often unable to recapitulate $ab$ $initio$ the wide variety of measurements available on molecular systems.  This inaccuracy poses a challenge when one desires atomic-scale models that are both consistent with presently available measurements and predictive of those yet to be measured.  
@@ -156,7 +165,8 @@ Trialanine was simulated (see Methods) in five different force fields.  The chos
 
 \subsection*{Agreement with NMR Measurements: MD and BELT Ensembles}
 
-Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig. \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.   (Fig. \ref{figure:ChiSquared}b).  A table of predicted and observed NMR measurements is given in Tables \ref{table:Predictions}, S1, and S2.  
+Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig. \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.   (Fig. \
+ref{figure:ChiSquared}b).  A table of predicted and observed NMR measurements is given in Tables \ref{table:Predictions}, S1, and S2.  
 
 \subsection*{Converged Conformational Propensities Observed in BELT Ensembles}
 
@@ -326,7 +336,7 @@ Predicted and measured observables are given.  BELT predictions are calculated u
 
 \clearpage
 
-
+\bibliographystyle{unsrt}
 \bibliography{belt}
 
 \clearpage
