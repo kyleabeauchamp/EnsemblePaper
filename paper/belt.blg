@@ -1,51 +1,52 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: belt.aux
-The style file: unsrt.bst
+The style file: biophysj-natbib.bst
 Database file #1: belt.bib
-Repeated entry---line 2510 of file belt.bib
+Repeated entry---line 2519 of file belt.bib
  : @article{Horn2004
  :                  ,
 I'm skipping whatever remains of this entry
-You've used 57 entries,
-            1791 wiz_defined-function locations,
-            788 strings with 15522 characters,
-and the built_in function-call counts, 14452 in all, are:
-= -- 1200
-> -- 868
-< -- 4
-+ -- 310
-- -- 253
-* -- 1237
-:= -- 2418
-add.period$ -- 171
-call.type$ -- 57
-change.case$ -- 56
-chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 519
-empty$ -- 1273
-format.name$ -- 253
-if$ -- 3049
-int.to.chr$ -- 0
-int.to.str$ -- 57
-missing$ -- 57
-newline$ -- 288
-num.names$ -- 57
-pop$ -- 87
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 60 entries,
+            3178 wiz_defined-function locations,
+            1007 strings with 17597 characters,
+and the built_in function-call counts, 31768 in all, are:
+= -- 2179
+> -- 1920
+< -- 17
++ -- 636
+- -- 516
+* -- 2324
+:= -- 4516
+add.period$ -- 181
+call.type$ -- 60
+change.case$ -- 120
+chr.to.int$ -- 60
+cite$ -- 60
+duplicate$ -- 2677
+empty$ -- 2472
+format.name$ -- 650
+if$ -- 6514
+int.to.chr$ -- 1
+int.to.str$ -- 61
+missing$ -- 608
+newline$ -- 306
+num.names$ -- 180
+pop$ -- 875
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 60
 quote$ -- 0
-skip$ -- 195
+skip$ -- 581
 stack$ -- 0
-substring$ -- 1085
-swap$ -- 73
-text.length$ -- 4
+substring$ -- 1332
+swap$ -- 1447
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 417
 warning$ -- 0
-while$ -- 142
-width$ -- 59
-write$ -- 622
+while$ -- 213
+width$ -- 0
+write$ -- 783
 (There was 1 error message)

@@ -1,47 +1,51 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{8}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{ }
 
-\bibitem{chodera2012}
-J.W. Pitera and J.D. Chodera.
+\bibitem[Pitera and Chodera(2012)]{chodera2012}
+Pitera, J., and J.~Chodera, 2012.
 \newblock On the use of experimental observations to bias simulated ensembles.
-\newblock {\em J. Chem. Theory Comput.}, 2012.
+\newblock \emph{J. Chem. Theory Comput.} 8:3445--3451.
 
-\bibitem{crooks2007beyond}
-Gavin~E Crooks.
+\bibitem[Crooks(2007)]{crooks2007beyond}
+Crooks, G.~E., 2007.
 \newblock Beyond boltzmann-gibbs statistics: Maximum entropy hyperensembles out
   of equilibrium.
-\newblock {\em Physical Review E}, 75(4):041119, 2007.
+\newblock \emph{Physical Review E} 75:041119.
 
-\bibitem{jaynes1957information}
-Edwin~T Jaynes.
+\bibitem[Jaynes(1957)]{jaynes1957information}
+Jaynes, E.~T., 1957.
 \newblock Information theory and statistical mechanics.
-\newblock {\em Physical review}, 106(4):620, 1957.
+\newblock \emph{Physical review} 106:620.
 
-\bibitem{rozycki2011saxs}
-Bartosz Rozycki, Young~C Kim, and Gerhard Hummer.
+\bibitem[Rozycki et~al.(2011)Rozycki, Kim, and Hummer]{rozycki2011saxs}
+Rozycki, B., Y.~C. Kim, and G.~Hummer, 2011.
 \newblock Saxs ensemble refinement of escrt-iii chmp3 conformational
   transitions.
-\newblock {\em Structure}, 19(1):109--116, 2011.
+\newblock \emph{Structure} 19:109--116.
 
-\bibitem{relative_entropy_wiki}
-Wikipedia.
+\bibitem[Wikipedia(2004)]{relative_entropy_wiki}
+Wikipedia, 2004.
 \newblock Kullback–leibler divergence --- {W}ikipedia{,} the free
-  encyclopedia, 2004.
-\newblock [Online; accessed 15-July-2013].
+  encyclopedia.
+\newblock
+  \urlprefix\url{http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence},
+  [Online; accessed 15-July-2013].
 
-\bibitem{rubin1981}
-D.B. Rubin.
+\bibitem[Rubin(1981)]{rubin1981}
+Rubin, D., 1981.
 \newblock The bayesian bootstrap.
-\newblock {\em The annals of statistics}, 9(1):130--134, 1981.
+\newblock \emph{The annals of statistics} 9:130--134.
 
-\bibitem{flyvbjerg1989error}
-Henrik Flyvbjerg and Henrik~Gordon Petersen.
+\bibitem[Flyvbjerg and Petersen(1989)]{flyvbjerg1989error}
+Flyvbjerg, H., and H.~G. Petersen, 1989.
 \newblock Error estimates on averages of correlated data.
-\newblock {\em J. Chem. Phys.}, 91:461, 1989.
+\newblock \emph{J. Chem. Phys.} 91:461.
 
-\bibitem{shirts2008}
-M.R. Shirts and J.D. Chodera.
+\bibitem[Shirts and Chodera(2008)]{shirts2008}
+Shirts, M., and J.~Chodera, 2008.
 \newblock Statistically optimal analysis of samples from multiple equilibrium
   states.
-\newblock {\em J. Chem. Phys.}, 129:124105, 2008.
+\newblock \emph{J. Chem. Phys.} 129:124105.
 
 \end{thebibliography}

@@ -138,11 +138,11 @@ As noted above, because ensemble inference often presents many plausible solutio
 
 \subsection*{Molecular Dynamics Simulations}
 
-Trialanine was simulated in the ff96 \cite{kollman1996}, ff99 \cite{wang2000}, ff99sbnmr-ildn \cite{li2010, Lindorff-Larsen2010}, CHARMM27 \cite{mackerell2004extending,bjelkmar2010implementation}, and OPLS-AA \cite{kaminski2001evaluation} force fields, as previously reported  \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long and used the TIP4PEW water model \cite{horn2004}.  Conformations were stored every 1 ps.  
+Trialanine was simulated in the ff96 \cite{kollman1996}, ff99 \cite{wang2000}, ff99sbnmr-ildn \cite{li2010, Lindorff-Larsen2010}, CHARMM27 \cite{mackerell2004extending,bjelkmar2010implementation}, and OPLS-AA \cite{kaminski2001evaluation} force fields, as previously reported  \cite{beauchamp2012protein}.  Simulations were performed using Gromacs 4.5  \cite{hess2008} and run at constant temperature (300 K) and pressure (1.01 atm).  Each simulation was at least 225 ns long and used the TIP4P-EW water model \cite{horn2004}.  Conformations were stored every 1 ps.  
 
 \subsection*{Chemical Shifts and Scalar Couplings}
 
-All NMR measurements in this work refer to experiments probing the central residue of trialanine.\cite{Graf2007}  The experimental data were measured at pH 2, near the pKa of the carboxylate moiety of the C terminus, which would requires a constant pH simulation, rather than a fixed protonation state.  Because such simulations are challenging with current force fields and simulation packages, we simulated the trialanine construct with charged termini---conditions in which the the force fields have been best calibrated and tested.  We therefore focus our analysis on the central alanine residue, which should be most robust to pH dependent effects.  Both pH differences and force field inaccuracies will lead to systematic differences between simulation and experiment; indeed, we assess whether BELT robustly corrects these deviations.  
+All NMR measurements in this work refer to experiments probing the central residue of trialanine \cite{Graf2007}.  The experimental data were measured at pH 2, near the pKa of the carboxylate moiety of the C terminus, which would requires a constant pH simulation, rather than a fixed protonation state.  Because such simulations are challenging with current force fields and simulation packages, we simulated the trialanine construct with charged termini---conditions in which the the force fields have been best calibrated and tested.  We therefore focus our analysis on the central alanine residue, which should be most robust to pH dependent effects.  Both pH differences and force field inaccuracies will lead to systematic differences between simulation and experiment; indeed, we assess whether BELT robustly corrects these deviations.  
 
 Chemical shifts ($H$, $H^\alpha$, $C^\alpha$, $C^\beta$) for each frame were calculated using a weighted average of ShiftX2 \cite{han2011shiftx2}, SPARTA+  \cite{Shen2010}, and PPM \cite{li2012ppm} predictions; uncertainties for each model were estimated using their reported RMS prediction errors.  Overall uncertainties were estimated as $\sqrt{\sum w_i \sigma_i^2}$, where $w_i \propto \frac{1}{\sigma_i^2}$ is the weight ($\sum_i w_i = 1$) of each chemical shift model and $\sigma_i$ is the uncertainty of each chemical shift model.  The J couplings were calculated using the following Karplus relations: $^3J(H^N C')$  \cite{vogeli2007limits}, $^3J(H^N H^\alpha)$  \cite{vogeli2007limits}, $^2J(N C^\alpha)$  \cite{Graf2007}, $^3J(H^\alpha C')$  \cite{Schmidt1999}, $^1J(N C^\alpha)$  \cite{Graf2007}, $^3J(H^N C^\beta)$  \cite{vogeli2007limits}.  J coupling uncertainties were approximated as the RMS errors reported when fitting the Karplus coefficients.  
 
@@ -165,8 +165,7 @@ Trialanine was simulated (see Methods) in five different force fields.  The chos
 
 \subsection*{Agreement with NMR Measurements: MD and BELT Ensembles}
 
-Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig. \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.   (Fig. \
-ref{figure:ChiSquared}b).  A table of predicted and observed NMR measurements is given in Tables \ref{table:Predictions}, S1, and S2.  
+Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig.  \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.   (Fig. \ref{figure:ChiSquared}b).  A table of predicted and observed NMR measurements is given in Tables \ref{table:Predictions}, S1, and S2.  
 
 \subsection*{Converged Conformational Propensities Observed in BELT Ensembles}
 
@@ -300,7 +299,18 @@ We thank John Chodera, TJ Lane, Frank Cochran, Pehr Harbury, Xuesong Shi, and Da
 
 \section*{Supporting Information}
 
-Tables S1-S7, Figures S1-S4, and Appendices S1-S7 are available in the supporting information.  This material is available free of charge via the Internet at http://pubs.acs.org.
+Tables S1-S7, Figures S1-S4, and Appendices S1-S7 are available in the supporting information.  
+
+\nocite{chodera2012}
+\nocite{crooks2007beyond}
+\nocite{chodera2012}
+\nocite{jaynes1957information}
+\nocite{rozycki2011saxs}.  
+\nocite{relative_entropy_wiki}
+\nocite{rubin1981}
+\nocite{flyvbjerg1989error}
+\nocite{shirts2008}
+
 
 \clearpage
 
@@ -336,18 +346,18 @@ Predicted and measured observables are given.  BELT predictions are calculated u
 
 \clearpage
 
-\bibliographystyle{unsrt}
+\bibliographystyle{biophysj-natbib}
 \bibliography{belt}
 
 \clearpage
 
-\section{TOC Graphical Abstract}
+%\section{TOC Graphical Abstract}
 
-\begin{figure}
+%\begin{figure}
 
-\includegraphics[height=6.0cm]{figures/info_graphic.png}
+%\includegraphics[height=6.0cm]{figures/info_graphic.png}
 
-\end{figure}
+%\end{figure}
 
 
 \end{document}

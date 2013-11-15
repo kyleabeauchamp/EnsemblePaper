@@ -16,15 +16,16 @@
 \renewcommand{\thetable}{S\@arabic\c@table}
 
 %\author{Kyle A. Beauchamp, Vijay S. Pande, and Rhiju Das}
-\author{Kyle A. Beauchamp}
+%\author{Kyle A. Beauchamp}
 %\affiliation[Biophysics Program]{Biophysics Program}
 
-\author{Vijay S. Pande$^\dagger$}
+%\author{Vijay S. Pande$^\dagger$}
 %\affiliation[Chemistry Department]{Chemistry Department, Stanford University, Stanford, CA}
 
-\author{Rhiju Das$^\dagger$}
+%\author{Rhiju Das$^\dagger$}
 %\affiliation[Biochemistry Department]{Biochemistry Department, Stanford University, Stanford, CA}
 
+\author{Kyle A. Beauchamp \and Vijay S. Pande \and Rhiju Das}
 
 %\email{pande@stanford.edu, rhiju@stanford.edu}
 
@@ -909,7 +910,7 @@ Based on this and our other experience, we offer some suggestions for achieving 
 
 \newpage
 
-\bibliographystyle{unsrt}
+\bibliographystyle{biophysj-natbib}
 \bibliography{supporting_information}
 
 \end{document}

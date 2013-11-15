@@ -504,7 +504,11 @@ Year = {2007}}
   author={Wang, Lee-Ping and Head-Gordon, Teresa Lyn and Ponder, Jay William and Ren, Pengyu and Chodera, John Damon and Eastman, Peter Kenneth and Mart{\'\i}nez, Todd J and Pande, Vijay S},
   journal = {J. Phys. Chem. B},
   year={2013},
-  publisher={ACS Publications}
+  publisher={ACS Publications},
+volume = {117},
+number = {34},
+pages = {9956-9972},
+year = {2013},  
 }
 
 
@@ -964,7 +968,7 @@ journal = {J. Chem. Theory Comput.},
 
 @article{fisher2012efficient,
   title={Efficient construction of disordered protein ensembles in a Bayesian framework with optimal selection of conformations},
-  author={Fisher, Charles K and Ullman, Orly and Stultz, Collin M and others},
+  author={Fisher, Charles K and Ullman, Orly and Stultz, Collin M},
   journal={Pacific Symposium on Biocomputing.},
   pages={82},
   year={2012},
@@ -1071,7 +1075,10 @@ journal = {J. Chem. Theory Comput.},
   author={Pitera, J.W. and Chodera, J.D.},
   journal={J. Chem. Theory Comput.},
   publisher={ACS Publications},
-  year={2012}
+  volume={8},
+  number={10},
+  pages={3445--3451},
+  year={2012},  
 }
 
 
@@ -1101,8 +1108,11 @@ journal = {J. Chem. Theory Comput.},
 author = {Senne, Martin and Trendelkamp-Schroer, Benjamin and Mey, Antonia Silke Julia Susanna and Schütte, Christof and Noé, Frank},
 title = {EMMA - A software package for Markov model building and analysis},
 journal = {J. Chem. Theory Comput.},
-year={2012},
 doi = {10.1021/ct300274u},
+  volume={8},
+  number={7},
+  pages={2223--2238},
+  year={2012},
 }
 
 @article{morcos2010modeling,

@@ -1,46 +1,47 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: supporting_information.aux
-The style file: unsrt.bst
+The style file: biophysj-natbib.bst
 Database file #1: supporting_information.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 8 entries,
-            1791 wiz_defined-function locations,
-            500 strings with 4624 characters,
-and the built_in function-call counts, 1541 in all, are:
-= -- 137
-> -- 51
-< -- 0
-+ -- 21
-- -- 13
-* -- 99
-:= -- 257
+            3178 wiz_defined-function locations,
+            699 strings with 6290 characters,
+and the built_in function-call counts, 3309 in all, are:
+= -- 267
+> -- 103
+< -- 7
++ -- 42
+- -- 26
+* -- 198
+:= -- 469
 add.period$ -- 24
 call.type$ -- 8
-change.case$ -- 8
-chr.to.int$ -- 0
+change.case$ -- 17
+chr.to.int$ -- 8
 cite$ -- 8
-duplicate$ -- 67
-empty$ -- 165
-format.name$ -- 13
-if$ -- 335
-int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 7
-newline$ -- 43
-num.names$ -- 8
-pop$ -- 16
+duplicate$ -- 284
+empty$ -- 303
+format.name$ -- 44
+if$ -- 691
+int.to.chr$ -- 1
+int.to.str$ -- 9
+missing$ -- 59
+newline$ -- 45
+num.names$ -- 24
+pop$ -- 95
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 8
 quote$ -- 0
-skip$ -- 27
+skip$ -- 80
 stack$ -- 0
-substring$ -- 104
-swap$ -- 8
+substring$ -- 153
+swap$ -- 145
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 56
 warning$ -- 0
-while$ -- 16
-width$ -- 9
-write$ -- 88
+while$ -- 26
+width$ -- 0
+write$ -- 108
