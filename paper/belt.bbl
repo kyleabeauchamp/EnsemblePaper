@@ -1,4 +1,4 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{62}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -392,6 +392,14 @@ Markwick, P.~R., S.~A. Showalter, G.~Bouvignies, R.~Br{\"u}schweiler, and
 \newblock Structural dynamics of protein backbone $\varphi$ angles: extended
   molecular dynamics simulations versus experimental 3 j scalar couplings.
 \newblock \emph{Journal of biomolecular NMR} 45:17--21.
+
+\bibitem[Raval et~al.(2012)Raval, Piana, Eastwood, Dror, and
+  Shaw]{raval2012refinement}
+Raval, A., S.~Piana, M.~P. Eastwood, R.~O. Dror, and D.~E. Shaw, 2012.
+\newblock Refinement of protein structure homology models via long, all-atom
+  molecular dynamics simulations.
+\newblock \emph{Proteins: Structure, Function, and Bioinformatics}
+  80:2071--2079.
 
 \bibitem[Jaynes(1957)]{jaynes1957information}
 Jaynes, E.~T., 1957.
