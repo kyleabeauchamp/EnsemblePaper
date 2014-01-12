@@ -3,50 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: belt.aux
 The style file: biophysj-natbib.bst
 Database file #1: belt.bib
-Repeated entry---line 2519 of file belt.bib
+Repeated entry---line 2543 of file belt.bib
  : @article{Horn2004
  :                  ,
 I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 60 entries,
+You've used 61 entries,
             3178 wiz_defined-function locations,
-            1007 strings with 17597 characters,
-and the built_in function-call counts, 31768 in all, are:
-= -- 2179
-> -- 1920
+            1011 strings with 17799 characters,
+and the built_in function-call counts, 32317 in all, are:
+= -- 2213
+> -- 1957
 < -- 17
-+ -- 636
-- -- 516
-* -- 2324
-:= -- 4516
-add.period$ -- 181
-call.type$ -- 60
-change.case$ -- 120
-chr.to.int$ -- 60
-cite$ -- 60
-duplicate$ -- 2677
-empty$ -- 2472
-format.name$ -- 650
-if$ -- 6514
++ -- 648
+- -- 526
+* -- 2366
+:= -- 4595
+add.period$ -- 184
+call.type$ -- 61
+change.case$ -- 122
+chr.to.int$ -- 61
+cite$ -- 61
+duplicate$ -- 2724
+empty$ -- 2514
+format.name$ -- 662
+if$ -- 6626
 int.to.chr$ -- 1
-int.to.str$ -- 61
-missing$ -- 608
-newline$ -- 306
-num.names$ -- 180
-pop$ -- 875
+int.to.str$ -- 62
+missing$ -- 619
+newline$ -- 311
+num.names$ -- 183
+pop$ -- 890
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 61
 quote$ -- 0
-skip$ -- 581
+skip$ -- 590
 stack$ -- 0
-substring$ -- 1332
-swap$ -- 1447
+substring$ -- 1352
+swap$ -- 1473
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 417
+type$ -- 424
 warning$ -- 0
-while$ -- 213
+while$ -- 216
 width$ -- 0
-write$ -- 783
+write$ -- 796
 (There was 1 error message)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{60}
+\begin{thebibliography}{61}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{ }
 
@@ -377,6 +377,13 @@ Richter, B., J.~Gsponer, P.~V{\'a}rnai, X.~Salvatella, and M.~Vendruscolo,
 \newblock The mumo (minimal under-restraining minimal over-restraining) method
   for the determination of native state ensembles of proteins.
 \newblock \emph{Journal of biomolecular NMR} 37:117--135.
+
+\bibitem[Olsson et~al.(2013)Olsson, Frellsen, Boomsma, Mardia, and
+  Hamelryck]{olsson2013inference}
+Olsson, S., J.~Frellsen, W.~Boomsma, K.~V. Mardia, and T.~Hamelryck, 2013.
+\newblock Inference of structure ensembles of flexible biomolecules from
+  sparse, averaged data.
+\newblock \emph{PloS one} 8:e79439.
 
 \bibitem[Markwick et~al.(2009)Markwick, Showalter, Bouvignies,
   Br{\"u}schweiler, and Blackledge]{markwick2009structural}
