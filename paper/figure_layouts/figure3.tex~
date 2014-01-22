@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0cm, paperwidth=16.5cm,paperheight=7.25cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{url}
+\usepackage{booktabs, multicol, multirow}
+\usepackage[round,sort,comma,numbers]{natbib}
+
+\begin{document}
+
+\begin{figure}
+
+\begin{center}
+
+\subfigure[]{
+\includegraphics[width=7.5cm]{../figures/chi2_train_priors.pdf}
+}
+\subfigure[]{
+\includegraphics[width=7.5cm]{../figures/chi2_test_priors.pdf}
+}
+
+\end{center}
+
+\label{figure:Ambiguity}
+\end{figure}
+
+\end{document}
