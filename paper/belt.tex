@@ -61,7 +61,7 @@ The necessity and utility of this approach can be illustrated with a simple exam
 
 \begin{figure}
 
-\includegraphics[height=15.5cm]{figure_layouts/figure1.pdf}
+\includegraphics[height=15.5cm]{figure1.pdf}
 
 \caption{
 (a).  The Karplus equation connecting the backbone torsion $\phi$ to $^3J(H_NH^\alpha)$.  The measured value of $^3J(H_NH^\alpha)$ is shaded gray and is consistent with multiple values of $\phi$.  (b, c).  Histograms of four chemically unrealistic ensembles that recapitulate the measured (gray) value of $^3J(H_NH^\alpha)$.  Each histogram is represented in both the backbone torsion $\phi$ (b) and the projection (via Karplus equation) onto $^3J(H_NH^\alpha)$ (c).  Dashed vertical bars represent the average $^3J(H_NH^\alpha)$ for each corresponding ensemble.  (d, e).  The molecular dynamics (ff99) ensemble (red) is inconsistent with the measured $^3J(H_NH^\alpha)$.  Four samples (blue) from the BELT hyperensemble show good agreement with measured values of $^3J(H_NH^\alpha)$.  For this figure only, the uncertainty ($\sigma$) on $^3J(H_NH^\alpha)$ was increased 2.5-fold to better illustrate differences.  Density spikes in (c, e) correspond to values where $\frac{dJ}{d\phi} \rightarrow 0$.  
@@ -163,8 +163,8 @@ Trialanine was simulated (see Methods) in five different force fields.  The chos
 
 \subsection*{Agreement with NMR Measurements: MD and BELT Ensembles}
 
-Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig.  \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.   (Fig. \
-ref{figure:ChiSquared}b).  
+Given the differences in conformational propensities, one might expect varying degrees of agreement with the available experimental measurements.  This is indeed the case; four out of five force fields show values of the reduced $\chi^2$ ($\frac{1}{n} \chi^2$) greater than 1.0 (Fig. \ref{figure:ChiSquared}a, red).  Because of this considerable error, we therefore examined BELT hyperensembles based on incorporating six NMR measurements of chemicals shifts ($C^\alpha$, $C^\beta$, and $H$) and scalar couplings ($^3J(H^N C')$,  $^2J(N C^\alpha)$, and $^3J(H^N C^\beta)$) to reweight each of the five molecular dynamics ensembles.  As expected, the BELT hyperensembles accurately recapitulate these six measurements used in the reweighting (Fig.  \ref{figure:ChiSquared}a).  In a more incisive test, the BELT hyperensembles accurately predicted four measurements ($H^\alpha$ chemical shift and $^3J(H^N H^\alpha)$, $^3J(H^\alpha C')$ and $^1J(N C^\alpha)$ scalar couplings) that were not used to fit the models.    
+(Fig. \ref{figure:ChiSquared}b).  
 A table of predicted and observed NMR measurements is given in Tables \ref{table:Predictions}, S1, and S2.  
 
 \subsection*{Converged Conformational Propensities Observed in BELT Ensembles}
@@ -183,7 +183,7 @@ different starting MD simulations revealed the residual uncertainties from these
 
 \begin{figure}
 \subfigure[]{
-\includegraphics[height=15.5cm]{figure_layouts/figure2.pdf}
+\includegraphics[height=15.5cm]{figure2.pdf}
 }
 
 \caption{
@@ -195,7 +195,7 @@ MD and BELT (maxent, Dirichlet, and MVN priors) conformational propensities (for
 
 \begin{figure}
 
-\includegraphics[height=7.25cm]{figure_layouts/figure3.pdf}
+\includegraphics[height=7.25cm]{figure3.pdf}
 
 \caption{
 The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Dirichlet, and MVN priors) models.  The BELT reduced $\chi^2$ is estimated as the mean reduced $\chi^2$ over all MCMC samples.  (a).  Calculated using the six measurements used to fit the BELT model.  (b).  Calculated using four measurements not used to fit the BELT model.  See Methods for the definition of training and test sets.  Note that the training and test sets are not fully independent because all measurements probe the $(\phi, \psi)$ backbone torsions.
@@ -206,7 +206,7 @@ The reduced $\chi^2$ error (e.g. $\frac{\chi^2}{n}$) for MD and BELT (maxent, Di
 
 \begin{figure}
 
-\includegraphics[height=20.25cm]{figure_layouts/figure4.pdf}
+\includegraphics[height=20.25cm]{figure4.pdf}
 
 \caption{
 Ramachandran plots illustrate discordance of raw MD ensembles and final agreement of BELT (maxent prior) ensembles over the five tested force fields. Results from alternative BELT priors are shown in Fig. S1.  The jagged appearance of the ff99 BELT model is due to limited sampling of PPII configurations in that forcefield.  
